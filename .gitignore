@@ -1,0 +1,9 @@
+# Video files are too large for GitHub (100 MB/file limit) — kept local only
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.m4v
+*.wmv
+*.flv

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <!-- Beanie pom-pom -->
+  <circle cx="16" cy="4" r="3" fill="#FF8C00"/>
+  <!-- Beanie top dome -->
+  <ellipse cx="16" cy="12" rx="12" ry="9" fill="#FF6D00"/>
+  <!-- Beanie ribbed brim -->
+  <rect x="4" y="17" width="24" height="5" rx="2" fill="#E65100"/>
+  <!-- Brim knit lines -->
+  <line x1="8" y1="18" x2="8" y2="21" stroke="#BF360C" stroke-width="0.7"/>
+  <line x1="11" y1="18" x2="11" y2="21" stroke="#BF360C" stroke-width="0.7"/>
+  <line x1="14" y1="18" x2="14" y2="21" stroke="#BF360C" stroke-width="0.7"/>
+  <line x1="17" y1="18" x2="17" y2="21" stroke="#BF360C" stroke-width="0.7"/>
+  <line x1="20" y1="18" x2="20" y2="21" stroke="#BF360C" stroke-width="0.7"/>
+  <line x1="23" y1="18" x2="23" y2="21" stroke="#BF360C" stroke-width="0.7"/>
+  <!-- Frog logo on beanie -->
+  <circle cx="16" cy="11" r="4" fill="#E65100"/>
+  <circle cx="14.5" cy="9.5" r="1" fill="#FFEB3B"/>
+  <circle cx="17.5" cy="9.5" r="1" fill="#FFEB3B"/>
+  <path d="M13.5 12.5 Q16 14 18.5 12.5" stroke="#FFEB3B" stroke-width="0.8" fill="none"/>
+</svg>
