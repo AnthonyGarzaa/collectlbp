@@ -2,10 +2,116 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100%;
-  background: #000;
   color: #fff;
   font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* html keeps the black fallback; body is transparent so the background
+   video (#vib-bg-video) shows through behind the page content. */
+html {
+  background: #000;
+}
+
+body {
+  background: transparent;
+}
+
+/* Background video (vib/thevib.mp4) — sits in the page flow below all the
+   page content, half size (50% width) with its aspect ratio kept (no
+   distortion), centered horizontally, and never captures clicks. */
+#vib-bg-wrap {
+  position: relative;
+  width: 100%;
+}
+
+/* Invisible spacer left where thevib.mp4 used to be — same footprint
+   (50% width, 16:9) so the line and walker keep their positions. */
+#vib-bg-video {
+  display: block;
+  width: 50%;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  pointer-events: none;
+}
+
+/* White line across the full screen width, centered on the video, that
+   vibrates/shakes the way the vib-ribbon line does in the video. */
+#vib-bg-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  margin-top: 279px;
+  background: #ffffff;
+  pointer-events: none;
+  z-index: 3;
+  will-change: transform;
+  animation: vib-line-vibrate 1.7s linear infinite;
+}
+
+/* Vibrates in bursts, then snaps still for sudden pauses (the flat
+   held segments at 27–45% and 69–92%) before vibrating again. */
+/* Walking Vibri video at the left edge (15px gap), sitting 15px up from the
+   bottom of the video region. Behind the page content so the clip's large
+   black frame can't cover text. */
+#vib-bg-walker {
+  position: absolute;
+  left: -45px;
+  /* Anchored to the same 50% reference as the line (line is at 50% + 279px),
+     so the walker keeps its position on the line at any screen aspect. The
+     offset aligns the clip's own line (~74.8% down its frame) with the page line. */
+  top: calc(50% - 364px);
+  height: 860px;
+  width: auto;
+  pointer-events: none;
+  z-index: -1;
+  /* Black frame blends away so it can't cover the other clips. */
+  mix-blend-mode: screen;
+}
+
+/* Score video, centered, its bottom edge 35px above the line. The line sits
+   at 50% + 179px (its margin-top) within the wrap, so the score's bottom is
+   placed at 50% + 144px. Behind the content so its black frame can't cover it. */
+#vib-bg-score {
+  position: absolute;
+  left: 50%;
+  top: calc(50% + 490px);
+  transform: translate(-50%, -100%);
+  width: 90%;
+  height: auto;
+  pointer-events: none;
+  z-index: -1;
+  /* Black frame blends away so it can't cover the other clips. */
+  mix-blend-mode: screen;
+}
+
+@keyframes vib-line-vibrate {
+  0%   { transform: translateY(0)    rotate(0deg); }
+  3%   { transform: translateY(-1px) rotate(-0.18deg); }
+  6%   { transform: translateY(1px)  rotate(0.18deg); }
+  9%   { transform: translateY(-1px) rotate(0.1deg); }
+  12%  { transform: translateY(1px)  rotate(-0.12deg); }
+  15%  { transform: translateY(-1px) rotate(0.12deg); }
+  18%  { transform: translateY(1px)  rotate(-0.1deg); }
+  21%  { transform: translateY(-1px) rotate(0.18deg); }
+  24%  { transform: translateY(1px)  rotate(-0.08deg); }
+  27%  { transform: translateY(0)    rotate(0deg); }
+  /* --- sudden pause (held still) --- */
+  45%  { transform: translateY(0)    rotate(0deg); }
+  48%  { transform: translateY(-1px) rotate(0.16deg); }
+  51%  { transform: translateY(1px)  rotate(-0.16deg); }
+  54%  { transform: translateY(-1px) rotate(0.1deg); }
+  57%  { transform: translateY(1px)  rotate(-0.12deg); }
+  60%  { transform: translateY(-1px) rotate(0.14deg); }
+  63%  { transform: translateY(1px)  rotate(-0.1deg); }
+  66%  { transform: translateY(-1px) rotate(0.16deg); }
+  69%  { transform: translateY(0)    rotate(0deg); }
+  /* --- sudden pause (held still) --- */
+  92%  { transform: translateY(0)    rotate(0deg); }
+  95%  { transform: translateY(-1px) rotate(0.12deg); }
+  98%  { transform: translateY(1px)  rotate(-0.12deg); }
+  100% { transform: translateY(0)    rotate(0deg); }
 }
 
 .vib-header {
@@ -17,17 +123,84 @@ html, body {
   gap: 20px;
   padding: 28px 40px;
   border-bottom: 4px double #fff;
+  position: relative;      /* anchor for the scattered header renders */
+}
+
+/* ── Vibri renders extracted from the CHARA sprite sheets ─────────────────
+   A crowd of poses scattered through the free margins on both sides of the
+   centred title / nav in the masthead band. Each render's edge/top/rotation
+   are set inline (see vib.js) so they stay in the side margins, clear of the
+   centred content and on screen. */
+/* Uniform size: every render fills the SAME 152x152 box (object-fit keeps each
+   one's aspect ratio, no distortion), so they are all the same size, laid out
+   in a horizontal row on each side, pushed inward toward the centred title. */
+.vib-head-vibri {
+  position: absolute;
+  width: 152px;
+  height: 152px;
+  object-fit: contain;
+  pointer-events: none;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.18));
+  z-index: 0;
+}
+
+/* Below this the inward row would reach the centred nav; hide it so no render
+   overlaps the nav. */
+@media (max-width: 1460px) {
+  .vib-head-vibri { display: none; }
+}
+
+/* Site background: Vibri poses dancing down the empty gutters either side of
+   the 1100px content column, starting just below the masthead (the top band is
+   left to the scattered header renders). Each render's top and height are a
+   percentage of the strip, so all stay fully on screen and never overlap.
+   The strips are exactly a gutter wide, so none sit behind the text boxes.
+   Absolutely positioned (not fixed) so the renders stay anchored to their spot
+   on the page and scroll with the content instead of following the viewport.
+   The height is set from JS to fit the column of renders extending downward. */
+.vib-gutter {
+  position: absolute;
+  top: 290px;                     /* just below the masthead */
+  width: calc((100vw - 1100px) / 2);
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+.vib-gutter-left  { left: 0; }
+.vib-gutter-right { right: 0; }
+
+.vib-gutter img {
+  position: absolute;
+  /* Uniform slot: every render fills the SAME 170x210 box (object-fit keeps
+     each one's aspect ratio, no distortion), centred in the strip. Vertical
+     spot (top, inline from JS) steps down the column so all stay the same size,
+     never overlap and extend downward. */
+  left: 50%;
+  width: 170px;
+  height: 210px;
+  object-fit: contain;
+  transform: translateX(-50%);
+  opacity: 1;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
+}
+
+/* Below this the gutter is narrower than the render box; hide so the doubled
+   renders never overflow the strip / go off screen. */
+@media (max-width: 1520px) {
+  .vib-gutter { display: none; }
 }
 
 .vib-title {
-  font-size: 28px;
-  font-weight: 400;
-  letter-spacing: 3px;
-  color: #fff;
   margin: 0;
-  text-decoration: underline double #fff;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 6px;
+  line-height: 0;
+}
+
+.vib-title img {
+  display: block;
+  width: 100%;
+  max-width: 440px;
+  height: auto;
 }
 
 .vib-nav {
@@ -55,10 +228,51 @@ html, body {
   text-decoration-color: #000;
 }
 
+/* Newscast-style scrolling ticker at the bottom of the masthead */
+.vib-ticker {
+  align-self: stretch;
+  margin: 0 -40px -28px;
+  overflow: hidden;
+  background: #000;
+  border-top: 4px double #fff;
+}
+
+.vib-ticker-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  padding: 8px 0;
+  animation: vib-ticker-scroll 38s linear infinite;
+}
+
+.vib-ticker:hover .vib-ticker-track {
+  animation-play-state: paused;
+}
+
+.vib-ticker img {
+  display: block;
+  height: 46px;
+  width: auto;
+}
+
+@keyframes vib-ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vib-ticker-track { animation: none; }
+}
+
 main {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 60px 32px 80px;
+  padding: 60px 32px 0;
+}
+
+/* No gap between the last content box and the background video below it. */
+main > .vib-section:last-child {
+  margin-bottom: 0;
 }
 
 .vib-section {

@@ -1468,7 +1468,8 @@ body:not(.theme-lammy) .nav-bar::before {
   order: 1;
 }
 body:not(.theme-lammy) .nav-item:nth-child(9),
-body:not(.theme-lammy) .nav-item:nth-child(10) {
+body:not(.theme-lammy) .nav-item:nth-child(10),
+body:not(.theme-lammy) .nav-item:nth-child(11) {
   order: 2;
 }
 
@@ -1568,7 +1569,7 @@ body:not(.theme-lammy) .nav-item:nth-child(9) > button {
   border-bottom-right-radius: 0 !important;
 }
 
-body:not(.theme-lammy) .nav-item:nth-child(10) > button {
+body:not(.theme-lammy) .nav-item:nth-child(11) > button {
   border: none !important;
   border-top: 5px solid #000 !important;
   border-bottom: 5px solid #000 !important;
@@ -1889,6 +1890,14 @@ body.theme-lammy .nav-item > button.nav-milkcan.active {
 
 body.theme-lammy .nav-item > button.nav-milkcan {
   font-style: italic;
+}
+
+/* ── Events special nav tab — deep plum in PaRappa mode ── */
+body:not(.theme-lammy) .nav-item > button.nav-events,
+body:not(.theme-lammy) .nav-item:hover > button.nav-events,
+body:not(.theme-lammy) .nav-item > button.nav-events.active {
+  background: #66023C !important;
+  color: #FFF !important;
 }
 
 .nav-item:hover > button .arrow {
@@ -2237,6 +2246,23 @@ body.theme-lammy .nav-item > button.nav-milkcan {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+}
+
+/* Character art in place of the ★ stars flanking the Dunkin' title */
+#page-merch-dunkin .section-title .dunkin-header-img {
+  height: 120px;
+  width: auto;
+}
+
+#page-merch-dunkin .section-title .dunkin-header-img-left {
+  margin-right: 8px;
+}
+
+/* pjdunk is cropped tighter than paradunk, so render it a touch smaller
+   to make PaRappa and PJ Berri appear the same size. */
+#page-merch-dunkin .section-title .dunkin-header-img-right {
+  height: 96px;
+  margin-left: -6px;
 }
 
 /* ── Character cards ── */
@@ -2696,6 +2722,11 @@ body.lang-jp .block-ja { display: block; }
   max-width: 45%;
 }
 
+/* Lipton FIGURES section — render the dancing figures at half size */
+.ujl-gallery-grid.lipton-figures-grid .ujl-gallery-item img {
+  max-width: 50%;
+}
+
 #page-gal-stratguides .ujl-gallery-item.small img {
   max-width: 70%;
 }
@@ -2717,19 +2748,22 @@ body.lang-jp .block-ja { display: block; }
 }
 
 /* PlayStation Expo '96 dance contest — featured lead figure (sits outside the grid) */
-#page-gal-events .psexpo96-lead {
+#page-gal-events .psexpo96-lead,
+#page-ev-psexpo96 .psexpo96-lead {
   padding: 16px 24px 4px;
   text-align: center;
   border-top: 1px solid #eee;
 }
 
-#page-gal-events .psexpo96-lead img {
+#page-gal-events .psexpo96-lead img,
+#page-ev-psexpo96 .psexpo96-lead img {
   max-width: 60%;
   border: 2px solid var(--border-wrap);
   border-radius: 4px;
 }
 
-#page-gal-events .psexpo96-lead .psexpo96-lead-banner {
+#page-gal-events .psexpo96-lead .psexpo96-lead-banner,
+#page-ev-psexpo96 .psexpo96-lead .psexpo96-lead-banner {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -2737,17 +2771,20 @@ body.lang-jp .block-ja { display: block; }
   gap: 16px;
 }
 
-#page-gal-events .psexpo96-lead .psexpo96-lead-banner img {
+#page-gal-events .psexpo96-lead .psexpo96-lead-banner img,
+#page-ev-psexpo96 .psexpo96-lead .psexpo96-lead-banner img {
   max-width: 100%;
   height: auto;
 }
 
-#page-gal-events .psexpo96-lead .ujl-caption {
+#page-gal-events .psexpo96-lead .ujl-caption,
+#page-ev-psexpo96 .psexpo96-lead .ujl-caption {
   margin-top: 8px;
 }
 
 /* PlayStation Expo '96 dance contest — per-day divider within the section */
-#page-gal-events .psexpo96-day {
+#page-gal-events .psexpo96-day,
+#page-ev-psexpo96 .psexpo96-day {
   background: var(--bg-goods-cat);
   border-top: 2px solid var(--color-goods-cat);
   border-bottom: 1px solid var(--border-goods-cat);
@@ -2833,12 +2870,16 @@ body.lang-jp .block-ja { display: block; }
 .photo-folder.fan-2:hover img:nth-child(2) { transform: rotate(3deg) translate(66px, -6px); }
 
 /* Velfarre completion-exhibition report — original Weekly GARAGE title-GIF masthead */
-#page-gal-events .velfarre-masthead {
+#page-gal-events .velfarre-masthead,
+#page-ev-bellfare .velfarre-masthead,
+#page-ev-parappalive .velfarre-masthead {
   text-align: center;
   padding: 16px 16px 0;
 }
 
-#page-gal-events .velfarre-masthead img {
+#page-gal-events .velfarre-masthead img,
+#page-ev-bellfare .velfarre-masthead img,
+#page-ev-parappalive .velfarre-masthead img {
   border: 2px solid var(--border-wrap);
   border-radius: 4px;
   vertical-align: middle;
@@ -3574,16 +3615,18 @@ img {
 }
 
 .vibri-corner {
-  width: 75px;
+  width: 85px;
   height: auto;
   display: block;
   image-rendering: auto;
   image-rendering: high-quality;
+  opacity: 0.55;
   filter: url(#vibri-sharpen) brightness(1.35) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
-  transition: background 0.25s ease;
+  transition: opacity 0.25s ease, background 0.25s ease;
 }
 
 .vibri-link:hover .vibri-corner {
+  opacity: 1;
   background: rgba(0, 0, 0, 0.35);
 }
 
