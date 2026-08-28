@@ -48,8 +48,12 @@
         <img class="masan-hat" src="LammyStuff/ressources/flanger.png" alt="Flanger">
         <img class="masan-harmonizer" src="LammyStuff/ressources/harmonizer.png" alt="Harmonizer">
         <img class="masan-poofu" src="LammyStuff/ressources/poofu.png" alt="" aria-hidden="true">
+        <img class="lammy-guit" src="LammyStuff/resources/lammyguit.png" alt="Lammy's guitar" aria-hidden="true">
         <img class="masan-drum" src="resources/drum.png" alt="" aria-hidden="true">
         <img class="masan-drumhead" src="LammyStuff/resources/drumhead.png" alt="" aria-hidden="true">
+        <img class="masan-bass" src="LammyStuff/resources/bass.png" alt="Bass guitar" aria-hidden="true">
+        <img class="masan-pandatsu" src="LammyStuff/Renders/pandatsu.png" alt="Pandatsu" aria-hidden="true">
+        <img class="masan-squirrel" src="LammyStuff/Renders/squirrel.png" alt="Gramophone squirrel" aria-hidden="true">
         <img class="masan-guitartopper" src="LammyStuff/Renders/guitartopper.png" alt="Guitar Topper">
         <img src="LammyStuff/Renders/masan.png" alt="Ma-san">
       </div>
@@ -64,11 +68,18 @@
       </div>
       <div class="paul-stack">
         <img class="paul-now" src="LammyStuff/resources/now!.png" alt="NOW!">
+        <img class="rammy-guit" src="LammyStuff/resources/rammyguit.png" alt="Rammy's guitar" aria-hidden="true">
+        <img class="tree-guit" src="LammyStuff/resources/treeguit.png" alt="Tree guitar" aria-hidden="true">
+        <img class="paul-goo" src="LammyStuff/Renders/goo.png" alt="" aria-hidden="true">
+        <img class="paul-drag" src="LammyStuff/Renders/drag.png" alt="Dragon" aria-hidden="true">
         <img class="paul-ramm" src="LammyStuff/resources/ramm.png" alt="" aria-hidden="true">
         <img class="paul-distortion" src="LammyStuff/ressources/distortion.png" alt="Distortion">
         <img src="LammyStuff/Renders/paul.png" alt="Paul Chuck">
       </div>
-      <img src="LammyStuff/Renders/teri.png" alt="Teriyaki Yoko">
+      <div class="teri-stack">
+        <img class="teri-rammy" src="LammyStuff/Renders/rammy.png" alt="Rammy">
+        <img src="LammyStuff/Renders/teri.png" alt="Teriyaki Yoko">
+      </div>
     </div>
     <div class="theme-toggle">
       <button class="theme-btn" id="themeBtn" onclick="toggleTheme()"><span class="theme-btn-label">LAMMY MODE</span></button>
@@ -86,8 +97,9 @@
       </button>
       <div class="dropdown">
         <a onclick="showPage('welcome')"><span class="dot"></span><span class="en">Welcome</span><span class="ja">ようこそ</span></a>
-        <a onclick="showPage('whatsnew')"><span class="dot"></span><span class="en">What's New</span><span class="ja">新着情報</span></a>
         <a onclick="showPage('search')"><span class="dot"></span><span class="en">Search</span><span class="ja">検索</span></a>
+        <a onclick="showPage('donate')"><span class="dot"></span><span class="en">Donate</span><span class="ja">寄付</span></a>
+        <a onclick="showPage('contact')"><span class="dot"></span><span class="en">Contact</span><span class="ja">お問い合わせ</span></a>
       </div>
     </div>
 
@@ -160,8 +172,6 @@
             <a onclick="showPage('merch-ujl-misc')"><span class="dot"></span><span class="en">Miscellaneous</span><span class="ja">その他</span></a>
           </div>
         </div>
-        <a onclick="showPage('merch-ptr2')"><span class="dot"></span><span class="en">PaRappa The Rapper 2</span><span class="ja">パラッパラッパー2</span></a>
-        <a onclick="showPage('merch-anime')"><span class="dot"></span><span class="en">PaRappa The Rapper Anime</span><span class="ja">パラッパラッパー アニメ</span></a>
         <a onclick="showPage('merch-mcdonalds')"><span class="dot"></span><span class="en">McDonald's</span><span class="ja">マクドナルド</span></a>
         <a onclick="showPage('merch-dunkin')"><span class="dot"></span><span class="en">Dunkin' Donuts</span><span class="ja">ダンキンドーナツ</span></a>
         <a onclick="showPage('merch-lipton')"><span class="dot"></span><span class="en">Lipton</span><span class="ja">リプトン</span></a>
@@ -247,6 +257,20 @@
       </button>
     </div>
 
+    <div class="nav-item">
+      <button onclick="showPage('collections', this)">
+        <span class="en">COLLECTIONS</span><span class="ja">コレクション</span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- COLLECTIONS PAGE -->
+  <div id="page-collections" class="page">
+    <div class="section-title"><span class="en">★ COLLECTIONS ★</span><span class="ja">★ コレクション ★</span></div>
+    <div class="ujl-intro">
+      <p><span class="block-en">This section showcases personal collections shared by fellow fans. If you'd like your collection featured here, send your photos to us by email — every submission will be credited to its owner.</span><span class="block-ja">このコーナーでは、ファンの皆さんから寄せられた個人コレクションを紹介します。ご自分のコレクションを掲載したい方は、写真をメールでお送りください。掲載時には提供者のお名前をクレジットいたします。</span></p>
+    </div>
   </div>
 
   <!-- MILKCAN PAGE -->
@@ -1071,13 +1095,11 @@
       <p><span class="block-en">This fan site is dedicated to documenting and preserving PaRappa the Rapper merchandise, rare collectibles, and franchise history. All items shown are from personal collections and public archives. This site is not affiliated with Sony Interactive Entertainment, NanaOn-Sha, or Rodney Alan Greenblat. All trademarks belong to their respective owners. All the intellectual property rights related to the works presented on this site belong to their respective owners. This site is strictly created for the purpose of preservation and education.</span>
       <span class="block-ja">このファンサイトは、パラッパラッパーのグッズ、希少なコレクターズアイテム、シリーズの歴史を記録・保存することを目的としています。掲載されているアイテムはすべて、個人のコレクションや公開アーカイブから引用したものです。本サイトはソニー・インタラクティブエンタテインメント、七音社、ロドニー・アラン・グリーンブラット氏のいずれとも提携関係にはありません。すべての商標は各権利者に帰属します。本サイトで紹介している作品に関するすべての知的財産権は、各権利者に帰属します。本サイトは、保存と教育のみを目的として制作されています。</span></p>
     </div>
-  </div>
 
-  <div id="page-whatsnew" class="page">
-    <div class="section-title"><span class="en">★ WHAT'S NEW ★</span><span class="ja">★ 新着情報 ★</span></div>
     <div class="ujl-intro">
-      <p><span class="block-en">Stay tuned for the latest updates on PaRappa collectibles, newly discovered merchandise, and community news. This page will be updated as new items are documented and added to the archive.</span>
-      <span class="block-ja">パラッパのコレクターズアイテム、新たに発見されたグッズ、コミュニティの最新ニュースをお届けします。新しいアイテムが確認され、アーカイブに追加され次第、このページを随時更新していきます。</span>
+      <div class="ujl-info-title"><span class="en">What's New</span><span class="ja">新着情報</span></div>
+      <p><span class="block-en">The site is officially live! After a lot of work gathering, photographing, and documenting everything, I'm thrilled to finally share this archive with fellow fans. I hope everyone enjoys discovering new things about the PaRappa the Rapper franchise. This section will be updated as new items are documented and added to the collection.</span>
+      <span class="block-ja">サイトが正式に公開されました！資料の収集、撮影、記録に多くの時間をかけてきましたが、このアーカイブをようやくファンの皆さまと共有できることを、とても嬉しく思います。パラッパラッパーシリーズについて、皆さまが新たな発見を楽しんでいただけたら幸いです。新しいアイテムが確認され、コレクションに追加され次第、このセクションを随時更新していきます。</span></p>
     </div>
   </div>
 
@@ -1091,9 +1113,6 @@
             <line x1="15" y1="15" x2="20.5" y2="20.5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
           </svg>
           <input type="text" class="search-input" id="searchInput" placeholder="Search the site..." aria-label="Search the site">
-          <button type="submit" class="search-btn">
-            <span class="en">GO!</span><span class="ja">検索</span>
-          </button>
         </div>
       </form>
       <p class="search-hint">
@@ -1101,6 +1120,27 @@
         <span class="block-ja">キーワードを入力して、キャラクター、グッズ、イベントなどを検索できます。</span>
       </p>
       <div id="searchResults" class="search-results" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div id="page-donate" class="page">
+    <div class="section-title"><span class="en">★ DONATE ★</span><span class="ja">★ 寄付 ★</span></div>
+    <div class="ujl-intro">
+      <p><span class="block-en">This fan site is a non-commercial preservation project that I run entirely at my own expense. If you'd like to help cover hosting costs and support the ongoing documentation of PaRappa the Rapper merchandise and history, your contribution is greatly appreciated. Donation details will be posted here soon.</span>
+      <span class="block-ja">当ファンサイトは、私がすべて自費で運営している非営利の保存プロジェクトです。サーバー費用の負担や、パラッパラッパーのグッズと歴史の記録活動の継続にご協力いただける場合、皆さまのご支援を心より歓迎いたします。寄付の詳細は近日中にこちらに掲載予定です。</span></p>
+      <div class="donate-methods">
+        <img src="payp.png" alt="PayPal" class="donate-img">
+        <img src="cash.png" alt="Cash App" class="donate-img donate-img-cash">
+        <img src="ven.png" alt="Venmo" class="donate-img">
+      </div>
+    </div>
+  </div>
+
+  <div id="page-contact" class="page">
+    <div class="section-title"><span class="en">★ CONTACT ★</span><span class="ja">★ お問い合わせ ★</span></div>
+    <div class="ujl-intro">
+      <p><span class="block-en">I'd love to hear from you! Whether you have a question, would like credit on an image you took, have photos to contribute to the site's documentation, or want to share a photo of your own collection to be featured on the <strong>Collections</strong> page, feel free to reach out. You can get in touch with me at <a href="mailto:chris33119@gmail.com">chris33119@gmail.com</a>.</span>
+      <span class="block-ja">皆さまからのご連絡をお待ちしています。ご質問はもちろん、ご自身が撮影した画像へのクレジット表記のご希望、記録に加える写真のご提供、あるいは<strong>コレクション</strong>ページで紹介するご自身のコレクションの写真など、どんなことでもお気軽にご連絡ください。連絡先は <a href="mailto:chris33119@gmail.com">chris33119@gmail.com</a> です。</span></p>
     </div>
   </div>
 
@@ -1500,7 +1540,7 @@
 
     <div class="ujl-cabinet-section">
       <div class="ujl-cabinet-img">
-        <img src="matsuura-portrait.jpg" alt="Masaya Matsuura portrait">
+        <img src="Parappa%20Site/Dev/matsuura-portrait.jpg" alt="Masaya Matsuura portrait">
         <img src="Parappa%20Site/Mascots/mas.jpg" alt="Masaya Matsuura with PaRappa mascot">
       </div>
       <div class="ujl-cabinet-info">
@@ -1517,6 +1557,27 @@
         <span class="block-en">Matsuura graduated from Ritsumeikan University with a degree in Industrial Society in 1983 and almost immediately formed PSY-S with vocalist <strong>Chaka</strong> (Mami Yasunori). Through the late 1980s and early 1990s the duo produced anime themes, commercial jingles, and pop hits while Matsuura quietly grew fascinated with multimedia. In 1993 he became the first Japanese musician to release a commercial Macintosh CD-ROM, <em>The Seven Colors: Legend of PSY•S City</em>, which won Japan's Multimedia Grand Prix and convinced him that interactive software, not music videos, was the medium that could finally let his songs <em>play back</em> the way he heard them in his head.</span>
         <span class="block-ja">1983年に立命館大学産業社会学部を卒業した松浦は、ほぼ間を置かずにヴォーカリスト<strong>CHAKA（安蘭真美）</strong>とPSY・Sを結成します。1980年代後半から1990年代前半にかけて、デュオはアニメ主題歌、CMジングル、ポップヒットを次々と生み出していきました。同時に松浦はマルチメディアへの興味を深め、1993年には日本のミュージシャンとして初めて市販Macintosh CD-ROM作品『<em>The Seven Colors: Legend of PSY・S City</em>』を発表。同作はマルチメディアグランプリを受賞し、彼自身に「音楽ビデオではなくインタラクティブソフトウェアこそが、頭の中で鳴っている音楽をそのまま再生できる媒体だ」と確信させる体験となりました。</span>
       </p>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— PHOTOGRAPHS —</span><span class="ja">— 写真 —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item small">
+          <img src="Parappa%20Site/Dev/MATSU00.jpg" alt="Masaya Matsuura in front of a wall of modular synthesizers">
+        </div>
+        <div class="ujl-gallery-item small">
+          <img src="Parappa%20Site/Dev/MATSU01.jpg" alt="Studio portrait of Masaya Matsuura in a purple shirt">
+        </div>
+        <div class="ujl-gallery-item small">
+          <img src="Parappa%20Site/Dev/PHOTO3.jpg" alt="Masaya Matsuura leaning over a keyboard in a recording studio">
+        </div>
+        <div class="ujl-gallery-item small">
+          <img src="Parappa%20Site/Dev/PHOTO1.jpg" alt="Masaya Matsuura seated on a couch in blue light">
+        </div>
+        <div class="ujl-gallery-item small">
+          <img src="Parappa%20Site/Dev/PHOTO2.jpg" alt="Masaya Matsuura on a rooftop overlooking the city at dusk">
+        </div>
+      </div>
     </div>
 
     <!-- ── PaRappa the Rapper (1996) ── -->
@@ -1798,7 +1859,6 @@
         </div>
         <div class="ujl-gallery-item">
           <img src="Parappa%20Site/RodneyFun/ComicCollection/back.png" alt="RodneyFun Comic Collection Volume 1 back cover">
-          <div class="ujl-caption"><span class="en">Back cover of Volume 1 — names the cast (PJ, Sunny, Katy, PaRappa, Square E. Bear), with the April 19, 2000 release date, ¥2,000 price, and ISBN 4-89815-020-9.</span><span class="ja">第1巻の裏表紙 — 登場キャラクター（PJ、サニー、ケイティ、パラッパ、スクエアEベアー）を紹介。2000年4月19日（水）発売、定価本体2,000円、ISBN 4-89815-020-9。</span></div>
         </div>
       </div>
     </div>
@@ -1808,43 +1868,38 @@
       <div class="ujl-gallery-grid">
         <div class="ujl-gallery-item">
           <img src="Parappa%20Site/RodneyFun/ComicCollection/m86319559897_4.png" alt="P.J.'s Dreamland comic cover">
-          <div class="ujl-caption"><span class="en">Book 1 — <strong>"P.J.'s Dreamland"</strong> (P.J.のゆめのくに), with PJ Berri crowned as a king on his throne.</span><span class="ja">第1巻 — <strong>「P.J.'s Dreamland」</strong>（P.J.のゆめのくに）。王冠をかぶり玉座に座るPJベリー。</span></div>
+          <div class="ujl-caption"><span class="en">Book 1 — <strong>"P.J.'s Dreamland"</strong> (P.J.のゆめのくに).</span><span class="ja">第1巻 — <strong>「P.J.'s Dreamland」</strong>（P.J.のゆめのくに）。</span></div>
         </div>
         <div class="ujl-gallery-item">
           <img src="Parappa%20Site/RodneyFun/ComicCollection/m86319559897_5.png" alt="P.J.'s Dreamland interior art">
-          <div class="ujl-caption"><span class="en">Interior art from "P.J.'s Dreamland" — PJ Berri as the crowned king against a checkered backdrop.</span><span class="ja">「P.J.'s Dreamland」の本文アート — チェック模様を背景にした、王冠姿のPJベリー。</span></div>
         </div>
         <div class="ujl-gallery-item">
           <img src="Parappa%20Site/RodneyFun/ComicCollection/m86319559897_6.png" alt="Sunny Funny's Polite Garden Party comic cover">
-          <div class="ujl-caption"><span class="en">Book 2 — <strong>"Sunny Funny's Polite Garden Party"</strong> (サニーのガーデンパーティーにようこそ), the cast gathered for a tea party.</span><span class="ja">第2巻 — <strong>「Sunny Funny's Polite Garden Party」</strong>（サニーのガーデンパーティーにようこそ）。お茶会に集まるキャラクターたち。</span></div>
+          <div class="ujl-caption"><span class="en">Book 2 — <strong>"Sunny Funny's Polite Garden Party"</strong> (サニーのガーデンパーティーにようこそ).</span><span class="ja">第2巻 — <strong>「Sunny Funny's Polite Garden Party」</strong>（サニーのガーデンパーティーにようこそ）。</span></div>
         </div>
         <div class="ujl-gallery-item">
           <img src="Parappa%20Site/RodneyFun/ComicCollection/m86319559897_7.png" alt="Sunny Funny's Polite Garden Party interior art">
-          <div class="ujl-caption"><span class="en">Interior art — Sunny Funny carrying a basket overflowing with carrots and vegetables.</span><span class="ja">本文アート — ニンジンや野菜がたっぷり入ったかごを抱えるサニー・ファニー。</span></div>
         </div>
         <div class="ujl-gallery-item">
           <img src="Parappa%20Site/RodneyFun/ComicCollection/m86319559897_8.png" alt="Katy's Shopping Explosion comic cover">
-          <div class="ujl-caption"><span class="en">Book 3 — <strong>"Katy's Shopping Explosion"</strong> (ケイティのお買い物大爆発), a busy patchwork cover starring Katy Kat.</span><span class="ja">第3巻 — <strong>「Katy's Shopping Explosion」</strong>（ケイティのお買い物大爆発）。ケイティ・キャットを主役にした賑やかなパッチワーク調の表紙。</span></div>
+          <div class="ujl-caption"><span class="en">Book 3 — <strong>"Katy's Shopping Explosion"</strong> (ケイティのお買い物大爆発).</span><span class="ja">第3巻 — <strong>「Katy's Shopping Explosion」</strong>（ケイティのお買い物大爆発）。</span></div>
         </div>
         <div class="ujl-gallery-item">
           <img src="Parappa%20Site/RodneyFun/ComicCollection/m86319559897_9.png" alt="Katy's Shopping Explosion interior art">
-          <div class="ujl-caption"><span class="en">Interior art — Katy Kat stretching against a striped pink-and-teal background.</span><span class="ja">本文アート — ピンクとティールのストライプ背景でポーズをとるケイティ・キャット。</span></div>
         </div>
         <div class="ujl-gallery-item">
           <img src="Parappa%20Site/RodneyFun/ComicCollection/m86319559897_10.png" alt="PaRappa Gets a Job comic cover">
-          <div class="ujl-caption"><span class="en">Book 4 — <strong>"PaRappa Gets a Job"</strong> (パラッパのバイト大しんぱい!?), PaRappa swamped in a flurry of activity.</span><span class="ja">第4巻 — <strong>「PaRappa Gets a Job」</strong>（パラッパのバイト大しんぱい!?）。慌ただしい騒動に巻き込まれるパラッパ。</span></div>
+          <div class="ujl-caption"><span class="en">Book 4 — <strong>"PaRappa Gets a Job"</strong> (パラッパのバイト大しんぱい!?).</span><span class="ja">第4巻 — <strong>「PaRappa Gets a Job」</strong>（パラッパのバイト大しんぱい!?）。</span></div>
         </div>
         <div class="ujl-gallery-item">
           <img src="Parappa%20Site/RodneyFun/ComicCollection/m86319559897_11.png" alt="PaRappa Gets a Job interior art">
-          <div class="ujl-caption"><span class="en">Interior art — PaRappa running mid-stride with a microphone in hand.</span><span class="ja">本文アート — マイクを手に駆け出すパラッパ。</span></div>
         </div>
         <div class="ujl-gallery-item">
           <img src="Parappa%20Site/RodneyFun/ComicCollection/m86319559897_12.png" alt="Square E. Bear the Wheel comic cover">
-          <div class="ujl-caption"><span class="en">Book 5 — <strong>"Square E. Bear THE WHEEL"</strong> (スクエアEベアーのボクの車輪), a scratchy purple-toned cover.</span><span class="ja">第5巻 — <strong>「Square E. Bear THE WHEEL」</strong>（スクエアEベアーのボクの車輪）。ラフな線で描かれた紫基調の表紙。</span></div>
+          <div class="ujl-caption"><span class="en">Book 5 — <strong>"Square E. Bear THE WHEEL"</strong> (スクエアEベアーのボクの車輪).</span><span class="ja">第5巻 — <strong>「Square E. Bear THE WHEEL」</strong>（スクエアEベアーのボクの車輪）。</span></div>
         </div>
         <div class="ujl-gallery-item">
           <img src="Parappa%20Site/RodneyFun/ComicCollection/m86319559897_13.png" alt="Square E. Bear the Wheel interior art">
-          <div class="ujl-caption"><span class="en">Interior art — Square E. Bear with a lineup of Greenblat's angular geometric characters.</span><span class="ja">本文アート — スクエアEベアーと、グリーンブラットによる角ばった幾何学的なキャラクターたち。</span></div>
         </div>
         <div class="ujl-gallery-item">
           <img src="Parappa%20Site/RodneyFun/ComicCollection/m86319559897_14.png" alt="RodneyFun Comic Collection red-ink print on kraft paper">
@@ -1904,7 +1959,6 @@
         </div>
         <div class="ujl-gallery-item">
           <img src="ParappaStuff/ParappaPlush/parappaL3.png" alt="L-Planning standing PaRappa plush — Rodney A. Greenblat tag close-up">
-          <div class="ujl-caption"><span class="en">Tush-Tag Detail — close-up of the denim short hem and red-and-white sneaker, with the white "© Rodney A. Greenblat" satin tag sewn into the seam confirming licensed L-Planning production.</span><span class="ja">タッシュタグのディテール — デニムショートパンツの裾と赤白のスニーカーのクローズアップ。縫い目に縫い込まれた白い「© Rodney A. Greenblat」のサテンタグが、エル・プランニングのライセンス生産であることを裏付ける。</span></div>
         </div>
         <div class="ujl-gallery-item">
           <img src="ParappaStuff/ParappaPlush/pjL.png" alt="L-Planning PJ Berri plush — front view with rainbow hang tag">
@@ -1967,27 +2021,12 @@
         </div>
         <div class="ujl-gallery-item">
           <img src="ParappaStuff/ParappaPlush/m20997712603_2.jpg" alt="Takara × SEGA Prize plush full set laid out">
-          <div class="ujl-caption"><span class="en">SEGA Prize Set — full lineup of all five mascot plushes laid out together: smiling PaRappa, scowling PaRappa, Katy Kat, Sunny Funny, and PJ Berri. Each unit retains its original gold cord strap and orange "PaRappa The Rapper ぬいぐるみ" hang-tag card.</span><span class="ja">SEGAプライズセット — 5体のキャラクターぬいぐるみ（笑顔のパラッパ、怒り顔のパラッパ、ケイティ・キャット、サニー・ファニー、PJベリー）を並べた全身カット。各個体に金色のループ紐とオレンジの「PaRappa The Rapper ぬいぐるみ」下げ札カードが付属している。</span></div>
         </div>
         <div class="ujl-gallery-item">
           <img src="ParappaStuff/ParappaPlush/m20997712603_3.jpg" alt="SEGA Prize hang tag — rainbow PaRappa cast art">
-          <div class="ujl-caption"><span class="en">Hang-Tag Card — orange retail card showing the "PaRappa The Rapper ぬいぐるみ" logo, rainbow cast artwork (Sunny Funny, PaRappa, Katy Kat, PJ Berri), and the © R.G./I.P/SCP/CX·SVW licence stamp at the bottom right.</span><span class="ja">下げ札カード — 「PaRappa The Rapper ぬいぐるみ」ロゴと、虹を背景にしたサニー・ファニー、パラッパ、ケイティ・キャット、PJベリーの集合イラストが描かれたオレンジのカード。右下には「© R.G./I.P/SCP/CX・SVW」のライセンス表記が記載されている。</span></div>
         </div>
         <div class="ujl-gallery-item">
           <img src="ParappaStuff/ParappaPlush/m20997712603_4.jpg" alt="SEGA Prize warning tag — Takara / SEGA distribution detail">
-          <div class="ujl-caption"><span class="en">Warning-Tag Detail — reverse safety card listing the product as "アミューズメント専用景品 — この商品は一般市販されておりません" ("Amusement Prize — Not Sold at Retail"), with 販売元 SEGA and 発売元 TAKARA clearly identifying the SEGA Prize / Takara distribution chain.</span><span class="ja">注意事項タグ — 裏面の安全カード。「アミューズメント専用景品 — この商品は一般市販されておりません」と明記され、販売元にSEGA、発売元にTAKARAの記載があり、SEGAプライズ／タカラの流通経路を裏付けている。</span></div>
-        </div>
-        <div class="ujl-gallery-item">
-          <img src="ParappaStuff/ParappaPlush/sunnytakara.jpg" alt="Takara × SEGA Prize Sunny Funny plush, loose">
-          <div class="ujl-caption"><span class="en">Sunny Funny (Takara × SEGA Prize, loose) — single-character close-up of the Sunny Funny entry from the Takara/SEGA Prize line. Yellow embroidered face with pink petal halo, pink-and-blue striped dress, and teal slip-on shoes, paired with the standard rainbow PaRappa cast hang-tag.</span><span class="ja">サニー・ファニー（タカラ×SEGAプライズ・単体）— タカラ／SEGAプライズシリーズのサニー・ファニー単体カット。刺繍の黄色いフェイスにピンクの花びらヘイロー、ピンクとブルーのボーダー柄ワンピース、ティール（青緑）のスリッポンシューズが特徴で、シリーズ共通の虹色キャラクター下げ札が付属する。</span></div>
-        </div>
-        <div class="ujl-gallery-item">
-          <img src="ParappaStuff/ParappaPlush/e7xFUXabELjCzVxR439TtV.jpg" alt="Takara PaRappa The Rapper Anime plush 2001">
-          <div class="ujl-caption"><span class="en">PaRappa The Rapper Anime Plush (2001) — Takara-produced figure of PaRappa in his television-anime outfit: yellow hair, red shirt, dark shorts, no beanie. Matches the redesigned look used across the 30-episode Fuji TV series.</span><span class="ja">パラッパラッパー アニメぬいぐるみ（2001年）— タカラ製。フジテレビ系の全30話アニメ版の新デザイン（金髪・赤シャツ・ダークショーツ、ビーニーなし）を再現したパラッパ人形。</span></div>
-        </div>
-        <div class="ujl-gallery-item">
-          <img src="ParappaStuff/ParappaPlush/wKKe4JaQ54FA6z3LSsD3p4.jpg" alt="Takara 2001 anime plush — hang tag detail">
-          <div class="ujl-caption"><span class="en">Anime Plush — tag detail. The original hang-tag reads "2001 タカラ / MADE IN CHINA" and sits alongside the rainbow anime-series logo card, confirming Takara's 2001 production run.</span><span class="ja">アニメぬいぐるみ — タグのディテール。オリジナルの下げ札には「2001 タカラ／MADE IN CHINA」と印字され、アニメ版のレインボー仕様ロゴカードと対になっている。タカラの2001年生産であることを示す裏付け資料。</span></div>
         </div>
       </div>
     </div>
@@ -1995,6 +2034,13 @@
     <div class="ujl-gallery">
       <div class="ujl-gallery-title"><span class="en">— TAKARA — 2001 ANIME PLUSH SERIES —</span><span class="ja">— タカラ — 2001年 アニメ版 ぬいぐるみシリーズ —</span></div>
       <div class="ujl-gallery-grid condense-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaPlush/e7xFUXabELjCzVxR439TtV.jpg" alt="Takara PaRappa The Rapper Anime plush 2001">
+          <div class="ujl-caption"><span class="en">PaRappa The Rapper Anime Plush (2001) — Takara-produced figure of PaRappa in his television-anime outfit: yellow hair, red shirt, dark shorts, no beanie. Matches the redesigned look used across the 30-episode Fuji TV series.</span><span class="ja">パラッパラッパー アニメぬいぐるみ（2001年）— タカラ製。フジテレビ系の全30話アニメ版の新デザイン（金髪・赤シャツ・ダークショーツ、ビーニーなし）を再現したパラッパ人形。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaPlush/wKKe4JaQ54FA6z3LSsD3p4.jpg" alt="Takara 2001 anime plush — hang tag detail">
+        </div>
         <div class="ujl-gallery-item">
           <img src="ParappaStuff/ParappaPlush/61TbiAyugWS._AC_SL1200_.jpg" alt="Takara 2001 anime plush set — five characters bagged with retail hang tags">
           <div class="ujl-caption"><span class="en">Anime Series — full retail set, factory-bagged. Five characters: Sunny Funny, PJ Berri, anime PaRappa, Katy Kat (UJL), and Lammy (UJL). Each unit ships with the orange "PaRappaTheRapper / ぬいぐるみ" Takara hang-tag.</span><span class="ja">アニメシリーズ — 工場出荷状態の未開封フルセット。サニー・ファニー、PJベリー、アニメ版パラッパ、ケイティ・キャット（UJL）、ラミー（UJL）の5体構成で、各個体にはオレンジ地の「PaRappaTheRapper／ぬいぐるみ」タカラ下げ札が付属する。</span></div>
@@ -2034,15 +2080,12 @@
         </div>
         <div class="ujl-gallery-item">
           <img src="ParappaStuff/ParappaPlush/m14524659400_2.jpg" alt="PaRappa face cushion — reverse view">
-          <div class="ujl-caption"><span class="en">Face Cushion (reverse) — back view of the FK-75440-3 cushion showing the solid orange beanie crown, sewn black ear tabs, and the white care/spec tag printed with the FK-75440-3 product code anchored into the bottom seam.</span><span class="ja">フェイスクッション（裏面）— FK-75440-3クッションの後ろ姿。オレンジのビーニー部分、両側面に縫い付けられた黒い耳タブ、底辺の縫い目に挟み込まれた品番「FK-75440-3」入りの白いお手入れ／品質表示タグが確認できる。</span></div>
         </div>
         <div class="ujl-gallery-item">
           <img src="ParappaStuff/ParappaPlush/m14524659400_4.jpg" alt="PaRappa face cushion hang tag">
-          <div class="ujl-caption"><span class="en">Face Cushion — hang-tag detail showing the Sony Creative Products "PaRappa The Rapper — I Gotta Believe!!" card, with Punch / Kick / Jump action icons lining the bottom strip.</span><span class="ja">フェイスクッション — 下げ札のディテール。ソニー・クリエイティブプロダクツ発行の「PaRappa The Rapper — I Gotta Believe!!」カードで、下段にはPunch／Kick／Jumpのアクションアイコンが並ぶ。</span></div>
         </div>
         <div class="ujl-gallery-item">
           <img src="ParappaStuff/ParappaPlush/m14524659400_5.jpg" alt="PaRappa face cushion — care tag back FK-75440-3">
-          <div class="ujl-caption"><span class="en">Hang-Tag Reverse — back of the same hang-tag confirming "No. FK-75440-3", a cotton 80% / polyester 20% shell with 100% polyester fill, the Sony Creative Products Inc. / MADE IN CHINA imprint, the "フェイスクッション パラッパ" item name, and the ¥2,500 MSRP barcode strip.</span><span class="ja">下げ札裏面 — 同じ下げ札の裏側。「No. FK-75440-3」、外装コットン80%／ポリエステル20%、詰め物ポリエステル100%の品質表示、Sony Creative Products Inc./MADE IN CHINAの製造表記、商品名「フェイスクッション パラッパ」、そして定価2,500円のバーコードが並ぶ。</span></div>
         </div>
         <div class="ujl-gallery-item">
           <img src="ParappaStuff/ParappaPlush/m15515167390_1.jpg" alt="Sony Creative Products PJ Berri face cushion">
@@ -2050,11 +2093,9 @@
         </div>
         <div class="ujl-gallery-item">
           <img src="ParappaStuff/ParappaPlush/m15515167390_3.jpg" alt="PJ Berri face cushion — reverse view">
-          <div class="ujl-caption"><span class="en">PJ Berri Cushion (reverse) — solid brown back panel with the bear-ear silhouette intact and the white spec tag stitched into the bottom-left seam, useful for collectors verifying an unaltered factory unit.</span><span class="ja">PJベリー クッション（裏面）— 一面ブラウンの背面で、両端の耳シルエットがはっきり残り、左下の縫い目には白い品質表示タグが縫い込まれている。未加工の工場仕様を確認したいコレクターに有用なカット。</span></div>
         </div>
         <div class="ujl-gallery-item">
           <img src="ParappaStuff/ParappaPlush/m15515167390_5.jpg" alt="PJ Berri face cushion woven brand ribbon">
-          <div class="ujl-caption"><span class="en">PJ Berri Face Cushion — close-up of the woven "PaRappa The Rapper" satin ribbon sewn into the seam, the standard Sony Creative Products brand label used across the face-cushion series.</span><span class="ja">PJベリー フェイスクッション — 縫い目に織り込まれた「PaRappa The Rapper」サテンリボンのクローズアップ。フェイスクッションシリーズ共通の、ソニー・クリエイティブプロダクツの標準ブランドネーム。</span></div>
         </div>
         <div class="ujl-gallery-item">
           <img src="ParappaStuff/ParappaPlush/parappabeige.jpg" alt="PaRappa full-body cushion plush, beige">
@@ -2062,7 +2103,6 @@
         </div>
         <div class="ujl-gallery-item">
           <img src="ParappaStuff/ParappaPlush/parappabeige2.jpg" alt="PaRappa full-body cushion plush, logo detail">
-          <div class="ujl-caption"><span class="en">Full-Body Cushion (logo detail) — reverse face showing the PaRappa The Rapper logo and the "© Rodney A. Greenblat / Interlink" design credit printed on the hem.</span><span class="ja">全身クッション（ロゴ面）— 「PaRappa The Rapper」ロゴと、裾にプリントされた「© Rodney A. Greenblat／Interlink」のクレジットが確認できる裏面。</span></div>
         </div>
         <div class="ujl-gallery-item">
           <img src="ParappaStuff/ParappaPlush/parappablue.jpg" alt="PaRappa face cushion plush, blue">
@@ -2070,7 +2110,6 @@
         </div>
         <div class="ujl-gallery-item">
           <img src="ParappaStuff/ParappaPlush/parappablue2.jpg" alt="PaRappa face cushion plush, reverse">
-          <div class="ujl-caption"><span class="en">Face Cushion (reverse) — back side showing the series logo and the original Japanese-language care/assembly instruction sticker.</span><span class="ja">顔クッション（裏面）— シリーズロゴと、日本語のお手入れ・組立て説明シールが貼られた裏面。</span></div>
         </div>
       </div>
     </div>
@@ -2119,6 +2158,8 @@
 
     <div class="ujl-gallery">
       <div class="ujl-gallery-title"><span class="en">— TAITO —</span><span class="ja">— タイトー —</span></div>
+
+      <div class="ujl-gallery-subtitle"><span class="en">— NO TAITO LOGO —</span><span class="ja">— タイトーロゴなし —</span></div>
       <div class="ujl-gallery-grid condense-grid">
         <div class="ujl-gallery-item">
           <img src="ParappaStuff/ParappaPlush/Taito_PaRappa_Plush.webp" alt="Taito PaRappa amusement prize plush with mic">
@@ -2129,25 +2170,44 @@
           <div class="ujl-caption"><span class="en">PaRappa (Taito, sealed) — same Taito prize plush still in its factory plastic bag, with the printed "THIS BAG IS NOT A TOY / WARNING TO AVOID DANGER OF SUFFOCATION" English/Japanese safety strip running down the side. Mint amusement-prize condition.</span><span class="ja">パラッパ（タイトー・未開封）— 工場出荷時のビニール袋に密封された同じタイトープライズぬいぐるみ。側面に「THIS BAG IS NOT A TOY／WARNING TO AVOID DANGER OF SUFFOCATION」の英日警告ストリップが印刷されている。プライズ景品の未開封・新品状態。</span></div>
         </div>
         <div class="ujl-gallery-item">
-          <img src="ParappaStuff/ParappaPlush/parataito.avif" alt="Taito PaRappa plush — alternate view">
-          <div class="ujl-caption"><span class="en">PaRappa (Taito) — additional reference photo of the same Taito amusement-prize PaRappa plush, useful for sizing and stitching comparison against the L-Planning and Sony Creative Products lines.</span><span class="ja">パラッパ（タイトー）— 同じタイトーアミューズメントプライズのパラッパぬいぐるみの別カット。エル・プランニング製、ソニー・クリエイティブプロダクツ製とのサイズ・縫製比較に有用な参考資料。</span></div>
-        </div>
-        <div class="ujl-gallery-item">
           <img src="ParappaStuff/ParappaPlush/oniontaito.webp" alt="Taito Chop Chop Master Onion plush sealed">
           <div class="ujl-caption"><span class="en">Chop Chop Master Onion (Taito, sealed) — Master Onion amusement-prize plush in his pale-blue gi and dark blue belt, with embroidered scowl and goatee. Still sealed in the original Taito prize bag with the rainbow cast hang-tag attached.</span><span class="ja">タマネギ先生（タイトー・未開封）— 水色の道着と濃紺の帯姿、刺繍で再現した眉間のしわとあごひげが特徴のタマネギ先生のプライズぬいぐるみ。タイトーのオリジナルプライズ袋に未開封のまま封入され、虹色のキャラクター集合下げ札が付属する。</span></div>
-        </div>
-        <div class="ujl-gallery-item">
-          <img src="ParappaStuff/ParappaPlush/choptaito.avif" alt="Taito Chop Chop Master Onion plush — alternate view">
-          <div class="ujl-caption"><span class="en">Chop Chop Master Onion (Taito) — secondary reference shot of the same Master Onion plush from this Taito prize wave, paired with the matching PaRappa figure to round out the playable-tutor side of the cast.</span><span class="ja">タマネギ先生（タイトー）— 同じタイトープライズ波のタマネギ先生ぬいぐるみの別カット。同シリーズのパラッパとセットで、ゲーム序盤の「先生」キャラ側をそろえることができる。</span></div>
         </div>
         <div class="ujl-gallery-item">
           <img src="ParappaStuff/ParappaPlush/pjtaito.webp" alt="Taito PJ Berri plush sealed in prize bag">
           <div class="ujl-caption"><span class="en">PJ Berri (Taito, sealed) — Taito amusement-prize plush of PJ Berri, the sleepy bear best friend, sealed in the original prize bag with the "THIS BAG IS NOT A TOY" safety strip. Embroidered sleepy eyes and purple nose match the standard PJ silhouette across the line.</span><span class="ja">PJベリー（タイトー・未開封）— 眠そうな表情でおなじみの親友キャラ、PJベリーのタイトープライズぬいぐるみ。オリジナルプライズ袋に「THIS BAG IS NOT A TOY」の警告ストリップ付きで未開封封入。刺繍で表現された眠そうな目と紫の鼻はシリーズ共通のPJ仕様。</span></div>
         </div>
         <div class="ujl-gallery-item">
-          <img src="ParappaStuff/ParappaPlush/minitaito.jpg" alt="Taito mini PaRappa keychain plush">
-          <div class="ujl-caption"><span class="en">Mini PaRappa Keychain Plush (Taito) — small palm-sized PaRappa mascot prize with a sewn-in cord strap for clipping to bags or phones. The compact face-forward pose and oversized beanie make it the most portable entry in Taito's PaRappa prize lineup.</span><span class="ja">ミニ パラッパ キーチェーンぬいぐるみ（タイトー）— 手のひらサイズの小型パラッパマスコット景品。バッグや携帯に取り付けられるストラップ紐が縫い付けられている。正面ポーズと大きめのビーニーが特徴で、タイトーのパラッパ景品ラインナップの中でも最も携帯性に優れたモデル。</span></div>
+          <img src="ParappaStuff/ParappaPlush/taitotush.jpg" alt="Taito PaRappa plush brand label — PaRappa The Rapper CRG/IP">
+          <div class="ujl-caption"><span class="en">Tush Tag (no Taito mark) — sewn-in white satin label on the seat of the earlier prize plush, printed only with the <strong>PaRappa The Rapper</strong> ® wordmark and the <strong>CRG/IP</strong> rights line. No Taito branding anywhere on the tag — the quickest way to tell this wave apart from the later Taito-marked run.</span><span class="ja">おしりタグ（タイトー表記なし）— 初期プライズぬいぐるみのお尻部分に縫い付けられた白いサテンラベル。<strong>PaRappa The Rapper</strong> ® のロゴと <strong>CRG/IP</strong> の権利表記のみが印刷されており、タイトーのブランド表記は一切ない。後年のタイトー表記入りロットと見分ける最も確実なポイント。</span></div>
         </div>
+      </div>
+
+      <div class="ujl-gallery-subtitle"><span class="en">— TAITO LOGO —</span><span class="ja">— タイトーロゴあり —</span></div>
+      <div class="ujl-gallery-note"><span class="en">These are the same plushes as above — the difference is on the tag, which carries the pink <strong>TAITO</strong> logo. Most likely sourced from Japan.</span><span class="ja">上記と同じぬいぐるみですが、タグにピンクの<strong>TAITO</strong>ロゴが入っている点が異なります。日本から流通した個体と思われます。</span></div>
+      <div class="ujl-gallery-grid condense-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaPlush/parataito.avif" alt="Taito PaRappa plush — alternate view">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaPlush/choptaito.avif" alt="Taito Chop Chop Master Onion plush — alternate view">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaPlush/pjtaito1.png" alt="Taito PJ Berri plush with pink Taito logo hang tag attached">
+          <div class="ujl-caption"><span class="en">PJ Berri (Taito) — the same PJ Berri plush as the unmarked wave, shown loose with its hang tag still attached. The tag's lower block carries the <strong>TAITO</strong> mark, <strong>PRIZE ONLY</strong>, <strong>MADE IN CHINA</strong>, and the ©2006 Rodney A. Greenblat / Interlink line.</span><span class="ja">PJベリー（タイトー）— 無表記ロットと同一のPJベリーぬいぐるみだが、下げ札が付いた状態の個体。タグ下部には<strong>TAITO</strong>表記、<strong>PRIZE ONLY</strong>（景品専用）、<strong>MADE IN CHINA</strong>、および ©2006 Rodney A. Greenblat／Interlink のクレジットが入る。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaPlush/taitotag.png" alt="Hang tag front — orange PaRappa art with pink starburst TAITO logo">
+          <div class="ujl-caption"><span class="en">Hang-Tag (front) — orange card printed with the <em>PaRappa The Rapper</em> wordmark, a mid-kick PaRappa, Chop Chop Master Onion, and PJ at the decks. The <strong>pink starburst TAITO®</strong> logo at the left edge is the tell that separates this wave from the unmarked tags.</span><span class="ja">下げ札（表面）— オレンジ地のカードに<em>PaRappa The Rapper</em>のロゴ、キックポーズのパラッパ、タマネギ先生、ターンテーブルを操るPJがプリントされている。左端の<strong>ピンクの星形 TAITO®</strong> ロゴが、無表記タグのロットと見分けるポイント。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaPlush/taitotagback.png" alt="Hang tag back — Japanese spec card, PaRappa Middle Size Plush, TAITO PRIZE ONLY, ©2006">
+          <div class="ujl-caption"><span class="en">Hang-Tag (back) — Japanese spec side, naming the product 「パラッパラッパー ミドルサイズぬいぐるみ」 (<strong>PaRappa The Rapper Middle Size Plush</strong>) and marking it <strong>全3種</strong> ("3 types in the set"). Below the ⚠注意 safety block sit the 対象年齢 6才以上 ("ages 6+") mark, the Taito customer-service line, the <strong>TAITO / PRIZE ONLY / MADE IN CHINA</strong> stamp, and the ©2006 Rodney A. Greenblat / Interlink credit.</span><span class="ja">下げ札（裏面）— 日本語のスペック面。商品名は「パラッパラッパー ミドルサイズぬいぐるみ」で、<strong>全3種</strong>と明記されている。⚠注意の安全文の下には、対象年齢6才以上の表示、タイトーお客様相談センターの連絡先、<strong>TAITO／PRIZE ONLY／MADE IN CHINA</strong>のスタンプ、そして ©2006 Rodney A. Greenblat／Interlink のクレジットが並ぶ。</span></div>
+        </div>
+      </div>
+
+      <div class="ujl-gallery-subtitle"><span class="en">— RARE PARAPPA VARIATIONS —</span><span class="ja">— 希少パラッパ バリエーション —</span></div>
+      <div class="ujl-gallery-grid condense-grid">
         <div class="ujl-gallery-item">
           <img src="ParappaStuff/ParappaPlush/taitositting.jpg" alt="Taito PaRappa standard prize plush sitting on shelf">
           <div class="ujl-caption"><span class="en">16" PARAPPA THE RAPPER plush soft toy. This toy was PRIZE ONLY meaning it was never for sale anywhere in the world and could only be obtained by winning it in a UFO catcher game in a Japanese arcade.</span><span class="ja">16インチ「パラッパラッパー」ぬいぐるみ。本品はPRIZE ONLY（景品専用）仕様で、世界中どこでも一般販売されたことはなく、日本のアーケードのUFOキャッチャーで獲得することでのみ入手可能だった個体。</span></div>
@@ -2157,7 +2217,6 @@
         </div>
         <div class="ujl-gallery-item">
           <img src="ParappaStuff/ParappaPlush/taitotag.jpg" alt="Taito PaRappa hang tag — orange front side">
-          <div class="ujl-caption"><span class="en">Taito Hang-Tag — orange retail card supplied with the Taito prize plushes, showing Master Onion in mid-chop, PaRappa kicking a sneaker pose, and a tiny PJ Berri DJ icon. The "TAITO" stamp anchors the lower-left corner, identifying it as the official prize-line tag (distinct from the earlier Takara/SEGA hang-tag).</span><span class="ja">タイトー下げ札 — タイトーのプライズぬいぐるみに付属するオレンジのカード。手刀を構えるタマネギ先生、スニーカーを踏み出すパラッパ、左下の小さなPJベリーDJアイコンが描かれている。左下に「TAITO」のスタンプがあり、先発のタカラ／SEGA下げ札とは別のタイトー公式プライズタグであることが分かる。</span></div>
         </div>
         <div class="ujl-gallery-item">
           <img src="ParappaStuff/ParappaPlush/taitobackk.jpg" alt="Taito SL plush hang-tag back side — Japanese spec card">
@@ -2167,12 +2226,12 @@
           <img src="ParappaStuff/ParappaPlush/taitoback.jpg" alt="Taito SL Jumbo PaRappa plush — back view">
         </div>
         <div class="ujl-gallery-item">
-          <img src="ParappaStuff/ParappaPlush/taitotush.jpg" alt="Taito PaRappa plush brand label — PaRappa The Rapper CRG/IP">
-          <div class="ujl-caption"><span class="en">Brand Label (tush tag) — close-up of the white satin "PaRappa The Rapper® / CRG/IP" brand ribbon sewn into the rear seam of the plush, identifying the licensed character mark used across the Taito prize line.</span><span class="ja">ブランドネーム（タッシュタグ）— 後身頃の縫い目に縫い付けられた白いサテンの「PaRappa The Rapper® / CRG/IP」ブランドリボンのクローズアップ。タイトー プライズシリーズで共通して使用されている、ライセンスキャラクター表記が確認できる。</span></div>
+          <img src="ParappaStuff/ParappaPlush/taitotush2.jpg" alt="Taito tush tag — TAITO PRIZE ONLY MADE IN CHINA">
+          <div class="ujl-caption"><span class="en">Tush Tag (Taito-marked) — the same seat label position on the later run, this time printed with the <strong>TAITO</strong> logo alongside <strong>PRIZE ONLY</strong> and <strong>MADE IN CHINA</strong>. Confirms the plush as an official Taito amusement-prize release rather than the earlier unmarked wave.</span><span class="ja">おしりタグ（タイトー表記入り）— 後期ロットの同じ位置に付くラベル。<strong>TAITO</strong>ロゴとともに<strong>PRIZE ONLY</strong>（景品専用）、<strong>MADE IN CHINA</strong>が印刷されている。初期の無表記ロットではなく、タイトー正規のプライズ景品であることを裏付ける個体。</span></div>
         </div>
         <div class="ujl-gallery-item">
-          <img src="ParappaStuff/ParappaPlush/taitotush2.jpg" alt="Taito tush tag — TAITO PRIZE ONLY MADE IN CHINA">
-          <div class="ujl-caption"><span class="en">TAITO "PRIZE ONLY" Tush Tag — secondary white care label sewn beside the brand ribbon, printed "TAITO / PRIZE ONLY / MADE IN CHINA". The "PRIZE ONLY" wording confirms the unit was manufactured exclusively as an arcade-redemption prize and was never sold at retail.</span><span class="ja">タイトー「PRIZE ONLY」タッシュタグ — ブランドリボンの隣に縫い付けられた白い品質表示タグ。「TAITO／PRIZE ONLY／MADE IN CHINA」と印字されており、「PRIZE ONLY」の表記は本品がアーケード景品専用に生産され、一般販売されていない個体であることを裏付けている。</span></div>
+          <img src="ParappaStuff/ParappaPlush/minitaito.jpg" alt="Taito mini PaRappa keychain plush">
+          <div class="ujl-caption"><span class="en">Mini PaRappa Keychain Plush (Taito) — small palm-sized PaRappa mascot prize with a sewn-in cord strap for clipping to bags or phones. The compact face-forward pose and oversized beanie make it the most portable entry in Taito's PaRappa prize lineup.</span><span class="ja">ミニ パラッパ キーチェーンぬいぐるみ（タイトー）— 手のひらサイズの小型パラッパマスコット景品。バッグや携帯に取り付けられるストラップ紐が縫い付けられている。正面ポーズと大きめのビーニーが特徴で、タイトーのパラッパ景品ラインナップの中でも最も携帯性に優れたモデル。</span></div>
         </div>
       </div>
     </div>
@@ -2856,7 +2915,11 @@
 
     <div class="ujl-gallery">
       <div class="ujl-gallery-title"><span class="en">— BANDAI TAPE CLUB CAPSULE WASHI TAPES —</span><span class="ja">— バンダイ Tape Club カプセル マスキングテープ —</span></div>
-      <div class="ujl-gallery-grid">
+      <div class="ujl-gallery-grid tapeclub-grid">
+        <div class="ujl-gallery-item display-card">
+          <img src="ParappaStuff/Misc2/displaycard.jpg" alt="Bandai Tape Club gashapon machine display card showing all six tape designs">
+          <div class="ujl-caption"><span class="en">The gashapon machine display card — Bandai, 1999, made in Japan. It lays out the full lineup: three キャラクターテープ (character tapes) featuring PaRappa, Sunny Funny, PJ Berri and Katy Kat, and three メッセージテープ (message tapes) printed with phrases like "How are you?", "Wonderful!", "Lucky!" and "Send me a letter". The fine print confirms 全６種 at 各100円, one tape per capsule, ages 6 and up — and that these are セロハンテープ (cellophane tape) rather than true washi.</span><span class="ja">ガシャポン本体用のディスプレイ台紙。バンダイ、1999年日本製。パラッパ、サニーファニー、PJベリー、ケイティ・キャットを描いたキャラクターテープ３種と、「How are you?」「Wonderful!」「Lucky!」「Send me a letter」などの文字が入ったメッセージテープ３種で、ラインナップ全体が一目で分かる。下部には「セロハンテープ」「全６種」「１カプセル１個入り」「対象年齢６才以上」「各100円」の表記が並ぶ。</span></div>
+        </div>
         <div class="ujl-gallery-item">
           <img src="ParappaStuff/Misc/m52583125854_1.png" alt="PaRappa Tape Club gashapon set with capsule and tape rolls">
           <div class="ujl-caption"><span class="en">Bandai gashapon "PaRappa The Rapper Tape Club" — six washi-tape rolls plus a header card, each capsule still factory sealed.</span><span class="ja">バンダイのカプセルトイ「PaRappaTheRapper Tape Club」。6種のマスキングテープロールとヘッダーカードが、それぞれ未開封のカプセルに封入されている。</span></div>
@@ -3367,11 +3430,35 @@
       <div class="ujl-gallery-grid">
         <div class="ujl-gallery-item">
           <img src="LammyStuff/Tour/milkcanred.png" alt="Um Jammer Lammy / MilkCan Japan Tour '99 PARCO PASS sticker — red variant">
-          <div class="ujl-caption"><span class="en">PARCO Event "PASS" Sticker (Red) — red rectangular peel-off sticker styled as a backstage / event pass. The header reads "UmJammerLammy" with "PASS" in oversized white block letters, then "MilkCan JAPAN TOUR '99" beneath, flanked by line illustrations of Katy Kat, Lammy, and Ma-san. A blank white rectangle at the bottom is pre-printed with "PARCO" — used by staff to write each visitor's slot. One of the rarer survivors of the campaign since most stickers were applied to clothing on the day and discarded after the event.</span><span class="ja">パルコ イベント「PASS」ステッカー（赤）— バックステージパス／イベントパス調にデザインされた赤い長方形のシール式ステッカー。ヘッダーには「UmJammerLammy」、その下に大きな白文字で「PASS」、さらに「MilkCan JAPAN TOUR '99」と続き、両脇にケイティ・キャット、ラミー、マーさんの線画イラストが配される。下部の白い枠には「PARCO」と印字済みで、来場者ごとに枠を書き込んでスタッフが運用した。当日身に着けた後にそのまま処分されたものがほとんどで、現存数の少ない希少アイテム。</span></div>
         </div>
         <div class="ujl-gallery-item">
           <img src="LammyStuff/Tour/milkcanblue.png" alt="Um Jammer Lammy / MilkCan Japan Tour '99 PARCO PASS sticker — blue variant">
-          <div class="ujl-caption"><span class="en">PARCO Event "PASS" Sticker (Blue) — the blue colourway of the same backstage / event pass sticker, sharing the identical layout: "UmJammerLammy" header, oversized white "PASS" lettering, the "MilkCan JAPAN TOUR '99" line, the Katy Kat / Lammy / Ma-san line art, and the pre-printed "PARCO" write-in box. The PASS stickers were issued in more than one colour, and the blue variant is the harder of the two to find today.</span><span class="ja">パルコ イベント「PASS」ステッカー（青）— 同じバックステージパス／イベントパス調ステッカーの青色バージョン。「UmJammerLammy」のヘッダー、大きな白文字の「PASS」、「MilkCan JAPAN TOUR '99」の表記、ケイティ・キャット／ラミー／マーさんの線画、そして「PARCO」と印字された記入欄まで、レイアウトは赤版とまったく同じ。PASSステッカーは複数の色で配布されており、青版は2色のうちより入手が難しいとされる。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— PROMOTIONAL FAN &amp; TOUR PASS —</span><span class="ja">— 販促うちわ＆ツアーパス —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyMisc/egrav.png" alt="Lammy-face paper fan shown with a Parco tour pass card">
+          <div class="ujl-caption"><span class="en">A die-cut Lammy-face paper fan (uchiwa) with a red handle, shown alongside the matching "MilkCan Japan Tour '99" PARCO pass card.</span><span class="ja">赤い柄の付いた、ラミーの顔型ダイカットうちわ。お揃いの「MilkCan Japan Tour '99」PARCO パスカードと一緒に撮影されている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyMisc/m42711398272_5.png" alt="Front of the Lammy-face promotional paper fan">
+          <div class="ujl-caption"><span class="en">The fan's printed front — Lammy's big-eyed face die-cut into the paddle shape, with the red plastic handle.</span><span class="ja">うちわのプリント面。大きな目のラミーの顔がうちわの形にダイカットされ、赤いプラスチックの柄が付く。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyMisc/m42711398272_6.png" alt="Back of the promotional fan listing the MilkCan Japan Tour 99 dates">
+          <div class="ujl-caption"><span class="en">The reverse of the fan, advertising the "MilkCan Japan Tour '99 — Um Jammer Lammy mini SHOP" with the full list of PARCO store dates and locations.</span><span class="ja">うちわの裏面。「MilkCan Japan Tour '99 — ウンジャマ・ラミー mini SHOP」の告知で、各PARCO店舗の開催日と場所が一覧で記されている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyMisc/qvwtecar.jpg" alt="Promotional fan back and Parco pass laid out together">
+          <div class="ujl-caption"><span class="en">The fan's tour-schedule back laid out with the PARCO pass card — the pass printed with three MilkCan characters and a blank name field.</span><span class="ja">うちわのツアー日程面と、PARCOパスカードを並べた一枚。パスにはMilkCanの3キャラクターと、空欄の名前記入欄がプリントされている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyMisc/rewvdq.png" alt="Close-up of the MilkCan Japan Tour 99 Parco pass card">
+          <div class="ujl-caption"><span class="en">A close-up of the "MilkCan JAPAN TOUR '99" PARCO pass, with line-art of Katy, Lammy, and Ma-san above a blank fill-in panel.</span><span class="ja">「MilkCan JAPAN TOUR '99」PARCOパスのクローズアップ。ケイティ、ラミー、マーさんの線画の下に、空欄の記入パネルが配されている。</span></div>
         </div>
       </div>
     </div>
@@ -3851,32 +3938,6 @@
     </div>
 
     <div class="ujl-gallery">
-      <div class="ujl-gallery-title"><span class="en">— PROMOTIONAL FAN &amp; TOUR PASS —</span><span class="ja">— 販促うちわ＆ツアーパス —</span></div>
-      <div class="ujl-gallery-grid">
-        <div class="ujl-gallery-item">
-          <img src="LammyStuff/LammyMisc/egrav.png" alt="Lammy-face paper fan shown with a Parco tour pass card">
-          <div class="ujl-caption"><span class="en">A die-cut Lammy-face paper fan (uchiwa) with a red handle, shown alongside the matching "MilkCan Japan Tour '99" PARCO pass card.</span><span class="ja">赤い柄の付いた、ラミーの顔型ダイカットうちわ。お揃いの「MilkCan Japan Tour '99」PARCO パスカードと一緒に撮影されている。</span></div>
-        </div>
-        <div class="ujl-gallery-item">
-          <img src="LammyStuff/LammyMisc/m42711398272_5.png" alt="Front of the Lammy-face promotional paper fan">
-          <div class="ujl-caption"><span class="en">The fan's printed front — Lammy's big-eyed face die-cut into the paddle shape, with the red plastic handle.</span><span class="ja">うちわのプリント面。大きな目のラミーの顔がうちわの形にダイカットされ、赤いプラスチックの柄が付く。</span></div>
-        </div>
-        <div class="ujl-gallery-item">
-          <img src="LammyStuff/LammyMisc/m42711398272_6.png" alt="Back of the promotional fan listing the MilkCan Japan Tour 99 dates">
-          <div class="ujl-caption"><span class="en">The reverse of the fan, advertising the "MilkCan Japan Tour '99 — Um Jammer Lammy mini SHOP" with the full list of PARCO store dates and locations.</span><span class="ja">うちわの裏面。「MilkCan Japan Tour '99 — ウンジャマ・ラミー mini SHOP」の告知で、各PARCO店舗の開催日と場所が一覧で記されている。</span></div>
-        </div>
-        <div class="ujl-gallery-item">
-          <img src="LammyStuff/LammyMisc/qvwtecar.jpg" alt="Promotional fan back and Parco pass laid out together">
-          <div class="ujl-caption"><span class="en">The fan's tour-schedule back laid out with the PARCO pass card — the pass printed with three MilkCan characters and a blank name field.</span><span class="ja">うちわのツアー日程面と、PARCOパスカードを並べた一枚。パスにはMilkCanの3キャラクターと、空欄の名前記入欄がプリントされている。</span></div>
-        </div>
-        <div class="ujl-gallery-item">
-          <img src="LammyStuff/LammyMisc/rewvdq.png" alt="Close-up of the MilkCan Japan Tour 99 Parco pass card">
-          <div class="ujl-caption"><span class="en">A close-up of the "MilkCan JAPAN TOUR '99" PARCO pass, with line-art of Katy, Lammy, and Ma-san above a blank fill-in panel.</span><span class="ja">「MilkCan JAPAN TOUR '99」PARCOパスのクローズアップ。ケイティ、ラミー、マーさんの線画の下に、空欄の記入パネルが配されている。</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="ujl-gallery">
       <div class="ujl-gallery-title"><span class="en">— PROMOTIONAL FLAME SIGN —</span><span class="ja">— 販促フレームPOP —</span></div>
       <div class="ujl-gallery-grid">
         <div class="ujl-gallery-item">
@@ -4298,6 +4359,7 @@
 
     <div class="ujl-gallery">
       <div class="ujl-gallery-title"><span class="en">— PICT-UP — CHARACTER EXPO 01 —</span><span class="ja">— ピクトアップ — キャラクターエキスポ01 —</span></div>
+      <div class="ujl-gallery-credit"><span class="en">Scans courtesy of <a href="https://www.reddit.com/user/flannelboyy/" target="_blank" rel="noopener noreferrer">u/flannelboyy</a> on Reddit.</span><span class="ja">スキャン提供：Redditユーザー <a href="https://www.reddit.com/user/flannelboyy/" target="_blank" rel="noopener noreferrer">u/flannelboyy</a> さん。</span></div>
       <div class="photo-folder fan-4" title="Click to view — Pict-up, Character Expo 01 PaRappa feature">
         <img src="Parappa%20Site/Magazine/pict/parappapictup.jpg" alt="Pict-up magazine — Character Expo 01 PaRappa feature, cover">
         <img src="Parappa%20Site/Magazine/pict/parappapict1.webp" alt="Pict-up magazine — Character Expo 01 PaRappa feature, page 1">
@@ -5186,6 +5248,19 @@
     </div>
 
     <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— FAMITSU BROS. PAPERCRAFT SUPPLEMENT —</span><span class="ja">— 月刊ファミ通ブロス 特別付録 ペーパークラフト —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="Parappa%20Site/Promo/cutout.png" alt="Mezase COOL!! Action PaRappa!! papercraft sheet — Famitsu Bros. April issue special supplement">
+          <div class="ujl-caption"><span class="en">This is a special supplement included with the monthly <strong>Famitsu Bros.</strong> magazine — the April issue's <strong>special supplement ②</strong>. A die-cut papercraft sheet headed <strong>"めざせCOOL!! アクションパラッパ!!"</strong> ("Aim for COOL!! Action PaRappa!!"), with the sub-line "You too can become a hero!" and 攻略楽譜付き ("includes strategy sheet music"). Punch-out parts build a poseable PaRappa — head in the orange beanie, body, arms, gloved hands, and red sneakers — over a rainbow-and-magenta airbrushed background. A grey <strong>SONY PlayStation</strong> controller sits at lower left, a five-step 作りかた (assembly) diagram at centre-right, and mountain/valley fold keys top right. Along the bottom run the Lesson 1–4 button-timing charts (the "strategy sheet music"), ending in the ◯YES ✕NO prompt.</span><span class="ja">月刊<strong>ファミ通ブロス</strong>4月号の<strong>特別付録②</strong>。<strong>「めざせCOOL!! アクションパラッパ!!」</strong>と題されたダイカットのペーパークラフトシートで、「キミも〜ヒーローになりたい!」のコピーと「攻略楽譜付き」の表記入り。切り抜きパーツを組み立てると、オレンジのニット帽をかぶった頭、胴体、腕、手袋の手、赤いスニーカーからなる可動パラッパが完成します。背景は虹とマゼンタのエアブラシ調。左下にはグレーの<strong>SONY PlayStation</strong>コントローラ、中央右には5工程の「作りかた」図解、右上には山折り・谷折りの凡例。下部にはLesson 1〜4のボタンタイミング譜（攻略楽譜）が並び、最後は◯YES ✕NOの表示で締めくくられています。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa%20Site/Promo/cutout2.png" alt="Reverse of the PaRappa papercraft supplement showing unprinted die-cut embossing">
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
       <div class="ujl-gallery-title"><span class="en">— PARAPPA THE RAPPER 2 —</span><span class="ja">— パラッパラッパー2 —</span></div>
       <div class="ujl-gallery-grid">
         <div class="ujl-gallery-item">
@@ -5804,6 +5879,20 @@
     </div>
 
     <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— UM JAMMER LAMMY NOW! — "ALL WE NEED IS MUSIC" —</span><span class="ja">— ウンジャマ・ラミー NOW! —「ALL WE NEED IS MUSIC」—</span></div>
+      <div class="video-embed">
+        <div class="yt-facade" data-video-id="zo21DzAkX9I" data-title="Um Jammer Lammy NOW! - All We Need Is Music" role="button" tabindex="0" aria-label="Play video">
+          <img src="https://i.ytimg.com/vi/zo21DzAkX9I/hqdefault.jpg" alt="Um Jammer Lammy NOW! - All We Need Is Music">
+          <span class="yt-facade-play" aria-hidden="true">&#9654;</span>
+        </div>
+      </div>
+      <div class="ujl-intro">
+        <p><span class="block-en">"<strong>All We Need Is Music</strong>" as it appears in <strong>Um Jammer Lammy NOW!</strong>, the arcade adaptation of <em>Um Jammer Lammy</em> co-developed with <strong>Namco</strong> and released in Japan in <strong>December 1999</strong>. The song appears on the <em>I Scream</em> album.</span>
+        <span class="block-ja">『<strong>ウンジャマ・ラミー NOW!</strong>』における「<strong>All We Need Is Music</strong>」の映像です。同作はナムコとの共同開発による『ウンジャマ・ラミー』のアーケード版で、<strong>1999年12月</strong>に日本で稼働しました。本楽曲は『<em>I Scream</em>』アルバムに収録されています。</span></p>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
       <div class="ujl-gallery-title"><span class="en">— UM JAMMER LAMMY PRE-RELEASE CONCERT AT THE ROXY — AUGUST 26, 1999 —</span><span class="ja">— ウンジャマ・ラミー プレリリースコンサート＠ザ・ロキシー 1999年8月26日 —</span></div>
       <div class="video-embed">
         <div class="yt-facade" data-video-id="kX2IWyEKdGo" data-title="Um Jammer Lammy Pre-release Concert at The Roxy - August 26, 1999" role="button" tabindex="0" aria-label="Play video">
@@ -5956,7 +6045,7 @@
     var currentIndex = -1;
 
     var navDisabledPages = {
-      'page-welcome': 1, 'page-whatsnew': 1, 'page-search': 1,
+      'page-welcome': 1, 'page-search': 1, 'page-donate': 1, 'page-contact': 1,
       'page-aboutgame': 1, 'page-aboutanime': 1, 'page-aboutrodney': 1,
       'page-aboutmatsuura': 1, 'page-aboutvoiceactors': 1,
       'page-chars': 1, 'page-chars-ujl': 1, 'page-chars-ptr2': 1,
@@ -6396,6 +6485,47 @@
 </script>
 
 <div class="corner-subtitle" id="siteSubtitle">★ FAN SITE ★</div>
+
+<!-- BACK TO TOP — right side, shows once the page is scrolled halfway -->
+<button type="button" class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M12 20V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+
+<script>
+  /* Back-to-top button: visible past 50% of the page's scrollable distance. */
+  (function () {
+    var btn = document.getElementById('backToTop');
+    if (!btn) return;
+
+    var ticking = false;
+
+    function update() {
+      ticking = false;
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = max > 0 ? window.pageYOffset / max : 0;
+      btn.classList.toggle('is-visible', progress >= 0.5);
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+
+    btn.addEventListener('click', function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    });
+
+    update();
+  })();
+</script>
 
 </body>
 </html>

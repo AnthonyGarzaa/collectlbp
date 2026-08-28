@@ -245,3 +245,44 @@
     ]);
   }
 })();
+
+/* ── Back to top ──────────────────────────────────────────────────────────
+   Right-edge button, shared by every page that loads vib.js. Appears once
+   the visitor is 50% of the way through the page's scrollable distance. */
+(function () {
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'vib-to-top';
+  btn.setAttribute('aria-label', 'Back to top');
+  btn.title = 'Back to top';
+  btn.innerHTML =
+    '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+    '<path d="M12 20V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="3" ' +
+    'stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  document.body.appendChild(btn);
+
+  var ticking = false;
+
+  function update() {
+    ticking = false;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = max > 0 ? window.pageYOffset / max : 0;
+    btn.classList.toggle('is-visible', progress >= 0.5);
+  }
+
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(update);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+
+  btn.addEventListener('click', function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  });
+
+  update();
+})();

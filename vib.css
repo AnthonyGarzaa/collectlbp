@@ -205,6 +205,7 @@ body {
 
 .vib-nav {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 16px;
 }
@@ -297,6 +298,30 @@ main > .vib-section:last-child {
   line-height: 1.7;
   letter-spacing: 0.5px;
   margin: 0 0 18px;
+}
+
+/* Inline link inside body copy, styled like a small nav plate */
+.vib-link-row {
+  text-align: center;
+}
+
+.vib-link {
+  display: inline-block;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  padding: 8px 18px;
+  border: 4px double #fff;
+  text-decoration: underline double #fff;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.vib-link:hover {
+  background: #fff;
+  color: #000;
+  text-decoration-color: #000;
 }
 
 .vib-figure {
@@ -493,4 +518,65 @@ main > .vib-section:last-child {
   }
   .lightbox-prev { left: 6px; }
   .lightbox-next { right: 6px; }
+}
+
+/* ── Back to top ──────────────────────────────────────────────────────────
+   Fixed on the right edge, vertically centred. Hidden until the visitor has
+   scrolled through 50% of the page (element + .is-visible built in vib.js). */
+.vib-to-top {
+  position: fixed;
+  right: 16px;
+  top: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 4px double #fff;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-50%) translateX(24px);
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s, color 0.2s;
+  z-index: 900;
+}
+
+.vib-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(-50%) translateX(0);
+}
+
+.vib-to-top svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.vib-to-top:hover {
+  background: #fff;
+  color: #000;
+}
+
+.vib-to-top:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .vib-to-top {
+    right: 8px;
+    width: 44px;
+    height: 44px;
+  }
+  .vib-to-top svg { width: 20px; height: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vib-to-top { transition: opacity 0.01s linear; }
 }
