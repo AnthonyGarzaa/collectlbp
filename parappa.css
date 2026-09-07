@@ -331,6 +331,22 @@ body.theme-lammy .site-header {
   transition: color 0.4s;
 }
 
+/* PaRappa-mode title is SVG text (same reason as the corner button: HTML
+   text-stroke fills from the hinted glyph but strokes the outline, which left
+   gaps and spikes on this font). Font properties inherit from .logo. */
+.site-header .logo .logo-svg {
+  display: block;
+  overflow: visible;
+}
+
+.site-header .logo .logo-svg text {
+  -webkit-text-stroke: 0;
+  stroke: #000;
+  stroke-width: 6px;
+  paint-order: stroke fill;
+  stroke-linejoin: round;
+}
+
 /* PaRappa-mode title: rendered inside a white pill tab with a thick black
    outline that shrinks to the text (size is proportional to the content). */
 body:not(.theme-lammy) .site-header .logo {
@@ -454,27 +470,180 @@ body:not(.theme-lammy) .site-header .logo {
   margin-top: 12px;
 }
 
-.corner-subtitle {
+/* Wrapper for the PaRappa Corner button. Pinned to the bottom-left of the
+   *visible* viewport at a constant on-screen size. left/bottom are 0 and the
+   real 22px inset lives inside the transform so that it is scaled by
+   --zoom-fix too (see the zoom-anchor script in index.html, which cancels out
+   browser zoom and pinch zoom). */
+.corner-wrap {
   position: fixed;
-  left: 16px;
-  bottom: 16px;
+  left: 0;
+  bottom: 0;
+  transform-origin: left bottom;
+  transform: translate(var(--zoom-dx, 0px), var(--zoom-dy, 0px))
+             scale(var(--zoom-fix, 1)) translate(22px, -22px);
+  z-index: 1000;
+}
+
+.corner-subtitle {
+  display: block;
+  /* Styled as a bright yellow pill button to match the LANGUAGE / LAMMY MODE
+     controls in the header. Stays yellow in both themes. */
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  padding: 3px 10px;
+  background: #FFE500;
+  border: 4px solid #000;
+  border-radius: 14px;
   font-family: 'RodneyWrite', 'MS PGothic', 'Hiragino Kaku Gothic Pro', sans-serif;
   font-size: 20px;
-  color: var(--color-subtitle);
-  letter-spacing: 2px;
-  z-index: 1000;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  line-height: normal;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* Label = SVG text (see the comment on the button in index.html). Two copies of
+   the text, back to front: purple stroke ring, then green fill with a black
+   stroke painted under it. Visible widths at these values: black 3px, purple 1.5px. */
+.corner-subtitle .corner-label {
+  display: block;
+  overflow: visible;
+}
+
+.corner-subtitle .corner-label text {
+  font-family: 'RodneyWrite', 'MS PGothic', 'Hiragino Kaku Gothic Pro', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  paint-order: stroke fill;
+  stroke-linejoin: round;
+}
+
+.corner-subtitle .corner-label-back {
+  fill: #7B1FA2;
+  stroke: #7B1FA2;
+  stroke-width: 9px;
+}
+
+.corner-subtitle .corner-label-front {
+  fill: #CCFF00; /* same green as the back-to-top button */
+  stroke: #000;
+  stroke-width: 6px;
+}
+
+/* Lammy mode: two-tone label matching the Lammy title's "Um Jammer" / "LAMMY"
+   treatment. "PaRappa" is black with a white outline, "Corner" is white with a
+   black outline. The back layer is painted out (not hidden: fitTextSvgs measures
+   it for the SVG width) except for "PaRappa", where it draws the thin white
+   outline and carries a thin shadow so the white reads against the white pill.
+   The front layer's black stroke thickens the glyphs; the white sits outside it. */
+body.theme-lammy .corner-subtitle .corner-label-back {
+  fill: none;
+  stroke: none;
+  filter: drop-shadow(0 0 1.5px rgba(0, 0, 0, 0.9));
+}
+
+body.theme-lammy .corner-subtitle .corner-label-back .corner-word-parappa {
+  stroke: #FFF;
+  stroke-width: 3.4px; /* front black 1.4px + 1px of white showing each side */
+}
+
+body.theme-lammy .corner-subtitle .corner-label-front .corner-word-parappa {
+  fill: #000;
+  stroke: #000;        /* black stroke fattens the glyphs by 0.7px each side */
+  stroke-width: 1.4px;
+}
+
+body.theme-lammy .corner-subtitle .corner-label-front .corner-word-corner {
+  fill: #FFF;
+  stroke: #000;
+}
+
+/* Neutral wrapper around the label; only styled in Lammy mode (below). */
+.corner-subtitle .corner-frame {
+  display: block;
+}
+
+/* Lammy mode: white instead of yellow, and the nav tabs' shape instead of the
+   pill: square corners with the same three bevelled outline frames (button,
+   .corner-frame::before, .corner-frame) and shadows as .nav-ujlnow. */
+body.theme-lammy .corner-subtitle {
+  background: #FFF;
+  border-radius: 0;
+  padding: 8px 10px;
+  border: none;
+  border-top: 2px solid rgba(215, 215, 215, 0.25);
+  border-left: 2px solid rgba(215, 215, 215, 0.25);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  border-right: 2px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 9px rgba(0, 0, 0, 0.6), inset 0 0 12px rgba(0, 0, 0, 0.35);
+}
+
+body.theme-lammy .corner-wrap:hover .corner-subtitle {
+  border-color: #FF8C1A; /* same hover cue as the nav tabs */
+  filter: brightness(1.06); /* well under the site-wide 1.25 button:hover brightening */
+}
+
+/* outline 3 (innermost frame, wrapping the label) */
+body.theme-lammy .corner-subtitle .corner-frame {
+  position: relative;
+  padding: 3px 8px;
+  border-top: 2px solid rgba(0, 0, 0, 0.2);
+  border-left: 2px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid rgba(215, 215, 215, 0.25);
+  border-right: 2px solid rgba(215, 215, 215, 0.25);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55), inset 0 0 9px rgba(0, 0, 0, 0.3);
+}
+
+/* outline 2 (middle frame, sitting outside outline 3) */
+body.theme-lammy .corner-subtitle .corner-frame::before {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: -9px;
+  right: -9px;
+  bottom: -7px;
+  border-top: 2px solid rgba(215, 215, 215, 0.25);
+  border-left: 2px solid rgba(215, 215, 215, 0.25);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  border-right: 2px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.55);
   pointer-events: none;
+}
+
+/* Lammy mode: red oval behind "Corner", same look as the "LAMMY" oval in the
+   title (.nav-lammy::before). Hidden outside Lammy mode; positioned by
+   fitTextSvgs in index.html. */
+.corner-subtitle .corner-pill {
+  display: none;
+}
+
+body.theme-lammy .corner-subtitle .corner-pill {
+  display: inline;
+  fill: #FF0800;
+  stroke: #000;
+  stroke-width: 2px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
+}
+
+/* Lammy mode: widen the word gap so the oval clears "PaRappa". */
+body.theme-lammy .corner-subtitle .corner-gap {
+  letter-spacing: 14px;
 }
 
 .site-header .tagline {
   font-size: 18px;
-  color: #FD4659;
+  color: #FA2A55;
   letter-spacing: 2px;
   font-family: 'RodneyWrite', 'MS PGothic', 'Hiragino Kaku Gothic Pro', sans-serif;
   font-weight: bold;
   font-style: italic;
   text-transform: uppercase;
-  -webkit-text-stroke: 0.5px #FD4659;
+  /* Back to the original hairline stroke weight. */
+  -webkit-text-stroke: 0.5px #FA2A55;
   paint-order: stroke fill;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
@@ -486,13 +655,36 @@ body:not(.theme-lammy) .site-header .logo {
   border: 4px solid #000;
   border-radius: 14px;
   padding: 1px 16px 3px;
-  text-shadow:
-    1px 1px 0 #FFFF00,
-    2px 2px 0 #FFFF00,
-    3px 3px 0 #FFFF00,
-    4px 4px 0 #FFFF00,
-    5px 5px 0 #FFFF00,
-    6px 6px 0 #FFFF00;
+  /* The yellow shadow is a real element (::before) rather than a text-shadow, so
+     it is painted on its own layer strictly behind the red text. isolation makes
+     this box a stacking context: the white pill paints first, the negative-z
+     shadow on top of it, and the red text on top of that. */
+  position: relative;
+  isolation: isolate;
+}
+
+/* The text sits in its own span so it can be slanted further than the
+   browser's synthetic italic without skewing the white pill around it. */
+.site-header .tagline-text {
+  display: inline-block;
+  position: relative;
+  transform: skewX(-12deg);
+}
+
+/* Exact yellow duplicate of the tagline, offset diagonally down-right. It
+   inherits every font property (and the 1px stroke) so its silhouette matches
+   the red text precisely; only the down-right lip is ever visible. */
+.site-header .tagline-text::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #FFFF00;
+  -webkit-text-stroke: 0.5px #FFFF00;
+  transform: translate(1.5px, 1.5px);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: -1;
 }
 
 body.theme-lammy .tagline {
@@ -529,6 +721,8 @@ body.theme-lammy .theme-cover {
 }
 
 body.theme-lammy .theme-toggle {
+  /* Matched inset from the header edge; mirrors .lang-toggle-wrap. */
+  right: 12px;
   width: 190px;
   height: 85px;
 }
@@ -732,6 +926,8 @@ body.theme-lammy .lang-toggle-wrap:hover .lang-cover {
 }
 
 body.theme-lammy .lang-toggle-wrap {
+  /* Matched inset from the header edge; mirrors .theme-toggle. */
+  left: 12px;
   width: 190px;
   height: 85px;
 }
@@ -1627,18 +1823,18 @@ body:not(.theme-lammy) .nav-item:nth-child(2) > button { background: #FF8C00 !im
 body:not(.theme-lammy) .nav-item:nth-child(3) > button { background: #ff3800 !important; }
 body:not(.theme-lammy) .nav-item:nth-child(4) > button { background: #9932CC !important; }
 body:not(.theme-lammy) .nav-item:nth-child(5) > button { background: #1F2F5C !important; }
-body:not(.theme-lammy) .nav-item:nth-child(6) > button { background: #8B4513 !important; }
+body:not(.theme-lammy) .nav-item:nth-child(6) > button { background: #FF3F8E !important; }
 body:not(.theme-lammy) .nav-item:nth-child(7) > button { background: #ffc23d !important; }
-body:not(.theme-lammy) .nav-item:nth-child(8) > button { background: #66ff4d !important; }
+body:not(.theme-lammy) .nav-item:nth-child(8) > button { background: #3bb143 !important; }
 
 body:not(.theme-lammy) .nav-item:nth-child(1) .dropdown { background: #89CFF0; }
 body:not(.theme-lammy) .nav-item:nth-child(2) .dropdown { background: #FF8C00; }
 body:not(.theme-lammy) .nav-item:nth-child(3) .dropdown { background: #ff3800; }
 body:not(.theme-lammy) .nav-item:nth-child(4) .dropdown { background: #9932CC; }
 body:not(.theme-lammy) .nav-item:nth-child(5) .dropdown { background: #1F2F5C; }
-body:not(.theme-lammy) .nav-item:nth-child(6) .dropdown { background: #8B4513; }
+body:not(.theme-lammy) .nav-item:nth-child(6) .dropdown { background: #FF3F8E; }
 body:not(.theme-lammy) .nav-item:nth-child(7) .dropdown { background: #ffc23d; }
-body:not(.theme-lammy) .nav-item:nth-child(8) .dropdown { background: #66ff4d; }
+body:not(.theme-lammy) .nav-item:nth-child(8) .dropdown { background: #3bb143; }
 .nav-item:nth-child(9) .dropdown { background: #E8D8A7; }
 
 body:not(.theme-lammy) .nav-item:nth-child(4) .sub-dropdown { background: #9932CC; }
@@ -1725,7 +1921,7 @@ body:not(.theme-lammy) .nav-item:nth-child(12) > button {
   border-bottom-left-radius: 0 !important;
   border-top-right-radius: 18px !important;
   border-bottom-right-radius: 18px !important;
-  background: #FF3F8E !important;
+  background: #009090 !important;
   color: #FFF !important;
 }
 
@@ -2040,11 +2236,11 @@ body.theme-lammy .nav-item > button.nav-milkcan {
   font-style: italic;
 }
 
-/* ── Events special nav tab — deep plum in PaRappa mode ── */
+/* ── Events special nav tab — maroon in PaRappa mode ── */
 body:not(.theme-lammy) .nav-item > button.nav-events,
 body:not(.theme-lammy) .nav-item:hover > button.nav-events,
 body:not(.theme-lammy) .nav-item > button.nav-events.active {
-  background: #66023C !important;
+  background: #911111 !important;
   color: #FFF !important;
 }
 
@@ -2330,16 +2526,17 @@ body:not(.theme-lammy) .nav-item > button.nav-events.active {
   scroll-margin-top: 14px;
 }
 
-/* Events page (gal-events2) — three events per row */
+/* Events page (gal-events2) — uniform landscape cards, two per row */
 .event-list {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 
 .event-list li {
   margin: 0;
+  min-width: 0;
 }
 
 .event-list a {
@@ -2367,21 +2564,42 @@ body:not(.theme-lammy) .nav-item > button.nav-events.active {
   text-decoration: underline;
 }
 
-/* event-list button with a logo stacked on top of the text */
+/* event-list button: fixed-size rectangle, thumbnail on the left, title on the right */
 .event-list a.has-logo {
-  padding-left: 12px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-sizing: border-box;
+  height: 160px;
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 17px;
+  line-height: 1.3;
+  overflow: hidden;
 }
 
 .event-list a.has-logo::before {
   display: none;
 }
 
+.event-list a.has-logo > span {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
 .event-list-logo {
   display: block;
-  width: auto;
-  max-height: 188px;
-  margin: 0 auto 6px;
+  flex: 0 0 150px;
+  width: 150px;
+  height: 136px;
+  object-fit: contain;
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  .event-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Dunkin' page — pink-to-orange gradient header (Dunkin' brand colors) */
@@ -2895,6 +3113,39 @@ body.lang-jp .block-ja { display: block; }
   line-height: 1.5;
 }
 
+/* Got To Move wallpapers (UJL official art page): tight 6-across thumbnail
+   grid, echoing the 6x4 layout of the MilkCan site's "Screen 24" page. */
+.ujl-gallery-grid.wallpaper-grid {
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+  padding: 10px 16px 16px;
+}
+
+.ujl-gallery-grid.wallpaper-grid .ujl-gallery-item {
+  padding: 0;
+  border: none;
+}
+
+.ujl-gallery-grid.wallpaper-grid .ujl-gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-width: 1px;
+  border-radius: 3px;
+}
+
+@media (max-width: 800px) {
+  .ujl-gallery-grid.wallpaper-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .ujl-gallery-grid.wallpaper-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .ujl-gallery-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -3020,6 +3271,26 @@ body.lang-jp .block-ja { display: block; }
   width: auto;
   max-width: 220px;
   max-height: 300px;
+  height: auto;
+  border: 2px solid var(--border-wrap);
+  border-radius: 4px;
+}
+
+/* JAMMA AM Show 1999 — Namco booth photo beside the exhibit video */
+#page-ev-amshow1999 .amshow-media-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 16px;
+}
+
+#page-ev-amshow1999 .amshow-media-row img,
+#page-ev-amshow1999 .amshow-media-row video {
+  flex: 0 1 500px;
+  width: 100%;
+  max-width: 500px;
   height: auto;
   border: 2px solid var(--border-wrap);
   border-radius: 4px;
@@ -3359,6 +3630,24 @@ body.theme-lammy .search-icon {
 .search-input::placeholder {
   color: #8A8A8A;
   font-style: italic;
+}
+
+.search-count {
+  margin: 0 0 16px;
+  font-size: 22px;
+  color: #666;
+  letter-spacing: 1px;
+  font-style: italic;
+}
+
+.search-count strong {
+  color: #E65100;
+  font-style: normal;
+  font-size: 26px;
+}
+
+body.theme-lammy .search-count strong {
+  color: #7B1FA2;
 }
 
 .search-hint {
@@ -3771,9 +4060,14 @@ img {
 }
 
 .vibri-link {
+  /* Same zoom-invariant anchoring as .corner-subtitle, mirrored to the
+     bottom-right corner. The 12px inset rides inside the scaled transform. */
   position: fixed;
-  bottom: 12px;
-  right: 12px;
+  bottom: 0;
+  right: 0;
+  transform-origin: right bottom;
+  transform: translate(var(--zoom-dx-right, 0px), var(--zoom-dy, 0px))
+             scale(var(--zoom-fix, 1)) translate(-12px, -12px);
   z-index: 9999;
   display: inline-block;
   cursor: pointer;
