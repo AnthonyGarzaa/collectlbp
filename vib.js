@@ -118,11 +118,11 @@
   });
 })();
 
-// ── Background line + walking Vibri on every page ──
+// ── Background line, running Vibri and score clip on every page ──
 (function setupBackgroundVideo() {
   if (!document.body || document.getElementById('vib-bg-video')) return;
   // Spacer that keeps the wrap's height where the background video used to
-  // be, so the line and walker stay aligned. (thevib.mp4 removed.)
+  // be, so the line and score clip stay aligned. (thevib.mp4 removed.)
   var v = document.createElement('div');
   v.id = 'vib-bg-video';
   v.setAttribute('aria-hidden', 'true');
@@ -135,19 +135,12 @@
   line.id = 'vib-bg-line';
   line.setAttribute('aria-hidden', 'true');
   wrap.appendChild(line);
-  // Walking Vibri video, sitting on the line at the left of the screen.
-  var walker = document.createElement('video');
-  walker.id = 'vib-bg-walker';
-  walker.src = 'vib/thewalk.mp4';
-  walker.autoplay = true;
-  walker.loop = true;
-  walker.muted = true;
-  walker.defaultMuted = true;
-  walker.playsInline = true;
-  walker.setAttribute('muted', '');
-  walker.setAttribute('playsinline', '');
-  walker.setAttribute('aria-hidden', 'true');
-  wrap.appendChild(walker);
+  // Running Vibri (7-frame sprite from vib/Run, see #vib-bg-runner in vib.css),
+  // standing on the line at the left of the screen where the walking clip was.
+  var runner = document.createElement('div');
+  runner.id = 'vib-bg-runner';
+  runner.setAttribute('aria-hidden', 'true');
+  wrap.appendChild(runner);
   // Score video, centered, sitting 35px above the line.
   var score = document.createElement('video');
   score.id = 'vib-bg-score';
@@ -162,10 +155,45 @@
   score.setAttribute('aria-hidden', 'true');
   wrap.appendChild(score);
   document.body.appendChild(wrap);
-  var pw = walker.play();
-  if (pw && pw.catch) pw.catch(function () {});
   var ps = score.play();
   if (ps && ps.catch) ps.catch(function () {});
+
+  // Place the score clip's drawing directly below the last content box on
+  // every page, and keep the line (with the runner) well below the drawing.
+  // The clip is mostly black (blended away); its drawing occupies the band
+  // from 9.3% to 27.4% of the frame height, so only that band matters.
+  var DRAW_TOP = 0.0926, DRAW_BOTTOM = 0.2741, BOX_GAP = 24, LINE_GAP = 104;
+  function keepScoreBelowBox() {
+    var box = document.querySelector('main');
+    if (!box) return;
+    // Rects are measured in viewport pixels, but the page is zoomed to 80% on
+    // desktop (see html { zoom } in vib.css), so a CSS length moves things
+    // only zoom-times as far. Scale every adjustment up to compensate.
+    var zoom = parseFloat(window.getComputedStyle(document.documentElement).zoom) || 1;
+    wrap.style.marginTop = '0px';
+    score.style.top = '';
+    var boxBottom = box.getBoundingClientRect().bottom;
+    var r = score.getBoundingClientRect();
+    // Height may still be 0 before metadata loads; the clip is 16:9.
+    var h = r.height || (r.width * 9 / 16);
+    var drawH = h * (DRAW_BOTTOM - DRAW_TOP);
+    // 1. If the line would sit closer than LINE_GAP below the drawing, push
+    //    the whole background block (line, runner, clip) down first.
+    var lineTop = line.getBoundingClientRect().top;
+    var need = (boxBottom + BOX_GAP + drawH + LINE_GAP) - lineTop;
+    if (need > 0) {
+      wrap.style.marginTop = Math.ceil(need / zoom) + 'px';
+      r = score.getBoundingClientRect();
+    }
+    // 2. Sit the drawing's top edge BOX_GAP below the box border.
+    var drawTop = r.bottom - h * (1 - DRAW_TOP);
+    var shift = (boxBottom + BOX_GAP) - drawTop;
+    score.style.top = 'calc(50% + ' + (490 + shift / zoom).toFixed(1) + 'px)';
+  }
+  keepScoreBelowBox();
+  window.addEventListener('load', keepScoreBelowBox);
+  window.addEventListener('resize', keepScoreBelowBox);
+  score.addEventListener('loadedmetadata', keepScoreBelowBox);
 })();
 
 // ── Vibri renders (pixel-extracted from the CHARA sheets) in the masthead
@@ -174,52 +202,116 @@
   if (!document.body) return;
   var R = 'vib/renders/';
 
-  // Header: a horizontal row of three poses on each side, pushed inward toward
-  // the centred title / nav (offsets 62/158/254 from the edge), vertically
-  // centred (152px box, tops ~58-66 in the ~290px band, kept above the ticker).
-  // [file, edge('left'|'right'), offset(px), top(px), rot°, size(px, optional)]
+  // Header: five poses on each side of the centred title/nav, laid out by
+  // .vib-head-row (flex, evenly spread, one shared size) so they can never
+  // overlap each other or the nav. [file, side('left'|'right'), rot°]
   var header = document.querySelector('.vib-header');
-  if (header && !header.querySelector('.vib-head-vibri')) {
-    [['vibri_11.png', 'left',  62,  78, -6, 112],
-     ['vibri_08.png', 'left',  168, 41, 5],
-     ['vibri_09.png', 'left',  274, 33, -7],
-     ['vibri_10.png', 'right', 47,  41, 6],
-     ['vibri_06.png', 'right', 168, 33, -5],
-     ['vibri_07.png', 'right', 274, 41, 7]].forEach(function (p) {
-      var img = document.createElement('img');
-      img.src = R + p[0];
-      img.alt = '';
-      img.className = 'vib-head-vibri';
-      img.style[p[1]] = p[2] + 'px';
-      img.style.top = p[3] + 'px';
-      img.style.transform = 'rotate(' + p[4] + 'deg)';
-      if (p[5]) { img.style.width = p[5] + 'px'; img.style.height = p[5] + 'px'; }
-      img.setAttribute('aria-hidden', 'true');
-      header.appendChild(img);
+  if (header && !header.querySelector('.vib-head-row')) {
+    var sides = { left: [], right: [] };
+    [['vibri_31.png', 'left',  -6],
+     ['vibri_07.png', 'left',   4],
+     ['vibri_21.png', 'left',   5],
+     ['vibri_23.png', 'left',  -4],
+     ['vibri_06.png', 'left',  -7],
+     ['vibri_25.png', 'right',  6],
+     ['vibri_24.png', 'right', -4],
+     ['vibri_10.png', 'right', -5],
+     ['vibri_30.png', 'right',  4],
+     ['vibri_20.png', 'right',  7]].forEach(function (p) { sides[p[1]].push(p); });
+    ['left', 'right'].forEach(function (side) {
+      var row = document.createElement('div');
+      row.className = 'vib-head-row vib-head-row-' + side;
+      row.setAttribute('aria-hidden', 'true');
+      // The left row is laid out right-to-left (row-reverse) so overflow runs
+      // off the screen edge; feed it in reverse so the visual order is kept.
+      var list = side === 'left' ? sides[side].slice().reverse() : sides[side];
+      list.forEach(function (p) {
+        var img = document.createElement('img');
+        img.src = R + p[0];
+        img.alt = '';
+        img.className = 'vib-head-vibri';
+        img.style.transform = 'rotate(' + p[2] + 'deg)';
+        row.appendChild(img);
+      });
+      header.appendChild(row);
     });
+    // The rows are absolutely positioned, so give the header enough height
+    // to contain them (plus the ticker at its foot) whatever size they land at.
+    var ticker = header.querySelector('.vib-ticker');
+    var fitHeader = function () {
+      // Header tall enough for the rows above the ticker, then sit the rows
+      // exactly on the ticker's top line (the "floor" of the masthead).
+      var rows = header.querySelectorAll('.vib-head-row');
+      var rowH = 0;
+      rows.forEach(function (row) { rowH = Math.max(rowH, row.offsetHeight); });
+      var tickerH = ticker ? ticker.offsetHeight : 0;
+      header.style.minHeight = (rowH + 24 + tickerH) + 'px';
+      var floor = ticker ? (header.clientHeight - ticker.offsetTop) : 0;
+      rows.forEach(function (row) { row.style.bottom = floor + 'px'; });
+      if (window.vibLayoutGutters) window.vibLayoutGutters();   // gutters start below the header
+    };
+    fitHeader();
+    window.addEventListener('load', fitHeader);
+    window.addEventListener('resize', fitHeader);
+    header.querySelectorAll('.vib-head-vibri').forEach(function (img) { img.addEventListener('load', fitHeader); });
   }
 
-  // Gutters: a uniform-size column of poses down each side margin, below the
-  // masthead, spaced apart and extending downward. Only the filename is used
-  // now; the position/size come from the fixed box + step below.
+  // Gutters: the remaining poses zig-zag down each side margin below the
+  // masthead, alternating between the outer and inner edge of the gutter.
+  // Only the filename is used; position/size come from the box + layout below.
   if (!document.querySelector('.vib-gutter')) {
-    // Uniform 170x210 box (see .vib-gutter img), stepped 250px apart so every
-    // render is the same size, none overlap, and the column extends downward.
-    var BOX_H = 210, STEP = 250, START = 24;
+    // Uniform 170x210 box (see .vib-gutter img). Where the gutter is wide
+    // enough for the two zig-zag columns to clear each other sideways, rows
+    // are packed at half a box height (every other render shares a column,
+    // so same-column neighbours are still a full box apart); otherwise rows
+    // fall back to a full box height. Either way nothing overlaps.
+    var BOX_W = 170, BOX_H = 210, GAP = 10, START = 24;
+    var gutters = [];
     var makeGutter = function (cls, list) {
       var g = document.createElement('div');
       g.className = 'vib-gutter ' + cls;
       g.setAttribute('aria-hidden', 'true');
-      list.forEach(function (p, i) {
+      list.forEach(function (p) {
         var img = document.createElement('img');
         img.src = R + p[0];
         img.alt = '';
-        img.style.top = (START + i * STEP) + 'px';
         g.appendChild(img);
       });
-      // Tall enough to hold the whole column so nothing is clipped.
-      g.style.height = (START + (list.length - 1) * STEP + BOX_H) + 'px';
       document.body.appendChild(g);
+      gutters.push(g);
+    };
+    var layoutGutters = function () {
+      // Exact free width beside main, in layout px (unaffected by the page
+      // zoom), so the strips never sit behind the box whatever the zoom.
+      // body.clientWidth and main.offsetWidth are both in the zoomed layout
+      // space (documentElement.clientWidth is not), so this stays exact.
+      var main = document.querySelector('main');
+      var pageW = document.body.clientWidth || document.documentElement.clientWidth;
+      var free = main ? Math.max(0, (pageW - main.offsetWidth) / 2) : 0;
+      var head = document.querySelector('.vib-header');
+      var top = head ? head.offsetTop + head.offsetHeight + 24 : 290;
+      gutters.forEach(function (g) {
+        g.style.top = top + 'px';
+        g.style.width = Math.floor(free) + 'px';
+        var imgs = g.querySelectorAll('img');
+        var G = g.clientWidth;
+        // Fixed-size renders: they never scale with viewport width or zoom.
+        // (main reserves at least a 178px gutter so the 170px box always fits.)
+        var w = BOX_W, h = BOX_H, gap = GAP;
+        var span = Math.max(0, G - w);                  // sideways travel between the two columns
+        var interleave = span >= w + 4;                 // neighbours clear each other sideways
+        var step = interleave ? Math.ceil((h + gap) / 2) : h + gap;
+        var mirror = g.classList.contains('vib-gutter-right');
+        imgs.forEach(function (img, i) {
+          var outer = (i % 2 === 0);                    // even rows hug the screen edge
+          img.style.width = w + 'px';
+          img.style.height = h + 'px';
+          img.style.top = (START + i * step) + 'px';
+          img.style.left = ((outer !== mirror) ? 0 : span) + 'px';
+        });
+        // Tall enough to hold the whole zig-zag so nothing is clipped.
+        g.style.height = (START + (imgs.length - 1) * step + h) + 'px';
+      });
     };
     // [file] — one render per row, stepped down the column.
     makeGutter('vib-gutter-left', [
@@ -230,19 +322,29 @@
       ['vibri_12.png', 50, 8,   45],
       ['vibri_18.png', 59, -9,  41],
       ['vibri_19.png', 69, 7,   57],
-      ['vibri_21.png', 78, -12, 45],
-      ['vibri_22.png', 88, 10,  56]
+      ['vibri_11.png', 78, -12, 45],
+      ['vibri_22.png', 88, 10,  56],
+      ['vibri_01.png', 97, -8,  50],
+      ['vibri_03.png', 106, 9,  47],
+      ['vibri_05.png', 115, -10, 55]
     ]);
     makeGutter('vib-gutter-right', [
-      ['vibri_23.png', 12, 11,  58],
-      ['vibri_25.png', 23, -9,  42],
+      ['vibri_16.png', 12, 11,  58],
+      ['vibri_08.png', 23, -9,  42],
       ['vibri_26.png', 34, 6,   59],
       ['vibri_27.png', 45, -13, 41],
       ['vibri_28.png', 56, 9,   57],
       ['vibri_29.png', 67, -7,  43],
-      ['vibri_31.png', 78, 12,  58],
-      ['vibri_33.png', 88, -10, 44]
+      ['vibri_09.png', 78, 12,  58],
+      ['vibri_33.png', 88, -10, 44],
+      ['vibri_02.png', 97, 8,   52],
+      ['vibri_04.png', 106, -9, 46],
+      ['vibri_32.png', 115, 11, 57]
     ]);
+    window.vibLayoutGutters = layoutGutters;
+    layoutGutters();
+    window.addEventListener('load', layoutGutters);
+    window.addEventListener('resize', layoutGutters);
   }
 })();
 

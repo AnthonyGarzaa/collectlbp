@@ -1,3 +1,14 @@
+/* ── Default page scale ──
+   The site is designed to be viewed at 80% browser zoom, so render it that way
+   by default on desktop. Visitors can still zoom in or out with the browser as
+   usual; the zoom-invariant corner elements keep working because CSS zoom does
+   not change devicePixelRatio. Phone-width layouts stay at their natural size. */
+@media (min-width: 801px) {
+  html {
+    zoom: 0.8;
+  }
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -16,6 +27,20 @@ body {
   background: transparent;
 }
 
+/* ── Cursor: Vibri's eye (vib/eye-cursor.png, a 28px eye on a 32x32 canvas,
+   hotspot at its centre, about the size of a normal arrow cursor)
+   everywhere in the Vib-Ribbon section, with a soft-glow version over
+   clickable things. Same pattern as the PaRappa hat cursor in parappa.css. */
+html, *, *::before, *::after {
+  cursor: url('vib/eye-cursor.png') 16 16, auto !important;
+}
+
+a, a *, button, button *, [role="button"], [role="button"] *,
+label, summary, .vib-nav a,
+main img, .lightbox-inner img {
+  cursor: url('vib/eye-cursor-hover.png') 20 20, pointer !important;
+}
+
 /* Background video (vib/thevib.mp4) — sits in the page flow below all the
    page content, half size (50% width) with its aspect ratio kept (no
    distortion), centered horizontally, and never captures clicks. */
@@ -25,7 +50,7 @@ body {
 }
 
 /* Invisible spacer left where thevib.mp4 used to be — same footprint
-   (50% width, 16:9) so the line and walker keep their positions. */
+   (50% width, 16:9) so the line and score clip keep their positions. */
 #vib-bg-video {
   display: block;
   width: 50%;
@@ -52,27 +77,9 @@ body {
 
 /* Vibrates in bursts, then snaps still for sudden pauses (the flat
    held segments at 27–45% and 69–92%) before vibrating again. */
-/* Walking Vibri video at the left edge (15px gap), sitting 15px up from the
-   bottom of the video region. Behind the page content so the clip's large
-   black frame can't cover text. */
-#vib-bg-walker {
-  position: absolute;
-  left: -45px;
-  /* Anchored to the same 50% reference as the line (line is at 50% + 279px),
-     so the walker keeps its position on the line at any screen aspect. The
-     offset aligns the clip's own line (~74.8% down its frame) with the page line. */
-  top: calc(50% - 364px);
-  height: 860px;
-  width: auto;
-  pointer-events: none;
-  z-index: -1;
-  /* Black frame blends away so it can't cover the other clips. */
-  mix-blend-mode: screen;
-}
-
-/* Score video, centered, its bottom edge 35px above the line. The line sits
-   at 50% + 179px (its margin-top) within the wrap, so the score's bottom is
-   placed at 50% + 144px. Behind the content so its black frame can't cover it. */
+/* Score video, centered, anchored just above the line. Behind the content so
+   its black frame can't cover it. vib.js adds margin-top to #vib-bg-wrap when
+   needed so the clip's drawing always stays below the last content box. */
 #vib-bg-score {
   position: absolute;
   left: 50%;
@@ -134,35 +141,65 @@ body {
 /* Uniform size: every render fills the SAME 152x152 box (object-fit keeps each
    one's aspect ratio, no distortion), so they are all the same size, laid out
    in a horizontal row on each side, pushed inward toward the centred title. */
-.vib-head-vibri {
+/* One block per side of the masthead, spanning from the screen edge to a
+   reserved 760px centre band that holds the title and nav. The five renders
+   are 160px in a single row (shrinking only if five would not fit), packed
+   with a small gap, so they never touch each other or the
+   nav; on narrower screens they shrink together. vib.js grows the header's
+   min-height to fit them, so they never spill over the ticker either. */
+.vib-head-row {
   position: absolute;
-  width: 152px;
-  height: 152px;
-  object-fit: contain;
+  bottom: 0;                    /* vib.js re-sets this to the ticker's top line */
+  width: calc(50% - 380px);
+  display: flex;
+  flex-wrap: nowrap;            /* always one line: the renders never stack */
+  align-items: flex-end;        /* feet on the floor line */
+  /* Centred in the band while they fit; when the band is too narrow the
+     "safe" keyword aligns them to the flex start instead of overflowing both
+     ways, and each row's direction is chosen so that start is the inner (nav)
+     edge, so any overflow runs off the outer screen edge and is clipped. */
+  justify-content: safe center;
+  gap: 4px;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
   pointer-events: none;
-  opacity: 0.9;
-  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.18));
   z-index: 0;
 }
 
-/* Below this the inward row would reach the centred nav; hide it so no render
-   overlaps the nav. */
-@media (max-width: 1460px) {
-  .vib-head-vibri { display: none; }
+.vib-head-row-left  { left: 0; flex-direction: row-reverse; }   /* vib.js adds its renders in reverse order */
+.vib-head-row-right { right: 0; }
+
+.vib-head-vibri {
+  flex: 0 0 auto;
+  /* 160px whenever five fit in the band; otherwise just small enough that
+     all five fit in the single row without being cut off. */
+  width: min(160px, calc((100% - 16px) / 5));
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: contain;
+  object-position: center bottom;   /* drawing sits on the bottom edge of its box */
+  opacity: 0.9;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.18));
 }
 
-/* Site background: Vibri poses dancing down the empty gutters either side of
-   the 1100px content column, starting just below the masthead (the top band is
-   left to the scattered header renders). Each render's top and height are a
-   percentage of the strip, so all stay fully on screen and never overlap.
+/* Only phone layouts drop the header renders. */
+@media (max-width: 800px) {
+  .vib-head-row { display: none; }
+}
+
+/* Site background: Vibri poses zig-zagging down the empty gutters either side
+   of the 1300px content column, starting just below the masthead (the top band
+   is left to the header renders). Positions come from vib.js so they never
+   overlap at any gutter width.
    The strips are exactly a gutter wide, so none sit behind the text boxes.
    Absolutely positioned (not fixed) so the renders stay anchored to their spot
    on the page and scroll with the content instead of following the viewport.
    The height is set from JS to fit the column of renders extending downward. */
 .vib-gutter {
   position: absolute;
-  top: 290px;                     /* just below the masthead */
-  width: calc((100vw - 1100px) / 2);
+  top: 290px;                     /* vib.js re-sets this to just below the masthead */
+  width: 178px;                          /* vib.js sets the exact free width beside main */
   overflow: hidden;
   pointer-events: none;
   z-index: -1;
@@ -173,26 +210,26 @@ body {
 .vib-gutter img {
   position: absolute;
   /* Uniform slot: every render fills the SAME 170x210 box (object-fit keeps
-     each one's aspect ratio, no distortion), centred in the strip. Vertical
-     spot (top, inline from JS) steps down the column so all stay the same size,
-     never overlap and extend downward. */
-  left: 50%;
+     each one's aspect ratio, no distortion). top/left come inline from vib.js,
+     which zig-zags the column between the gutter's outer and inner edge. */
   width: 170px;
   height: 210px;
   object-fit: contain;
-  transform: translateX(-50%);
   opacity: 1;
   filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
 }
 
-/* Below this the gutter is narrower than the render box; hide so the doubled
-   renders never overflow the strip / go off screen. */
-@media (max-width: 1520px) {
+/* The renders are a fixed size and the box leaves room for them (see main),
+   so they survive any desktop zoom level; only phone layouts drop them,
+   where the box needs the whole width. */
+@media (max-width: 800px) {
   .vib-gutter { display: none; }
+  main { max-width: 1300px; }
 }
 
 .vib-title {
   margin: 0;
+  margin-top: auto;      /* with the ticker's auto margin: title + nav centred above the ticker */
   line-height: 0;
 }
 
@@ -233,6 +270,7 @@ body {
 .vib-ticker {
   align-self: stretch;
   margin: 0 -40px -28px;
+  margin-top: auto;      /* always at the foot of the header, however tall it grows */
   overflow: hidden;
   background: #000;
   border-top: 4px double #fff;
@@ -265,8 +303,12 @@ body {
   .vib-ticker-track { animation: none; }
 }
 
+/* 1300px content box to match the PaRappa / Lammy site (.site-wrap). The
+   32px side padding sits outside it, so main spans 1364px overall. On
+   narrower viewports (or when zoomed in) the box gives up width so that a
+   178px gutter always remains on each side for the fixed 170px renders. */
 main {
-  max-width: 1100px;
+  max-width: min(1300px, calc(100% - 420px));
   margin: 0 auto;
   padding: 60px 32px 0;
 }
@@ -341,6 +383,35 @@ main > .vib-section:last-child {
   font-size: 12px;
   letter-spacing: 1.5px;
   opacity: 0.85;
+}
+
+/* ── Running Vibri on the background line ────────────────────────────────
+   vib/run-sheet.png holds the seven frames from vib/Run in a row (250x400
+   each, shown at 125x200); steps(7) jumps frame to frame. Positioned inside
+   #vib-bg-wrap at the left edge where the walking clip used to sit. The line
+   is at 50% + 279px; the planted foot is ~8px above the sprite box bottom,
+   so the box bottom goes 8px below the line: top = 50% + 279 + 8 - 200. */
+#vib-bg-runner {
+  position: absolute;
+  left: 280px;
+  top: calc(50% + 86px);
+  width: 125px;
+  height: 200px;
+  background: url('vib/run-sheet.png') 0 0 / 875px 200px no-repeat;
+  /* 1s per cycle: measured from vib/thewalk.mp4 (30 fps, poses repeat every 30 frames). */
+  animation: vib-run-cycle 1s steps(7) infinite;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes vib-run-cycle {
+  from { background-position-x: 0; }
+  to { background-position-x: -875px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #vib-bg-runner { animation: none; }
 }
 
 .vib-gallery {

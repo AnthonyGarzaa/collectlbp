@@ -152,6 +152,17 @@ body.theme-lammy {
   --bg-theme-btn-hover: #388E3C;
 }
 
+/* ── Default page scale ──
+   The site is designed to be viewed at 80% browser zoom, so render it that way
+   by default on desktop. Visitors can still zoom in or out with the browser as
+   usual; the zoom-invariant corner elements keep working because CSS zoom does
+   not change devicePixelRatio. Phone-width layouts stay at their natural size. */
+@media (min-width: 801px) {
+  html {
+    zoom: 0.8;
+  }
+}
+
 /* ── Body background ── */
 body {
   background: var(--bg-body);
@@ -217,6 +228,37 @@ body.theme-lammy img,
 body.theme-lammy .toggle-track, body.theme-lammy .toggle-track *,
 body.theme-lammy .submenu-label, body.theme-lammy .submenu-label * {
   cursor: url('guitar-cursor-bright.png') 48 48, pointer !important;
+}
+
+/* ── Um Jammer Lammy NOW! side pop panels ──
+   The cabinet's two "How to Play" pop panels, fixed to the viewport just
+   the site box, touching its borders (the box edge is at 50% ± 650px),
+   vertically centred. Sized to the margin so they never cross the edge. */
+.ujlnow-side-panel-left,
+.ujlnow-side-panel-right {
+  display: block;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 340px;
+  max-width: calc(50% - 650px);     /* never wider than the margin */
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+}
+
+.ujlnow-side-panel-left  { right: calc(50% + 650px); }   /* flush against the box's left border */
+.ujlnow-side-panel-right { left: calc(50% + 650px); }    /* flush against the box's right border */
+
+/* Below this the margins are too slim for the panels to read. (Media queries
+   see the raw screen width, not the 80%-zoomed layout, so 1280 screen px is
+   1600 layout px, leaving about 125px of margin for each panel.) */
+@media (max-width: 1280px) {
+  .ujlnow-side-panel-left,
+  .ujlnow-side-panel-right {
+    display: none;
+  }
 }
 
 /* ── Wrapper ── */
@@ -1273,32 +1315,6 @@ body.theme-lammy .nav-bar {
   margin-left: auto;
 }
 
-.ujlnow-side-panel-left,
-.ujlnow-side-panel-right {
-  display: none;
-}
-
-body.theme-lammy .ujlnow-side-panel-left,
-body.theme-lammy .ujlnow-side-panel-right {
-  display: none;
-}
-
-body.theme-lammy .ujlnow-side-panel-left {
-  left: calc(25vw - 300px);
-  transform: translate(-50%, -50%);
-}
-
-body.theme-lammy .ujlnow-side-panel-right {
-  right: calc(25vw - 300px);
-  transform: translate(50%, -50%);
-}
-
-@media (max-width: 1200px) {
-  body.theme-lammy .ujlnow-side-panel-left,
-  body.theme-lammy .ujlnow-side-panel-right {
-    display: none;
-  }
-}
 
 .parappa-joe,
 .parappa-chopchop,
@@ -2411,6 +2427,19 @@ body:not(.theme-lammy) .nav-item > button.nav-events.active {
   transition: background 0.4s;
 }
 
+/* Welcome page: its title at double the standard size. */
+#page-welcome > .section-title {
+  font-size: 44px;
+}
+
+/* PaRappa mode: give the Welcome banner a solid orange band, the counterpart of
+   the purple band Lammy mode already paints behind it. */
+body:not(.theme-lammy) #page-welcome > .section-title {
+  background: #FF6D00;
+  border-bottom-color: #E65100;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
 .title-chara {
   height: 88px;
   width: auto;
@@ -2822,6 +2851,31 @@ body.lang-jp .block-en { display: none; }
 body.lang-jp .block-ja { display: block; }
 
 /* ── Um Jammer Lammy NOW! page ── */
+/* Welcome page hero row: the PaRappa key art (500x652) beside the MilkCan
+   concert art (1023x520). Column widths are proportional to the two aspect
+   ratios so both images render at the same height. */
+.welcome-hero {
+  display: grid;
+  grid-template-columns: 0.7669fr 1.9673fr;
+  gap: 12px;
+  padding: 12px 16px;
+}
+
+.welcome-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  border: 2px solid var(--border-wrap);
+  border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+  .welcome-hero {
+    grid-template-columns: 1fr;
+  }
+}
+
 .ujl-intro {
   padding: 20px 24px;
   background: var(--bg-intro);
@@ -2832,6 +2886,45 @@ body.lang-jp .block-ja { display: block; }
 
 .ujl-intro strong {
   color: var(--color-char-name);
+}
+
+/* Welcome page: character cutouts beside the intro blocks. PaRappa sits to
+   the left of the opening paragraph; Lammy to the right of "The Purpose"
+   (.welcome-lead-right, where the title and text share a wrapper). */
+.ujl-intro.welcome-lead {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.ujl-intro.welcome-lead .welcome-mascot {
+  flex: 0 0 auto;
+  width: 170px;
+  height: auto;
+}
+
+.ujl-intro.welcome-lead-right .welcome-mascot {
+  width: 240px; /* wider, landscape cutout */
+}
+
+.ujl-intro.welcome-lead .welcome-mascot-sm {
+  width: 140px; /* PJ Berri, slightly smaller */
+}
+
+.ujl-intro.welcome-lead > p,
+.ujl-intro.welcome-lead .welcome-lead-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.ujl-intro.welcome-lead p {
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .ujl-intro.welcome-lead {
+    flex-direction: column;
+  }
 }
 
 .donate-methods {
@@ -3101,6 +3194,50 @@ body.lang-jp .block-ja { display: block; }
   border-left: 1px solid #eee;
 }
 
+/* Magazines page — loose scans grid, packed four across */
+#page-gal-magazines .ujl-gallery-grid.magazine-condense {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+#page-gal-magazines .ujl-gallery-grid.magazine-condense .ujl-gallery-item {
+  padding: 8px;
+  border-left: none;
+}
+
+#page-gal-magazines .ujl-gallery-grid.magazine-condense .ujl-gallery-item:not(:nth-child(4n+1)) {
+  border-left: 1px solid #eee;
+}
+
+#page-gal-magazines .ujl-gallery-grid.magazine-condense .ujl-gallery-item img {
+  max-width: 100%;
+  max-height: 260px;
+  width: auto;
+}
+
+@media (max-width: 800px) {
+  #page-gal-magazines .ujl-gallery-grid.magazine-condense {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #page-gal-magazines .ujl-gallery-grid.magazine-condense .ujl-gallery-item {
+    border-left: none;
+  }
+  #page-gal-magazines .ujl-gallery-grid.magazine-condense .ujl-gallery-item:not(:nth-child(3n+1)) {
+    border-left: 1px solid #eee;
+  }
+}
+
+@media (max-width: 500px) {
+  #page-gal-magazines .ujl-gallery-grid.magazine-condense {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #page-gal-magazines .ujl-gallery-grid.magazine-condense .ujl-gallery-item {
+    border-left: none;
+  }
+  #page-gal-magazines .ujl-gallery-grid.magazine-condense .ujl-gallery-item:not(:nth-child(2n+1)) {
+    border-left: 1px solid #eee;
+  }
+}
+
 #page-sp-presskits .ujl-gallery-grid.presskit-condense .ujl-gallery-item img {
   max-width: 100%;
   width: 100%;
@@ -3150,6 +3287,12 @@ body.lang-jp .block-ja { display: block; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
+}
+
+/* Single full-width, centred item placed above another grid (e.g. the jumbo
+   plush display photo above the Rare Jumbo Variations grid). */
+.ujl-gallery-grid.lead-grid {
+  grid-template-columns: 1fr;
 }
 
 .ujl-gallery-item {
@@ -3294,6 +3437,288 @@ body.lang-jp .block-ja { display: block; }
   height: auto;
   border: 2px solid var(--border-wrap);
   border-radius: 4px;
+}
+
+/* ── Document viewer ──
+   A small black "page" button sits to the right of a scanned letter; clicking
+   it opens the English transcription laid out like a typed, folded letter. */
+/* A scanned document with a translation button takes the full row so the scan
+   itself is centred across the section, not just within one grid column. */
+.ujl-gallery-item.doc-item {
+  grid-column: 1 / -1;
+  border-left: none;
+}
+
+.doc-row {
+  position: relative;
+  text-align: center;
+  /* Equal side padding keeps the scan centred while reserving room for the
+     translation button that hangs off its right edge. */
+  padding: 0 150px;
+}
+
+.doc-row-img {
+  position: relative;
+  display: inline-block;
+  /* Shown at half the available width so the scan stays compact. */
+  max-width: 50%;
+}
+
+.doc-row-img img {
+  display: block;
+  max-width: 100%;
+}
+
+.doc-btn {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 16px;
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  background: transparent;
+  border: none;
+  color: #111;
+  cursor: pointer;
+}
+
+.doc-btn-thumb {
+  display: block;
+  width: 84px;
+  aspect-ratio: 180 / 244;
+  background: #fff url('Parappa%20Site/Promo/letter-en-thumb.png') center / 100% 100% no-repeat;
+  border: 2px solid #111;
+  border-radius: 2px;
+  box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.3);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+/* The site-wide button hover brightens everything; the document thumbnail
+   should keep its true colours and only lift. */
+.doc-btn:hover,
+.doc-btn:focus-visible {
+  filter: none;
+}
+
+.doc-btn:hover .doc-btn-thumb,
+.doc-btn:focus-visible .doc-btn-thumb {
+  transform: translateY(-4px) rotate(-2deg);
+  box-shadow: 5px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.doc-btn-label {
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+  color: #111;
+  background: #fff;
+  border: 2px solid #111;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.doc-viewer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.78);
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 20px;
+  overflow: auto;
+}
+
+.doc-viewer.open {
+  display: flex;
+}
+
+.doc-viewer-inner {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  margin: auto;
+}
+
+.doc-paper {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 31%, rgba(0, 0, 0, 0.06) 32%, rgba(0, 0, 0, 0) 33.5%,
+                    rgba(0, 0, 0, 0) 63%, rgba(0, 0, 0, 0.06) 64%, rgba(0, 0, 0, 0) 65.5%, rgba(0, 0, 0, 0) 100%),
+    linear-gradient(100deg, #f5f1e8 0%, #fbf8f1 45%, #efe9dc 100%);
+  color: #1c1c1c;
+  font-family: 'Courier New', Courier, 'MS Gothic', monospace;
+  font-size: 15.5px;
+  line-height: 1.55;
+  padding: 44px 52px 40px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.65), inset 0 0 60px rgba(0, 0, 0, 0.05);
+  transform: rotate(-0.6deg);
+}
+
+.doc-paper p {
+  margin: 0 0 1.1em;
+}
+
+.doc-paper p.doc-tight {
+  margin-bottom: 0.3em;
+}
+
+.doc-burst {
+  position: relative;
+  width: min(100%, 420px);
+  aspect-ratio: 420 / 170;
+  margin: -14px auto 18px;
+}
+
+.doc-burst svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.doc-burst-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 48px;
+}
+
+.doc-burst-title {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+
+.doc-burst-sub {
+  font-size: 14.5px;
+}
+
+.doc-list {
+  list-style: none;
+  margin: 0 0 1.1em;
+  padding-left: 2.6em;
+}
+
+.doc-sign {
+  display: flex;
+  align-items: flex-end;
+  gap: 28px;
+  margin-top: 26px;
+}
+
+.doc-stamp {
+  flex: 0 0 auto;
+  width: 78px;
+  height: 78px;
+  border: 1px solid #333;
+  background: #fff url('par.png') center / 84% no-repeat;
+  filter: grayscale(1) contrast(1.15);
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.doc-sign-right {
+  flex: 1 1 auto;
+}
+
+.doc-bubble {
+  position: relative;
+  display: inline-block;
+  padding: 8px 22px;
+  border: 2px solid #111;
+  border-radius: 999px;
+  font-style: italic;
+  font-weight: bold;
+  margin: 0 0 18px 4px;
+  background: #fff;
+}
+
+.doc-bubble::after,
+.doc-bubble::before {
+  content: '';
+  position: absolute;
+  left: 22px;
+  bottom: -14px;
+  border-style: solid;
+  border-width: 14px 12px 0 0;
+  border-color: #111 transparent transparent transparent;
+}
+
+.doc-bubble::after {
+  bottom: -10px;
+  left: 24px;
+  border-width: 10px 8px 0 0;
+  border-color: #fff transparent transparent transparent;
+}
+
+.doc-address {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.doc-note {
+  margin-top: 16px;
+  text-align: center;
+  color: #ddd;
+  font-size: 14px;
+}
+
+.doc-close {
+  top: -18px;
+  right: -18px;
+}
+
+@media (max-width: 600px) {
+  .doc-row {
+    padding: 0;
+  }
+  .doc-row-img {
+    display: block;
+    max-width: 100%;
+  }
+  .doc-btn {
+    position: static;
+    transform: none;
+    margin: 10px auto 0;
+  }
+  .doc-viewer {
+    padding: 28px 10px;
+  }
+  .doc-paper {
+    padding: 28px 20px 26px;
+    font-size: 14px;
+    transform: none;
+  }
+  .doc-burst-title {
+    font-size: 13px;
+    letter-spacing: 0;
+  }
+  .doc-burst-sub {
+    font-size: 12.5px;
+  }
+  .doc-sign {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .doc-close {
+    top: -14px;
+    right: -6px;
+  }
 }
 
 /* Stacked photo "folder" — a condensed pile of prints that fans open on hover; clicking opens the lightbox */
@@ -3648,6 +4073,15 @@ body.theme-lammy .search-icon {
 
 body.theme-lammy .search-count strong {
   color: #7B1FA2;
+}
+
+.search-count-media {
+  margin-top: -8px;
+  font-size: 20px;
+}
+
+.search-count-media strong {
+  font-size: 24px;
 }
 
 .search-hint {
