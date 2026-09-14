@@ -9,17 +9,18 @@
 <link rel="canonical" href="https://parappacorner.com/thegame.html">
 <link rel="icon" type="image/png" href="vib/vibb.png">
 <link rel="shortcut icon" type="image/png" href="vib/vibb.png">
-<link rel="stylesheet" href="vib.css">
+<link rel="preload" href="vib/vibri.otf" as="font" type="font/otf" crossorigin>
+<link rel="stylesheet" href="vib.css?v=20260914">
 </head>
 <body>
   <header class="vib-header">
     <h1 class="vib-title"><img src="vib/title.png" alt="Vib-Ribbon at PaRappa Corner"></h1>
     <nav class="vib-nav">
-      <a href="black.html">Home</a>
-      <a href="thegame.html" class="active" aria-current="page">The Game</a>
-      <a href="promo.html">Promotional Items</a>
-      <a href="merchandise.html">Merchandise</a>
-      <a href="originalwebsite.html">Original Website</a>
+      <a href="black.html"><span>Home</span></a>
+      <a href="thegame.html" class="active" aria-current="page"><span>The Game</span></a>
+      <a href="promo.html"><span>Promotional Items</span></a>
+      <a href="merchandise.html"><span>Merchandise</span></a>
+      <a href="originalwebsite.html"><span>Original Website</span></a>
     </nav>
     <div class="vib-ticker" aria-hidden="true">
       <div class="vib-ticker-track">
@@ -34,102 +35,123 @@
   <main>
     <section id="thegame" class="vib-section">
       <h2>The Game</h2>
-      <p>Vib-Ribbon's signature trick is technical as much as artistic. The entire game loads itself into the PlayStation's RAM on startup, which means the player can eject the game disc and replace it with any ordinary audio CD. The software then reads that CD track by track and generates a brand new line-level from the audio, translating peaks and drops into pits, loops, blocks, and spirals that Vibri has to jump, crouch, or spin through in time with the beat.</p>
 
-      <div class="vib-gallery">
-        <figure>
-          <img src="https://archive.org/download/1_20221015_20221015_1603/1.jpg" alt="Vib-Ribbon instruction manual cover">
-          <figcaption>Manual cover</figcaption>
-        </figure>
-        <figure>
-          <img src="https://archive.org/download/1_20221015_20221015_1603/2.jpg" alt="Vib-Ribbon manual page with controls">
-          <figcaption>Controls page</figcaption>
-        </figure>
-        <figure>
-          <img src="https://archive.org/download/1_20221015_20221015_1603/3.jpg" alt="Vib-Ribbon manual page describing Vibri">
-          <figcaption>Meet Vibri</figcaption>
-        </figure>
-        <figure>
-          <img src="https://archive.org/download/1_20221015_20221015_1603/4.jpg" alt="Vib-Ribbon manual obstacle reference">
-          <figcaption>Obstacle reference</figcaption>
-        </figure>
-        <figure>
-          <img src="https://archive.org/download/1_20221015_20221015_1603/5.jpg" alt="Vib-Ribbon manual level structure">
-          <figcaption>Level structure</figcaption>
-        </figure>
-        <figure>
-          <img src="https://archive.org/download/1_20221015_20221015_1603/6.jpg" alt="Vib-Ribbon manual back cover">
-          <figcaption>Back cover</figcaption>
-        </figure>
+      <div class="vib-intro">
+        <p><strong>Vib-Ribbon</strong> is the first of three loosely connected "Ribbon" games from <strong>NanaOn-Sha</strong> and <strong>Sony Computer Entertainment</strong>, all produced and designed by Masaya Matsuura. Each one builds its levels out of media the player already owns: Vib-Ribbon turns audio CDs into line-worlds, Mojib-Ribbon turns Japanese kana into rhythm prompts, and Vib-Ripple turns photographs into trampolines. Together they are the purest statement of the studio's player-as-author philosophy.</p>
       </div>
 
-      <p>Four obstacle shapes, each tied to a face or shoulder button, are stitched together by the song itself. Nail every prompt and Vibri evolves into a more elaborate form; miss enough of them and she devolves down the chain into a frog, then a worm. Recover mid-song and she can climb her way back up. The whole feedback loop is built around paying attention to the music, not a score counter.</p>
+      <div id="vibribbon" class="vib-game">
+        <div class="vib-game-row">
+          <div class="vib-game-cover">
+            <img class="region-img" src="vib/art/JPcover.png" alt="Vib-Ribbon cover art" data-default="vib/art/JPcover.png" data-ntsc-j="vib/art/JPcover.png" data-pal="vib/art/PALcover.png" data-books="vib/art/PS1Bookscover.png">
+            <div class="vib-region-btns">
+              <button type="button" class="vib-region-btn" data-region="ntsc-j">NTSC-J</button>
+              <button type="button" class="vib-region-btn" data-region="pal">PAL</button>
+              <button type="button" class="vib-region-btn" data-region="books">PS ONE BOOKS</button>
+            </div>
+          </div>
+          <div class="vib-game-info">
+            <div class="vib-game-title">Vib-Ribbon (PS1)</div>
+            <p><strong>Released:</strong> December 9, 1999 (JP) / September 1, 2000 (EU). Vib-Ribbon's signature trick is technical as much as artistic. The entire game loads itself into the PlayStation's RAM on startup, which means the player can eject the game disc and replace it with any ordinary audio CD. The software then reads that CD track by track and generates a brand new line-level from the audio, translating peaks and drops into pits, loops, blocks, and spirals that Vibri has to jump, crouch, or spin through in time with the beat.</p>
+            <p>Four obstacle shapes, each tied to a face or shoulder button, are stitched together by the song itself. Nail every prompt and Vibri evolves into a more elaborate form; miss enough of them and she devolves down the chain into a frog, then a worm. Recover mid-song and she can climb her way back up. The whole feedback loop is built around paying attention to the music, not a score counter.</p>
+            <p>Because the minimalism is doing so much work, the presentation was intentional. The flat vector look came partly from the team's art direction and partly from the hard limits of keeping the entire game resident in RAM. The tradeoff was a game that could swallow your music collection and spit it back out as playable levels.</p>
+          </div>
+        </div>
 
-      <figure class="vib-figure">
-        <img src="https://archive.org/download/vib-ribbon_20230722/00_B.png" alt="Vib-Ribbon gameplay screenshot">
-        <figcaption>In-game line-world with Vibri mid-hop</figcaption>
-      </figure>
-
-      <p>Because the minimalism is doing so much work, the presentation was intentional. The flat vector look came partly from the team's art direction and partly from the hard limits of keeping the entire game resident in RAM. The tradeoff was a game that could swallow your music collection and spit it back out as playable levels.</p>
-    </section>
-
-    <section id="mojib" class="vib-section">
-      <h2>Mojib-Ribbon (2003)</h2>
-      <p>Between the original Vib-Ribbon and the photo-bouncing Vib-Ripple, NanaOn-Sha slipped out the strangest chapter in the "Ribbon" line: Mojib-Ribbon (モジブリボン), a music game released only in Japan on November 20, 2003 for the PlayStation 2. Produced and designed by series creator Masaya Matsuura, it was originally teased as "Vib-Ribbon 2" and shown at the 2002 Game Developers Conference before evolving into its own thing. Where Vib-Ribbon was built from music and Vib-Ripple from photographs, Mojib-Ribbon is built from language itself — its raw material is Japanese kana, and the whole game is styled as a scroll of sumi-e ink painting.</p>
-
-      <figure class="vib-figure">
-        <img src="https://upload.wikimedia.org/wikipedia/en/4/42/Mojib-Ribbon_Coverart.png" alt="Mojib-Ribbon PlayStation 2 cover art">
-        <figcaption>Mojib-Ribbon cover art (Sony Computer Entertainment, 2003, Japan)</figcaption>
-      </figure>
-
-      <p>You play as Mojibri, a brush-and-ink character who dreams of becoming a rapper. Instead of jumping over obstacles, you write. Rap lyrics scroll along a curving path as blank kana, and the player pushes up on the stick to make Mojibri dip his fude (brush) into the suzuri (inkstone), then down to stamp the character onto the paper in rhythm with the verse. Land the strokes cleanly and the words fill in on the beat; miss the timing and the rap falls apart. It is a rhythm game where the "notes" are letters and the reward for playing well is a page of hand-inked calligraphy.</p>
-
-      <div class="vib-gallery">
-        <figure>
-          <img src="https://archive.org/download/mojibmanual/mojibmanual0.png" alt="Mojib-Ribbon instruction manual front cover">
-          <figcaption>Manual cover</figcaption>
-        </figure>
-        <figure>
-          <img src="https://archive.org/download/mojibmanual/mojibmanual2.png" alt="Mojib-Ribbon manual introduction page">
-          <figcaption>Meet Mojibri</figcaption>
-        </figure>
-        <figure>
-          <img src="https://archive.org/download/mojibmanual/mojibmanual4.png" alt="Mojib-Ribbon manual controls page">
-          <figcaption>How to play</figcaption>
-        </figure>
-        <figure>
-          <img src="https://archive.org/download/mojibmanual/mojibmanual8.png" alt="Mojib-Ribbon manual gameplay page">
-          <figcaption>Writing the rap</figcaption>
-        </figure>
-        <figure>
-          <img src="https://archive.org/download/mojibmanual/mojibmanual12.png" alt="Mojib-Ribbon manual characters page">
-          <figcaption>Cast of characters</figcaption>
-        </figure>
-        <figure>
-          <img src="https://archive.org/download/mojibmanual/mojibmanual39.png" alt="Mojib-Ribbon manual back cover">
-          <figcaption>Back cover</figcaption>
-        </figure>
+        <div class="vib-gallery">
+          <figure>
+            <img src="https://archive.org/download/1_20221015_20221015_1603/1.jpg" alt="Vib-Ribbon instruction manual cover">
+            <figcaption>Manual cover</figcaption>
+          </figure>
+          <figure>
+            <img src="https://archive.org/download/1_20221015_20221015_1603/2.jpg" alt="Vib-Ribbon manual page with controls">
+            <figcaption>Controls page</figcaption>
+          </figure>
+          <figure>
+            <img src="https://archive.org/download/1_20221015_20221015_1603/3.jpg" alt="Vib-Ribbon manual page describing Vibri">
+            <figcaption>Meet Vibri</figcaption>
+          </figure>
+          <figure>
+            <img src="https://archive.org/download/1_20221015_20221015_1603/4.jpg" alt="Vib-Ribbon manual obstacle reference">
+            <figcaption>Obstacle reference</figcaption>
+          </figure>
+          <figure>
+            <img src="https://archive.org/download/1_20221015_20221015_1603/5.jpg" alt="Vib-Ribbon manual level structure">
+            <figcaption>Level structure</figcaption>
+          </figure>
+          <figure>
+            <img src="https://archive.org/download/1_20221015_20221015_1603/6.jpg" alt="Vib-Ribbon manual back cover">
+            <figcaption>Back cover</figcaption>
+          </figure>
+          <figure>
+            <img src="https://archive.org/download/vib-ribbon_20230722/00_B.png" alt="Vib-Ribbon gameplay screenshot">
+            <figcaption>In-game line-world with Vibri mid-hop</figcaption>
+          </figure>
+        </div>
       </div>
 
-      <p>As you climb through the game's stages Mojibri is joined by a small cast, each with their own calligraphy style: Mojiko, a female companion, and Osorezan 1999, a robot, trade verses with you and push the writing into new shapes. The script and lyrics were penned by writer Seiko Ito, with art by Kiri Matsuura and music co-composed by Matsuura and the duo Laugh and Peace, giving the game a loose, playful, distinctly Japanese sense of humor that runs from the menus to the raps themselves.</p>
+      <div id="mojib" class="vib-game">
+        <div class="vib-game-row">
+          <div class="vib-game-cover">
+            <img src="https://upload.wikimedia.org/wikipedia/en/4/42/Mojib-Ribbon_Coverart.png" alt="Mojib-Ribbon PlayStation 2 cover art">
+            <div class="vib-region-btns">
+              <button type="button" class="vib-region-btn">NTSC-J</button>
+            </div>
+          </div>
+          <div class="vib-game-info">
+            <div class="vib-game-title">Mojib-Ribbon (PS2)</div>
+            <p><strong>Released:</strong> November 20, 2003 (JP only). Between the original Vib-Ribbon and the photo-bouncing Vib-Ripple, NanaOn-Sha slipped out the strangest chapter in the "Ribbon" line: Mojib-Ribbon (モジブリボン). Produced and designed by series creator Masaya Matsuura, it was originally teased as "Vib-Ribbon 2" and shown at the 2002 Game Developers Conference before evolving into its own thing. Where Vib-Ribbon was built from music and Vib-Ripple from photographs, Mojib-Ribbon is built from language itself — its raw material is Japanese kana, and the whole game is styled as a scroll of sumi-e ink painting.</p>
+            <p>You play as Mojibri, a brush-and-ink character who dreams of becoming a rapper. Instead of jumping over obstacles, you write. Rap lyrics scroll along a curving path as blank kana, and the player pushes up on the stick to make Mojibri dip his fude (brush) into the suzuri (inkstone), then down to stamp the character onto the paper in rhythm with the verse. Land the strokes cleanly and the words fill in on the beat; miss the timing and the rap falls apart. It is a rhythm game where the "notes" are letters and the reward for playing well is a page of hand-inked calligraphy.</p>
+            <p>As you climb through the game's stages Mojibri is joined by a small cast, each with their own calligraphy style: Mojiko, a female companion, and Osorezan 1999, a robot, trade verses with you and push the writing into new shapes. The script and lyrics were penned by writer Seiko Ito, with art by Kiri Matsuura and music co-composed by Matsuura and the duo Laugh and Peace, giving the game a loose, playful, distinctly Japanese sense of humor that runs from the menus to the raps themselves.</p>
+            <p>Mojib-Ribbon never left Japan, and it has a reputation for being impenetrable to players who can't read kana — the whole point, after all, is writing Japanese words. In practice the mechanics are simple enough that importers followed along with online guides, and the game has aged into a cult favorite: the missing-link middle child of the Ribbon trilogy, and the clearest statement of NanaOn-Sha's idea that a rhythm game can be made out of absolutely anything, even the alphabet.</p>
+          </div>
+        </div>
 
-      <p>Mojib-Ribbon never left Japan, and it has a reputation for being impenetrable to players who can't read kana — the whole point, after all, is writing Japanese words. In practice the mechanics are simple enough that importers followed along with online guides, and the game has aged into a cult favorite: the missing-link middle child of the Ribbon trilogy, and the clearest statement of NanaOn-Sha's idea that a rhythm game can be made out of absolutely anything, even the alphabet.</p>
-    </section>
+        <div class="vib-gallery">
+          <figure>
+            <img src="https://archive.org/download/mojibmanual/mojibmanual0.png" alt="Mojib-Ribbon instruction manual front cover">
+            <figcaption>Manual cover</figcaption>
+          </figure>
+          <figure>
+            <img src="https://archive.org/download/mojibmanual/mojibmanual2.png" alt="Mojib-Ribbon manual introduction page">
+            <figcaption>Meet Mojibri</figcaption>
+          </figure>
+          <figure>
+            <img src="https://archive.org/download/mojibmanual/mojibmanual4.png" alt="Mojib-Ribbon manual controls page">
+            <figcaption>How to play</figcaption>
+          </figure>
+          <figure>
+            <img src="https://archive.org/download/mojibmanual/mojibmanual8.png" alt="Mojib-Ribbon manual gameplay page">
+            <figcaption>Writing the rap</figcaption>
+          </figure>
+          <figure>
+            <img src="https://archive.org/download/mojibmanual/mojibmanual12.png" alt="Mojib-Ribbon manual characters page">
+            <figcaption>Cast of characters</figcaption>
+          </figure>
+          <figure>
+            <img src="https://archive.org/download/mojibmanual/mojibmanual39.png" alt="Mojib-Ribbon manual back cover">
+            <figcaption>Back cover</figcaption>
+          </figure>
+        </div>
+      </div>
 
-    <section id="ripple" class="vib-section">
-      <h2>Vib-Ripple (2004)</h2>
-      <p>Five years after Vib-Ribbon, NanaOn-Sha brought Vibri back for a PlayStation 2 sequel: Vib-Ripple (ビブリップル), released in Japan on May 27, 2004 and, like its predecessor, designed by Masaya Matsuura. It was the third entry in the studio's loosely connected "Ribbon" line — after Vib-Ribbon (1999) and the word-based Mojib-Ribbon (2003) — and it kept the series' habit of building play out of media the player already owns. This time the raw material wasn't music. It was photographs.</p>
-
-      <figure class="vib-figure">
-        <img src="https://upload.wikimedia.org/wikipedia/en/a/a5/Vib-Ripple_Cover.png" alt="Vib-Ripple PlayStation 2 cover art">
-        <figcaption>Vib-Ripple cover art (Sony Computer Entertainment, 2004, Japan)</figcaption>
-      </figure>
-
-      <p>Where the first game turned an audio CD into a scribbled line, Vib-Ripple turns a picture into a trampoline. It ships with 60 built-in photos, but the real point is importing your own: you can load images over USB from a digital camera or cellphone, or pull them in over the network, and the game scales each one to a 256×256 playfield. That photo then becomes a taut, bouncy membrane stretched across the screen.</p>
-
-      <p>Vibri — still the same vector-drawn rabbit — lands on the picture, and button presses send ripples rolling across its surface to bounce her around. The goal is to shake loose the flat little "Peta Characters" hidden in the image and collect them before time runs out, with an on-screen icon hinting at which part of the photo to work. Lurking among them are hostile creatures called Boonchies; touch one and Vibri de-evolves down the familiar chain — rabbit to frog to worm — and a full collapse ends the run. Bounce well enough and she powers up into Super Vibri, briefly stunning the Boonchies and exposing whatever they were hiding.</p>
-
-      <p>The result looks nothing like Vib-Ribbon's stark white line — it's bright, busy, and built from whatever snapshots you feed it — but the DNA is unmistakable: hand the level design to the player and reward attention over score-chasing. Vib-Ripple never left Japan, and reviewers were split, with some finding it "too different" from the original while still praising the endless replay value of the import feature. For Vibri fans it remains the rabbit's last starring role to date, and one of the purest expressions of NanaOn-Sha's player-as-author philosophy.</p>
+      <div id="ripple" class="vib-game">
+        <div class="vib-game-row">
+          <div class="vib-game-cover">
+            <img src="https://upload.wikimedia.org/wikipedia/en/a/a5/Vib-Ripple_Cover.png" alt="Vib-Ripple PlayStation 2 cover art">
+            <div class="vib-region-btns">
+              <button type="button" class="vib-region-btn">NTSC-J</button>
+            </div>
+          </div>
+          <div class="vib-game-info">
+            <div class="vib-game-title">Vib-Ripple (PS2)</div>
+            <p><strong>Released:</strong> May 27, 2004 (JP only). Five years after Vib-Ribbon, NanaOn-Sha brought Vibri back for a PlayStation 2 sequel: Vib-Ripple (ビブリップル), designed like its predecessor by Masaya Matsuura. It was the third entry in the studio's loosely connected "Ribbon" line — after Vib-Ribbon (1999) and the word-based Mojib-Ribbon (2003) — and it kept the series' habit of building play out of media the player already owns. This time the raw material wasn't music. It was photographs.</p>
+            <p>Where the first game turned an audio CD into a scribbled line, Vib-Ripple turns a picture into a trampoline. It ships with 60 built-in photos, but the real point is importing your own: you can load images over USB from a digital camera or cellphone, or pull them in over the network, and the game scales each one to a 256×256 playfield. That photo then becomes a taut, bouncy membrane stretched across the screen.</p>
+            <p>Vibri — still the same vector-drawn rabbit — lands on the picture, and button presses send ripples rolling across its surface to bounce her around. The goal is to shake loose the flat little "Peta Characters" hidden in the image and collect them before time runs out, with an on-screen icon hinting at which part of the photo to work. Lurking among them are hostile creatures called Boonchies; touch one and Vibri de-evolves down the familiar chain — rabbit to frog to worm — and a full collapse ends the run. Bounce well enough and she powers up into Super Vibri, briefly stunning the Boonchies and exposing whatever they were hiding.</p>
+            <p>The result looks nothing like Vib-Ribbon's stark white line — it's bright, busy, and built from whatever snapshots you feed it — but the DNA is unmistakable: hand the level design to the player and reward attention over score-chasing. Vib-Ripple never left Japan, and reviewers were split, with some finding it "too different" from the original while still praising the endless replay value of the import feature. For Vibri fans it remains the rabbit's last starring role to date, and one of the purest expressions of NanaOn-Sha's player-as-author philosophy.</p>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -144,6 +166,6 @@
     <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Next image">&rsaquo;</button>
   </div>
 
-  <script src="vib.js"></script>
+  <script src="vib.js?v=20260914"></script>
 </body>
 </html>

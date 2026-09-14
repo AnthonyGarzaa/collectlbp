@@ -1613,24 +1613,18 @@ body.theme-lammy .lammy-renders .masan-stack .masan-guitartopper {
   pointer-events: none;
 }
 
-body.theme-lammy .lammy-renders .masan-stack .masan-drum {
-  position: absolute;
-  right: calc(50% + 60px);
-  bottom: 50px;
-  width: 50px;
-  pointer-events: none;
-}
-
 body.theme-lammy .lammy-renders .masan-stack .masan-drumhead {
   position: absolute;
-  right: calc(50% + 35px);
-  bottom: 70px;
-  width: 50px;
+  right: calc(50% + 34px);
+  bottom: 66px;
+  width: 48px;
   pointer-events: none;
 }
 
-body.theme-lammy.lang-jp .lammy-renders .masan-stack .masan-drum {
-  right: calc(50% + 155px);
+body.theme-lammy.lang-jp .lammy-renders .masan-stack .masan-drumhead {
+  right: calc(50% + 136px);
+  bottom: 72px;
+  width: 38px;
 }
 
 body.theme-lammy .lammy-renders .masan-stack .masan-squirrel {
@@ -1643,8 +1637,8 @@ body.theme-lammy .lammy-renders .masan-stack .masan-squirrel {
 
 body.theme-lammy .lammy-renders .masan-stack .masan-pandatsu {
   position: absolute;
-  right: calc(50% + 80px);
-  bottom: 86px;
+  right: calc(50% + 79px);
+  bottom: 85px;
   width: 33px;
   pointer-events: none;
 }
@@ -1686,16 +1680,14 @@ body.theme-lammy.lang-jp .lammy-renders .masan-stack .masan-guitartopper {
   right: calc(50% + 88px);
 }
 
-body.theme-lammy.lang-jp .lammy-renders .masan-stack .masan-drumhead {
-  right: calc(50% + 136px);
-}
-
 body.theme-lammy.lang-jp .lammy-renders .masan-stack .masan-bass {
   right: calc(50% + 180px);
 }
 
 body.theme-lammy.lang-jp .lammy-renders .masan-stack .masan-pandatsu {
-  right: calc(50% + 175px);
+  right: calc(50% + 172px);
+  bottom: 81px;
+  width: 31px;
 }
 
 body.theme-lammy.lang-jp .lammy-renders .masan-stack .masan-squirrel {
@@ -1777,11 +1769,12 @@ body.theme-lammy.lang-jp .lammy-renders .paul-stack .paul-ramm {
 }
 
 body.theme-lammy.lang-jp .lammy-renders .paul-stack .paul-now {
+  width: 67px;
   transform: translate(171px, 60px);
 }
 
 body.theme-lammy.lang-jp .lammy-renders .paul-stack .paul-distortion {
-  transform: translateX(114px);
+  transform: translate(114px, -8px);
 }
 
 body.theme-lammy.lang-jp .lammy-renders .paul-stack .tree-guit {
@@ -1793,7 +1786,8 @@ body.theme-lammy.lang-jp .lammy-renders .paul-stack .paul-goo {
 }
 
 body.theme-lammy.lang-jp .lammy-renders .paul-stack .paul-drag {
-  left: 200px;
+  left: 205px;
+  bottom: 35px;
 }
 
 body.theme-lammy.lang-jp .lammy-renders .paul-stack .rammy-guit {

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Stationery — PaRappa Corner</title>
+  <meta name="description" content="PaRappa Corner: a fan site preserving and documenting PaRappa the Rapper and Um Jammer Lammy merchandise, rare collectibles, and franchise history.">
+  <link rel="canonical" href="https://parappacorner.com/merch-ujl-stationery.html">
+  <meta property="og:site_name" content="PaRappa Corner">
+  <meta property="og:title" content="Stationery — PaRappa Corner">
+  <meta property="og:description" content="A fan site preserving and documenting PaRappa the Rapper and Um Jammer Lammy merchandise, rare collectibles, and franchise history.">
+  <meta property="og:url" content="https://parappacorner.com/merch-ujl-stationery.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://parappacorner.com/par.png">
+  <link id="favicon" rel="icon" type="image/png" href="par.png">
+  <link id="favicon-shortcut" rel="shortcut icon" type="image/png" href="par.png">
+  <link rel="stylesheet" href="parappa.css?v=20260914">
+</head>
+<body>
+<script>
+  // Restore Lammy mode and the JP language before the page paints, so moving
+  // between pages doesn't flash the PaRappa-mode / English versions first.
+  (function () {
+    try {
+      if (localStorage.getItem('parappaLammyMode') === '1') document.body.classList.add('theme-lammy');
+      if (localStorage.getItem('parappaLangJP') === '1') document.body.classList.add('lang-jp');
+    } catch (e) {}
+  })();
+</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="parappa-squiggle">
+    <feTurbulence type="turbulence" baseFrequency="0.012" numOctaves="1" seed="4" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="45"/>
+  </filter>
+</svg>
+
+<div class="site-wrap">
+
+  <!-- HEADER -->
+  <div class="site-header">
+    <div class="lang-toggle-wrap">
+      <div class="lang-toggle">
+        <span class="toggle-label toggle-flag"><span class="en">EN</span><span class="ja">EN</span></span>
+        <div class="toggle-track" id="langTrack" onclick="toggleLang()">
+          <div class="toggle-thumb" id="langThumb"></div>
+        </div>
+        <span class="toggle-label toggle-flag jp-flag"><span class="en">JP</span><span class="ja">JP</span></span>
+      </div>
+      <img class="lang-cover" src="LammyStuff/Language.png" alt="Language">
+      <div class="lang-menu-btns">
+        <button type="button" class="lang-menu-btn" onclick="setLang('en')"><span class="lang-menu-label">EN</span></button>
+        <button type="button" class="lang-menu-btn" onclick="setLang('jp')"><span class="lang-menu-label">JP</span></button>
+      </div>
+    </div>
+    <img class="parappa-pony" src="pony.png" alt="Pony" aria-hidden="true">
+    <img class="parappa-joe" src="thejoe.png" alt="Joe Chin" aria-hidden="true">
+    <img class="parappa-boxy" src="LammyStuff/resources/boxy.png" alt="Boxy Boy" aria-hidden="true">
+    <img class="parappa-mc" src="LammyStuff/resources/MC.png" alt="MC King Kong Mushi" aria-hidden="true">
+    <div class="logo" id="siteLogo"><svg class="logo-svg fit-text" width="367" height="33" role="img" aria-label="PaRappa the Rapper" focusable="false"><text x="0" y="25"><tspan fill="#FFB347">PA</tspan><tspan fill="#1098AD">RAPPA</tspan> <tspan fill="#5CB85C">THE</tspan> <tspan fill="#F07A8E">RAPPER</tspan></text></svg></div>
+    <div class="tagline" id="siteTagline"><span class="tagline-text" data-text="The Hip Hop Hero">The Hip Hop Hero</span></div>
+    <div class="lammy-renders">
+      <img src="LammyStuff/Renders/lammy.png" alt="Lammy">
+      <div class="masan-stack">
+        <img class="masan-hat" src="LammyStuff/ressources/flanger.png" alt="Flanger">
+        <img class="masan-harmonizer" src="LammyStuff/ressources/harmonizer.png" alt="Harmonizer">
+        <img class="masan-poofu" src="LammyStuff/ressources/poofu.png" alt="" aria-hidden="true">
+        <img class="lammy-guit" src="LammyStuff/resources/lammyguit.png" alt="Lammy's guitar" aria-hidden="true">
+        <img class="masan-drumhead" src="LammyStuff/resources/drumhead.png" alt="" aria-hidden="true">
+        <img class="masan-bass" src="LammyStuff/resources/bass.png" alt="Bass guitar" aria-hidden="true">
+        <img class="masan-pandatsu" src="LammyStuff/Renders/pandatsu.png" alt="Pandatsu" aria-hidden="true">
+        <img class="masan-squirrel" src="LammyStuff/Renders/squirrel.png" alt="Gramophone squirrel" aria-hidden="true">
+        <img class="masan-guitartopper" src="LammyStuff/Renders/guitartopper.png" alt="Guitar Topper">
+        <img src="LammyStuff/Renders/masan.png" alt="Ma-san">
+      </div>
+      <img src="LammyStuff/Renders/katy.png" alt="Katy Kat">
+      <img src="LammyStuff/Renders/onion.png" alt="Chop Chop Master Onion">
+      <img src="LammyStuff/Renders/chief.png" alt="Chief Puddle">
+      <img src="LammyStuff/Renders/cathy.png" alt="Cathy Pillar">
+      <div class="captain-stack">
+        <img class="captain-reverb" src="LammyStuff/ressources/reverb.png" alt="Reverb">
+        <img class="captain-wahwah" src="LammyStuff/ressources/wahwah.png" alt="WahWah">
+        <img src="LammyStuff/Renders/captain.png" alt="Captain Fussenpepper">
+      </div>
+      <div class="paul-stack">
+        <img class="paul-now" src="LammyStuff/resources/now!.png" alt="NOW!">
+        <img class="rammy-guit" src="LammyStuff/resources/rammyguit.png" alt="Rammy's guitar" aria-hidden="true">
+        <img class="tree-guit" src="LammyStuff/resources/treeguit.png" alt="Tree guitar" aria-hidden="true">
+        <img class="paul-goo" src="LammyStuff/Renders/goo.png" alt="" aria-hidden="true">
+        <img class="paul-drag" src="LammyStuff/Renders/drag.png" alt="Dragon" aria-hidden="true">
+        <img class="paul-ramm" src="LammyStuff/resources/ramm.png" alt="" aria-hidden="true">
+        <img class="paul-distortion" src="LammyStuff/ressources/distortion.png" alt="Distortion">
+        <img src="LammyStuff/Renders/paul.png" alt="Paul Chuck">
+      </div>
+      <div class="teri-stack">
+        <img class="teri-rammy" src="LammyStuff/Renders/rammy.png" alt="Rammy">
+        <img src="LammyStuff/Renders/teri.png" alt="Teriyaki Yoko">
+      </div>
+    </div>
+    <div class="theme-toggle">
+      <button class="theme-btn" id="themeBtn" onclick="toggleTheme()"><span class="theme-btn-label">LAMMY MODE</span></button>
+      <img class="theme-cover" src="LammyStuff/Option.png" alt="Option">
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-bar">
+
+    <div class="nav-item">
+      <button id="navHomeBtn" onclick="showPage('welcome', this)">
+        <span class="en">HOME</span><span class="ja">ホーム</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="index.html"><span class="dot"></span><span class="en">Welcome</span><span class="ja">ようこそ</span></a>
+        <a href="search.html"><span class="dot"></span><span class="en">Search</span><span class="ja">検索</span></a>
+        <a href="donate.html"><span class="dot"></span><span class="en">Donate</span><span class="ja">寄付</span></a>
+        <a href="contact.html"><span class="dot"></span><span class="en">Contact</span><span class="ja">お問い合わせ</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('aboutgame', this)">
+        <span class="en">ABOUT</span><span class="ja">アバウト</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="aboutgame.html"><span class="dot"></span><span class="en">The Games</span><span class="ja">ゲーム</span></a>
+        <a href="aboutanime.html"><span class="dot"></span><span class="en">The Anime</span><span class="ja">アニメ</span></a>
+        <a href="aboutrodney.html"><span class="dot"></span><span class="en">Rodney Alan Greenblat</span><span class="ja">ロドニー・アラン・グリーンブラット</span></a>
+        <a href="aboutmatsuura.html"><span class="dot"></span><span class="en">Masaya Matsuura</span><span class="ja">松浦 雅也</span></a>
+        <a href="aboutvoiceactors.html"><span class="dot"></span><span class="en">Voice Actors</span><span class="ja">声優</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <div class="parappa-nav-pair" aria-hidden="true">
+        <img class="parappa-bear" src="pjbear.png" alt="PJ Berri">
+        <img class="parappa-kat" src="thekat.png" alt="Katy Kat">
+        <img class="parappa-sun" src="thesunnyfunny.png" alt="Sunny Funny">
+        <img class="parappa-rapdog" src="somedog.png" alt="PaRappa">
+      </div>
+      <button onclick="showPage('chars', this)">
+        <span class="en">CHARACTERS</span><span class="ja">キャラクター</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="chars.html"><span class="dot"></span><span class="en">PaRappa The Rapper</span><span class="ja">パラッパラッパー</span></a>
+        <a href="chars-ujl.html"><span class="dot"></span><span class="en">Um Jammer Lammy</span><span class="ja">ウンジャマ・ラミー</span></a>
+        <a href="chars-ptr2.html"><span class="dot"></span><span class="en">PaRappa The Rapper 2</span><span class="ja">パラッパラッパー2</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('merch-rodneyfun-comics', this)">
+        <span class="en">MERCHANDISE</span><span class="ja">グッズ</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">RodneyFun</span><span class="ja">ロドニーファン</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="merch-rodneyfun-comics.html"><span class="dot"></span><span class="en">Comic Collection</span><span class="ja">コミックコレクション</span></a>
+            <a href="merch-rodneyfun-toys.html"><span class="dot"></span><span class="en">Toys</span><span class="ja">おもちゃ</span></a>
+            <a href="merch-rodneyfun-shirts.html"><span class="dot"></span><span class="en">Shirts</span><span class="ja">シャツ</span></a>
+            <a href="merch-rodneyfun-stationary.html"><span class="dot"></span><span class="en">Stationary</span><span class="ja">文房具</span></a>
+            <a href="merch-rodneyfun-promotional.html"><span class="dot"></span><span class="en">Promotional Items</span><span class="ja">プロモーションアイテム</span></a>
+          </div>
+        </div>
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">PaRappa The Rapper</span><span class="ja">パラッパラッパー</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="merch-ptr-plush.html"><span class="dot"></span><span class="en">Plush Toys</span><span class="ja">ぬいぐるみ</span></a>
+            <a href="merch-ptr-figures.html"><span class="dot"></span><span class="en">Figures</span><span class="ja">フィギュア</span></a>
+            <a href="merch-ptr-shirts.html"><span class="dot"></span><span class="en">Shirts</span><span class="ja">シャツ</span></a>
+            <a href="merch-ptr-misc.html"><span class="dot"></span><span class="en">Miscellaneous</span><span class="ja">その他</span></a>
+          </div>
+        </div>
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">Um Jammer Lammy</span><span class="ja">ウンジャマ・ラミー</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="merch-ujl-plush.html"><span class="dot"></span><span class="en">Plush Toys</span><span class="ja">ぬいぐるみ</span></a>
+            <a href="merch-ujl-figures.html"><span class="dot"></span><span class="en">Figures</span><span class="ja">フィギュア</span></a>
+            <a href="merch-ujl-keychains.html"><span class="dot"></span><span class="en">Keychains</span><span class="ja">キーホルダー</span></a>
+            <a href="merch-ujl-shirts.html"><span class="dot"></span><span class="en">Shirts</span><span class="ja">シャツ</span></a>
+            <a href="merch-ujl-milkcantour.html"><span class="dot"></span><span class="en">MilkCan Tour '99</span><span class="ja">ミルクカンツアー '99</span></a>
+            <a href="merch-ujl-fernandes.html"><span class="dot"></span><span class="en">Fernandes Guitars</span><span class="ja">フェルナンデス・ギター</span></a>
+            <a href="merch-ujl-stationery.html"><span class="dot"></span><span class="en">Stationery</span><span class="ja">文房具</span></a>
+            <a href="merch-ujl-misc.html"><span class="dot"></span><span class="en">Miscellaneous</span><span class="ja">その他</span></a>
+          </div>
+        </div>
+        <a href="merch-mcdonalds.html"><span class="dot"></span><span class="en">McDonald's</span><span class="ja">マクドナルド</span></a>
+        <a href="merch-dunkin.html"><span class="dot"></span><span class="en">Dunkin' Donuts</span><span class="ja">ダンキンドーナツ</span></a>
+        <a href="merch-lipton.html"><span class="dot"></span><span class="en">Lipton</span><span class="ja">リプトン</span></a>
+        <a href="merch-catalogs.html"><span class="dot"></span><span class="en">Catalogs</span><span class="ja">カタログ</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('gal-magazines', this)">
+        <span class="en">PHOTO GALLERY</span><span class="ja">フォトギャラリー</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="gal-magazines.html"><span class="dot"></span><span class="en">Magazines</span><span class="ja">雑誌</span></a>
+        <a href="gal-stratguides.html"><span class="dot"></span><span class="en">Strategy Guides</span><span class="ja">攻略本</span></a>
+        <a href="gal-shelves.html"><span class="dot"></span><span class="en">Merch On Shelves</span><span class="ja">店頭のグッズ</span></a>
+        <a href="gal-earlydesigns.html"><span class="dot"></span><span class="en">Early Character Designs</span><span class="ja">初期キャラクターデザイン</span></a>
+        <a href="sp-mascots.html"><span class="dot"></span><span class="en">Mascots</span><span class="ja">マスコット</span></a>
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">Official Art/Ads</span><span class="ja">公式アート／広告</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="gal-officialart-ptr.html"><span class="dot"></span><span class="en">PaRappa The Rapper</span><span class="ja">パラッパラッパー</span></a>
+            <a href="gal-officialart-ujl.html"><span class="dot"></span><span class="en">Um Jammer Lammy</span><span class="ja">ウンジャマ・ラミー</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <img class="parappa-chopchop" src="LammyStuff/resources/chop.png" alt="Chop Chop Master Onion" aria-hidden="true">
+      <img class="parappa-moose" src="LammyStuff/resources/themoose.png" alt="Mooselini" aria-hidden="true">
+      <img class="parappa-flea" src="LammyStuff/resources/flea.png" alt="Flea" aria-hidden="true">
+      <img class="parappa-cheap" src="LammyStuff/resources/cheap.png" alt="Cheap Cheap the Cooking Chicken" aria-hidden="true">
+      <button onclick="showPage('sp-presskits', this)">
+        <span class="en">SPECIAL ITEMS</span><span class="ja">スペシャル・キット</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="sp-presskits.html"><span class="dot"></span><span class="en">Press Kits</span><span class="ja">プレスキット</span></a>
+        <a href="sp-promos.html"><span class="dot"></span><span class="en">Promotional Items</span><span class="ja">プロモーションアイテム</span></a>
+        <a href="sp-prototypes.html"><span class="dot"></span><span class="en">Prototypes</span><span class="ja">プロトタイプ</span></a>
+        <a href="sp-crashad.html"><span class="dot"></span><span class="en">Crash Bandicoot Ad Collaboration</span><span class="ja">クラッシュ・バンディクー 広告コラボ</span></a>
+        <a href="sp-physical.html"><span class="dot"></span><span class="en">CD/Vinyl</span><span class="ja">フィジカルメディア</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('sp-websites', this)">
+        <span class="en">ORIGINAL WEBSITES</span><span class="ja">オリジナルウェブサイト</span>
+        <span class="arrow">▾</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('videos', this)">
+        <span class="en">VIDEOS</span><span class="ja">動画</span>
+        <span class="arrow">▾</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button class="nav-ujlnow" onclick="showPage('lammynow', this)">
+        <span class="en"><span class="nav-umjammer">UM JAMMER</span> <span class="nav-lammy">LAMMY</span> <span class="nav-now">NOW!</span></span><span class="ja"><span class="nav-umjammer">ウンジャマ・</span><span class="nav-lammy">ラミー</span> <span class="nav-now">Now!</span></span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="lammynow.html"><span class="dot"></span><span class="en">About</span><span class="ja">概要</span></a>
+        <a href="ujlnow-cabinet.html"><span class="dot"></span><span class="en">The Cabinet</span><span class="ja">筐体</span></a>
+        <a href="ujlnow-prize.html"><span class="dot"></span><span class="en">Prize Giveaway Campaign</span><span class="ja">プレゼントキャンペーン</span></a>
+        <a href="ujlnow-discovery.html"><span class="dot"></span><span class="en">The Discovery</span><span class="ja">発見</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button class="nav-milkcan" onclick="showPage('milkcan', this)">
+        <span class="en">MILKCAN</span><span class="ja">ミルクカン</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button class="nav-events" onclick="showPage('gal-events2', this)">
+        <span class="en">EVENTS</span><span class="ja">イベント</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('collections', this)">
+        <span class="en">COLLECTIONS</span><span class="ja">コレクション</span>
+      </button>
+    </div>
+
+  </div>
+
+  <div id="page-merch-ujl-stationery" class="page active">
+    <div class="section-title"><span class="en">★ UM JAMMER LAMMY — STATIONERY ★</span><span class="ja">★ ウンジャマ・ラミー — 文房具 ★</span></div>
+    <div class="ujl-intro">
+      <p><span class="block-en">The <strong>Um Jammer Lammy 2000</strong> stationery line — paper goods and desk items issued by <strong>Sony Creative Products</strong> around the 1999–2000 release, all under the © Rodney A. Greenblat / Interlink licence. Highlights include the clear-vinyl ring-binder organiser covers (carried in both Um Jammer Lammy and PaRappa The Rapper artwork), the dated "Schedule 2000" pocket planner with its illustrated monthly and weekly spreads, a comic-cover spiral notebook, and a MilkCan letter set.</span>
+      <span class="block-ja"><strong>ウンジャマ・ラミー2000</strong>の文房具シリーズ。1999〜2000年の展開期に<strong>ソニー・クリエイティブプロダクツ</strong>が発売した紙物・デスク雑貨で、いずれも © Rodney A. Greenblat / Interlink のライセンス品です。クリアビニールのリングバインダー・オーガナイザーカバー（ウンジャマ・ラミーとパラッパラッパー両方のアートワーク）、月間・週間ページがイラスト入りの「スケジュール2000」手帳、コミック表紙のリングノート、ミルクカンのレターセットなどが目玉です。</span></p>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— 2000 ORGANISERS &amp; SCHEDULE 2000 PLANNER —</span><span class="ja">— 2000 オーガナイザー＆スケジュール2000 手帳 —</span></div>
+      <div class="ujl-gallery-grid condense-grid">
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyStationary/i7rntebvscg.png" alt="Um Jammer Lammy 2000 clear-vinyl ring-binder organiser cover — front, My guitar is in my mind! with MilkCan duo on red flame pattern">
+          <div class="ujl-caption"><span class="en">Um Jammer Lammy 2000 Organiser (Front) — a soft clear-vinyl ring-binder cover printed with the <em>UmJammerLammy 2000</em> logo over a red flame-pattern field, Lammy and the blue cat trading licks beside the MilkCan kick drum, and the catchphrase <em>"My guitar is in my mind!"</em> along the foot.</span><span class="ja">ウンジャマ・ラミー2000 オーガナイザー（表）— <em>UmJammerLammy 2000</em>ロゴを赤い炎柄の上に配したソフトなクリアビニール製リングバインダーカバー。ミルクカンのバスドラムを挟んでラミーと青いネコが演奏し、下部には決め台詞<em>「My guitar is in my mind!」</em>が入る。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyStationary/i67mrndbvhtd.png" alt="Um Jammer Lammy organiser cover — back, full character lineup on red flame pattern, Rodney A. Greenblat / Interlink credit">
+          <div class="ujl-caption"><span class="en">Reverse of the same cover — the full Um Jammer Lammy cast clustered together over the red flame field, with the © Rodney A. Greenblat / Interlink credit beneath.</span><span class="ja">同じカバーの裏面。ウンジャマ・ラミーのキャラクター勢揃いが赤い炎柄の上に集合し、その下に © Rodney A. Greenblat / Interlink のクレジットが入る。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyStationary/drdrsdrdbrbry.png" alt="Um Jammer Lammy 2000 organiser cover variant — front, I Gotta Believe!! with Lammy and PaRappa dancing on starry purple background">
+          <div class="ujl-caption"><span class="en">"I Gotta Believe!!" Variant (Um Jammer Lammy) — a second cover design with the <em>UmJammerLammy 2000</em> logo, Lammy and PaRappa dancing together over a starry purple flame-bordered field, captioned <em>"I Gotta Believe!!"</em></span><span class="ja">「I Gotta Believe!!」バリアント（ウンジャマ・ラミー）— <em>UmJammerLammy 2000</em>ロゴを掲げた2つ目のカバーデザイン。星模様＋炎の縁取りの紫地で、ラミーとパラッパが一緒に踊り、<em>「I Gotta Believe!!」</em>のコピーが添えられている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyStationary/ndtybhretvd.png" alt="PaRappa The Rapper 2000 organiser cover — front, I Gotta Believe!! with PaRappa and Lammy dancing on starry purple background">
+          <div class="ujl-caption"><span class="en">"I Gotta Believe!!" Variant (PaRappa The Rapper) — the matching cover from the PaRappa side of the line, swapping in the <em>PaRappaTheRapper 2000</em> logo over the same dancing artwork and starry purple ground.</span><span class="ja">「I Gotta Believe!!」バリアント（パラッパラッパー）— シリーズのパラッパ側にあたる対のカバー。同じダンスのアートワークと星柄の紫地に、<em>PaRappaTheRapper 2000</em>ロゴを差し替えている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyStationary/mrtynbfg.png" alt="Organiser cover — back, full PaRappa The Rapper cast on starry purple background, Rodney A. Greenblat / Interlink credit">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyStationary/weryewrbyegrgrv.png" alt="Organiser cover — back, full PaRappa The Rapper cast lineup on starry purple background">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyStationary/yntrbfvy.png" alt="Schedule 2000 planner inner title page — Live at the Um Jammer Lammy 6:00 PM, MilkCan band illustration">
+          <div class="ujl-caption"><span class="en">Title Page — the planner's opening leaf: <em>"SCHEDULE 2000 — Live at the Um Jammer Lammy, 6:00 PM, and please visit Papa-Ma's Chinese Pharmacy,"</em> headed by the MilkCan band art and the ©RG/LP mark.</span><span class="ja">扉ページ — 手帳冒頭の1枚。<em>「SCHEDULE 2000 — Live at the Um Jammer Lammy, 6:00 PM, and please visit Papa-Ma's Chinese Pharmacy」</em>の文字を、ミルクカンバンドのイラストと ©RG/LP マークが飾る。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyStationary/vertshds.png" alt="Schedule 2000 planner — January weekly spread with character art in the margins">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyStationary/nrtydbfr.png" alt="Schedule 2000 planner — January monthly calendar spread with character art">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyStationary/rnsthdb.png" alt="Schedule 2000 planner — April weekly spread with character art">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyStationary/we%20nrsbvd.png" alt="Schedule 2000 planner — August monthly calendar spread with character art">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyStationary/wrnstyb.png" alt="Schedule 2000 planner — October weekly spread with character art">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyStationary/3456543.png" alt="Schedule 2000 planner — Personal Notes page and Lammy, Ma-san, Katy character name dividers">
+          <div class="ujl-caption"><span class="en">Reference Pages — the planner's "Personal Notes" leaf with its flame-graphic memo lines, facing the character-tabbed Lammy / Ma-san / Katy section dividers.</span><span class="ja">情報ページ — 炎のグラフィック入りメモ罫の「Personal Notes」ページと、ラミー／マーさん／ケイティのキャラクター見出しの仕切りページ。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyStationary/fgdhtdrt.png" alt="Schedule 2000 planner — address book pages with character art and Um Jammer Lammy header">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyStationary/ukyntjdbrhv.png" alt="Schedule 2000 planner — bound-in sheet of tiny Um Jammer Lammy character index stickers">
+          <div class="ujl-caption"><span class="en">Sticker Sheet — a bound-in page of tiny die-cut character stickers (rows of Lammy, Katy, Ma-san, PJ Berri and the skull-flower crest) for marking up the planner.</span><span class="ja">シールページ — 手帳に綴じ込まれた、極小のダイカット・キャラクターシール（ラミー、ケイティ、マーさん、PJベリー、ドクロ花の紋章など）の1枚。予定の目印に使える。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— SCHEDULE 2000 PLANNER COVERS —</span><span class="ja">— スケジュール2000 手帳カバー —</span></div>
+      <div class="ujl-gallery-grid condense-grid">
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyStationary/um01.png" alt="Um Jammer Lammy 2000 pocket planner — red wraparound cover with Lammy playing guitar on a flame border">
+          <div class="ujl-caption"><span class="en">Schedule 2000 Planner (Red / Lammy) — full wraparound view of the red pocket-planner cover, Lammy mid-solo framed by the UJL flame border with a round MilkCan badge on the spine.</span><span class="ja">スケジュール2000 手帳（レッド／ラミー）— 赤いポケット手帳カバーの全体（表・背・裏）。UJLの炎柄の縁にラミーのギターソロが収まり、背には丸いミルクカンのバッジ。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyStationary/um02.png" alt="Um Jammer Lammy 2000 pocket planner — dark blue wraparound cover with the Rammy variant character">
+          <div class="ujl-caption"><span class="en">Schedule 2000 Planner (Dark / Rammy) — the darker blue-purple companion cover featuring the shadowy Rammy-style artwork, shown as a full wraparound.</span><span class="ja">スケジュール2000 手帳（ダーク／ラミー〈Rammy〉）— 闇バージョン風のアートをあしらった、濃いブルーパープルの対になるカバー。全体（表・背・裏）の状態。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— COMIC-COVER SPIRAL NOTEBOOK —</span><span class="ja">— コミック表紙 リングノート —</span></div>
+      <div class="ujl-gallery-grid condense-grid">
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyStationary/m89203565355_2.png" alt="Um Jammer Lammy spiral notebook — front cover with full comic-strip artwork, I'm Late! and My guitar is in my mind!">
+          <div class="ujl-caption"><span class="en">Spiral Notebook (Front) — a kraft-board ring notebook whose cover reproduces a full Um Jammer Lammy comic strip: Lammy's <em>"I'm Late!"</em> panic, the MilkCan stage, the <em>"My guitar is… IN MY MIND!"</em> finale, and the "Awful / Bad / Good / Cool / Chocolate" rating row along the bottom. ©RG/LP.</span><span class="ja">リングノート（表紙）— クラフト調の台紙のリングノートで、表紙にウンジャマ・ラミーのコマ漫画をまるごと再現。ラミーの<em>「I'm Late!」</em>の慌てぶり、ミルクカンのステージ、<em>「My guitar is… IN MY MIND!」</em>のオチ、下部の「Awful／Bad／Good／Cool／Chocolate」評価欄まで。©RG/LP。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyStationary/m89203565355_3.png" alt="Um Jammer Lammy spiral notebook — inner lined pages with small skull-flower logos in the corners">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyStationary/m89203565355_4.png" alt="Um Jammer Lammy spiral notebook — plain kraft back cover with skull-flower logo and barcode">
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— MILKCAN LETTER SET &amp; WRITING PAPER —</span><span class="ja">— ミルクカン レターセット＆便箋 —</span></div>
+      <div class="ujl-gallery-grid condense-grid">
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyStationary/yrntjhbvsegs.png" alt="Um Jammer Lammy letter set, sealed — comic-strip letterhead, 16 letter papers and 8 envelopes, Sony Creative Products FA-69086-10">
+          <div class="ujl-caption"><span class="en">Um Jammer Lammy Letter Set (Sealed) — a comic-cover writing set holding <strong>16 letter papers &amp; 8 envelopes</strong> (Sony Creative Products, item FA-69086-10, Made in Japan). The header art runs the <em>"I'm Late! / MILKCAN MILKCAN MILKCAN!"</em> strip; a cream envelope with a Lammy "STAMP" box sits in front.</span><span class="ja">ウンジャマ・ラミー レターセット（未開封）— コミック表紙の便箋セットで、<strong>便箋16枚＆封筒8枚</strong>入り（Sony Creative Products、品番 FA-69086-10、日本製）。ヘッダーには<em>「I'm Late! ／ MILKCAN MILKCAN MILKCAN!」</em>のコマが入り、手前にはラミーの「STAMP」枠付きのクリーム色の封筒。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="LammyStuff/LammyStationary/n5e6ubrvyc.png" alt="Um Jammer Lammy letter paper — single kraft sheet with red rule lines and a small skull-flower logo header, sealed">
+          <div class="ujl-caption"><span class="en">Letter Paper — a single sheet of the matching writing paper, kraft stock with red rule lines and a small skull-flower Um Jammer Lammy logo at the top, shown sealed in its retail sleeve.</span><span class="ja">便箋 — 対になる便箋の1枚。クラフト紙に赤い罫線、上部に小さなドクロ花のウンジャマ・ラミーロゴ。小売用の袋に入った未開封の状態。</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="footer">PaRappa Corner &mdash; PaRappa the Rapper Fan Site &mdash; parappacorner.com</div>
+</div>
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous image">&lsaquo;</button>
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close">&times;</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Next image">&rsaquo;</button>
+</div>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="vibri-sharpen">
+    <feConvolveMatrix order="3" preserveAlpha="true"
+      kernelMatrix="0 -0.4 0  -0.4 2.6 -0.4  0 -0.4 0"/>
+  </filter>
+</svg>
+<a href="black.html" class="vibri-link"><img src="vib/stare.gif" alt="Vibri" class="vibri-corner"></a>
+
+
+
+<!-- ZOOM-INVARIANT CORNERS
+     The "PaRappa Corner" button (bottom-left) and the Vibri link (bottom-right) must
+     sit in exactly the same spot, at exactly the same on-screen size, however
+     far the page is zoomed. They are position:fixed, so browser zoom already
+     keeps them in the corner but scales them up; pinch zoom moves them off the
+     visible area entirely. This publishes three custom properties the two rules
+     in parappa.css consume:
+       --zoom-fix              inverse of the current zoom (counter-scale)
+       --zoom-dx / --zoom-dy   shift from the layout viewport's bottom-left to
+                               the visible viewport's bottom-left
+       --zoom-dx-right         same shift for the right edge
+     Under plain desktop browser zoom the deltas stay 0 and only --zoom-fix does
+     any work. -->
+
+<!-- The label is SVG text rather than HTML text: with -webkit-text-stroke, Chrome
+     fills from the hinted glyph bitmap but strokes the raw outline, and this font's
+     hinting shortens the "p" descenders at small sizes, so the two layers disagreed
+     under "pp". SVG text fills and strokes the same path. -->
+<div class="corner-wrap">
+<button type="button" class="corner-subtitle" id="siteSubtitle" aria-label="PaRappa Corner" title="Back to the home page" onclick="showPage('welcome', document.getElementById('navHomeBtn')); window.scrollTo(0, 0);">
+  <!-- .corner-frame is a plain block wrapper in PaRappa mode; in Lammy mode it
+       carries the inner two of the nav tabs' three bevelled outline frames. -->
+  <span class="corner-frame">
+  <svg class="corner-label fit-text" width="153" height="24" aria-hidden="true" focusable="false">
+    <!-- Lammy mode only (CSS): red oval behind "Corner", like the one behind
+         "LAMMY" in the title. Geometry is set by fitTextSvgs from the word's box. -->
+    <ellipse class="corner-pill" cx="0" cy="0" rx="0" ry="0"></ellipse>
+    <text class="corner-label-back" x="0" y="17.5"><tspan class="corner-word-parappa">PaRappa</tspan><tspan class="corner-gap"> </tspan><tspan class="corner-word-corner">Corner</tspan></text>
+    <text class="corner-label-front" x="0" y="17.5"><tspan class="corner-word-parappa">PaRappa</tspan><tspan class="corner-gap"> </tspan><tspan class="corner-word-corner">Corner</tspan></text>
+  </svg>
+  </span>
+</button>
+</div>
+
+<!-- BACK TO TOP — right side, shows once the page is scrolled halfway -->
+<button type="button" class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M12 20V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+<script src="parappa.js"></script>
+</body>
+</html>

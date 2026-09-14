@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Miscellaneous — PaRappa Corner</title>
+  <meta name="description" content="PaRappa Corner: a fan site preserving and documenting PaRappa the Rapper and Um Jammer Lammy merchandise, rare collectibles, and franchise history.">
+  <link rel="canonical" href="https://parappacorner.com/merch-ptr-misc.html">
+  <meta property="og:site_name" content="PaRappa Corner">
+  <meta property="og:title" content="Miscellaneous — PaRappa Corner">
+  <meta property="og:description" content="A fan site preserving and documenting PaRappa the Rapper and Um Jammer Lammy merchandise, rare collectibles, and franchise history.">
+  <meta property="og:url" content="https://parappacorner.com/merch-ptr-misc.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://parappacorner.com/par.png">
+  <link id="favicon" rel="icon" type="image/png" href="par.png">
+  <link id="favicon-shortcut" rel="shortcut icon" type="image/png" href="par.png">
+  <link rel="stylesheet" href="parappa.css?v=20260914">
+</head>
+<body>
+<script>
+  // Restore Lammy mode and the JP language before the page paints, so moving
+  // between pages doesn't flash the PaRappa-mode / English versions first.
+  (function () {
+    try {
+      if (localStorage.getItem('parappaLammyMode') === '1') document.body.classList.add('theme-lammy');
+      if (localStorage.getItem('parappaLangJP') === '1') document.body.classList.add('lang-jp');
+    } catch (e) {}
+  })();
+</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="parappa-squiggle">
+    <feTurbulence type="turbulence" baseFrequency="0.012" numOctaves="1" seed="4" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="45"/>
+  </filter>
+</svg>
+
+<div class="site-wrap">
+
+  <!-- HEADER -->
+  <div class="site-header">
+    <div class="lang-toggle-wrap">
+      <div class="lang-toggle">
+        <span class="toggle-label toggle-flag"><span class="en">EN</span><span class="ja">EN</span></span>
+        <div class="toggle-track" id="langTrack" onclick="toggleLang()">
+          <div class="toggle-thumb" id="langThumb"></div>
+        </div>
+        <span class="toggle-label toggle-flag jp-flag"><span class="en">JP</span><span class="ja">JP</span></span>
+      </div>
+      <img class="lang-cover" src="LammyStuff/Language.png" alt="Language">
+      <div class="lang-menu-btns">
+        <button type="button" class="lang-menu-btn" onclick="setLang('en')"><span class="lang-menu-label">EN</span></button>
+        <button type="button" class="lang-menu-btn" onclick="setLang('jp')"><span class="lang-menu-label">JP</span></button>
+      </div>
+    </div>
+    <img class="parappa-pony" src="pony.png" alt="Pony" aria-hidden="true">
+    <img class="parappa-joe" src="thejoe.png" alt="Joe Chin" aria-hidden="true">
+    <img class="parappa-boxy" src="LammyStuff/resources/boxy.png" alt="Boxy Boy" aria-hidden="true">
+    <img class="parappa-mc" src="LammyStuff/resources/MC.png" alt="MC King Kong Mushi" aria-hidden="true">
+    <div class="logo" id="siteLogo"><svg class="logo-svg fit-text" width="367" height="33" role="img" aria-label="PaRappa the Rapper" focusable="false"><text x="0" y="25"><tspan fill="#FFB347">PA</tspan><tspan fill="#1098AD">RAPPA</tspan> <tspan fill="#5CB85C">THE</tspan> <tspan fill="#F07A8E">RAPPER</tspan></text></svg></div>
+    <div class="tagline" id="siteTagline"><span class="tagline-text" data-text="The Hip Hop Hero">The Hip Hop Hero</span></div>
+    <div class="lammy-renders">
+      <img src="LammyStuff/Renders/lammy.png" alt="Lammy">
+      <div class="masan-stack">
+        <img class="masan-hat" src="LammyStuff/ressources/flanger.png" alt="Flanger">
+        <img class="masan-harmonizer" src="LammyStuff/ressources/harmonizer.png" alt="Harmonizer">
+        <img class="masan-poofu" src="LammyStuff/ressources/poofu.png" alt="" aria-hidden="true">
+        <img class="lammy-guit" src="LammyStuff/resources/lammyguit.png" alt="Lammy's guitar" aria-hidden="true">
+        <img class="masan-drumhead" src="LammyStuff/resources/drumhead.png" alt="" aria-hidden="true">
+        <img class="masan-bass" src="LammyStuff/resources/bass.png" alt="Bass guitar" aria-hidden="true">
+        <img class="masan-pandatsu" src="LammyStuff/Renders/pandatsu.png" alt="Pandatsu" aria-hidden="true">
+        <img class="masan-squirrel" src="LammyStuff/Renders/squirrel.png" alt="Gramophone squirrel" aria-hidden="true">
+        <img class="masan-guitartopper" src="LammyStuff/Renders/guitartopper.png" alt="Guitar Topper">
+        <img src="LammyStuff/Renders/masan.png" alt="Ma-san">
+      </div>
+      <img src="LammyStuff/Renders/katy.png" alt="Katy Kat">
+      <img src="LammyStuff/Renders/onion.png" alt="Chop Chop Master Onion">
+      <img src="LammyStuff/Renders/chief.png" alt="Chief Puddle">
+      <img src="LammyStuff/Renders/cathy.png" alt="Cathy Pillar">
+      <div class="captain-stack">
+        <img class="captain-reverb" src="LammyStuff/ressources/reverb.png" alt="Reverb">
+        <img class="captain-wahwah" src="LammyStuff/ressources/wahwah.png" alt="WahWah">
+        <img src="LammyStuff/Renders/captain.png" alt="Captain Fussenpepper">
+      </div>
+      <div class="paul-stack">
+        <img class="paul-now" src="LammyStuff/resources/now!.png" alt="NOW!">
+        <img class="rammy-guit" src="LammyStuff/resources/rammyguit.png" alt="Rammy's guitar" aria-hidden="true">
+        <img class="tree-guit" src="LammyStuff/resources/treeguit.png" alt="Tree guitar" aria-hidden="true">
+        <img class="paul-goo" src="LammyStuff/Renders/goo.png" alt="" aria-hidden="true">
+        <img class="paul-drag" src="LammyStuff/Renders/drag.png" alt="Dragon" aria-hidden="true">
+        <img class="paul-ramm" src="LammyStuff/resources/ramm.png" alt="" aria-hidden="true">
+        <img class="paul-distortion" src="LammyStuff/ressources/distortion.png" alt="Distortion">
+        <img src="LammyStuff/Renders/paul.png" alt="Paul Chuck">
+      </div>
+      <div class="teri-stack">
+        <img class="teri-rammy" src="LammyStuff/Renders/rammy.png" alt="Rammy">
+        <img src="LammyStuff/Renders/teri.png" alt="Teriyaki Yoko">
+      </div>
+    </div>
+    <div class="theme-toggle">
+      <button class="theme-btn" id="themeBtn" onclick="toggleTheme()"><span class="theme-btn-label">LAMMY MODE</span></button>
+      <img class="theme-cover" src="LammyStuff/Option.png" alt="Option">
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-bar">
+
+    <div class="nav-item">
+      <button id="navHomeBtn" onclick="showPage('welcome', this)">
+        <span class="en">HOME</span><span class="ja">ホーム</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="index.html"><span class="dot"></span><span class="en">Welcome</span><span class="ja">ようこそ</span></a>
+        <a href="search.html"><span class="dot"></span><span class="en">Search</span><span class="ja">検索</span></a>
+        <a href="donate.html"><span class="dot"></span><span class="en">Donate</span><span class="ja">寄付</span></a>
+        <a href="contact.html"><span class="dot"></span><span class="en">Contact</span><span class="ja">お問い合わせ</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('aboutgame', this)">
+        <span class="en">ABOUT</span><span class="ja">アバウト</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="aboutgame.html"><span class="dot"></span><span class="en">The Games</span><span class="ja">ゲーム</span></a>
+        <a href="aboutanime.html"><span class="dot"></span><span class="en">The Anime</span><span class="ja">アニメ</span></a>
+        <a href="aboutrodney.html"><span class="dot"></span><span class="en">Rodney Alan Greenblat</span><span class="ja">ロドニー・アラン・グリーンブラット</span></a>
+        <a href="aboutmatsuura.html"><span class="dot"></span><span class="en">Masaya Matsuura</span><span class="ja">松浦 雅也</span></a>
+        <a href="aboutvoiceactors.html"><span class="dot"></span><span class="en">Voice Actors</span><span class="ja">声優</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <div class="parappa-nav-pair" aria-hidden="true">
+        <img class="parappa-bear" src="pjbear.png" alt="PJ Berri">
+        <img class="parappa-kat" src="thekat.png" alt="Katy Kat">
+        <img class="parappa-sun" src="thesunnyfunny.png" alt="Sunny Funny">
+        <img class="parappa-rapdog" src="somedog.png" alt="PaRappa">
+      </div>
+      <button onclick="showPage('chars', this)">
+        <span class="en">CHARACTERS</span><span class="ja">キャラクター</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="chars.html"><span class="dot"></span><span class="en">PaRappa The Rapper</span><span class="ja">パラッパラッパー</span></a>
+        <a href="chars-ujl.html"><span class="dot"></span><span class="en">Um Jammer Lammy</span><span class="ja">ウンジャマ・ラミー</span></a>
+        <a href="chars-ptr2.html"><span class="dot"></span><span class="en">PaRappa The Rapper 2</span><span class="ja">パラッパラッパー2</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('merch-rodneyfun-comics', this)">
+        <span class="en">MERCHANDISE</span><span class="ja">グッズ</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">RodneyFun</span><span class="ja">ロドニーファン</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="merch-rodneyfun-comics.html"><span class="dot"></span><span class="en">Comic Collection</span><span class="ja">コミックコレクション</span></a>
+            <a href="merch-rodneyfun-toys.html"><span class="dot"></span><span class="en">Toys</span><span class="ja">おもちゃ</span></a>
+            <a href="merch-rodneyfun-shirts.html"><span class="dot"></span><span class="en">Shirts</span><span class="ja">シャツ</span></a>
+            <a href="merch-rodneyfun-stationary.html"><span class="dot"></span><span class="en">Stationary</span><span class="ja">文房具</span></a>
+            <a href="merch-rodneyfun-promotional.html"><span class="dot"></span><span class="en">Promotional Items</span><span class="ja">プロモーションアイテム</span></a>
+          </div>
+        </div>
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">PaRappa The Rapper</span><span class="ja">パラッパラッパー</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="merch-ptr-plush.html"><span class="dot"></span><span class="en">Plush Toys</span><span class="ja">ぬいぐるみ</span></a>
+            <a href="merch-ptr-figures.html"><span class="dot"></span><span class="en">Figures</span><span class="ja">フィギュア</span></a>
+            <a href="merch-ptr-shirts.html"><span class="dot"></span><span class="en">Shirts</span><span class="ja">シャツ</span></a>
+            <a href="merch-ptr-misc.html"><span class="dot"></span><span class="en">Miscellaneous</span><span class="ja">その他</span></a>
+          </div>
+        </div>
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">Um Jammer Lammy</span><span class="ja">ウンジャマ・ラミー</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="merch-ujl-plush.html"><span class="dot"></span><span class="en">Plush Toys</span><span class="ja">ぬいぐるみ</span></a>
+            <a href="merch-ujl-figures.html"><span class="dot"></span><span class="en">Figures</span><span class="ja">フィギュア</span></a>
+            <a href="merch-ujl-keychains.html"><span class="dot"></span><span class="en">Keychains</span><span class="ja">キーホルダー</span></a>
+            <a href="merch-ujl-shirts.html"><span class="dot"></span><span class="en">Shirts</span><span class="ja">シャツ</span></a>
+            <a href="merch-ujl-milkcantour.html"><span class="dot"></span><span class="en">MilkCan Tour '99</span><span class="ja">ミルクカンツアー '99</span></a>
+            <a href="merch-ujl-fernandes.html"><span class="dot"></span><span class="en">Fernandes Guitars</span><span class="ja">フェルナンデス・ギター</span></a>
+            <a href="merch-ujl-stationery.html"><span class="dot"></span><span class="en">Stationery</span><span class="ja">文房具</span></a>
+            <a href="merch-ujl-misc.html"><span class="dot"></span><span class="en">Miscellaneous</span><span class="ja">その他</span></a>
+          </div>
+        </div>
+        <a href="merch-mcdonalds.html"><span class="dot"></span><span class="en">McDonald's</span><span class="ja">マクドナルド</span></a>
+        <a href="merch-dunkin.html"><span class="dot"></span><span class="en">Dunkin' Donuts</span><span class="ja">ダンキンドーナツ</span></a>
+        <a href="merch-lipton.html"><span class="dot"></span><span class="en">Lipton</span><span class="ja">リプトン</span></a>
+        <a href="merch-catalogs.html"><span class="dot"></span><span class="en">Catalogs</span><span class="ja">カタログ</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('gal-magazines', this)">
+        <span class="en">PHOTO GALLERY</span><span class="ja">フォトギャラリー</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="gal-magazines.html"><span class="dot"></span><span class="en">Magazines</span><span class="ja">雑誌</span></a>
+        <a href="gal-stratguides.html"><span class="dot"></span><span class="en">Strategy Guides</span><span class="ja">攻略本</span></a>
+        <a href="gal-shelves.html"><span class="dot"></span><span class="en">Merch On Shelves</span><span class="ja">店頭のグッズ</span></a>
+        <a href="gal-earlydesigns.html"><span class="dot"></span><span class="en">Early Character Designs</span><span class="ja">初期キャラクターデザイン</span></a>
+        <a href="sp-mascots.html"><span class="dot"></span><span class="en">Mascots</span><span class="ja">マスコット</span></a>
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">Official Art/Ads</span><span class="ja">公式アート／広告</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="gal-officialart-ptr.html"><span class="dot"></span><span class="en">PaRappa The Rapper</span><span class="ja">パラッパラッパー</span></a>
+            <a href="gal-officialart-ujl.html"><span class="dot"></span><span class="en">Um Jammer Lammy</span><span class="ja">ウンジャマ・ラミー</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <img class="parappa-chopchop" src="LammyStuff/resources/chop.png" alt="Chop Chop Master Onion" aria-hidden="true">
+      <img class="parappa-moose" src="LammyStuff/resources/themoose.png" alt="Mooselini" aria-hidden="true">
+      <img class="parappa-flea" src="LammyStuff/resources/flea.png" alt="Flea" aria-hidden="true">
+      <img class="parappa-cheap" src="LammyStuff/resources/cheap.png" alt="Cheap Cheap the Cooking Chicken" aria-hidden="true">
+      <button onclick="showPage('sp-presskits', this)">
+        <span class="en">SPECIAL ITEMS</span><span class="ja">スペシャル・キット</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="sp-presskits.html"><span class="dot"></span><span class="en">Press Kits</span><span class="ja">プレスキット</span></a>
+        <a href="sp-promos.html"><span class="dot"></span><span class="en">Promotional Items</span><span class="ja">プロモーションアイテム</span></a>
+        <a href="sp-prototypes.html"><span class="dot"></span><span class="en">Prototypes</span><span class="ja">プロトタイプ</span></a>
+        <a href="sp-crashad.html"><span class="dot"></span><span class="en">Crash Bandicoot Ad Collaboration</span><span class="ja">クラッシュ・バンディクー 広告コラボ</span></a>
+        <a href="sp-physical.html"><span class="dot"></span><span class="en">CD/Vinyl</span><span class="ja">フィジカルメディア</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('sp-websites', this)">
+        <span class="en">ORIGINAL WEBSITES</span><span class="ja">オリジナルウェブサイト</span>
+        <span class="arrow">▾</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('videos', this)">
+        <span class="en">VIDEOS</span><span class="ja">動画</span>
+        <span class="arrow">▾</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button class="nav-ujlnow" onclick="showPage('lammynow', this)">
+        <span class="en"><span class="nav-umjammer">UM JAMMER</span> <span class="nav-lammy">LAMMY</span> <span class="nav-now">NOW!</span></span><span class="ja"><span class="nav-umjammer">ウンジャマ・</span><span class="nav-lammy">ラミー</span> <span class="nav-now">Now!</span></span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="lammynow.html"><span class="dot"></span><span class="en">About</span><span class="ja">概要</span></a>
+        <a href="ujlnow-cabinet.html"><span class="dot"></span><span class="en">The Cabinet</span><span class="ja">筐体</span></a>
+        <a href="ujlnow-prize.html"><span class="dot"></span><span class="en">Prize Giveaway Campaign</span><span class="ja">プレゼントキャンペーン</span></a>
+        <a href="ujlnow-discovery.html"><span class="dot"></span><span class="en">The Discovery</span><span class="ja">発見</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button class="nav-milkcan" onclick="showPage('milkcan', this)">
+        <span class="en">MILKCAN</span><span class="ja">ミルクカン</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button class="nav-events" onclick="showPage('gal-events2', this)">
+        <span class="en">EVENTS</span><span class="ja">イベント</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('collections', this)">
+        <span class="en">COLLECTIONS</span><span class="ja">コレクション</span>
+      </button>
+    </div>
+
+  </div>
+
+  <div id="page-merch-ptr-misc" class="page active">
+    <div class="section-title"><span class="en">★ PARAPPA — MISCELLANEOUS ★</span><span class="ja">★ パラッパ — その他 ★</span></div>
+    <div class="ujl-intro">
+      <p><span class="block-en">Assorted <strong>PaRappa the Rapper</strong> merchandise — stationery, apparel, accessories, household goods, and novelty items that don't fit the plush or figure categories.</span>
+      <span class="block-ja"><strong>パラッパラッパー</strong>のその他グッズコレクション。文房具、アパレル、アクセサリー、生活雑貨、ノベルティなど、ぬいぐるみやフィギュアのカテゴリーに収まらないアイテムをまとめています。</span></p>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— TELEPHONE —</span><span class="ja">— 電話機 —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/parappaphone.png" alt="PaRappa novelty corded landline telephone in retail packaging">
+          <div class="ujl-caption"><span class="en">Yellow PaRappa novelty corded landline phone with an LCD caller display, packaged on its original retail card.</span><span class="ja">液晶ディスプレイ付きの黄色いパラッパ柄コード式固定電話で、オリジナルの販売台紙に取り付けられた状態。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— SALT & PEPPER SHAKERS —</span><span class="ja">— ソルト＆ペッパーシェーカー —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/parappashakers.webp" alt="Ceramic PaRappa and Sunny Funny salt and pepper shaker pair — front view">
+          <div class="ujl-caption"><span class="en">Hand-painted ceramic PaRappa ("P") and Sunny Funny ("S") shaker pair shown front-on.</span><span class="ja">手描き陶器のパラッパ（"P"）とサニー・ファニー（"S"）のシェーカーペアを正面から撮影。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/s-l1600.webp" alt="Salt and pepper shakers — back view with shaker holes">
+          <div class="ujl-caption"><span class="en">Back view of the same pair, revealing the perforated shaker holes on top of each character's head.</span><span class="ja">同じペアの背面ビュー。各キャラクターの頭頂部に開けられたシェーカー穴が確認できる。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/shakersbottom.webp" alt="Salt and pepper shakers — bottom view with rubber stoppers">
+          <div class="ujl-caption"><span class="en">Underside view showing the rubber-plug fill holes used for refilling salt and pepper.</span><span class="ja">底面ビュー。塩こしょうの詰め替えに使うゴム栓付きの注入口が見える。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— RGSTYLE HOLOGRAPHIC TAMBOURINE —</span><span class="ja">— RGstyle ホログラム タンバリン —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m87834660814_1.jpg" alt="RGStyle holographic PaRappa cast tambourine — front">
+          <div class="ujl-caption"><span class="en">Prismatic RGStyle tambourine printed with PJ Berri, Sunny Funny, Katy Kat and PaRappa across the holographic skin.</span><span class="ja">RGstyleのプリズム加工タンバリン。ホログラム面にPJベリー、サニー・ファニー、ケイティ・キャット、パラッパがプリントされている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m87834660814_3.jpg" alt="Tambourine back showing blue plastic frame and metal jingles">
+          <div class="ujl-caption"><span class="en">Back of the same tambourine, showing the sky-blue plastic frame and four pairs of metal jingles.</span><span class="ja">同タンバリンの背面で、水色のプラスチックフレームと4組の金属ジングルが確認できる。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— CHARACTER WRISTWATCHES —</span><span class="ja">— キャラクター腕時計 —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m42323062751_1.png" alt="PaRappa wristwatch in blue blister card">
+          <div class="ujl-caption"><span class="en">Yellow PaRappa wristwatch sealed in its character-print blister card.</span><span class="ja">黄色いパラッパの腕時計で、キャラクタープリントのブリスターパックに未開封で封入されている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m42323062751_2.png" alt="Back of the PaRappa wristwatch packaging">
+          <div class="ujl-caption"><span class="en">Plain back of the PaRappa watch blister, with Japanese-market care text and the Made in China stamp.</span><span class="ja">パラッパ腕時計ブリスターの裏面で、国内向けの取り扱い表記と「Made in China」の刻印が記載されている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m45243361971_1.png" alt="Yellow PaRappa wristwatch in blister card">
+          <div class="ujl-caption"><span class="en">Alternate yellow PaRappa wristwatch variant, packaged on the same character-print card style.</span><span class="ja">同じキャラクタープリント仕様のカードに封入された、別バージョンの黄色いパラッパ腕時計。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m60901501125_1.png" alt="Katy Kat wristwatch in blister card">
+          <div class="ujl-caption"><span class="en">Sky-blue Katy Kat wristwatch on the matching cast-illustration blister card.</span><span class="ja">水色のケイティ・キャット腕時計で、キャラクター集合イラストの台紙に封入された状態。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m88425161825_1.png" alt="Sunny Funny wristwatch in blister card">
+          <div class="ujl-caption"><span class="en">Pink Sunny Funny wristwatch on its character-print blister card.</span><span class="ja">ピンクのサニー・ファニー腕時計で、キャラクタープリント台紙のブリスターパック仕様。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— LIMITED ZIPPO SET (UNIVERIFY) —</span><span class="ja">— 限定ジッポーセット（ユニファイブ） —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/gfsbdsa.png" alt="PaRappa Limited Zippo Set — open box with two lighters">
+          <div class="ujl-caption"><span class="en">Univerify "Limited Zippo Set" presentation box opened to display its two PaRappa-engraved Zippo lighters.</span><span class="ja">ユニファイブの「LIMITED ZIPPO SET」ボックスを開けた状態。中にはパラッパ刻印のジッポーライター2点が並んでいる。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m72311758021_9dvfzzdcxdf.png" alt="Silver PaRappa money clip with I Gotta Believe medallion">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/nhfgbdvc.png" alt="Lid of the Limited Zippo Set box">
+          <div class="ujl-caption"><span class="en">Light-blue presentation-box lid printed with the silver "I Gotta Believe!! PaRappa" emblem and "Limited Zippo Set" title.</span><span class="ja">水色のボックス蓋には、銀色の「I Gotta Believe!! PaRappa」エンブレムと「LIMITED ZIPPO SET」のタイトルがプリントされている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/avaefcSDcafr.png" alt="Orange Zippo lighter with PaRappa starburst graphic">
+          <div class="ujl-caption"><span class="en">Matte-orange Zippo with the "PaRappa The Rapper" wordmark and a starburst illustration of PaRappa, credited © Rodney A. Greenblat / Interlink.</span><span class="ja">マットオレンジのジッポー。「PaRappaTheRapper」ロゴと、星のバーストを背にしたパラッパのイラストが配され、© Rodney A. Greenblat / Interlink のクレジット入り。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/asvddasfgzvdrfdv.png" alt="Orange Zippo lighter with I Gotta Believe emblem and serial number">
+          <div class="ujl-caption"><span class="en">Companion orange Zippo engraved with the round "I Gotta Believe!! PaRappa" badge and the individual serial No. 0092.</span><span class="ja">対になるオレンジのジッポーで、丸い「I Gotta Believe!! PaRappa」バッジと個別シリアル「No.0092」が刻印されている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/sdvcfzdsrvxcfrdv.png" alt="Bottom of the Zippo lighter showing Made in USA stamp">
+          <div class="ujl-caption"><span class="en">Underside of the orange Zippo showing the genuine "Zippo / Made in USA" bottom stamp.</span><span class="ja">オレンジジッポーの底面で、本物の証である「Zippo / Made in USA」刻印が確認できる。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/dscesafdcs.png" alt="Back of the Zippo Limited Set box with Univerify barcode">
+          <div class="ujl-caption"><span class="en">Reverse of the box with Univerify's product label, barcode, and SCP licence credit.</span><span class="ja">ボックスの裏面で、ユニファイブの商品ラベル、バーコード、SCPライセンス表記が記載されている。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— SCP SILVER RING SERIES —</span><span class="ja">— SCP シルバーリングシリーズ —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/3q4vtwerwvt.png" alt="UJL silver ring boxed — open box view">
+          <div class="ujl-caption"><span class="en">SCP silver ring presented in its original black gift box with the included Japanese care insert.</span><span class="ja">SCPシルバーリングのオリジナル黒ギフトボックス収納状態で、付属の日本語取り扱い説明カードが添えられている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/45nw byevyyv.png" alt="Silver ring engraving close-up — I gotta believe / silver 925">
+          <div class="ujl-caption"><span class="en">Engraving close-up showing the "I gotta believe / silver 925" interior stamp that authenticates the SCP series.</span><span class="ja">内側に刻まれた「I gotta believe / silver 925」の刻印クローズアップで、SCPシリーズの正規品である証となる。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/6ernturtbd.png" alt="UJL silver ring box back with Sony Creative Products label and PaRappa Ver. catalogue code">
+          <div class="ujl-caption"><span class="en">Box back with the Sony Creative Products catalogue sticker for the "UJL Silver Ring (PaRappa Ver.)" — code FG-67829-1.</span><span class="ja">ボックス裏のソニー・クリエイティブプロダクツ製品シール。「UJLシルバーリング（パラッパVer.）」品番FG-67829-1の表記。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/egreerer3vt.png" alt="PaRappa silver ring in clear acrylic case with gold logo black box">
+          <div class="ujl-caption"><span class="en">PaRappa-shape silver ring displayed in its clear acrylic stand inside the gold-foil "PaRappa The Rapper" black presentation box.</span><span class="ja">パラッパ型シルバーリングが、金箔押し「PaRappa The Rapper」ロゴ入りの黒い化粧箱とアクリルスタンドにセットされた状態。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/yrtburtyhvr.png" alt="PaRappa silver ring — beanie peak top angle">
+          <div class="ujl-caption"><span class="en">Detail shot of the same ring, with the sculpted PaRappa beanie peak on top and engraved face on the band.</span><span class="ja">同リングのディテール。上部にはパラッパのビーニーの先端が立体的に造形され、リング側面には顔が刻まれている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/w45byv4ey54yv.png" alt="Sunny Funny silver ring with floral petal carvings">
+          <div class="ujl-caption"><span class="en">Sunny Funny version of the silver ring with sculpted petals around the bezel and a flower-bud crown.</span><span class="ja">サニー・ファニー版シルバーリング。ベゼル周囲に花びらの彫刻が施され、頂部には花のつぼみがあしらわれている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/w5 b4vye6yc6.png" alt="Silver ring with star engravings on the band">
+          <div class="ujl-caption"><span class="en">Companion ring in the series with star engravings carved across the polished band.</span><span class="ja">シリーズの別バージョン。磨き上げたバンド全体に星の彫刻があしらわれている。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— PHONE STRAPS, CHARMS & KEYCHAINS —</span><span class="ja">— 携帯ストラップ・チャーム・キーホルダー —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/Screenshot_20241027_124512.jpg" alt="PaRappa rubber phone strap on retail header card">
+          <div class="ujl-caption"><span class="en">Sealed PaRappa die-cut rubber strap on its yellow "PaRappa The Rapper" header card.</span><span class="ja">未開封のパラッパ ダイカットラバーストラップが、黄色い「PaRappaTheRapper」のヘッダーカードに封入されている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m43750690940_2.png" alt="PaRappa Lamp Strap with Mascot in package">
+          <div class="ujl-caption"><span class="en">"Lamp Strap with Mascot" — PaRappa light-up phone strap on its blue microphone-themed retail card.</span><span class="ja">「Lamp Strap with Mascot」。マイクをモチーフにした青い台紙に、点灯ギミック付きのパラッパ携帯ストラップが封入されている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m56786028075_1.jpg" alt="PaRappa Strap with Mascot card and Bandai Antenna Jump charm">
+          <div class="ujl-caption"><span class="en">Pair of sealed accessories — SCP "Strap with Mascot" beanie pendant (left) and Bandai "Antenna Jump" PaRappa antenna charm (right).</span><span class="ja">未開封の2点アクセサリーセット。左はSCPの「Strap with Mascot」ビーニーペンダント、右はバンダイの「Antenna Jump」パラッパ アンテナチャーム。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m56786028075_5.jpg" alt="Backs of the strap and antenna jump packages">
+          <div class="ujl-caption"><span class="en">Reverse of both cards, showing SCP code FG-75439-10 for the strap and Bandai's antenna-fit instructions for the Jump charm.</span><span class="ja">両カードの裏面で、ストラップ側にはSCP品番FG-75439-10、アンテナジャンプ側にはバンダイのアンテナ取付説明が確認できる。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m73995596069_1.png" alt="PaRappa Fastener Accessory zipper-pull charm in package">
+          <div class="ujl-caption"><span class="en">SCP "Fastener Accessory" — a PaRappa concert-scene zipper-pull charm for clipping onto bag and jacket zips.</span><span class="ja">SCPの「Fastener Accessory」。バッグやジャケットのファスナーに取り付けるための、パラッパライブシーン柄のジッパープルチャーム。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m73995596069_2.png" alt="Back of the Fastener Accessory package with usage diagrams">
+          <div class="ujl-caption"><span class="en">Back of the Fastener Accessory card with attachment diagrams and SCP patent reference No. 3041328.</span><span class="ja">Fastener Accessoryカードの裏面で、取付図解とSCP特許番号 No. 3041328 が記載されている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/wcrterserwfz.png" alt="PaRappa The Rapper Flash Keyholder with PJ Berri figure">
+          <div class="ujl-caption"><span class="en">"Flash Keyholder" — a PJ Berri figure with light-up shades on a ball chain, mounted on a card showing the full main cast.</span><span class="ja">「flash keyholder」。サングラスが光るギミック付きのPJベリーフィギュアがボールチェーンに取り付けられ、メインキャスト勢揃いの台紙に封入されている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m82377723535_1.png" alt="PaRappa Character Keychain set with three figures">
+          <div class="ujl-caption"><span class="en">"PaRappa The Rapper Character Keychain" three-figure set — PaRappa, PJ Berri, and Sunny Funny on a single split ring.</span><span class="ja">「PaRappaTheRapper Character Keychain」3体セット。パラッパ、PJベリー、サニー・ファニーが1つのキーリングに連結されている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m82377723535_2.png" alt="Back of the Character Keychain card">
+          <div class="ujl-caption"><span class="en">Back of the keychain card with SCP code FG-76273-6 and a small Katy-Kat-and-PJ-Berri illustration.</span><span class="ja">キーチェーンカード裏面で、SCP品番FG-76273-6と、ケイティ・キャットとPJベリーの小さなイラストが配されている。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— PJ BERRI WRIST MOUSE MASCOT —</span><span class="ja">— PJベリー リストマウスマスコット —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/PJStuff/ewaxferfrerg.png" alt="PJ Berri wrist mouse mascot — yellow rubber clasp with PJ figure">
+          <div class="ujl-caption"><span class="en">Yellow translucent rubber wrist mascot containing a small PJ Berri figure inside the donut-themed window.</span><span class="ja">黄色いクリアラバー製のリストマスコットで、ドーナツ柄の窓の中に小さなPJベリーのフィギュアが収められている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/PJStuff/exrgerwzgerger.png" alt="PJ Berri Catchy wrist mouse mascot full strap view">
+          <div class="ujl-caption"><span class="en">Full wrist-strap view of the PJ Berri "Catchy" mouse mascot with its donut-and-cookie pattern band.</span><span class="ja">PJベリーの「Catchy」マウスマスコットのリストバンド全景。ドーナツとクッキー柄のバンド全体が見える。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/PJStuff/w5nbvegrtdgrs.png" alt="PJ Berri wrist mouse mascot — sealed in package">
+          <div class="ujl-caption"><span class="en">Same wrist mascot still factory-sealed inside its plastic display sleeve.</span><span class="ja">同じリストマスコットが、未開封の状態でプラスチックの陳列スリーブに封入されている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/btvw5t5s4ty.png" alt="Back of the wrist mouse mascot package with usage instructions">
+          <div class="ujl-caption"><span class="en">Reverse of the package with SCP code FK-70929-10 and Japanese usage cautions for "PaRappa & PJ".</span><span class="ja">パッケージ裏面で、SCP品番FK-70929-10と「パラッパ＆PJ」の日本語注意書きが記載されている。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— MOUSEPET COMPUTER MOUSE SET —</span><span class="ja">— マウスペット コンピューターマウスセット —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/werbtyesves.png" alt="PaRappa Mousepet Set — pen-style mouse and PJ Berri monitor mascot">
+          <div class="ujl-caption"><span class="en">"Mousepet Set" pairing a PaRappa pen-style computer mouse with a small clear-amber PJ Berri monitor-clip mascot.</span><span class="ja">「MOUSEPET SET」。ペン型のパラッパ コンピューターマウスと、モニター固定用の小さなクリアアンバー製PJベリーマスコットがセットになっている。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— STATIONERY: MEMO, ERASERS, STICKERS —</span><span class="ja">— 文房具：メモ・消しゴム・シール —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m31221276646_6.png" alt="PaRappa memo pad and Mini Eraser blister card">
+          <div class="ujl-caption"><span class="en">Sealed PaRappa memo pad (left) alongside the "PaRappa The Rapper Mini Eraser" blister of bone-shaped erasers (right).</span><span class="ja">未開封のパラッパ メモパッド（左）と、骨型ミニ消しゴムが封入された「PaRappaTheRapper Mini Eraser」ブリスター（右）。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m31221276646_7.png" alt="Back of the memo pad and eraser packs">
+          <div class="ujl-caption"><span class="en">Reverse of both stationery packs with the candy-stripe pattern and SCP product codes.</span><span class="ja">両ステーショナリーパックの裏面で、キャンディストライプ柄とSCPの品番表記が確認できる。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/erasers.png" alt="PaRappa The Rapper Mini Eraser blister card front">
+          <div class="ujl-caption"><span class="en">Isolated front of the "PaRappa The Rapper Mini Eraser" blister with four white PaRappa-shape mini erasers held to the card.</span><span class="ja">「PaRappaTheRapper Mini Eraser」ブリスターの正面ビュー。白いパラッパ型ミニ消しゴム4個が台紙に並んで固定されている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/eraserback.png" alt="Back of the Mini Eraser blister with care label">
+          <div class="ujl-caption"><span class="en">Reverse of the Mini Eraser blister with the SCP code FK-76249-10 and the "材質：粘土ゴム" (clay-rubber) material note.</span><span class="ja">Mini Eraserブリスターの裏面で、SCP品番FK-76249-10と「材質：粘土ゴム」の素材表記が記載されている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/PJStuff/m32019462364_6.png" alt="PaRappa Rolled Seal and PJ Berri Mixed Seal sticker packs">
+          <div class="ujl-caption"><span class="en">"Rolled Seal" character sticker roll (left) paired with a "PJ Berri Mixed Seal" die-cut sticker pack (right).</span><span class="ja">キャラクターシールロール「Rolled Seal」（左）と、PJベリー柄ダイカットシール詰め合わせ「PJ Berri Mixed Seal」（右）のセット。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m32019462364_7.png" alt="Back of the sticker packaging">
+          <div class="ujl-caption"><span class="en">Backs of both sticker packs with the SCP licence stamp and Japanese-market product info.</span><span class="ja">両シールパックの裏面で、SCPライセンススタンプと国内向け商品情報が記載されている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/seal.png" alt="PaRappa Rolled Seal sticker pack standalone front">
+          <div class="ujl-caption"><span class="en">Isolated front of the "Rolled Seal" sticker roll header card with the circular character portrait line-up.</span><span class="ja">「Rolled Seal」シールロールのヘッダーカード正面ビューで、円形のキャラクター肖像が並ぶ。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/tapeback.png" alt="Back of the Rolled Seal yellow sticker package">
+          <div class="ujl-caption"><span class="en">Reverse of the same Rolled Seal pack, showing the plain yellow back panel and barcode strip.</span><span class="ja">同Rolled Sealパックの裏面で、無地の黄色い裏面パネルとバーコードストリップが確認できる。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— MUSIC GIFT CARDS —</span><span class="ja">— ミュージックギフトカード —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m20766533754_1.png" alt="PaRappa Music Card folder open showing Hip Hop Hero pages">
+          <div class="ujl-caption"><span class="en">Music Card presentation folder opened to its "HIP HOP HERO!!!!!!!!" character spread.</span><span class="ja">ミュージックギフトカード台紙を開いた状態で、「HIP HOP HERO!!!!!!!!」と題されたキャラクター見開きページが現れる。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m20766533754_2.png" alt="Back of the Music Card folder with Music Card cover art">
+          <div class="ujl-caption"><span class="en">Outer cover of the same folder, themed to the "Music Card" PaRappa stage scene.</span><span class="ja">同台紙の外側カバーで、「ミュージックカード」のパラッパのステージシーンが描かれている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m20766533754_3.png" alt="Yellow PaRappa music gift card serial 4323">
+          <div class="ujl-caption"><span class="en">Yellow ¥1,000 PaRappa Music Card with magstripe and individual serial 4323.</span><span class="ja">黄色い額面1,000円のパラッパ ミュージックカードで、磁気ストライプと個別シリアル番号「4323」付き。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m20766533754_4.png" alt="500 yen PaRappa music gift card with cast print">
+          <div class="ujl-caption"><span class="en">¥500 PaRappa Music Gift Card variant printed with the full cast on its character-bordered sleeve.</span><span class="ja">額面500円のパラッパ ミュージックギフトカードで、キャラクターで縁取られたスリーブにメインキャスト勢揃いがプリントされている。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— PARAPPA FESTIVAL FACE MASK —</span><span class="ja">— パラッパ お面 —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m31546409787_1.png" alt="PaRappa plastic festival mask front view">
+          <div class="ujl-caption"><span class="en">Vacuum-formed plastic PaRappa festival face mask in the classic Japanese summer-stall <em>omen</em> style.</span><span class="ja">日本の夏祭り屋台で売られる定番のお面スタイルで作られた、真空成形プラスチック製のパラッパお面。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m31546409787_2.png" alt="Back of the PaRappa plastic festival mask">
+          <div class="ujl-caption"><span class="en">Reverse of the mask, showing the eye holes and the maker's name embossed on the inside.</span><span class="ja">お面の裏面で、目穴と内側に押し型で入った製造者名が確認できる。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— DAKKO-CHAN INFLATABLES & SOFT TOYS —</span><span class="ja">— だっこちゃん＆やわらかソフトトイ —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m46443715205_2.png" alt="Dakko-chan PaRappa inflatable arm hugger in package">
+          <div class="ujl-caption"><span class="en">"Dakko-chan PaRappa" — a vinyl inflatable arm-hugger doll modelled on the classic Japanese Dakko-chan toy.</span><span class="ja">「だっこちゃんパラッパ」。日本の定番玩具「だっこちゃん」をモチーフにしたビニール製エアー人形で、腕に抱きつかせて遊べる仕様。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m46443715205_3.png" alt="Back of the Dakko-chan PaRappa package with inflation instructions">
+          <div class="ujl-caption"><span class="en">Reverse of the Dakko-chan PaRappa pack with inflation diagrams and Japanese safety cautions.</span><span class="ja">だっこちゃんパラッパ パッケージ裏面で、空気の入れ方の図解と日本語の使用上の注意が記載されている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m46443715205_4.png" alt="Dakko-chan Sunny Funny inflatable arm hugger in package">
+          <div class="ujl-caption"><span class="en">"Dakko-chan Sunny Funny" — companion vinyl inflatable in the same Dakko-chan format.</span><span class="ja">「だっこちゃんサニー」。同じだっこちゃんフォーマットの対になるビニールエアー人形。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m46443715205_6.png" alt="Yawaraka PJ squishy soft PJ Berri head plush in package">
+          <div class="ujl-caption"><span class="en">"Yawaraka PJ" — a squishy soft-vinyl PJ Berri head sealed with its orange "やわらか" (soft) hang-tag.</span><span class="ja">「やわらかPJ」。柔らかいソフトビニール製のPJベリー頭部で、オレンジの「やわらか」下げ札が付いた未開封状態。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— TISSUE PACKS —</span><span class="ja">— ポケットティッシュ —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m80245586933_1.png" alt="PaRappa Tissue Set mini packs collection">
+          <div class="ujl-caption"><span class="en">Collection of "PaRappa The Rapper Tissue Set" mini-packs featuring PaRappa, Sunny Funny, PJ Berri, and Katy Kat.</span><span class="ja">「PaRappaTheRapper Tissue Set」のミニポケットティッシュ各種。パラッパ、サニー・ファニー、PJベリー、ケイティ・キャットの絵柄が揃う。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m80245586933_2.png" alt="Closer view of the tissue pack collection">
+          <div class="ujl-caption"><span class="en">Closer view of the same set, showing the orange/blue/green/pink character-banner colourways used across the line.</span><span class="ja">同セットの拡大ビュー。シリーズ全体で使われているオレンジ・ブルー・グリーン・ピンクのキャラクターバナー配色がよく分かる。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m80245586933_3.png" alt="Backs of the tissue mini packs">
+          <div class="ujl-caption"><span class="en">Reverse of the tissue packs with the SCP product label and barcode strip on each character variant.</span><span class="ja">ティッシュパック裏面で、各キャラクターバージョンにSCPの商品ラベルとバーコードストリップが付いている。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— CHARACTER ADHESIVE BANDAGES —</span><span class="ja">— キャラクター絆創膏 —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m80245586933_4.png" alt="PaRappa and PJ Berri bandage cases">
+          <div class="ujl-caption"><span class="en">Plastic bandage carry-cases printed with PaRappa (left) and PJ Berri (right) cover graphics.</span><span class="ja">プラスチック製の絆創膏ケースで、左にはパラッパ、右にはPJベリーの表紙グラフィックがプリントされている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m80245586933_5.png" alt="Open bandage case showing strips inside">
+          <div class="ujl-caption"><span class="en">Bandage case opened to reveal the printed adhesive strips and a yellow refill pouch inside.</span><span class="ja">絆創膏ケースを開けた状態。プリント絆創膏と詰め替え用の黄色いリフィルパウチが収まっている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m80245586933_6.png" alt="Character bandages laid out by character">
+          <div class="ujl-caption"><span class="en">Individual bandage strips laid out by character — PaRappa, Sunny Funny, PJ Berri, and Katy Kat designs.</span><span class="ja">キャラクター別に並べた絆創膏。パラッパ、サニー・ファニー、PJベリー、ケイティ・キャットの各デザインが揃う。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— LIGHT & SOUND WAND —</span><span class="ja">— ライト＆サウンドウォンド —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m45588244519_9.png" alt="PaRappa light and sound wand toy with strap">
+          <div class="ujl-caption"><span class="en">Battery-powered PaRappa light-and-sound wand toy with translucent orange tip, three sound buttons, and a wrist lanyard.</span><span class="ja">電池式のパラッパ ライト＆サウンドウォンド玩具。半透明オレンジの先端、3つのサウンドボタン、ストラップ付きリストランヤードを備える。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m45588244519_14.png" alt="Close-up of the wand showing PaRappa face emblem and orange buttons">
+          <div class="ujl-caption"><span class="en">Close-up of the wand grip with the round green PaRappa face emblem above the three orange action buttons.</span><span class="ja">ウォンドのグリップ部分のクローズアップ。3つのオレンジボタン上部に、丸いグリーンのパラッパ顔エンブレムが配されている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m45588244519_10.png" alt="Wand from battery side with orange tip">
+          <div class="ujl-caption"><span class="en">Side view of the wand showing the battery housing molded into the green plastic body.</span><span class="ja">ウォンドの側面ビューで、グリーンのプラスチックボディに一体成形された電池ボックスが確認できる。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m45588244519_11.png" alt="Battery compartment of the wand opened">
+          <div class="ujl-caption"><span class="en">Battery door removed to show the AA cell compartment that powers the lights and sound effects.</span><span class="ja">電池蓋を外した状態で、ライトとサウンド効果を駆動する単3電池ボックスが現れる。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— PUZZ-CLOCK 135-PIECE PUZZLE CLOCK —</span><span class="ja">— パズ・クロック 135ピースパズル時計 —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m46047081880_1.png" alt="PaRappa Puzz Clock 135 piece jigsaw puzzle clock front of box">
+          <div class="ujl-caption"><span class="en">Sony Creative Products "Puzz Clock" — a 135-piece jigsaw puzzle that assembles into a working PaRappa cast wall clock.</span><span class="ja">ソニー・クリエイティブプロダクツの「PuzzClock」。組み上げるとパラッパ集合柄の壁掛け時計として機能する135ピースのジグソーパズル。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m46047081880_6.png" alt="Back of Puzz Clock box with assembly instructions">
+          <div class="ujl-caption"><span class="en">Box back with the five-step assembly diagram for fitting the puzzle into its movement-equipped clock frame.</span><span class="ja">ボックス裏面で、ムーブメント付き時計フレームへのパズル組み込み方法を5ステップで図解。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m46047081880_8.png" alt="Side panel of the Puzz Clock box sealed">
+          <div class="ujl-caption"><span class="en">Side panel of the still-sealed Puzz Clock box with the "時を刻むシグソーパズル!!" tagline.</span><span class="ja">未開封のPuzzClockボックス側面で、「時を刻むシグソーパズル!!」のキャッチコピーが入る。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— BANDAI TAPE CLUB CAPSULE WASHI TAPES —</span><span class="ja">— バンダイ Tape Club カプセル マスキングテープ —</span></div>
+      <div class="ujl-gallery-grid tapeclub-grid">
+        <div class="ujl-gallery-item display-card">
+          <img src="ParappaStuff/Misc2/displaycard.jpg" alt="Bandai Tape Club gashapon machine display card showing all six tape designs">
+          <div class="ujl-caption"><span class="en">The gashapon machine display card — Bandai, 1999, made in Japan. It lays out the full lineup: three キャラクターテープ (character tapes) featuring PaRappa, Sunny Funny, PJ Berri and Katy Kat, and three メッセージテープ (message tapes) printed with phrases like "How are you?", "Wonderful!", "Lucky!" and "Send me a letter". The fine print confirms 全６種 at 各100円, one tape per capsule, ages 6 and up — and that these are セロハンテープ (cellophane tape) rather than true washi.</span><span class="ja">ガシャポン本体用のディスプレイ台紙。バンダイ、1999年日本製。パラッパ、サニーファニー、PJベリー、ケイティ・キャットを描いたキャラクターテープ３種と、「How are you?」「Wonderful!」「Lucky!」「Send me a letter」などの文字が入ったメッセージテープ３種で、ラインナップ全体が一目で分かる。下部には「セロハンテープ」「全６種」「１カプセル１個入り」「対象年齢６才以上」「各100円」の表記が並ぶ。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m52583125854_1.png" alt="PaRappa Tape Club gashapon set with capsule and tape rolls">
+          <div class="ujl-caption"><span class="en">Bandai gashapon "PaRappa The Rapper Tape Club" — six washi-tape rolls plus a header card, each capsule still factory sealed.</span><span class="ja">バンダイのカプセルトイ「PaRappaTheRapper Tape Club」。6種のマスキングテープロールとヘッダーカードが、それぞれ未開封のカプセルに封入されている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m52583125854_2.png" alt="Tape Club header card with Bandai branding and 6 type lineup">
+          <div class="ujl-caption"><span class="en">Header card naming the series "PaRappa The Rapper Tape Club" with Bandai's "全6種" (six types) callout.</span><span class="ja">「PaRappaTheRapper Tape Club」シリーズ名と、バンダイの「全6種」表記が入ったヘッダーカード。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m52583125854_3.png" alt="Close-up of one Tape Club roll showing pattern">
+          <div class="ujl-caption"><span class="en">One roll uncapped to show the printed pattern of small character labels and stamp icons running along the tape.</span><span class="ja">1ロールを取り出した状態で、小さなキャラクターラベルとスタンプアイコンが連続するテープの印刷パターンが確認できる。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m52583125854_4.png" alt="Tape Club usage example panel showing notebook decoration">
+          <div class="ujl-caption"><span class="en">Inset panel from the header card showing notebook-decoration use cases for the tapes.</span><span class="ja">ヘッダーカード内のサンプルパネルで、ノート装飾の使用例が掲載されている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m52583125854_5.png" alt="Set of six Tape Club washi tape rolls assembled">
+          <div class="ujl-caption"><span class="en">Complete six-roll set assembled together, completing the Tape Club gashapon line.</span><span class="ja">6ロール全種をまとめて並べた状態で、Tape Clubガシャポンの全コンプリートセット。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— AU C3055 PARAPPA CELLPHONE —</span><span class="ja">— au C3055 パラッパ携帯電話 —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/PJStuff/cellad.png" alt="au C3055 PaRappa cellphone Japanese catalog page">
+          <div class="ujl-caption"><span class="en">Japanese au catalogue spread for the Sony C3055 PaRappa cellphone — a co-branded handset with PaRappa-themed wallpapers and ringtones.</span><span class="ja">ソニー製 C3055 パラッパ仕様携帯電話の au カタログ見開きページ。パラッパ柄の待受画面と着信メロディを搭載したコラボハンドセット。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/PJStuff/phones.jpg" alt="Two au C305S by Sony cdmaOne handsets with PJ Berri original straps and screen wallpapers" style="max-width:50%">
+          <div class="ujl-caption"><span class="en">A matched pair of the au C305S (by Sony) cdmaOne handsets in pink and blue, each with the PJ Berri original strap and PJ Berri screen wallpaper.</span><span class="ja">ピンクとブルーの au C305S（ソニー製）cdmaOne 携帯電話のペア。それぞれ PJ ベリーのオリジナルストラップと PJ ベリーの待受画面付き。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— EVENT MASCOT COSTUMES —</span><span class="ja">— イベント着ぐるみ —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m69852305611_3.png" alt="PaRappa cast costumed mascots photographed at a Welcome event">
+          <div class="ujl-caption"><span class="en">In-store event photo of the Katy Kat, PJ Berri, and PaRappa walk-around mascot suits beneath a "Welcome" banner.</span><span class="ja">店頭イベントの記録写真。「Welcome」のバナーの下に、ケイティ・キャット、PJベリー、パラッパの着ぐるみマスコットが並んでいる。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— DIE-CUT FACE HANGTAG —</span><span class="ja">— ダイカットフェイスハングタグ —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m21231089611_1.png" alt="PaRappa face-shaped die-cut vinyl hangtag in plastic bag">
+          <div class="ujl-caption"><span class="en">Sealed PaRappa face-shaped die-cut vinyl hangtag with attached ball-chain, ready to clip onto a bag.</span><span class="ja">未開封のパラッパ顔型ダイカット ビニールハングタグ。ボールチェーン付きで、バッグなどに取り付けられる仕様。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/m21231089611_2.png" alt="Back of the die-cut hangtag with shop sticker">
+          <div class="ujl-caption"><span class="en">Reverse of the same hangtag showing the orange backing and Japanese retail-shop barcode sticker.</span><span class="ja">同ハングタグの裏面で、オレンジの裏地と国内小売店のバーコードシールが確認できる。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— PROMO PRIZE LINEUP —</span><span class="ja">— プロモーション景品ラインナップ —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/Misc/good.gal10.jpg" alt="Promo prize lineup with PaRappa Superstar snow globe PJ Dreamland snow globe tambourine and Auto Roll yo-yo">
+          <div class="ujl-caption"><span class="en">Promotional prize-line image showing the "PaRappa Superstar" and "PJ's Dreamland" snow globes alongside a PaRappa tambourine and "Auto Roll" yo-yo set.</span><span class="ja">プロモーション景品ラインナップの紹介画像。「PaRappa Superstar」と「PJ's Dreamland」のスノードームに、パラッパ柄タンバリンと「Auto Roll」ヨーヨーセットが並ぶ。</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">PaRappa Corner &mdash; PaRappa the Rapper Fan Site &mdash; parappacorner.com</div>
+</div>
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous image">&lsaquo;</button>
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close">&times;</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Next image">&rsaquo;</button>
+</div>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="vibri-sharpen">
+    <feConvolveMatrix order="3" preserveAlpha="true"
+      kernelMatrix="0 -0.4 0  -0.4 2.6 -0.4  0 -0.4 0"/>
+  </filter>
+</svg>
+<a href="black.html" class="vibri-link"><img src="vib/stare.gif" alt="Vibri" class="vibri-corner"></a>
+
+
+
+<!-- ZOOM-INVARIANT CORNERS
+     The "PaRappa Corner" button (bottom-left) and the Vibri link (bottom-right) must
+     sit in exactly the same spot, at exactly the same on-screen size, however
+     far the page is zoomed. They are position:fixed, so browser zoom already
+     keeps them in the corner but scales them up; pinch zoom moves them off the
+     visible area entirely. This publishes three custom properties the two rules
+     in parappa.css consume:
+       --zoom-fix              inverse of the current zoom (counter-scale)
+       --zoom-dx / --zoom-dy   shift from the layout viewport's bottom-left to
+                               the visible viewport's bottom-left
+       --zoom-dx-right         same shift for the right edge
+     Under plain desktop browser zoom the deltas stay 0 and only --zoom-fix does
+     any work. -->
+
+<!-- The label is SVG text rather than HTML text: with -webkit-text-stroke, Chrome
+     fills from the hinted glyph bitmap but strokes the raw outline, and this font's
+     hinting shortens the "p" descenders at small sizes, so the two layers disagreed
+     under "pp". SVG text fills and strokes the same path. -->
+<div class="corner-wrap">
+<button type="button" class="corner-subtitle" id="siteSubtitle" aria-label="PaRappa Corner" title="Back to the home page" onclick="showPage('welcome', document.getElementById('navHomeBtn')); window.scrollTo(0, 0);">
+  <!-- .corner-frame is a plain block wrapper in PaRappa mode; in Lammy mode it
+       carries the inner two of the nav tabs' three bevelled outline frames. -->
+  <span class="corner-frame">
+  <svg class="corner-label fit-text" width="153" height="24" aria-hidden="true" focusable="false">
+    <!-- Lammy mode only (CSS): red oval behind "Corner", like the one behind
+         "LAMMY" in the title. Geometry is set by fitTextSvgs from the word's box. -->
+    <ellipse class="corner-pill" cx="0" cy="0" rx="0" ry="0"></ellipse>
+    <text class="corner-label-back" x="0" y="17.5"><tspan class="corner-word-parappa">PaRappa</tspan><tspan class="corner-gap"> </tspan><tspan class="corner-word-corner">Corner</tspan></text>
+    <text class="corner-label-front" x="0" y="17.5"><tspan class="corner-word-parappa">PaRappa</tspan><tspan class="corner-gap"> </tspan><tspan class="corner-word-corner">Corner</tspan></text>
+  </svg>
+  </span>
+</button>
+</div>
+
+<!-- BACK TO TOP — right side, shows once the page is scrolled halfway -->
+<button type="button" class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M12 20V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+<script src="parappa.js"></script>
+</body>
+</html>

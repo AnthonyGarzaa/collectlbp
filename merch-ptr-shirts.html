@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Shirts — PaRappa Corner</title>
+  <meta name="description" content="PaRappa Corner: a fan site preserving and documenting PaRappa the Rapper and Um Jammer Lammy merchandise, rare collectibles, and franchise history.">
+  <link rel="canonical" href="https://parappacorner.com/merch-ptr-shirts.html">
+  <meta property="og:site_name" content="PaRappa Corner">
+  <meta property="og:title" content="Shirts — PaRappa Corner">
+  <meta property="og:description" content="A fan site preserving and documenting PaRappa the Rapper and Um Jammer Lammy merchandise, rare collectibles, and franchise history.">
+  <meta property="og:url" content="https://parappacorner.com/merch-ptr-shirts.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://parappacorner.com/par.png">
+  <link id="favicon" rel="icon" type="image/png" href="par.png">
+  <link id="favicon-shortcut" rel="shortcut icon" type="image/png" href="par.png">
+  <link rel="stylesheet" href="parappa.css?v=20260914">
+</head>
+<body>
+<script>
+  // Restore Lammy mode and the JP language before the page paints, so moving
+  // between pages doesn't flash the PaRappa-mode / English versions first.
+  (function () {
+    try {
+      if (localStorage.getItem('parappaLammyMode') === '1') document.body.classList.add('theme-lammy');
+      if (localStorage.getItem('parappaLangJP') === '1') document.body.classList.add('lang-jp');
+    } catch (e) {}
+  })();
+</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="parappa-squiggle">
+    <feTurbulence type="turbulence" baseFrequency="0.012" numOctaves="1" seed="4" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="45"/>
+  </filter>
+</svg>
+
+<div class="site-wrap">
+
+  <!-- HEADER -->
+  <div class="site-header">
+    <div class="lang-toggle-wrap">
+      <div class="lang-toggle">
+        <span class="toggle-label toggle-flag"><span class="en">EN</span><span class="ja">EN</span></span>
+        <div class="toggle-track" id="langTrack" onclick="toggleLang()">
+          <div class="toggle-thumb" id="langThumb"></div>
+        </div>
+        <span class="toggle-label toggle-flag jp-flag"><span class="en">JP</span><span class="ja">JP</span></span>
+      </div>
+      <img class="lang-cover" src="LammyStuff/Language.png" alt="Language">
+      <div class="lang-menu-btns">
+        <button type="button" class="lang-menu-btn" onclick="setLang('en')"><span class="lang-menu-label">EN</span></button>
+        <button type="button" class="lang-menu-btn" onclick="setLang('jp')"><span class="lang-menu-label">JP</span></button>
+      </div>
+    </div>
+    <img class="parappa-pony" src="pony.png" alt="Pony" aria-hidden="true">
+    <img class="parappa-joe" src="thejoe.png" alt="Joe Chin" aria-hidden="true">
+    <img class="parappa-boxy" src="LammyStuff/resources/boxy.png" alt="Boxy Boy" aria-hidden="true">
+    <img class="parappa-mc" src="LammyStuff/resources/MC.png" alt="MC King Kong Mushi" aria-hidden="true">
+    <div class="logo" id="siteLogo"><svg class="logo-svg fit-text" width="367" height="33" role="img" aria-label="PaRappa the Rapper" focusable="false"><text x="0" y="25"><tspan fill="#FFB347">PA</tspan><tspan fill="#1098AD">RAPPA</tspan> <tspan fill="#5CB85C">THE</tspan> <tspan fill="#F07A8E">RAPPER</tspan></text></svg></div>
+    <div class="tagline" id="siteTagline"><span class="tagline-text" data-text="The Hip Hop Hero">The Hip Hop Hero</span></div>
+    <div class="lammy-renders">
+      <img src="LammyStuff/Renders/lammy.png" alt="Lammy">
+      <div class="masan-stack">
+        <img class="masan-hat" src="LammyStuff/ressources/flanger.png" alt="Flanger">
+        <img class="masan-harmonizer" src="LammyStuff/ressources/harmonizer.png" alt="Harmonizer">
+        <img class="masan-poofu" src="LammyStuff/ressources/poofu.png" alt="" aria-hidden="true">
+        <img class="lammy-guit" src="LammyStuff/resources/lammyguit.png" alt="Lammy's guitar" aria-hidden="true">
+        <img class="masan-drumhead" src="LammyStuff/resources/drumhead.png" alt="" aria-hidden="true">
+        <img class="masan-bass" src="LammyStuff/resources/bass.png" alt="Bass guitar" aria-hidden="true">
+        <img class="masan-pandatsu" src="LammyStuff/Renders/pandatsu.png" alt="Pandatsu" aria-hidden="true">
+        <img class="masan-squirrel" src="LammyStuff/Renders/squirrel.png" alt="Gramophone squirrel" aria-hidden="true">
+        <img class="masan-guitartopper" src="LammyStuff/Renders/guitartopper.png" alt="Guitar Topper">
+        <img src="LammyStuff/Renders/masan.png" alt="Ma-san">
+      </div>
+      <img src="LammyStuff/Renders/katy.png" alt="Katy Kat">
+      <img src="LammyStuff/Renders/onion.png" alt="Chop Chop Master Onion">
+      <img src="LammyStuff/Renders/chief.png" alt="Chief Puddle">
+      <img src="LammyStuff/Renders/cathy.png" alt="Cathy Pillar">
+      <div class="captain-stack">
+        <img class="captain-reverb" src="LammyStuff/ressources/reverb.png" alt="Reverb">
+        <img class="captain-wahwah" src="LammyStuff/ressources/wahwah.png" alt="WahWah">
+        <img src="LammyStuff/Renders/captain.png" alt="Captain Fussenpepper">
+      </div>
+      <div class="paul-stack">
+        <img class="paul-now" src="LammyStuff/resources/now!.png" alt="NOW!">
+        <img class="rammy-guit" src="LammyStuff/resources/rammyguit.png" alt="Rammy's guitar" aria-hidden="true">
+        <img class="tree-guit" src="LammyStuff/resources/treeguit.png" alt="Tree guitar" aria-hidden="true">
+        <img class="paul-goo" src="LammyStuff/Renders/goo.png" alt="" aria-hidden="true">
+        <img class="paul-drag" src="LammyStuff/Renders/drag.png" alt="Dragon" aria-hidden="true">
+        <img class="paul-ramm" src="LammyStuff/resources/ramm.png" alt="" aria-hidden="true">
+        <img class="paul-distortion" src="LammyStuff/ressources/distortion.png" alt="Distortion">
+        <img src="LammyStuff/Renders/paul.png" alt="Paul Chuck">
+      </div>
+      <div class="teri-stack">
+        <img class="teri-rammy" src="LammyStuff/Renders/rammy.png" alt="Rammy">
+        <img src="LammyStuff/Renders/teri.png" alt="Teriyaki Yoko">
+      </div>
+    </div>
+    <div class="theme-toggle">
+      <button class="theme-btn" id="themeBtn" onclick="toggleTheme()"><span class="theme-btn-label">LAMMY MODE</span></button>
+      <img class="theme-cover" src="LammyStuff/Option.png" alt="Option">
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-bar">
+
+    <div class="nav-item">
+      <button id="navHomeBtn" onclick="showPage('welcome', this)">
+        <span class="en">HOME</span><span class="ja">ホーム</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="index.html"><span class="dot"></span><span class="en">Welcome</span><span class="ja">ようこそ</span></a>
+        <a href="search.html"><span class="dot"></span><span class="en">Search</span><span class="ja">検索</span></a>
+        <a href="donate.html"><span class="dot"></span><span class="en">Donate</span><span class="ja">寄付</span></a>
+        <a href="contact.html"><span class="dot"></span><span class="en">Contact</span><span class="ja">お問い合わせ</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('aboutgame', this)">
+        <span class="en">ABOUT</span><span class="ja">アバウト</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="aboutgame.html"><span class="dot"></span><span class="en">The Games</span><span class="ja">ゲーム</span></a>
+        <a href="aboutanime.html"><span class="dot"></span><span class="en">The Anime</span><span class="ja">アニメ</span></a>
+        <a href="aboutrodney.html"><span class="dot"></span><span class="en">Rodney Alan Greenblat</span><span class="ja">ロドニー・アラン・グリーンブラット</span></a>
+        <a href="aboutmatsuura.html"><span class="dot"></span><span class="en">Masaya Matsuura</span><span class="ja">松浦 雅也</span></a>
+        <a href="aboutvoiceactors.html"><span class="dot"></span><span class="en">Voice Actors</span><span class="ja">声優</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <div class="parappa-nav-pair" aria-hidden="true">
+        <img class="parappa-bear" src="pjbear.png" alt="PJ Berri">
+        <img class="parappa-kat" src="thekat.png" alt="Katy Kat">
+        <img class="parappa-sun" src="thesunnyfunny.png" alt="Sunny Funny">
+        <img class="parappa-rapdog" src="somedog.png" alt="PaRappa">
+      </div>
+      <button onclick="showPage('chars', this)">
+        <span class="en">CHARACTERS</span><span class="ja">キャラクター</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="chars.html"><span class="dot"></span><span class="en">PaRappa The Rapper</span><span class="ja">パラッパラッパー</span></a>
+        <a href="chars-ujl.html"><span class="dot"></span><span class="en">Um Jammer Lammy</span><span class="ja">ウンジャマ・ラミー</span></a>
+        <a href="chars-ptr2.html"><span class="dot"></span><span class="en">PaRappa The Rapper 2</span><span class="ja">パラッパラッパー2</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('merch-rodneyfun-comics', this)">
+        <span class="en">MERCHANDISE</span><span class="ja">グッズ</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">RodneyFun</span><span class="ja">ロドニーファン</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="merch-rodneyfun-comics.html"><span class="dot"></span><span class="en">Comic Collection</span><span class="ja">コミックコレクション</span></a>
+            <a href="merch-rodneyfun-toys.html"><span class="dot"></span><span class="en">Toys</span><span class="ja">おもちゃ</span></a>
+            <a href="merch-rodneyfun-shirts.html"><span class="dot"></span><span class="en">Shirts</span><span class="ja">シャツ</span></a>
+            <a href="merch-rodneyfun-stationary.html"><span class="dot"></span><span class="en">Stationary</span><span class="ja">文房具</span></a>
+            <a href="merch-rodneyfun-promotional.html"><span class="dot"></span><span class="en">Promotional Items</span><span class="ja">プロモーションアイテム</span></a>
+          </div>
+        </div>
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">PaRappa The Rapper</span><span class="ja">パラッパラッパー</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="merch-ptr-plush.html"><span class="dot"></span><span class="en">Plush Toys</span><span class="ja">ぬいぐるみ</span></a>
+            <a href="merch-ptr-figures.html"><span class="dot"></span><span class="en">Figures</span><span class="ja">フィギュア</span></a>
+            <a href="merch-ptr-shirts.html"><span class="dot"></span><span class="en">Shirts</span><span class="ja">シャツ</span></a>
+            <a href="merch-ptr-misc.html"><span class="dot"></span><span class="en">Miscellaneous</span><span class="ja">その他</span></a>
+          </div>
+        </div>
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">Um Jammer Lammy</span><span class="ja">ウンジャマ・ラミー</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="merch-ujl-plush.html"><span class="dot"></span><span class="en">Plush Toys</span><span class="ja">ぬいぐるみ</span></a>
+            <a href="merch-ujl-figures.html"><span class="dot"></span><span class="en">Figures</span><span class="ja">フィギュア</span></a>
+            <a href="merch-ujl-keychains.html"><span class="dot"></span><span class="en">Keychains</span><span class="ja">キーホルダー</span></a>
+            <a href="merch-ujl-shirts.html"><span class="dot"></span><span class="en">Shirts</span><span class="ja">シャツ</span></a>
+            <a href="merch-ujl-milkcantour.html"><span class="dot"></span><span class="en">MilkCan Tour '99</span><span class="ja">ミルクカンツアー '99</span></a>
+            <a href="merch-ujl-fernandes.html"><span class="dot"></span><span class="en">Fernandes Guitars</span><span class="ja">フェルナンデス・ギター</span></a>
+            <a href="merch-ujl-stationery.html"><span class="dot"></span><span class="en">Stationery</span><span class="ja">文房具</span></a>
+            <a href="merch-ujl-misc.html"><span class="dot"></span><span class="en">Miscellaneous</span><span class="ja">その他</span></a>
+          </div>
+        </div>
+        <a href="merch-mcdonalds.html"><span class="dot"></span><span class="en">McDonald's</span><span class="ja">マクドナルド</span></a>
+        <a href="merch-dunkin.html"><span class="dot"></span><span class="en">Dunkin' Donuts</span><span class="ja">ダンキンドーナツ</span></a>
+        <a href="merch-lipton.html"><span class="dot"></span><span class="en">Lipton</span><span class="ja">リプトン</span></a>
+        <a href="merch-catalogs.html"><span class="dot"></span><span class="en">Catalogs</span><span class="ja">カタログ</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('gal-magazines', this)">
+        <span class="en">PHOTO GALLERY</span><span class="ja">フォトギャラリー</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="gal-magazines.html"><span class="dot"></span><span class="en">Magazines</span><span class="ja">雑誌</span></a>
+        <a href="gal-stratguides.html"><span class="dot"></span><span class="en">Strategy Guides</span><span class="ja">攻略本</span></a>
+        <a href="gal-shelves.html"><span class="dot"></span><span class="en">Merch On Shelves</span><span class="ja">店頭のグッズ</span></a>
+        <a href="gal-earlydesigns.html"><span class="dot"></span><span class="en">Early Character Designs</span><span class="ja">初期キャラクターデザイン</span></a>
+        <a href="sp-mascots.html"><span class="dot"></span><span class="en">Mascots</span><span class="ja">マスコット</span></a>
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">Official Art/Ads</span><span class="ja">公式アート／広告</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="gal-officialart-ptr.html"><span class="dot"></span><span class="en">PaRappa The Rapper</span><span class="ja">パラッパラッパー</span></a>
+            <a href="gal-officialart-ujl.html"><span class="dot"></span><span class="en">Um Jammer Lammy</span><span class="ja">ウンジャマ・ラミー</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <img class="parappa-chopchop" src="LammyStuff/resources/chop.png" alt="Chop Chop Master Onion" aria-hidden="true">
+      <img class="parappa-moose" src="LammyStuff/resources/themoose.png" alt="Mooselini" aria-hidden="true">
+      <img class="parappa-flea" src="LammyStuff/resources/flea.png" alt="Flea" aria-hidden="true">
+      <img class="parappa-cheap" src="LammyStuff/resources/cheap.png" alt="Cheap Cheap the Cooking Chicken" aria-hidden="true">
+      <button onclick="showPage('sp-presskits', this)">
+        <span class="en">SPECIAL ITEMS</span><span class="ja">スペシャル・キット</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="sp-presskits.html"><span class="dot"></span><span class="en">Press Kits</span><span class="ja">プレスキット</span></a>
+        <a href="sp-promos.html"><span class="dot"></span><span class="en">Promotional Items</span><span class="ja">プロモーションアイテム</span></a>
+        <a href="sp-prototypes.html"><span class="dot"></span><span class="en">Prototypes</span><span class="ja">プロトタイプ</span></a>
+        <a href="sp-crashad.html"><span class="dot"></span><span class="en">Crash Bandicoot Ad Collaboration</span><span class="ja">クラッシュ・バンディクー 広告コラボ</span></a>
+        <a href="sp-physical.html"><span class="dot"></span><span class="en">CD/Vinyl</span><span class="ja">フィジカルメディア</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('sp-websites', this)">
+        <span class="en">ORIGINAL WEBSITES</span><span class="ja">オリジナルウェブサイト</span>
+        <span class="arrow">▾</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('videos', this)">
+        <span class="en">VIDEOS</span><span class="ja">動画</span>
+        <span class="arrow">▾</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button class="nav-ujlnow" onclick="showPage('lammynow', this)">
+        <span class="en"><span class="nav-umjammer">UM JAMMER</span> <span class="nav-lammy">LAMMY</span> <span class="nav-now">NOW!</span></span><span class="ja"><span class="nav-umjammer">ウンジャマ・</span><span class="nav-lammy">ラミー</span> <span class="nav-now">Now!</span></span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="lammynow.html"><span class="dot"></span><span class="en">About</span><span class="ja">概要</span></a>
+        <a href="ujlnow-cabinet.html"><span class="dot"></span><span class="en">The Cabinet</span><span class="ja">筐体</span></a>
+        <a href="ujlnow-prize.html"><span class="dot"></span><span class="en">Prize Giveaway Campaign</span><span class="ja">プレゼントキャンペーン</span></a>
+        <a href="ujlnow-discovery.html"><span class="dot"></span><span class="en">The Discovery</span><span class="ja">発見</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button class="nav-milkcan" onclick="showPage('milkcan', this)">
+        <span class="en">MILKCAN</span><span class="ja">ミルクカン</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button class="nav-events" onclick="showPage('gal-events2', this)">
+        <span class="en">EVENTS</span><span class="ja">イベント</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('collections', this)">
+        <span class="en">COLLECTIONS</span><span class="ja">コレクション</span>
+      </button>
+    </div>
+
+  </div>
+
+  <div id="page-merch-ptr-shirts" class="page active">
+    <div class="section-title"><span class="en">★ PARAPPA — SHIRTS ★</span><span class="ja">★ パラッパ — シャツ ★</span></div>
+    <div class="ujl-intro">
+      <p><span class="block-en">Officially licensed <strong>PaRappa the Rapper</strong> apparel — t-shirts, character shirts, and promotional tees released in Japan throughout the late 1990s and early 2000s. Designs span the main cast (PaRappa, Sunny Funny, PJ Berri, Katy Kat) as well as crossover and campaign-only prints. The official <strong>Cospa</strong> "Rodney Characters" catalogue — preserved in this <a href="https://web.archive.org/web/20001210013700/http://www.cospa.com/cgi-bin/catalogue.pl?page=12#12002" target="_blank" rel="noopener noreferrer">archived snapshot from December 2000</a> — documents the brand's Rodney-licensed shirt line, featuring both PaRappa and Lammy designs.</span>
+      <span class="block-ja">公式ライセンスを受けた<strong>パラッパラッパー</strong>のアパレル。1990年代後半から2000年代初頭にかけて日本で販売されたTシャツ、キャラクターシャツ、プロモーション限定Tシャツなど。パラッパ、サニー・ファニー、PJベリー、ケイティ・キャットといったメインキャラクターのデザインに加え、コラボレーションやキャンペーン限定のプリントアイテムも含まれます。公式の<strong>コスパ（Cospa）</strong>「Rodney Characters」カタログ（<a href="https://web.archive.org/web/20001210013700/http://www.cospa.com/cgi-bin/catalogue.pl?page=12#12002" target="_blank" rel="noopener noreferrer">2000年12月アーカイブ</a>）には、パラッパとラミー双方のデザインを含む同ブランドのロドニー公式ライセンスシャツのラインナップが残されています。</span></p>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— CHARACTER ENSEMBLE —</span><span class="ja">— キャラクター集合 —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para1.jpg" alt="White ringer tee — full shirt">
+          <div class="ujl-caption"><span class="en">White cotton ringer tee with brown trim, featuring a small chest print of the entire PaRappa cast in a yellow circle.</span><span class="ja">茶色のリブで縁取られた白コットンのリンガーTシャツ。胸元にはパラッパのメインキャラクターたちが黄色いサークルに集合した小ぶりなプリントが配されている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para1-2.jpg" alt="Ensemble chest print close-up">
+          <div class="ujl-caption"><span class="en">Close-up of the chest print — PaRappa front-and-center with Sunny Funny, Katy Kat, PJ Berri, Master Onion, Prince Fleaswallow, Cheap Cheap and Hairdresser Octopus arranged around him in a two-colour orange/teal screen print.</span><span class="ja">胸プリントのクローズアップ。パラッパを中心に、サニー・ファニー、ケイティ・キャット、PJベリー、オニオン先生、ノミ・ハナシンガエル王子、チープ・チープ、美容師タコが取り囲むように配置された、オレンジとティール二色のシルクスクリーンプリント。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para1-1.jpg" alt="Japanese PaRappa wordmark embroidery">
+          <div class="ujl-caption"><span class="en">Detail of the yellow embroidered "パラッパラッパー" (PaRappa Rappa) Japanese wordmark stitched onto the shirt.</span><span class="ja">シャツにステッチされた黄色い刺繍ロゴ「パラッパラッパー」のディテール。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— "PARAPPA THE RAPPER" LOGO TEES —</span><span class="ja">— 「PaRappa The Rapper」ロゴTシャツ —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para2.jpg" alt="Purple PaRappa lyric tee">
+          <div class="ujl-caption"><span class="en">Purple tee with a large back print pairing the "PaRappa The Rapper" wordmark with PaRappa's iconic lyric "I'm PaRappa and I'm no slob. I gotta listen to this song." and a small vinyl-record logo on the front.</span><span class="ja">紫のTシャツ。背面には「PaRappa The Rapper」のロゴと、パラッパの名セリフ「I'm PaRappa and I'm no slob. I gotta listen to this song.」をあしらった大判プリント、前面には小さなレコード盤ロゴが入る。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para2-2.jpg" alt="Lyric back print close-up">
+          <div class="ujl-caption"><span class="en">Close-up of the back print showing PaRappa, a boombox, and headphones framing the lyric bubble, all in a pale-blue screen print on navy.</span><span class="ja">背面プリントのクローズアップ。パラッパ、ラジカセ、ヘッドフォンがセリフの吹き出しを囲んでおり、ネイビー地に淡いブルーのシルクスクリーンでプリントされている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para2-1.jpg" alt="Front vinyl record logo">
+          <div class="ujl-caption"><span class="en">Front chest detail — the small "P" vinyl-record logo printed on the left chest.</span><span class="ja">胸元のディテール。左胸にプリントされた小さな「P」レコード盤ロゴ。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para6.jpg" alt="Yellow/green raglan tee">
+          <div class="ujl-caption"><span class="en">Long-sleeve raglan with yellow body and green sleeves, printed with the classic bubble "PaRappa The Rapper" logo and an "I Gotta Believe!!" headline.</span><span class="ja">イエローボディにグリーンの袖を合わせたラグラン長袖シャツ。定番のバブル体「PaRappa The Rapper」ロゴと「I Gotta Believe!!」のヘッドラインがプリントされている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para6-1.jpg" alt="Bubble logo print close-up">
+          <div class="ujl-caption"><span class="en">Close-up of the bubble-logo print — PaRappa throwing up a peace sign beside the classic wordmark, flanked by stars and music notes.</span><span class="ja">バブルロゴプリントのクローズアップ。定番ワードマークの隣でピースサインをきめるパラッパ、星と音符があしらわれている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para9.jpg" alt="Cream DJ party tee">
+          <div class="ujl-caption"><span class="en">Cream-coloured tee printed with "I Gotta Believe!! Here's The PARTY!" — a DJ-booth scene featuring PaRappa on the decks with PJ Berri.</span><span class="ja">クリーム地のTシャツ。「I Gotta Believe!! Here's The PARTY!」の文字と、DJブースでターンテーブルを回すパラッパとPJベリーのシーンがプリントされている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para9-1.jpg" alt="DJ party print close-up">
+          <div class="ujl-caption"><span class="en">Close-up of the DJ print in red and blue line-art — PaRappa behind twin turntables with PJ rapping on the mic.</span><span class="ja">赤と青のラインアートで描かれたDJプリントのクローズアップ。ターンテーブル2台を操るパラッパと、マイクでラップするPJベリー。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— RGSTYLE "I GOTTA BELIEVE" BLUE TEE —</span><span class="ja">— RGstyle「I Gotta Believe」ブルーTシャツ —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/k1045723852.1.jpg" alt="RGStyle blue PaRappa tee — full front">
+          <div class="ujl-caption"><span class="en">Deadstock light-blue RGStyle tee with original hang tags, front-printed with a dashing PaRappa above the "I Gotta Believe!! — THE HIP HOP HERO — PaRappa The Rapper" banner.</span><span class="ja">タグ付きデッドストックの水色RGstyle Tシャツ。前面には駆けるパラッパと「I Gotta Believe!! — THE HIP HOP HERO — PaRappa The Rapper」のバナーがプリントされている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/k1045723852.6.jpg" alt="Front print close-up">
+          <div class="ujl-caption"><span class="en">Close-up of the front print — red, white, and blue illustration licensed © Rodney A. Greenblat / I.P.</span><span class="ja">前面プリントのクローズアップ。赤・白・青で描かれたイラストで、ライセンスは © Rodney A. Greenblat / I.P. と明記されている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/k1045723852.3.jpg" alt="RGstyle woven neck label">
+          <div class="ujl-caption"><span class="en">Inner collar view — yellow RGStyle woven label co-credited to "Rodney Alan Greenblat / Interlink", with the Rodney-character mosaic hang tag still attached.</span><span class="ja">襟裏のビュー。「Rodney Alan Greenblat / Interlink」共同クレジットの黄色いRGstyleネームラベルと、ロドニーキャラモザイク柄のハングタグが付いたまま。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/k1045723852.4.jpg" alt="Sony Creative Products hang tag">
+          <div class="ujl-caption"><span class="en">Sony Creative Products hang tag — size S, 100% cotton, bust 78–86cm, barcode SKU and a Japanese-market care statement.</span><span class="ja">ソニー・クリエイティブプロダクツのハングタグ。Sサイズ、綿100％、バスト78〜86cm、バーコード付きSKUと国内向けの品質表記。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/k1045723852.5.jpg" alt="RodneyFun origin hang tag and care label">
+          <div class="ujl-caption"><span class="en">Back of the Rodney-character hang tag reading "RodneyFun — Made in New York City; this artwork is for funny people EVERYWHERE.", alongside the inner Japanese care label.</span><span class="ja">ロドニーキャラクターのハングタグ裏面。「RodneyFun — Made in New York City; this artwork is for funny people EVERYWHERE.」と記載され、内側には日本語の取り扱い表記ラベルも見える。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— CHARACTER GRAPHIC TEES —</span><span class="ja">— キャラクターグラフィックTシャツ —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para3.jpg" alt="Green warrior PaRappa tee">
+          <div class="ujl-caption"><span class="en">Forest-green tee with a chest graphic of warrior PaRappa holding a shield, and a smaller "PaRappa The Rapper" + frog-logo print at the back neck.</span><span class="ja">フォレストグリーンのTシャツ。胸には盾を構えた戦士姿のパラッパが大きくプリントされ、背面のネック下には小さく「PaRappa The Rapper」ロゴとカエルのマークが配置されている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para3-1.jpg" alt="Warrior PaRappa print close-up">
+          <div class="ujl-caption"><span class="en">Close-up of the front graphic — PaRappa in red beanie raising a tribal-style shield, with the "PARAPPA" wordmark in distressed white beneath.</span><span class="ja">前面プリントのクローズアップ。赤いビーニー姿のパラッパがトライバル風の盾を掲げ、下にはかすれ加工の白文字で「PARAPPA」とレタリングされている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para3-2.jpg" alt="Back neck frog logo print">
+          <div class="ujl-caption"><span class="en">Back-neck detail — the bubble "PaRappa The Rapper" wordmark paired with the green frog icon from PaRappa's beanie.</span><span class="ja">背面ネック下のディテール。バブル体「PaRappa The Rapper」ロゴと、パラッパのビーニーに描かれた緑のカエルアイコンが組み合わされている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para4.jpg" alt="Navy fist-pump tee">
+          <div class="ujl-caption"><span class="en">Navy-blue tee printed with an energetic fist-pumping PaRappa and the classic bubble "PaRappa The Rapper" logo at the chest.</span><span class="ja">ネイビーブルーのTシャツ。胸元には拳を突き上げる躍動感あるパラッパと、定番のバブル体「PaRappa The Rapper」ロゴがプリントされている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para4-1.jpg" alt="Fist-pump chest print close-up">
+          <div class="ujl-caption"><span class="en">Close-up of the two-tone blue print — PaRappa mid-cheer against an explosive burst, copyrighted "© Rodney A. Greenblat / I.P."</span><span class="ja">2色ブルーのプリントのクローズアップ。爆発のような背景を背に拳を突き上げるパラッパで、下には「© Rodney A. Greenblat / I.P.」と記載されている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para7.jpg" alt="Red four-panel character tee">
+          <div class="ujl-caption"><span class="en">Red cotton tee with a four-panel character-portrait grid print on the chest.</span><span class="ja">赤コットンのTシャツ。胸元に4コマ構成のキャラクター肖像グリッドがプリントされている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para7-1.jpg" alt="Four-panel portrait print close-up">
+          <div class="ujl-caption"><span class="en">Close-up of the four-panel grid in stitched-line art — Sunny Funny, PaRappa, PJ Berri, and Katy Kat portraits under the "PaRappa The Rapper" title.</span><span class="ja">ステッチ風ラインアートで描かれた4コマグリッドのクローズアップ。「PaRappa The Rapper」タイトルの下に、サニー・ファニー、パラッパ、PJベリー、ケイティ・キャットの肖像が並ぶ。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— RODNEYFUN SKETCH-LINE TEES —</span><span class="ja">— RodneyFun スケッチラインTシャツ —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para5.jpg" alt="Blue Fun with Bubbles tee">
+          <div class="ujl-caption"><span class="en">Light-blue tee with a sketch-line "Fun with Bubbles" print — PaRappa blowing bubbles that contain each of his friends.</span><span class="ja">ライトブルーのTシャツ。線画タッチの「Fun with Bubbles」プリントで、パラッパが吹いたシャボン玉の中に仲間たちが1人ずつ閉じ込められている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para5-1.jpg" alt="Fun with Bubbles front-print close-up">
+          <div class="ujl-caption"><span class="en">Close-up of the bubble print — PJ Berri, Katy Kat, Sunny Funny and PaRappa (blowing soap from a bottle) inside individual bubbles, stamped "POP!"</span><span class="ja">シャボン玉プリントのクローズアップ。PJベリー、ケイティ・キャット、サニー・ファニー、そしてボトルから石鹸液を吹くパラッパが、それぞれのシャボン玉の中にいる。「POP!」の文字も添えられている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para5-2.jpg" alt="Soapy Bud / Fun with Bubbles back detail">
+          <div class="ujl-caption"><span class="en">Additional back-side sketch — a bubble-blowing "Soapy Bud" character with a cart, bubbles, and a "Fun with Bubbles" label.</span><span class="ja">背面に追加で描かれたスケッチ。「Soapy Bud」というシャボン玉キャラクターが台車と一緒に描かれ、「Fun with Bubbles」のラベルも添えられている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para10.jpg" alt="White long-sleeve candy-bar tee">
+          <div class="ujl-caption"><span class="en">White long-sleeve tee with a small "I Gotta Believe!!" candy-bar chest graphic.</span><span class="ja">白のロングスリーブTシャツ。胸元に小さく「I Gotta Believe!!」のキャンディバー風グラフィックがプリントされている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para10-1.jpg" alt="Candy-bar print close-up">
+          <div class="ujl-caption"><span class="en">Close-up of the sketch-style print — a wrapped chocolate bar tumbling on a grid floor with a tiny PaRappa behind it, captioned "I GOTTA BELIEVE!!"</span><span class="ja">スケッチ調プリントのクローズアップ。方眼の床にチョコバーが転がり、その後ろに小さなパラッパが描かれ、下に「I GOTTA BELIEVE!!」のキャプションが添えられている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/sunny1.jpg" alt="Pink Sunny Funny thank you tee">
+          <div class="ujl-caption"><span class="en">Hot-pink tee with a white sketch-line "SUNNYFUNNY — Thank you!" print of Sunny handing out flowers.</span><span class="ja">ショッキングピンクのTシャツ。白い線画で「SUNNYFUNNY — Thank you!」と描かれ、花を配るサニー・ファニーがプリントされている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/sunny1-1.jpg" alt="Sunny Thank you print close-up">
+          <div class="ujl-caption"><span class="en">Close-up of the Sunny print — Sunny Funny with a basket of carrots and a single carrot in hand, both saying "Thank you!"</span><span class="ja">サニープリントのクローズアップ。にんじんを詰めたバスケットを抱え、手にも1本持ったサニー・ファニーと、にんじん自身がそれぞれ「Thank you!」と言っている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/sunny2.jpg" alt="Light-blue long-sleeve Sunny tee">
+          <div class="ujl-caption"><span class="en">Light-blue long-sleeve tee with a "She Can Really Sing!" print of Sunny Funny singing while playing a ukulele — RodneyFun.com branding.</span><span class="ja">ライトブルーのロングスリーブTシャツ。ウクレレを弾きながら歌うサニー・ファニーが描かれた「She Can Really Sing!」プリントで、RodneyFun.com のブランディング入り。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/sunny2-1.jpg" alt="Sunny sings print close-up">
+          <div class="ujl-caption"><span class="en">Close-up of the "She Can Really Sing!" print — Sunny mid-strum surrounded by musical notes, credited to RodneyFun.Com.</span><span class="ja">「She Can Really Sing!」プリントのクローズアップ。ウクレレをかき鳴らすサニーが音符に囲まれており、RodneyFun.Com のクレジットが添えられている。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— FROG BEANIE LOGO TEES —</span><span class="ja">— カエル帽子ロゴTシャツ —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/kaerut.jpg" alt="Red frog-logo tee on store hanger">
+          <div class="ujl-caption"><span class="en">Red tee displayed on a hanger at a Japanese retailer, printed with the yellow oval frog-logo badge from PaRappa's beanie.</span><span class="ja">日本の店頭にてハンガー展示された赤いTシャツ。パラッパのビーニーに付いている黄色い楕円のカエルロゴバッジがプリントされている。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para8.jpg" alt="Sealed red frog-logo tee in packaging">
+          <div class="ujl-caption"><span class="en">Same red frog-badge tee — factory-sealed in its original plastic bag.</span><span class="ja">同じ赤いカエルバッジのTシャツ。オリジナルのビニール袋に未開封で封入された状態。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaShirts/para8-1.jpg" alt="Frog beanie badge print close-up">
+          <div class="ujl-caption"><span class="en">Close-up of the frog-badge print through the bag — the iconic green frog inside a yellow oval with a black outline.</span><span class="ja">ビニール越しに撮影したカエルバッジプリントのクローズアップ。黒で縁取られた黄色い楕円の中に、おなじみの緑のカエルが描かれている。</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">PaRappa Corner &mdash; PaRappa the Rapper Fan Site &mdash; parappacorner.com</div>
+</div>
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous image">&lsaquo;</button>
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close">&times;</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Next image">&rsaquo;</button>
+</div>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="vibri-sharpen">
+    <feConvolveMatrix order="3" preserveAlpha="true"
+      kernelMatrix="0 -0.4 0  -0.4 2.6 -0.4  0 -0.4 0"/>
+  </filter>
+</svg>
+<a href="black.html" class="vibri-link"><img src="vib/stare.gif" alt="Vibri" class="vibri-corner"></a>
+
+
+
+<!-- ZOOM-INVARIANT CORNERS
+     The "PaRappa Corner" button (bottom-left) and the Vibri link (bottom-right) must
+     sit in exactly the same spot, at exactly the same on-screen size, however
+     far the page is zoomed. They are position:fixed, so browser zoom already
+     keeps them in the corner but scales them up; pinch zoom moves them off the
+     visible area entirely. This publishes three custom properties the two rules
+     in parappa.css consume:
+       --zoom-fix              inverse of the current zoom (counter-scale)
+       --zoom-dx / --zoom-dy   shift from the layout viewport's bottom-left to
+                               the visible viewport's bottom-left
+       --zoom-dx-right         same shift for the right edge
+     Under plain desktop browser zoom the deltas stay 0 and only --zoom-fix does
+     any work. -->
+
+<!-- The label is SVG text rather than HTML text: with -webkit-text-stroke, Chrome
+     fills from the hinted glyph bitmap but strokes the raw outline, and this font's
+     hinting shortens the "p" descenders at small sizes, so the two layers disagreed
+     under "pp". SVG text fills and strokes the same path. -->
+<div class="corner-wrap">
+<button type="button" class="corner-subtitle" id="siteSubtitle" aria-label="PaRappa Corner" title="Back to the home page" onclick="showPage('welcome', document.getElementById('navHomeBtn')); window.scrollTo(0, 0);">
+  <!-- .corner-frame is a plain block wrapper in PaRappa mode; in Lammy mode it
+       carries the inner two of the nav tabs' three bevelled outline frames. -->
+  <span class="corner-frame">
+  <svg class="corner-label fit-text" width="153" height="24" aria-hidden="true" focusable="false">
+    <!-- Lammy mode only (CSS): red oval behind "Corner", like the one behind
+         "LAMMY" in the title. Geometry is set by fitTextSvgs from the word's box. -->
+    <ellipse class="corner-pill" cx="0" cy="0" rx="0" ry="0"></ellipse>
+    <text class="corner-label-back" x="0" y="17.5"><tspan class="corner-word-parappa">PaRappa</tspan><tspan class="corner-gap"> </tspan><tspan class="corner-word-corner">Corner</tspan></text>
+    <text class="corner-label-front" x="0" y="17.5"><tspan class="corner-word-parappa">PaRappa</tspan><tspan class="corner-gap"> </tspan><tspan class="corner-word-corner">Corner</tspan></text>
+  </svg>
+  </span>
+</button>
+</div>
+
+<!-- BACK TO TOP — right side, shows once the page is scrolled halfway -->
+<button type="button" class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M12 20V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+<script src="parappa.js"></script>
+</body>
+</html>

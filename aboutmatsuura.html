@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Masaya Matsuura — PaRappa Corner</title>
+  <meta name="description" content="PaRappa Corner: a fan site preserving and documenting PaRappa the Rapper and Um Jammer Lammy merchandise, rare collectibles, and franchise history.">
+  <link rel="canonical" href="https://parappacorner.com/aboutmatsuura.html">
+  <meta property="og:site_name" content="PaRappa Corner">
+  <meta property="og:title" content="Masaya Matsuura — PaRappa Corner">
+  <meta property="og:description" content="A fan site preserving and documenting PaRappa the Rapper and Um Jammer Lammy merchandise, rare collectibles, and franchise history.">
+  <meta property="og:url" content="https://parappacorner.com/aboutmatsuura.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://parappacorner.com/par.png">
+  <link id="favicon" rel="icon" type="image/png" href="par.png">
+  <link id="favicon-shortcut" rel="shortcut icon" type="image/png" href="par.png">
+  <link rel="stylesheet" href="parappa.css?v=20260914">
+</head>
+<body>
+<script>
+  // Restore Lammy mode and the JP language before the page paints, so moving
+  // between pages doesn't flash the PaRappa-mode / English versions first.
+  (function () {
+    try {
+      if (localStorage.getItem('parappaLammyMode') === '1') document.body.classList.add('theme-lammy');
+      if (localStorage.getItem('parappaLangJP') === '1') document.body.classList.add('lang-jp');
+    } catch (e) {}
+  })();
+</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="parappa-squiggle">
+    <feTurbulence type="turbulence" baseFrequency="0.012" numOctaves="1" seed="4" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="45"/>
+  </filter>
+</svg>
+
+<div class="site-wrap">
+
+  <!-- HEADER -->
+  <div class="site-header">
+    <div class="lang-toggle-wrap">
+      <div class="lang-toggle">
+        <span class="toggle-label toggle-flag"><span class="en">EN</span><span class="ja">EN</span></span>
+        <div class="toggle-track" id="langTrack" onclick="toggleLang()">
+          <div class="toggle-thumb" id="langThumb"></div>
+        </div>
+        <span class="toggle-label toggle-flag jp-flag"><span class="en">JP</span><span class="ja">JP</span></span>
+      </div>
+      <img class="lang-cover" src="LammyStuff/Language.png" alt="Language">
+      <div class="lang-menu-btns">
+        <button type="button" class="lang-menu-btn" onclick="setLang('en')"><span class="lang-menu-label">EN</span></button>
+        <button type="button" class="lang-menu-btn" onclick="setLang('jp')"><span class="lang-menu-label">JP</span></button>
+      </div>
+    </div>
+    <img class="parappa-pony" src="pony.png" alt="Pony" aria-hidden="true">
+    <img class="parappa-joe" src="thejoe.png" alt="Joe Chin" aria-hidden="true">
+    <img class="parappa-boxy" src="LammyStuff/resources/boxy.png" alt="Boxy Boy" aria-hidden="true">
+    <img class="parappa-mc" src="LammyStuff/resources/MC.png" alt="MC King Kong Mushi" aria-hidden="true">
+    <div class="logo" id="siteLogo"><svg class="logo-svg fit-text" width="367" height="33" role="img" aria-label="PaRappa the Rapper" focusable="false"><text x="0" y="25"><tspan fill="#FFB347">PA</tspan><tspan fill="#1098AD">RAPPA</tspan> <tspan fill="#5CB85C">THE</tspan> <tspan fill="#F07A8E">RAPPER</tspan></text></svg></div>
+    <div class="tagline" id="siteTagline"><span class="tagline-text" data-text="The Hip Hop Hero">The Hip Hop Hero</span></div>
+    <div class="lammy-renders">
+      <img src="LammyStuff/Renders/lammy.png" alt="Lammy">
+      <div class="masan-stack">
+        <img class="masan-hat" src="LammyStuff/ressources/flanger.png" alt="Flanger">
+        <img class="masan-harmonizer" src="LammyStuff/ressources/harmonizer.png" alt="Harmonizer">
+        <img class="masan-poofu" src="LammyStuff/ressources/poofu.png" alt="" aria-hidden="true">
+        <img class="lammy-guit" src="LammyStuff/resources/lammyguit.png" alt="Lammy's guitar" aria-hidden="true">
+        <img class="masan-drumhead" src="LammyStuff/resources/drumhead.png" alt="" aria-hidden="true">
+        <img class="masan-bass" src="LammyStuff/resources/bass.png" alt="Bass guitar" aria-hidden="true">
+        <img class="masan-pandatsu" src="LammyStuff/Renders/pandatsu.png" alt="Pandatsu" aria-hidden="true">
+        <img class="masan-squirrel" src="LammyStuff/Renders/squirrel.png" alt="Gramophone squirrel" aria-hidden="true">
+        <img class="masan-guitartopper" src="LammyStuff/Renders/guitartopper.png" alt="Guitar Topper">
+        <img src="LammyStuff/Renders/masan.png" alt="Ma-san">
+      </div>
+      <img src="LammyStuff/Renders/katy.png" alt="Katy Kat">
+      <img src="LammyStuff/Renders/onion.png" alt="Chop Chop Master Onion">
+      <img src="LammyStuff/Renders/chief.png" alt="Chief Puddle">
+      <img src="LammyStuff/Renders/cathy.png" alt="Cathy Pillar">
+      <div class="captain-stack">
+        <img class="captain-reverb" src="LammyStuff/ressources/reverb.png" alt="Reverb">
+        <img class="captain-wahwah" src="LammyStuff/ressources/wahwah.png" alt="WahWah">
+        <img src="LammyStuff/Renders/captain.png" alt="Captain Fussenpepper">
+      </div>
+      <div class="paul-stack">
+        <img class="paul-now" src="LammyStuff/resources/now!.png" alt="NOW!">
+        <img class="rammy-guit" src="LammyStuff/resources/rammyguit.png" alt="Rammy's guitar" aria-hidden="true">
+        <img class="tree-guit" src="LammyStuff/resources/treeguit.png" alt="Tree guitar" aria-hidden="true">
+        <img class="paul-goo" src="LammyStuff/Renders/goo.png" alt="" aria-hidden="true">
+        <img class="paul-drag" src="LammyStuff/Renders/drag.png" alt="Dragon" aria-hidden="true">
+        <img class="paul-ramm" src="LammyStuff/resources/ramm.png" alt="" aria-hidden="true">
+        <img class="paul-distortion" src="LammyStuff/ressources/distortion.png" alt="Distortion">
+        <img src="LammyStuff/Renders/paul.png" alt="Paul Chuck">
+      </div>
+      <div class="teri-stack">
+        <img class="teri-rammy" src="LammyStuff/Renders/rammy.png" alt="Rammy">
+        <img src="LammyStuff/Renders/teri.png" alt="Teriyaki Yoko">
+      </div>
+    </div>
+    <div class="theme-toggle">
+      <button class="theme-btn" id="themeBtn" onclick="toggleTheme()"><span class="theme-btn-label">LAMMY MODE</span></button>
+      <img class="theme-cover" src="LammyStuff/Option.png" alt="Option">
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-bar">
+
+    <div class="nav-item">
+      <button id="navHomeBtn" onclick="showPage('welcome', this)">
+        <span class="en">HOME</span><span class="ja">ホーム</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="index.html"><span class="dot"></span><span class="en">Welcome</span><span class="ja">ようこそ</span></a>
+        <a href="search.html"><span class="dot"></span><span class="en">Search</span><span class="ja">検索</span></a>
+        <a href="donate.html"><span class="dot"></span><span class="en">Donate</span><span class="ja">寄付</span></a>
+        <a href="contact.html"><span class="dot"></span><span class="en">Contact</span><span class="ja">お問い合わせ</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('aboutgame', this)">
+        <span class="en">ABOUT</span><span class="ja">アバウト</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="aboutgame.html"><span class="dot"></span><span class="en">The Games</span><span class="ja">ゲーム</span></a>
+        <a href="aboutanime.html"><span class="dot"></span><span class="en">The Anime</span><span class="ja">アニメ</span></a>
+        <a href="aboutrodney.html"><span class="dot"></span><span class="en">Rodney Alan Greenblat</span><span class="ja">ロドニー・アラン・グリーンブラット</span></a>
+        <a href="aboutmatsuura.html"><span class="dot"></span><span class="en">Masaya Matsuura</span><span class="ja">松浦 雅也</span></a>
+        <a href="aboutvoiceactors.html"><span class="dot"></span><span class="en">Voice Actors</span><span class="ja">声優</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <div class="parappa-nav-pair" aria-hidden="true">
+        <img class="parappa-bear" src="pjbear.png" alt="PJ Berri">
+        <img class="parappa-kat" src="thekat.png" alt="Katy Kat">
+        <img class="parappa-sun" src="thesunnyfunny.png" alt="Sunny Funny">
+        <img class="parappa-rapdog" src="somedog.png" alt="PaRappa">
+      </div>
+      <button onclick="showPage('chars', this)">
+        <span class="en">CHARACTERS</span><span class="ja">キャラクター</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="chars.html"><span class="dot"></span><span class="en">PaRappa The Rapper</span><span class="ja">パラッパラッパー</span></a>
+        <a href="chars-ujl.html"><span class="dot"></span><span class="en">Um Jammer Lammy</span><span class="ja">ウンジャマ・ラミー</span></a>
+        <a href="chars-ptr2.html"><span class="dot"></span><span class="en">PaRappa The Rapper 2</span><span class="ja">パラッパラッパー2</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('merch-rodneyfun-comics', this)">
+        <span class="en">MERCHANDISE</span><span class="ja">グッズ</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">RodneyFun</span><span class="ja">ロドニーファン</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="merch-rodneyfun-comics.html"><span class="dot"></span><span class="en">Comic Collection</span><span class="ja">コミックコレクション</span></a>
+            <a href="merch-rodneyfun-toys.html"><span class="dot"></span><span class="en">Toys</span><span class="ja">おもちゃ</span></a>
+            <a href="merch-rodneyfun-shirts.html"><span class="dot"></span><span class="en">Shirts</span><span class="ja">シャツ</span></a>
+            <a href="merch-rodneyfun-stationary.html"><span class="dot"></span><span class="en">Stationary</span><span class="ja">文房具</span></a>
+            <a href="merch-rodneyfun-promotional.html"><span class="dot"></span><span class="en">Promotional Items</span><span class="ja">プロモーションアイテム</span></a>
+          </div>
+        </div>
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">PaRappa The Rapper</span><span class="ja">パラッパラッパー</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="merch-ptr-plush.html"><span class="dot"></span><span class="en">Plush Toys</span><span class="ja">ぬいぐるみ</span></a>
+            <a href="merch-ptr-figures.html"><span class="dot"></span><span class="en">Figures</span><span class="ja">フィギュア</span></a>
+            <a href="merch-ptr-shirts.html"><span class="dot"></span><span class="en">Shirts</span><span class="ja">シャツ</span></a>
+            <a href="merch-ptr-misc.html"><span class="dot"></span><span class="en">Miscellaneous</span><span class="ja">その他</span></a>
+          </div>
+        </div>
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">Um Jammer Lammy</span><span class="ja">ウンジャマ・ラミー</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="merch-ujl-plush.html"><span class="dot"></span><span class="en">Plush Toys</span><span class="ja">ぬいぐるみ</span></a>
+            <a href="merch-ujl-figures.html"><span class="dot"></span><span class="en">Figures</span><span class="ja">フィギュア</span></a>
+            <a href="merch-ujl-keychains.html"><span class="dot"></span><span class="en">Keychains</span><span class="ja">キーホルダー</span></a>
+            <a href="merch-ujl-shirts.html"><span class="dot"></span><span class="en">Shirts</span><span class="ja">シャツ</span></a>
+            <a href="merch-ujl-milkcantour.html"><span class="dot"></span><span class="en">MilkCan Tour '99</span><span class="ja">ミルクカンツアー '99</span></a>
+            <a href="merch-ujl-fernandes.html"><span class="dot"></span><span class="en">Fernandes Guitars</span><span class="ja">フェルナンデス・ギター</span></a>
+            <a href="merch-ujl-stationery.html"><span class="dot"></span><span class="en">Stationery</span><span class="ja">文房具</span></a>
+            <a href="merch-ujl-misc.html"><span class="dot"></span><span class="en">Miscellaneous</span><span class="ja">その他</span></a>
+          </div>
+        </div>
+        <a href="merch-mcdonalds.html"><span class="dot"></span><span class="en">McDonald's</span><span class="ja">マクドナルド</span></a>
+        <a href="merch-dunkin.html"><span class="dot"></span><span class="en">Dunkin' Donuts</span><span class="ja">ダンキンドーナツ</span></a>
+        <a href="merch-lipton.html"><span class="dot"></span><span class="en">Lipton</span><span class="ja">リプトン</span></a>
+        <a href="merch-catalogs.html"><span class="dot"></span><span class="en">Catalogs</span><span class="ja">カタログ</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('gal-magazines', this)">
+        <span class="en">PHOTO GALLERY</span><span class="ja">フォトギャラリー</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="gal-magazines.html"><span class="dot"></span><span class="en">Magazines</span><span class="ja">雑誌</span></a>
+        <a href="gal-stratguides.html"><span class="dot"></span><span class="en">Strategy Guides</span><span class="ja">攻略本</span></a>
+        <a href="gal-shelves.html"><span class="dot"></span><span class="en">Merch On Shelves</span><span class="ja">店頭のグッズ</span></a>
+        <a href="gal-earlydesigns.html"><span class="dot"></span><span class="en">Early Character Designs</span><span class="ja">初期キャラクターデザイン</span></a>
+        <a href="sp-mascots.html"><span class="dot"></span><span class="en">Mascots</span><span class="ja">マスコット</span></a>
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">Official Art/Ads</span><span class="ja">公式アート／広告</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="gal-officialart-ptr.html"><span class="dot"></span><span class="en">PaRappa The Rapper</span><span class="ja">パラッパラッパー</span></a>
+            <a href="gal-officialart-ujl.html"><span class="dot"></span><span class="en">Um Jammer Lammy</span><span class="ja">ウンジャマ・ラミー</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <img class="parappa-chopchop" src="LammyStuff/resources/chop.png" alt="Chop Chop Master Onion" aria-hidden="true">
+      <img class="parappa-moose" src="LammyStuff/resources/themoose.png" alt="Mooselini" aria-hidden="true">
+      <img class="parappa-flea" src="LammyStuff/resources/flea.png" alt="Flea" aria-hidden="true">
+      <img class="parappa-cheap" src="LammyStuff/resources/cheap.png" alt="Cheap Cheap the Cooking Chicken" aria-hidden="true">
+      <button onclick="showPage('sp-presskits', this)">
+        <span class="en">SPECIAL ITEMS</span><span class="ja">スペシャル・キット</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="sp-presskits.html"><span class="dot"></span><span class="en">Press Kits</span><span class="ja">プレスキット</span></a>
+        <a href="sp-promos.html"><span class="dot"></span><span class="en">Promotional Items</span><span class="ja">プロモーションアイテム</span></a>
+        <a href="sp-prototypes.html"><span class="dot"></span><span class="en">Prototypes</span><span class="ja">プロトタイプ</span></a>
+        <a href="sp-crashad.html"><span class="dot"></span><span class="en">Crash Bandicoot Ad Collaboration</span><span class="ja">クラッシュ・バンディクー 広告コラボ</span></a>
+        <a href="sp-physical.html"><span class="dot"></span><span class="en">CD/Vinyl</span><span class="ja">フィジカルメディア</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('sp-websites', this)">
+        <span class="en">ORIGINAL WEBSITES</span><span class="ja">オリジナルウェブサイト</span>
+        <span class="arrow">▾</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('videos', this)">
+        <span class="en">VIDEOS</span><span class="ja">動画</span>
+        <span class="arrow">▾</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button class="nav-ujlnow" onclick="showPage('lammynow', this)">
+        <span class="en"><span class="nav-umjammer">UM JAMMER</span> <span class="nav-lammy">LAMMY</span> <span class="nav-now">NOW!</span></span><span class="ja"><span class="nav-umjammer">ウンジャマ・</span><span class="nav-lammy">ラミー</span> <span class="nav-now">Now!</span></span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="lammynow.html"><span class="dot"></span><span class="en">About</span><span class="ja">概要</span></a>
+        <a href="ujlnow-cabinet.html"><span class="dot"></span><span class="en">The Cabinet</span><span class="ja">筐体</span></a>
+        <a href="ujlnow-prize.html"><span class="dot"></span><span class="en">Prize Giveaway Campaign</span><span class="ja">プレゼントキャンペーン</span></a>
+        <a href="ujlnow-discovery.html"><span class="dot"></span><span class="en">The Discovery</span><span class="ja">発見</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button class="nav-milkcan" onclick="showPage('milkcan', this)">
+        <span class="en">MILKCAN</span><span class="ja">ミルクカン</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button class="nav-events" onclick="showPage('gal-events2', this)">
+        <span class="en">EVENTS</span><span class="ja">イベント</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('collections', this)">
+        <span class="en">COLLECTIONS</span><span class="ja">コレクション</span>
+      </button>
+    </div>
+
+  </div>
+
+  <div id="page-aboutmatsuura" class="page active">
+    <div class="section-title"><span class="en">★ MASAYA MATSUURA ★</span><span class="ja">★ 松浦 雅也 ★</span></div>
+
+    <div class="ujl-cabinet-section">
+      <div class="ujl-cabinet-img">
+        <img src="Parappa%20Site/Dev/matsuura-portrait.jpg" alt="Masaya Matsuura portrait">
+        <img src="Parappa%20Site/Mascots/mas.jpg" alt="Masaya Matsuura with PaRappa mascot">
+      </div>
+      <div class="ujl-cabinet-info">
+        <div class="ujl-info-title"><span class="en">The Pop Star Who Invented The Rhythm Game</span><span class="ja">リズムゲームを発明したポップスター</span></div>
+        <p>
+          <span class="block-en"><strong>Masaya Matsuura</strong> (松浦 雅也) is a Japanese musician, composer, and game designer born June 16, 1961 in Osaka. Before he ever touched a game console, he had already spent more than a decade as one half of the synth-pop duo <strong>PSY-S</strong>, releasing ten studio albums for Sony Music between 1985 and 1996 and helping pioneer the use of the Fairlight CMI sampler in Japanese pop. When he stepped away from the band in 1996 to found <strong>NanaOn-Sha</strong>, he carried that obsessive love of sampling and rhythm directly into his next project — a tiny rapping dog named PaRappa — and almost single-handedly defined the modern music game.</span>
+          <span class="block-ja"><strong>松浦雅也</strong>は1961年6月16日、大阪生まれの日本のミュージシャン、作曲家、ゲームデザイナーです。ゲーム機に触れるよりずっと前から、シンセポップ・デュオ<strong>PSY・S（サイズ）</strong>の片割れとして、1985年から1996年までソニー・ミュージックから10枚のスタジオアルバムを発表し、フェアライトCMIサンプラーを日本のポップスに導入したパイオニアの一人として活動していました。1996年にPSY・Sを離れて<strong>七音社（NanaOn-Sha）</strong>を設立した彼は、そのサンプリングとリズムへの執着をそのまま次の作品——ラップする小さな犬「パラッパ」——へと持ち込み、ほぼ独力で現代の音楽ゲームというジャンルを定義しました。</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="ujl-intro">
+      <p>
+        <span class="block-en">Matsuura graduated from Ritsumeikan University with a degree in Industrial Society in 1983 and almost immediately formed PSY-S with vocalist <strong>Chaka</strong> (Mami Yasunori). Through the late 1980s and early 1990s the duo produced anime themes, commercial jingles, and pop hits while Matsuura quietly grew fascinated with multimedia. In 1993 he became the first Japanese musician to release a commercial Macintosh CD-ROM, <em>The Seven Colors: Legend of PSY•S City</em>, which won Japan's Multimedia Grand Prix and convinced him that interactive software, not music videos, was the medium that could finally let his songs <em>play back</em> the way he heard them in his head.</span>
+        <span class="block-ja">1983年に立命館大学産業社会学部を卒業した松浦は、ほぼ間を置かずにヴォーカリスト<strong>CHAKA（安蘭真美）</strong>とPSY・Sを結成します。1980年代後半から1990年代前半にかけて、デュオはアニメ主題歌、CMジングル、ポップヒットを次々と生み出していきました。同時に松浦はマルチメディアへの興味を深め、1993年には日本のミュージシャンとして初めて市販Macintosh CD-ROM作品『<em>The Seven Colors: Legend of PSY・S City</em>』を発表。同作はマルチメディアグランプリを受賞し、彼自身に「音楽ビデオではなくインタラクティブソフトウェアこそが、頭の中で鳴っている音楽をそのまま再生できる媒体だ」と確信させる体験となりました。</span>
+      </p>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— PHOTOGRAPHS —</span><span class="ja">— 写真 —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item small">
+          <img src="Parappa%20Site/Dev/MATSU00.jpg" alt="Masaya Matsuura in front of a wall of modular synthesizers">
+        </div>
+        <div class="ujl-gallery-item small">
+          <img src="Parappa%20Site/Dev/MATSU01.jpg" alt="Studio portrait of Masaya Matsuura in a purple shirt">
+        </div>
+        <div class="ujl-gallery-item small">
+          <img src="Parappa%20Site/Dev/PHOTO3.jpg" alt="Masaya Matsuura leaning over a keyboard in a recording studio">
+        </div>
+        <div class="ujl-gallery-item small">
+          <img src="Parappa%20Site/Dev/PHOTO1.jpg" alt="Masaya Matsuura seated on a couch in blue light">
+        </div>
+        <div class="ujl-gallery-item small">
+          <img src="Parappa%20Site/Dev/PHOTO2.jpg" alt="Masaya Matsuura on a rooftop overlooking the city at dusk">
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PaRappa the Rapper (1996) ── -->
+    <div class="ujl-cabinet-section">
+      <div class="ujl-cabinet-img">
+        <img src="Parappa Site/TheGames/parappaUS.png" alt="PaRappa the Rapper (1996) cover">
+      </div>
+      <div class="ujl-cabinet-info">
+        <div class="ujl-info-title"><span class="en">1994–1996 — PaRappa the Rapper</span><span class="ja">1994〜1996年 — パラッパラッパー</span></div>
+        <p>
+          <span class="block-en">Development began in <strong>1994</strong>, before the original PlayStation had even reached store shelves. Matsuura had attended Sony's first licensee briefing and walked out convinced the new console was an undertaking that would reshape gaming. A Sony producer introduced him to the New York pop artist <strong>Rodney Alan Greenblat</strong>, and the two prototyped a rap-based game using paper cut-outs of Rodney's existing characters — the seed of PaRappa's signature flat 2D-on-3D look. Matsuura served as <strong>producer, designer, and lead composer</strong>, co-writing the soundtrack with <strong>Yoshihisa Suzuki</strong>. He refused to build the score on the era's standard MIDI synth rigs, leaning entirely on hardware samplers instead because he wanted human voices — not synthesised tones — at the centre of every cue. The Japanese lyrics he drafted alone; the English versions came later, in New York, where rapper <strong>Ryu Watabe</strong> improvised translations off the cuff in the booth. PaRappa the Rapper launched in Japan on <strong>December 6, 1996</strong> and quietly built into a cultural phenomenon over the following year — a delayed success Matsuura credits to Sony's relentless promotion department. He still describes the game as the story of "a once-in-a-lifetime, important youthful period of a sensitive boy."</span>
+          <span class="block-ja">開発は<strong>1994年</strong>、初代PlayStationが発売される以前に始まりました。松浦はソニーの最初のライセンシー説明会に出席し、「この新型機はゲームのあり方を作り変える壮大な事業になる」と確信して帰路につきます。やがてソニーのプロデューサーから紹介されたのが、ニューヨークを拠点とするポップ・アーティスト<strong>ロドニー・アラン・グリーンブラット</strong>でした。二人は当初、ロドニーが手がけていた既存キャラクターのペーパー・カットアウトを使ってラップゲームのモックアップを作成。これがパラッパ独特の「3D空間に貼り付いた2Dキャラ」というルックの原型になります。松浦は本作で<strong>プロデューサー、デザイナー、メインコンポーザー</strong>を兼任し、サウンドトラックを<strong>鈴木慶尚</strong>と共作。当時主流だったMIDIシンセではなく、すべてサンプラーで録音することを徹底しました。歌詞はまず日本語ですべて書き起こし、その後ニューヨークまで飛んでラッパー<strong>ワタベリュウ</strong>にフリースタイルで英訳してもらうという贅沢な手順を踏んでいます。1996年12月6日に日本で発売された『パラッパラッパー』は、発売直後ではなく約1年かけて少しずつ大きな現象へと育っていきました。松浦自身は、この遅咲きの成功をソニー宣伝部の粘り強いキャンペーンのおかげだと語っており、いまもこの作品を「感受性の強い少年が一度しか味わえない、特別な青春期の物語」として語り続けています。</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- ── Um Jammer Lammy (1999) ── -->
+    <div class="ujl-cabinet-section">
+      <div class="ujl-cabinet-img">
+        <img src="Parappa Site/TheGames/UJLusa.webp" alt="Um Jammer Lammy (1999) cover">
+      </div>
+      <div class="ujl-cabinet-info">
+        <div class="ujl-info-title"><span class="en">1997–1999 — Um Jammer Lammy</span><span class="ja">1997〜1999年 — ウンジャマ・ラミー</span></div>
+        <p>
+          <span class="block-en">By the time PaRappa shipped, Matsuura felt creatively gutted: "empty and in a daze for a long time." He could not imagine continuing the rapping dog's story so soon, and even though Greenblat lobbied for a direct sequel, Matsuura's stated philosophy was to "turn everything upside down and do it backwards." The result was <strong>Um Jammer Lammy</strong>, a guitar-driven spin-off centred on the painfully shy left-handed lamb <strong>Lammy</strong> and her band <strong>MilkCan</strong>. Matsuura composed and produced the bulk of the soundtrack with returning collaborator Yoshihisa Suzuki and newcomer <strong>Shigeyoshi Kawagoe</strong>, deliberately writing more difficult charts as a direct response to PaRappa fans who had complained the first game was too forgiving. Greenblat later said the rise of consumer email had transformed the workflow — instead of faxing pencil sketches across the Pacific the two could now trade ideas in real time. Released on PS1 in <strong>1999</strong>, the game won the inaugural Interactive Achievement Award for "Outstanding Achievement in Original Music Composition" and is the closest thing to a Matsuura solo album in playable form.</span>
+          <span class="block-ja">『パラッパラッパー』を世に送り出した直後、松浦は創作的に燃え尽きてしまい、「長い間、空っぽで呆然としていた」と振り返っています。ラッパー犬の物語をすぐに続ける気にはなれず、グリーンブラットからは正統な続編を望む声が寄せられたものの、松浦の信条は「すべてをひっくり返して、逆向きに作る」というもの。そうして生まれたのが、極度の人見知りでギターを弾く左利きの羊<strong>ラミー</strong>と彼女のバンド<strong>ミルクカン</strong>を主役に据えたスピンオフ『<strong>ウンジャマ・ラミー</strong>』でした。サウンドトラックの大半は松浦と前作の盟友・鈴木慶尚、そして新たに加わった<strong>河越重義</strong>の三名で作曲・プロデュース。前作を「簡単すぎる」と言ったプレイヤーへの返答として、譜面の難易度を意図的に上げています。グリーンブラットは後年「個人向けEメールが普及したことで、ファックスで鉛筆のスケッチを太平洋越しにやり取りしていた頃と比べ、ワークフローが一変した」と語っています。1999年にPS1で発売された本作は、第1回Interactive Achievement Awardsで「Outstanding Achievement in Original Music Composition（最優秀オリジナル音楽作曲賞）」を受賞しており、いまなおプレイ可能な「松浦ソロアルバム」にもっとも近い作品と評されています。</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- ── Vib-Ribbon detour ── -->
+    <div class="ujl-intro">
+      <p>
+        <span class="block-en">Sandwiched between the two PaRappa games came one of Matsuura's strangest works: <strong>Vib-Ribbon</strong> (1999). Built entirely from wireframe vector graphics and small enough to run from PlayStation RAM after the disc was ejected, Vib-Ribbon let players insert their own audio CDs and generated a unique level from each track. Matsuura kept the design deliberately abstract — no story, no characters, no setting — because he was wary of any narrative element accidentally colliding with the personal memories players already attach to their own music collections. The Museum of Modern Art in New York acquired Vib-Ribbon in 2012, and Matsuura has credited the experiment with quietly putting his creative wiring back together — enough, eventually, to imagine a PaRappa sequel again. Without that detour, PaRappa the Rapper 2 would never have happened.</span>
+        <span class="block-ja">2作のパラッパの間に挟まる形で生まれたのが、松浦のもっとも奇妙な作品のひとつ『<strong>ビブリボン</strong>』（1999）です。グラフィックを完全にワイヤーフレームのベクター線だけで構成し、ディスクを抜いた後でもPlayStationのRAMから動作するほど小さなプログラムサイズに収めた本作では、プレイヤーが手持ちの音楽CDを差し込むと、その楽曲ごとに固有のステージが生成されました。松浦は「物語が、プレイヤーの中にすでにある音楽の記憶に踏み込んでしまうのを避けたかった」と語っており、デザインを徹底して抽象に保っています。同作は2012年にニューヨーク近代美術館（MoMA）に収蔵されており、松浦は「『パラッパ2』に立ち返るに足るだけ、自分の創作回路を再接続してくれた作品」と振り返っています。本作なくして『パラッパラッパー2』は存在しなかったでしょう。</span>
+      </p>
+    </div>
+
+    <!-- ── PaRappa 2 (2001) ── -->
+    <div class="ujl-cabinet-section">
+      <div class="ujl-cabinet-img">
+        <img src="Parappa Site/TheGames/parappa2art.jpg" alt="PaRappa the Rapper 2 cover">
+      </div>
+      <div class="ujl-cabinet-info">
+        <div class="ujl-info-title"><span class="en">1999–2001 — PaRappa the Rapper 2</span><span class="ja">1999〜2001年 — パラッパラッパー2</span></div>
+        <p>
+          <span class="block-en">After Vib-Ribbon and a much-needed creative reset, Matsuura finally felt ready to tell a sequel story. <strong>PaRappa the Rapper 2</strong> launched in Japan in <strong>August 2001</strong> and worldwide in early 2002 as a flagship rhythm title for the PlayStation 2, this time centred around a town-wide noodle obsession. Matsuura's compositional fingerprints are heavier than ever: of the 33 cues on the official soundtrack he wrote tracks 2, 3, 6, 8, 11, 15, 21, 25, 27, 29, 30, 31, and 32 outright, co-arranged the rest with Yoshihisa Suzuki, Rebi Yamasaki, and Mia Yamasaki, and personally performed nearly every instrument on the record. The two big celebrity collaborations on tracks 4 and 33 — featuring <strong>De La Soul</strong> and Japanese R&amp;B duo <strong>Double</strong> — were also co-written by Matsuura. He served once again as director, lead designer, and producer at NanaOn-Sha.</span>
+          <span class="block-ja">『ビブリボン』を経て、ようやく創作的な余白を取り戻した松浦は、続編を書ける気持ちに辿り着きます。<strong>2001年8月</strong>に日本で、2002年初頭に海外で発売された『<strong>パラッパラッパー2</strong>』は、PlayStation 2の看板リズムタイトルとして、街中が「ヌードル」をめぐる騒動に明け暮れる物語を描きました。本作には松浦の作曲家としての指紋がこれまで以上に色濃く刻まれています。公式サウンドトラック収録33曲のうち、2、3、6、8、11、15、21、25、27、29、30、31、32の各トラックを単独で作曲。残りの楽曲も鈴木慶尚、山崎レビ、山崎ミアらと共同で編曲し、ほぼすべての楽器を松浦自身が演奏しています。<strong>De La Soul</strong>と日本のR&amp;Bデュオ<strong>DOUBLE</strong>を迎えたトラック4・33は、いずれも松浦が共作者としてクレジットされています。本作でも七音社のディレクター、リードデザイナー、プロデューサーとして全体を統括しました。</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- ── PSP port (2007) ── -->
+    <div class="ujl-cabinet-section">
+      <div class="ujl-cabinet-img">
+        <img src="Parappa Site/TheGames/parappapsp.jpg" alt="PaRappa the Rapper PSP cover">
+      </div>
+      <div class="ujl-cabinet-info">
+        <div class="ujl-info-title"><span class="en">2006–2007 — PaRappa the Rapper (PSP)</span><span class="ja">2006〜2007年 — パラッパラッパー（PSP）</span></div>
+        <p>
+          <span class="block-en">For the franchise's tenth anniversary, NanaOn-Sha and Sony returned to the original 1996 game and ported it to the PlayStation Portable in <strong>2007</strong>. Matsuura signed off on the audio remaster, supervised the addition of downloadable bonus songs distributed weekly through the PlayStation Store after launch, and approved the wide-screen presentation of Greenblat's original character sheets. While he was no longer director on a day-to-day basis, the PSP version is the first time Matsuura's PaRappa music was made portable, and the package — including a fold-out poster and bonus art — leans heavily on his original 1996 audio masters.</span>
+          <span class="block-ja">シリーズ10周年を機に、七音社とソニーは1996年のオリジナル『パラッパラッパー』をPSPへ移植し、<strong>2007年</strong>に発売しました。松浦は本作で音声のリマスター監修を担当し、発売後にPlayStation Storeを通じて毎週順次配信されたダウンロード追加楽曲の構成を監督。さらにグリーンブラットによるオリジナルのキャラクターシートをワイドスクリーン向けに整え直す作業にも目を通しています。日常のディレクションには関わらなくなっていたものの、本作は松浦のパラッパ楽曲が初めてポータブル機で聴けるようになった瞬間であり、折り込みポスターやボーナスアートを含むパッケージ全体が、松浦の1996年当時のオリジナル音源を起点として組み立てられました。</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- ── Remastered (2017) ── -->
+    <div class="ujl-cabinet-section">
+      <div class="ujl-cabinet-img">
+        <img src="Parappa Site/TheGames/parappaps4.webp" alt="PaRappa the Rapper Remastered (PS4) cover">
+      </div>
+      <div class="ujl-cabinet-info">
+        <div class="ujl-info-title"><span class="en">2016–2017 — PaRappa the Rapper Remastered</span><span class="ja">2016〜2017年 — パラッパラッパー リマスター</span></div>
+        <p>
+          <span class="block-en">PaRappa the Rapper turned twenty in <strong>December 2016</strong>, and Sony Japan Studio commemorated the milestone with a 4K-ready remaster for the PlayStation 4. A free playable demo dropped on December 3, 2016 to kick off the anniversary year, and the full remaster shipped on <strong>April 4, 2017</strong>. Although the project was led by Japan Studio, Matsuura personally returned to the original audio masters and remixed them for high-resolution playback, reissuing the soundtrack album the same year to commemorate twenty years of the game. The release also bundled in every downloadable bonus song from the 2007 PSP edition, making it the most complete version of his original 1996 score that exists. (Tinkerers digging into the PS4 disc later figured out that what Sony shipped was, underneath, the 2007 PSP build piped through an internal emulator with the assets swapped for high-resolution replacements — but Matsuura's audio sits cleanly remastered on top of that runtime.)</span>
+          <span class="block-ja">『パラッパラッパー』は<strong>2016年12月</strong>に発売20周年を迎え、ソニー・ジャパンスタジオはこの節目を記念してPlayStation 4向けの4K対応リマスター版を制作しました。アニバーサリーイヤーの幕開けとして2016年12月3日に無料の体験版が配信され、フル版は<strong>2017年4月4日</strong>に発売されています。プロジェクト自体はジャパンスタジオが主導したものの、松浦自身もオリジナルのオーディオマスターに立ち返り、ハイレゾ再生用にリミックスを施しました。同時に、ゲーム発売20周年を記念してサウンドトラックアルバムも再発されています。本作には2007年のPSP版で配信されていたダウンロード楽曲もすべて同梱されており、1996年のオリジナルスコアをもっとも完成された形で味わえるバージョンとなりました。（後にホームブリュー研究者によって、PS4版の中身は高解像度テクスチャを差し替えたPSP版がエミュレータ上で動作している実装であることが明らかになりましたが、その上で鳴っている松浦の音源は完全にリマスターされたものです。）</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- ── Project Rap Rabbit and present ── -->
+    <div class="ujl-intro">
+      <p>
+        <span class="block-en">In 2017 Matsuura announced <strong>Project Rap Rabbit</strong> alongside <em>Gitaroo Man</em> creator Keiichi Yano — a Kickstarter-funded spiritual successor to PaRappa that ultimately fell short of its funding goal. Since then he has stepped largely back into music, lecturing on rhythm-game design, performing at vinyl-listening events demonstrating bitrate differences (he is famously preoccupied with the philosophical implications of digital sampling), and watching the franchise carry on without him. He has been clear in interviews that he is no longer chasing hardware: "I'm not interested in a 'switch' itself. I am interested in the darkness that is illuminated by the light that it turns on." Whatever PaRappa does next, every melody, every "Kick! Punch! It's all in the mind!", every backing track of milk-and-noodle bliss in the franchise was sketched, sequenced, sampled, and signed off by him.</span>
+        <span class="block-ja">2017年、松浦は『<em>ギタルマン</em>』の生みの親・<strong>矢野慶一</strong>とともに、パラッパの精神的後継作と位置付けたKickstarterプロジェクト『<strong>Project Rap Rabbit</strong>』を発表しますが、目標額に届かず資金調達は不成立に終わりました。以後の松浦は活動の重心を音楽へ戻し、リズムゲーム設計に関する講演を続けながら、ビットレート違いの音源を聴き比べるヴァイナルイベントで演奏したりと、デジタルサンプリングの哲学的意味について語り続けています（この問題への執着で彼は知られています）。インタビューでも、もはやハードウェアそのものには関心がないと明言しており、「『スイッチ』自体には興味がない。私が興味があるのは、そのスイッチが点ける光に照らされる闇の方だ」と語っています。今後パラッパがどこへ向かうにせよ、シリーズに流れるすべてのメロディ、「Kick! Punch! It's all in the mind!」のあらゆるフック、ミルクとヌードルにまつわる多幸感あふれるバックトラックの一音一音は、松浦雅也の手によってスケッチされ、シーケンスされ、サンプリングされ、最終チェックを受けてきたものなのです。</span>
+      </p>
+    </div>
+
+    <div class="ujl-details">
+      <div class="ujl-info-title"><span class="en">— AT A GLANCE —</span><span class="ja">— プロフィール —</span></div>
+      <table class="ujl-table">
+        <tr><td class="ujl-label"><span class="en">Born</span><span class="ja">生年月日</span></td><td><span class="en">June 16, 1961 — Osaka, Japan</span><span class="ja">1961年6月16日 — 大阪</span></td></tr>
+        <tr><td class="ujl-label"><span class="en">Education</span><span class="ja">学歴</span></td><td><span class="en">Ritsumeikan University — Industrial Society (1983)</span><span class="ja">立命館大学 産業社会学部（1983年卒）</span></td></tr>
+        <tr><td class="ujl-label"><span class="en">Band</span><span class="ja">バンド</span></td><td>PSY-S (1985–1996)</td></tr>
+        <tr><td class="ujl-label"><span class="en">Studio</span><span class="ja">所属</span></td><td><span class="en">NanaOn-Sha (founded 1996)</span><span class="ja">七音社（1996年設立）</span></td></tr>
+        <tr><td class="ujl-label"><span class="en">PaRappa Roles</span><span class="ja">パラッパでの役割</span></td><td><span class="en">Producer · Director · Lead Composer</span><span class="ja">プロデューサー／ディレクター／メインコンポーザー</span></td></tr>
+        <tr><td class="ujl-label"><span class="en">PaRappa Games</span><span class="ja">主要作</span></td><td><span class="en">PaRappa the Rapper (1996), Um Jammer Lammy (1999), PaRappa the Rapper 2 (2001), PaRappa PSP (2007), PaRappa Remastered (2017)</span><span class="ja">パラッパラッパー（1996）、ウンジャマ・ラミー（1999）、パラッパラッパー2（2001）、パラッパラッパー PSP（2007）、パラッパラッパー リマスター（2017）</span></td></tr>
+        <tr><td class="ujl-label"><span class="en">Other Games</span><span class="ja">その他</span></td><td><span class="en">The Seven Colors (1993), Vib-Ribbon (1999), Mojib-Ribbon (2003), Vib-Ripple (2004), Major Minor's Majestic March (2009)</span><span class="ja">The Seven Colors（1993）、ビブリボン（1999）、モジブリボン（2003）、ビブリップル（2004）、メジャー・マイナーズ・マジェスティック・マーチ（2009）</span></td></tr>
+        <tr><td class="ujl-label"><span class="en">Honours</span><span class="ja">受賞</span></td><td><span class="en">Multimedia Grand Prix (1993), IAA Original Music Composition (2000), IGDA First Penguin Award (2004), IGN Top 100 Game Creators (2009)</span><span class="ja">マルチメディアグランプリ（1993）、IAA最優秀オリジナル音楽作曲賞（2000）、IGDA First Penguin Award（2004）、IGN歴代ゲームクリエイター100選（2009）</span></td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="footer">PaRappa Corner &mdash; PaRappa the Rapper Fan Site &mdash; parappacorner.com</div>
+</div>
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous image">&lsaquo;</button>
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close">&times;</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Next image">&rsaquo;</button>
+</div>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="vibri-sharpen">
+    <feConvolveMatrix order="3" preserveAlpha="true"
+      kernelMatrix="0 -0.4 0  -0.4 2.6 -0.4  0 -0.4 0"/>
+  </filter>
+</svg>
+<a href="black.html" class="vibri-link"><img src="vib/stare.gif" alt="Vibri" class="vibri-corner"></a>
+
+
+
+<!-- ZOOM-INVARIANT CORNERS
+     The "PaRappa Corner" button (bottom-left) and the Vibri link (bottom-right) must
+     sit in exactly the same spot, at exactly the same on-screen size, however
+     far the page is zoomed. They are position:fixed, so browser zoom already
+     keeps them in the corner but scales them up; pinch zoom moves them off the
+     visible area entirely. This publishes three custom properties the two rules
+     in parappa.css consume:
+       --zoom-fix              inverse of the current zoom (counter-scale)
+       --zoom-dx / --zoom-dy   shift from the layout viewport's bottom-left to
+                               the visible viewport's bottom-left
+       --zoom-dx-right         same shift for the right edge
+     Under plain desktop browser zoom the deltas stay 0 and only --zoom-fix does
+     any work. -->
+
+<!-- The label is SVG text rather than HTML text: with -webkit-text-stroke, Chrome
+     fills from the hinted glyph bitmap but strokes the raw outline, and this font's
+     hinting shortens the "p" descenders at small sizes, so the two layers disagreed
+     under "pp". SVG text fills and strokes the same path. -->
+<div class="corner-wrap">
+<button type="button" class="corner-subtitle" id="siteSubtitle" aria-label="PaRappa Corner" title="Back to the home page" onclick="showPage('welcome', document.getElementById('navHomeBtn')); window.scrollTo(0, 0);">
+  <!-- .corner-frame is a plain block wrapper in PaRappa mode; in Lammy mode it
+       carries the inner two of the nav tabs' three bevelled outline frames. -->
+  <span class="corner-frame">
+  <svg class="corner-label fit-text" width="153" height="24" aria-hidden="true" focusable="false">
+    <!-- Lammy mode only (CSS): red oval behind "Corner", like the one behind
+         "LAMMY" in the title. Geometry is set by fitTextSvgs from the word's box. -->
+    <ellipse class="corner-pill" cx="0" cy="0" rx="0" ry="0"></ellipse>
+    <text class="corner-label-back" x="0" y="17.5"><tspan class="corner-word-parappa">PaRappa</tspan><tspan class="corner-gap"> </tspan><tspan class="corner-word-corner">Corner</tspan></text>
+    <text class="corner-label-front" x="0" y="17.5"><tspan class="corner-word-parappa">PaRappa</tspan><tspan class="corner-gap"> </tspan><tspan class="corner-word-corner">Corner</tspan></text>
+  </svg>
+  </span>
+</button>
+</div>
+
+<!-- BACK TO TOP — right side, shows once the page is scrolled halfway -->
+<button type="button" class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M12 20V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+<script src="parappa.js"></script>
+</body>
+</html>

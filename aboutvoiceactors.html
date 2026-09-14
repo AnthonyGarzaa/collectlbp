@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Voice Actors — PaRappa Corner</title>
+  <meta name="description" content="PaRappa Corner: a fan site preserving and documenting PaRappa the Rapper and Um Jammer Lammy merchandise, rare collectibles, and franchise history.">
+  <link rel="canonical" href="https://parappacorner.com/aboutvoiceactors.html">
+  <meta property="og:site_name" content="PaRappa Corner">
+  <meta property="og:title" content="Voice Actors — PaRappa Corner">
+  <meta property="og:description" content="A fan site preserving and documenting PaRappa the Rapper and Um Jammer Lammy merchandise, rare collectibles, and franchise history.">
+  <meta property="og:url" content="https://parappacorner.com/aboutvoiceactors.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://parappacorner.com/par.png">
+  <link id="favicon" rel="icon" type="image/png" href="par.png">
+  <link id="favicon-shortcut" rel="shortcut icon" type="image/png" href="par.png">
+  <link rel="stylesheet" href="parappa.css?v=20260914">
+</head>
+<body>
+<script>
+  // Restore Lammy mode and the JP language before the page paints, so moving
+  // between pages doesn't flash the PaRappa-mode / English versions first.
+  (function () {
+    try {
+      if (localStorage.getItem('parappaLammyMode') === '1') document.body.classList.add('theme-lammy');
+      if (localStorage.getItem('parappaLangJP') === '1') document.body.classList.add('lang-jp');
+    } catch (e) {}
+  })();
+</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="parappa-squiggle">
+    <feTurbulence type="turbulence" baseFrequency="0.012" numOctaves="1" seed="4" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="45"/>
+  </filter>
+</svg>
+
+<div class="site-wrap">
+
+  <!-- HEADER -->
+  <div class="site-header">
+    <div class="lang-toggle-wrap">
+      <div class="lang-toggle">
+        <span class="toggle-label toggle-flag"><span class="en">EN</span><span class="ja">EN</span></span>
+        <div class="toggle-track" id="langTrack" onclick="toggleLang()">
+          <div class="toggle-thumb" id="langThumb"></div>
+        </div>
+        <span class="toggle-label toggle-flag jp-flag"><span class="en">JP</span><span class="ja">JP</span></span>
+      </div>
+      <img class="lang-cover" src="LammyStuff/Language.png" alt="Language">
+      <div class="lang-menu-btns">
+        <button type="button" class="lang-menu-btn" onclick="setLang('en')"><span class="lang-menu-label">EN</span></button>
+        <button type="button" class="lang-menu-btn" onclick="setLang('jp')"><span class="lang-menu-label">JP</span></button>
+      </div>
+    </div>
+    <img class="parappa-pony" src="pony.png" alt="Pony" aria-hidden="true">
+    <img class="parappa-joe" src="thejoe.png" alt="Joe Chin" aria-hidden="true">
+    <img class="parappa-boxy" src="LammyStuff/resources/boxy.png" alt="Boxy Boy" aria-hidden="true">
+    <img class="parappa-mc" src="LammyStuff/resources/MC.png" alt="MC King Kong Mushi" aria-hidden="true">
+    <div class="logo" id="siteLogo"><svg class="logo-svg fit-text" width="367" height="33" role="img" aria-label="PaRappa the Rapper" focusable="false"><text x="0" y="25"><tspan fill="#FFB347">PA</tspan><tspan fill="#1098AD">RAPPA</tspan> <tspan fill="#5CB85C">THE</tspan> <tspan fill="#F07A8E">RAPPER</tspan></text></svg></div>
+    <div class="tagline" id="siteTagline"><span class="tagline-text" data-text="The Hip Hop Hero">The Hip Hop Hero</span></div>
+    <div class="lammy-renders">
+      <img src="LammyStuff/Renders/lammy.png" alt="Lammy">
+      <div class="masan-stack">
+        <img class="masan-hat" src="LammyStuff/ressources/flanger.png" alt="Flanger">
+        <img class="masan-harmonizer" src="LammyStuff/ressources/harmonizer.png" alt="Harmonizer">
+        <img class="masan-poofu" src="LammyStuff/ressources/poofu.png" alt="" aria-hidden="true">
+        <img class="lammy-guit" src="LammyStuff/resources/lammyguit.png" alt="Lammy's guitar" aria-hidden="true">
+        <img class="masan-drumhead" src="LammyStuff/resources/drumhead.png" alt="" aria-hidden="true">
+        <img class="masan-bass" src="LammyStuff/resources/bass.png" alt="Bass guitar" aria-hidden="true">
+        <img class="masan-pandatsu" src="LammyStuff/Renders/pandatsu.png" alt="Pandatsu" aria-hidden="true">
+        <img class="masan-squirrel" src="LammyStuff/Renders/squirrel.png" alt="Gramophone squirrel" aria-hidden="true">
+        <img class="masan-guitartopper" src="LammyStuff/Renders/guitartopper.png" alt="Guitar Topper">
+        <img src="LammyStuff/Renders/masan.png" alt="Ma-san">
+      </div>
+      <img src="LammyStuff/Renders/katy.png" alt="Katy Kat">
+      <img src="LammyStuff/Renders/onion.png" alt="Chop Chop Master Onion">
+      <img src="LammyStuff/Renders/chief.png" alt="Chief Puddle">
+      <img src="LammyStuff/Renders/cathy.png" alt="Cathy Pillar">
+      <div class="captain-stack">
+        <img class="captain-reverb" src="LammyStuff/ressources/reverb.png" alt="Reverb">
+        <img class="captain-wahwah" src="LammyStuff/ressources/wahwah.png" alt="WahWah">
+        <img src="LammyStuff/Renders/captain.png" alt="Captain Fussenpepper">
+      </div>
+      <div class="paul-stack">
+        <img class="paul-now" src="LammyStuff/resources/now!.png" alt="NOW!">
+        <img class="rammy-guit" src="LammyStuff/resources/rammyguit.png" alt="Rammy's guitar" aria-hidden="true">
+        <img class="tree-guit" src="LammyStuff/resources/treeguit.png" alt="Tree guitar" aria-hidden="true">
+        <img class="paul-goo" src="LammyStuff/Renders/goo.png" alt="" aria-hidden="true">
+        <img class="paul-drag" src="LammyStuff/Renders/drag.png" alt="Dragon" aria-hidden="true">
+        <img class="paul-ramm" src="LammyStuff/resources/ramm.png" alt="" aria-hidden="true">
+        <img class="paul-distortion" src="LammyStuff/ressources/distortion.png" alt="Distortion">
+        <img src="LammyStuff/Renders/paul.png" alt="Paul Chuck">
+      </div>
+      <div class="teri-stack">
+        <img class="teri-rammy" src="LammyStuff/Renders/rammy.png" alt="Rammy">
+        <img src="LammyStuff/Renders/teri.png" alt="Teriyaki Yoko">
+      </div>
+    </div>
+    <div class="theme-toggle">
+      <button class="theme-btn" id="themeBtn" onclick="toggleTheme()"><span class="theme-btn-label">LAMMY MODE</span></button>
+      <img class="theme-cover" src="LammyStuff/Option.png" alt="Option">
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-bar">
+
+    <div class="nav-item">
+      <button id="navHomeBtn" onclick="showPage('welcome', this)">
+        <span class="en">HOME</span><span class="ja">ホーム</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="index.html"><span class="dot"></span><span class="en">Welcome</span><span class="ja">ようこそ</span></a>
+        <a href="search.html"><span class="dot"></span><span class="en">Search</span><span class="ja">検索</span></a>
+        <a href="donate.html"><span class="dot"></span><span class="en">Donate</span><span class="ja">寄付</span></a>
+        <a href="contact.html"><span class="dot"></span><span class="en">Contact</span><span class="ja">お問い合わせ</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('aboutgame', this)">
+        <span class="en">ABOUT</span><span class="ja">アバウト</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="aboutgame.html"><span class="dot"></span><span class="en">The Games</span><span class="ja">ゲーム</span></a>
+        <a href="aboutanime.html"><span class="dot"></span><span class="en">The Anime</span><span class="ja">アニメ</span></a>
+        <a href="aboutrodney.html"><span class="dot"></span><span class="en">Rodney Alan Greenblat</span><span class="ja">ロドニー・アラン・グリーンブラット</span></a>
+        <a href="aboutmatsuura.html"><span class="dot"></span><span class="en">Masaya Matsuura</span><span class="ja">松浦 雅也</span></a>
+        <a href="aboutvoiceactors.html"><span class="dot"></span><span class="en">Voice Actors</span><span class="ja">声優</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <div class="parappa-nav-pair" aria-hidden="true">
+        <img class="parappa-bear" src="pjbear.png" alt="PJ Berri">
+        <img class="parappa-kat" src="thekat.png" alt="Katy Kat">
+        <img class="parappa-sun" src="thesunnyfunny.png" alt="Sunny Funny">
+        <img class="parappa-rapdog" src="somedog.png" alt="PaRappa">
+      </div>
+      <button onclick="showPage('chars', this)">
+        <span class="en">CHARACTERS</span><span class="ja">キャラクター</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="chars.html"><span class="dot"></span><span class="en">PaRappa The Rapper</span><span class="ja">パラッパラッパー</span></a>
+        <a href="chars-ujl.html"><span class="dot"></span><span class="en">Um Jammer Lammy</span><span class="ja">ウンジャマ・ラミー</span></a>
+        <a href="chars-ptr2.html"><span class="dot"></span><span class="en">PaRappa The Rapper 2</span><span class="ja">パラッパラッパー2</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('merch-rodneyfun-comics', this)">
+        <span class="en">MERCHANDISE</span><span class="ja">グッズ</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">RodneyFun</span><span class="ja">ロドニーファン</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="merch-rodneyfun-comics.html"><span class="dot"></span><span class="en">Comic Collection</span><span class="ja">コミックコレクション</span></a>
+            <a href="merch-rodneyfun-toys.html"><span class="dot"></span><span class="en">Toys</span><span class="ja">おもちゃ</span></a>
+            <a href="merch-rodneyfun-shirts.html"><span class="dot"></span><span class="en">Shirts</span><span class="ja">シャツ</span></a>
+            <a href="merch-rodneyfun-stationary.html"><span class="dot"></span><span class="en">Stationary</span><span class="ja">文房具</span></a>
+            <a href="merch-rodneyfun-promotional.html"><span class="dot"></span><span class="en">Promotional Items</span><span class="ja">プロモーションアイテム</span></a>
+          </div>
+        </div>
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">PaRappa The Rapper</span><span class="ja">パラッパラッパー</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="merch-ptr-plush.html"><span class="dot"></span><span class="en">Plush Toys</span><span class="ja">ぬいぐるみ</span></a>
+            <a href="merch-ptr-figures.html"><span class="dot"></span><span class="en">Figures</span><span class="ja">フィギュア</span></a>
+            <a href="merch-ptr-shirts.html"><span class="dot"></span><span class="en">Shirts</span><span class="ja">シャツ</span></a>
+            <a href="merch-ptr-misc.html"><span class="dot"></span><span class="en">Miscellaneous</span><span class="ja">その他</span></a>
+          </div>
+        </div>
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">Um Jammer Lammy</span><span class="ja">ウンジャマ・ラミー</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="merch-ujl-plush.html"><span class="dot"></span><span class="en">Plush Toys</span><span class="ja">ぬいぐるみ</span></a>
+            <a href="merch-ujl-figures.html"><span class="dot"></span><span class="en">Figures</span><span class="ja">フィギュア</span></a>
+            <a href="merch-ujl-keychains.html"><span class="dot"></span><span class="en">Keychains</span><span class="ja">キーホルダー</span></a>
+            <a href="merch-ujl-shirts.html"><span class="dot"></span><span class="en">Shirts</span><span class="ja">シャツ</span></a>
+            <a href="merch-ujl-milkcantour.html"><span class="dot"></span><span class="en">MilkCan Tour '99</span><span class="ja">ミルクカンツアー '99</span></a>
+            <a href="merch-ujl-fernandes.html"><span class="dot"></span><span class="en">Fernandes Guitars</span><span class="ja">フェルナンデス・ギター</span></a>
+            <a href="merch-ujl-stationery.html"><span class="dot"></span><span class="en">Stationery</span><span class="ja">文房具</span></a>
+            <a href="merch-ujl-misc.html"><span class="dot"></span><span class="en">Miscellaneous</span><span class="ja">その他</span></a>
+          </div>
+        </div>
+        <a href="merch-mcdonalds.html"><span class="dot"></span><span class="en">McDonald's</span><span class="ja">マクドナルド</span></a>
+        <a href="merch-dunkin.html"><span class="dot"></span><span class="en">Dunkin' Donuts</span><span class="ja">ダンキンドーナツ</span></a>
+        <a href="merch-lipton.html"><span class="dot"></span><span class="en">Lipton</span><span class="ja">リプトン</span></a>
+        <a href="merch-catalogs.html"><span class="dot"></span><span class="en">Catalogs</span><span class="ja">カタログ</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('gal-magazines', this)">
+        <span class="en">PHOTO GALLERY</span><span class="ja">フォトギャラリー</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="gal-magazines.html"><span class="dot"></span><span class="en">Magazines</span><span class="ja">雑誌</span></a>
+        <a href="gal-stratguides.html"><span class="dot"></span><span class="en">Strategy Guides</span><span class="ja">攻略本</span></a>
+        <a href="gal-shelves.html"><span class="dot"></span><span class="en">Merch On Shelves</span><span class="ja">店頭のグッズ</span></a>
+        <a href="gal-earlydesigns.html"><span class="dot"></span><span class="en">Early Character Designs</span><span class="ja">初期キャラクターデザイン</span></a>
+        <a href="sp-mascots.html"><span class="dot"></span><span class="en">Mascots</span><span class="ja">マスコット</span></a>
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">Official Art/Ads</span><span class="ja">公式アート／広告</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="gal-officialart-ptr.html"><span class="dot"></span><span class="en">PaRappa The Rapper</span><span class="ja">パラッパラッパー</span></a>
+            <a href="gal-officialart-ujl.html"><span class="dot"></span><span class="en">Um Jammer Lammy</span><span class="ja">ウンジャマ・ラミー</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <img class="parappa-chopchop" src="LammyStuff/resources/chop.png" alt="Chop Chop Master Onion" aria-hidden="true">
+      <img class="parappa-moose" src="LammyStuff/resources/themoose.png" alt="Mooselini" aria-hidden="true">
+      <img class="parappa-flea" src="LammyStuff/resources/flea.png" alt="Flea" aria-hidden="true">
+      <img class="parappa-cheap" src="LammyStuff/resources/cheap.png" alt="Cheap Cheap the Cooking Chicken" aria-hidden="true">
+      <button onclick="showPage('sp-presskits', this)">
+        <span class="en">SPECIAL ITEMS</span><span class="ja">スペシャル・キット</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="sp-presskits.html"><span class="dot"></span><span class="en">Press Kits</span><span class="ja">プレスキット</span></a>
+        <a href="sp-promos.html"><span class="dot"></span><span class="en">Promotional Items</span><span class="ja">プロモーションアイテム</span></a>
+        <a href="sp-prototypes.html"><span class="dot"></span><span class="en">Prototypes</span><span class="ja">プロトタイプ</span></a>
+        <a href="sp-crashad.html"><span class="dot"></span><span class="en">Crash Bandicoot Ad Collaboration</span><span class="ja">クラッシュ・バンディクー 広告コラボ</span></a>
+        <a href="sp-physical.html"><span class="dot"></span><span class="en">CD/Vinyl</span><span class="ja">フィジカルメディア</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('sp-websites', this)">
+        <span class="en">ORIGINAL WEBSITES</span><span class="ja">オリジナルウェブサイト</span>
+        <span class="arrow">▾</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('videos', this)">
+        <span class="en">VIDEOS</span><span class="ja">動画</span>
+        <span class="arrow">▾</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button class="nav-ujlnow" onclick="showPage('lammynow', this)">
+        <span class="en"><span class="nav-umjammer">UM JAMMER</span> <span class="nav-lammy">LAMMY</span> <span class="nav-now">NOW!</span></span><span class="ja"><span class="nav-umjammer">ウンジャマ・</span><span class="nav-lammy">ラミー</span> <span class="nav-now">Now!</span></span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="lammynow.html"><span class="dot"></span><span class="en">About</span><span class="ja">概要</span></a>
+        <a href="ujlnow-cabinet.html"><span class="dot"></span><span class="en">The Cabinet</span><span class="ja">筐体</span></a>
+        <a href="ujlnow-prize.html"><span class="dot"></span><span class="en">Prize Giveaway Campaign</span><span class="ja">プレゼントキャンペーン</span></a>
+        <a href="ujlnow-discovery.html"><span class="dot"></span><span class="en">The Discovery</span><span class="ja">発見</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button class="nav-milkcan" onclick="showPage('milkcan', this)">
+        <span class="en">MILKCAN</span><span class="ja">ミルクカン</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button class="nav-events" onclick="showPage('gal-events2', this)">
+        <span class="en">EVENTS</span><span class="ja">イベント</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('collections', this)">
+        <span class="en">COLLECTIONS</span><span class="ja">コレクション</span>
+      </button>
+    </div>
+
+  </div>
+
+  <div id="page-aboutvoiceactors" class="page active">
+    <div class="section-title"><span class="en">★ VOICE ACTORS ★</span><span class="ja">★ 声優陣 ★</span></div>
+
+    <div class="ujl-intro">
+      <p>
+        <span class="block-en">From the very first cue of "Stage 1: Chop Chop Master Onion's Rap" to PaRappa 2's noodle-fuelled finale, every word in the PaRappa series is sung, rapped, or spoken — never delivered by a synthesiser. NanaOn-Sha and Sony Computer Entertainment built the games around a tight ensemble of working New York musicians, Broadway-bound vocalists, and Tokyo radio personalities. Most of the lead cast members were chosen because they were already touring or recording artists, and Masaya Matsuura wrote the rap stages around their actual voices. Below is a chapter-by-chapter look at the people you've been listening to since 1996, what they did across the three mainline games (PaRappa the Rapper, Um Jammer Lammy, PaRappa the Rapper 2) and the broader careers they led off-stage.</span>
+        <span class="block-ja">『パラッパラッパー』ステージ1「タマネギ先生のラップ」最初のひと声から、『パラッパラッパー2』のヌードル決戦まで、シリーズに登場するすべての台詞、歌、ラップは生身の声優・シンガーが録音したものです。シンセや合成音声で代用された箇所は一切ありません。七音社とソニー・コンピュータエンタテインメントは、ニューヨークで活動する現役ミュージシャン、ブロードウェイ志望の若手シンガー、そして東京のラジオパーソナリティで構成された少数精鋭のキャストを軸にゲームを設計しました。主要キャストの大半は当時すでにライブやレコーディング活動を行っていたアーティストで、松浦雅也は「実際の声」に当て書きする形でラップステージを作曲しています。以下では、1996年以降あなたが耳にしてきた声の主たちを章立てで紹介し、3作の本編（『パラッパラッパー』『ウンジャマ・ラミー』『パラッパラッパー2』）における役割と、ステージ外での経歴をたどっていきます。</span>
+      </p>
+    </div>
+
+    <!-- ── Dred Foxx ── -->
+    <div class="ujl-cabinet-section">
+      <div class="ujl-cabinet-img">
+        <img class="va-photo" src="Parappa%20Site/VoiceActors/dred-foxx.webp" alt="Dred Foxx, voice of PaRappa">
+      </div>
+      <div class="ujl-cabinet-info">
+        <div class="ujl-info-title"><span class="en">Dred Foxx — PaRappa</span><span class="ja">ドレッド・フォックス — パラッパ</span></div>
+        <p>
+          <span class="block-en">Born Lukan Outdawzman on May 9, 1971, the New York rapper performing as <strong>Dred Foxx</strong> is the voice and the actual rap delivery of <strong>PaRappa Rappa</strong> across all three mainline games. His audition take in 1996 essentially became the character's permanent vocal identity: every "Kick! Punch! It's all in the mind!" you can hum from memory is his. He returned to the booth for <strong>Um Jammer Lammy</strong> in 1999 (PaRappa appears as a guest rapper in the band's bonus stages) and again for <strong>PaRappa the Rapper 2</strong> in 2001, where he was credited under his birth name John Simpson III. Outside the franchise he has also recorded as a solo hip-hop artist and reprised PaRappa for the 2012 PlayStation crossover <em>PlayStation All-Stars Battle Royale</em>.</span>
+          <span class="block-ja">本名ルーカン・アウトダウズマン、1971年5月9日生まれのニューヨーク出身ラッパー<strong>ドレッド・フォックス</strong>は、本編3作すべてで<strong>パラッパ・ラッパー</strong>の声と実際のラップを担当している人物です。1996年のオーディションで残したテイクが、そのままこのキャラクターの恒久的な声のアイデンティティとして固定されました——あなたが反射的に口ずさめる「Kick! Punch! It's all in the mind!」は、すべて彼のヴォーカルです。1999年の『<strong>ウンジャマ・ラミー</strong>』ではバンドのボーナスステージにゲストラッパーとして登場するパラッパを再演し、2001年の『<strong>パラッパラッパー2</strong>』では本名のジョン・シンプソン3世名義で再びマイクを握りました。シリーズの外ではソロのヒップホップアーティストとしても活動しており、2012年のPlayStationクロスオーバー作『<em>PlayStation All-Stars Battle Royale</em>』でもパラッパ役で復帰しています。</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- ── Sara Ramirez ── -->
+    <div class="ujl-cabinet-section">
+      <div class="ujl-cabinet-img">
+        <img class="va-photo" src="Parappa%20Site/VoiceActors/sara-ramirez.jpg" alt="Sara Ramirez, voice of Lammy">
+      </div>
+      <div class="ujl-cabinet-info">
+        <div class="ujl-info-title"><span class="en">Sara Ramirez — Lammy</span><span class="ja">サラ・ラミレス — ラミー</span></div>
+        <p>
+          <span class="block-en">Mexican-American singer-actor <strong>Sara Ramirez</strong> (born Sara Elena Ramírez Vargas, August 31, 1975, Mazatlán, Sinaloa) recorded the role of <strong>Lammy</strong> in 1999 — Um Jammer Lammy was, in fact, their first ever voice-acting credit. Ramirez was a recent Juilliard fine-arts graduate who had just made their Broadway debut in Paul Simon's <em>The Capeman</em> (1998), and the breathy, anxiety-ridden delivery they brought to Lammy turned out to be the same expressive register that would later win them a Tony Award in 2005 for playing the Lady of the Lake in <em>Spamalot</em>. Ramirez reprised Lammy for her cameo appearances in <strong>PaRappa the Rapper 2</strong> in 2001.</span>
+          <span class="block-ja">メキシコ系アメリカ人のシンガー＆俳優<strong>サラ・ラミレス</strong>（本名サラ・エレナ・ラミレス・ヴァルガス、1975年8月31日メキシコ・シナロア州マサトラン生まれ）は、1999年に<strong>ラミー</strong>役を吹き込みました。実は『ウンジャマ・ラミー』が彼女にとって人生初の声優クレジットでした。当時のラミレスはジュリアード音楽院の美術専攻を卒業したばかりで、ポール・サイモンのブロードウェイミュージカル『<em>The Capeman</em>』（1998）でデビューしたばかり。ラミーに与えた息の薄い、不安にうずくような声色は、のちに2005年のミュージカル『<em>Spamalot</em>』でレディ・オブ・ザ・レイク役を務めトニー賞（最優秀ミュージカル助演女優賞）を獲得することになる、その表現レンジと同じ系統のものでした。2001年の『<strong>パラッパラッパー2</strong>』にもラミー役で再登板。</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- ── Michele Burks ── -->
+    <div class="ujl-cabinet-section">
+      <div class="ujl-cabinet-img">
+        <img class="va-photo" src="Parappa%20Site/VoiceActors/michele-burks.webp" alt="Michele Burks, voice of Katy Kat &amp; Cheap Cheap">
+      </div>
+      <div class="ujl-cabinet-info">
+        <div class="ujl-info-title"><span class="en">Michele Burks — Katy Kat &amp; Cheap Cheap</span><span class="ja">ミシェル・バークス — ケイティ・キャット／チープチープ</span></div>
+        <p>
+          <span class="block-en">Houston-born vocalist <strong>Michele Burks</strong> (November 16, 1968 – February 5, 2016) defined the singing voice of <strong>Katy Kat</strong> from 1996 onward and pulled double duty as the chicken cooking instructor <strong>Cheap Cheap the Cooking Chicken</strong> in PaRappa the Rapper. Her sharp, rangy alto carried Stage 2's "Cheap Cheap's Cooking Rap" and the entire MilkCan band performance in <strong>Um Jammer Lammy</strong>, where she returned as Katy on bass and lead vocals. Outside the games she was an active session and stage singer in the New York scene; the in-universe MilkCan album <em>Make It Sweet!</em>, released by Sony Music on June 19, 1999, features Burks performing the bulk of the lead vocals as Katy. She passed away in 2016 in her hometown of Houston, Texas.</span>
+          <span class="block-ja">テキサス州ヒューストン出身のヴォーカリスト<strong>ミシェル・バークス</strong>（1968年11月16日 – 2016年2月5日）は、1996年以降<strong>ケイティ・キャット</strong>の歌声を決定づけた人物であり、初代『パラッパラッパー』では同時に料理担当の鶏先生<strong>チープ・チープ</strong>役も兼任しました。彼女のシャープでレンジの広いアルトは、ステージ2「チープ・チープの料理ラップ」と、続編『<strong>ウンジャマ・ラミー</strong>』におけるバンド・ミルクカンの全演奏を支えています。同作ではベース＆リードヴォーカル担当のケイティとして再登場しました。ゲーム外でもニューヨーク・シーンで現役のセッションシンガー／ステージシンガーとして活動し、1999年6月19日にソニー・ミュージックから発売された劇中バンド名義のアルバム『<em>Make It Sweet!</em>』では、ケイティ役としてリードヴォーカルの大半を担当しています。2016年、故郷ヒューストンで逝去しました。</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- ── Ryu Watabe ── -->
+    <div class="ujl-cabinet-section">
+      <div class="ujl-cabinet-img">
+        <img class="va-photo" src="Parappa%20Site/VoiceActors/ryu.jpg" alt="Ryu Watabe (RYU), voice of Master Onion">
+      </div>
+      <div class="ujl-cabinet-info">
+        <div class="ujl-info-title"><span class="en">Ryu Watabe — Master Onion, Joe Chin, Captain Fussenpepper, Ma-san</span><span class="ja">ワタベリュウ — タマネギ先生／ジョー・チン／フセンペッパー大佐／マサン</span></div>
+        <p>
+          <span class="block-en">Tokyo radio personality, rap producer, and recording artist <strong>Ryu Watabe</strong> (credited simply as <strong>RYU</strong>) is the most multi-tasking voice in the franchise. In <strong>PaRappa the Rapper</strong> (1996) he originated <strong>Chop Chop Master Onion</strong>, the muscular self-help guru of Stage 1, and the unbearable rich kid <strong>Joe Chin</strong>; in <strong>Um Jammer Lammy</strong> (1999) he added the chain-smoking <strong>Captain Fussenpepper</strong> of the airplane stage and the rocket-powered drummer <strong>Ma-san</strong> of MilkCan; and in <strong>PaRappa the Rapper 2</strong> (2001) he reprised Master Onion and Captain Fussenpepper. His most famous on-record credit, however, predates the cast list: it was Watabe who flew with Matsuura to New York for the original 1996 sessions and improvised the English versions of the Japanese rap lyrics on the fly in the booth, effectively translating PaRappa as he performed it.</span>
+          <span class="block-ja">東京を拠点とするラジオパーソナリティ／ラッププロデューサー／レコーディングアーティスト<strong>ワタベリュウ</strong>（クレジットは<strong>RYU</strong>）は、シリーズ最多役の声の主です。1996年の『<strong>パラッパラッパー</strong>』ではステージ1のマッチョな自己啓発系師匠<strong>タマネギ先生</strong>と、いけすかない金持ちの<strong>ジョー・チン</strong>を担当。1999年の『<strong>ウンジャマ・ラミー</strong>』ではヘビースモーカーの<strong>フセンペッパー大佐</strong>と、ロケット出力ドラマー<strong>マサン</strong>（ミルクカン）を追加。2001年の『<strong>パラッパラッパー2</strong>』では再びタマネギ先生とフセンペッパー大佐を演じています。ただし、彼の最も有名なクレジットはこのキャスト表より一段遡ります——1996年のオリジナル収録で松浦と共にニューヨークへ飛び、日本語のラップ歌詞をブース内でその場で英語にフリースタイル翻訳してみせたのが、ほかならぬワタベだったのです。彼は実演しながらパラッパを翻訳していたわけです。</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- ── Kenya Hathaway ── -->
+    <div class="ujl-cabinet-section">
+      <div class="ujl-cabinet-img">
+        <img class="va-photo" src="Parappa%20Site/VoiceActors/kenya-hathaway.jpg" alt="Kenya Hathaway, voice of Sunny Funny">
+      </div>
+      <div class="ujl-cabinet-info">
+        <div class="ujl-info-title"><span class="en">Kenya Hathaway — Sunny Funny</span><span class="ja">ケニヤ・ハサウェイ — サニー・ファニー</span></div>
+        <p>
+          <span class="block-en">R&amp;B and jazz singer <strong>Kenya Hathaway</strong> — daughter of soul legend Donny Hathaway — provided the speaking and singing voice of <strong>Sunny Funny</strong>, PaRappa's flower-shaped crush, in <strong>PaRappa the Rapper</strong> (1996). Hathaway was already an established session vocalist in New York and Los Angeles when she recorded the role; in the years after PaRappa she became one of the most-in-demand background singers in American television, racking up roughly thirty appearances backing contestants on <em>American Idol</em> and contributing harmonies to records by the likes of Whitney Houston and Michael Bublé. The role of Sunny was recast for <strong>PaRappa the Rapper 2</strong> with Lea Alomar, but Hathaway's original take is the version that defined the character.</span>
+          <span class="block-ja">R&amp;B／ジャズ・シンガー<strong>ケニヤ・ハサウェイ</strong>——ソウルの伝説的シンガー、ダニー・ハサウェイの娘——は、1996年の『<strong>パラッパラッパー</strong>』でパラッパの想い人である花の少女<strong>サニー・ファニー</strong>の話し声・歌声を担当しました。録音当時のハサウェイはすでにニューヨークとロサンゼルスで第一線のセッションヴォーカリスト。パラッパ以降は全米でもっとも引っ張りだこのバックグラウンドシンガーの一人となり、『<em>American Idol</em>』ではコンテスタントの後ろで歌う形で約30回出演、ホイットニー・ヒューストンやマイケル・ブーブレらの作品にもハーモニーを提供しています。サニー役は『<strong>パラッパラッパー2</strong>』ではリア・アロマーへ交代しましたが、現在もキャラクターの定義となっているのは彼女のオリジナルテイクです。</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- ── Armstead Christian ── -->
+    <div class="ujl-cabinet-section">
+      <div class="ujl-cabinet-img">
+        <img class="va-photo" src="Parappa%20Site/VoiceActors/arm.png" alt="Armsted Christian, voice of PJ Berri &amp; PaRappa Papa">
+      </div>
+      <div class="ujl-cabinet-info">
+        <div class="ujl-info-title"><span class="en">Armstead Christian — PJ Berri &amp; PaRappa Papa</span><span class="ja">アームステッド・クリスチャン — PJベリー／パラッパパパ</span></div>
+        <p>
+          <span class="block-en">Vocalist and Berklee College of Music professor <strong>Armstead Christian</strong> (May 20, 1951 – January 4, 2016) was the franchise's quietest workhorse, voicing the perpetually-sleepy DJ bear <strong>PJ Berri</strong> in <strong>all three mainline games</strong> as well as the loving but absent-minded <strong>PaRappa Papa</strong> in the original 1996 game and PaRappa 2. He joined the Berklee faculty in 1999 — the same year as Um Jammer Lammy — and spent the next sixteen years there teaching ear training, vocal sight-reading, and studio backing-vocal technique under the affectionate nickname "Papa Flo." Christian had been living with sarcoidosis since the late 1970s, a condition that progressively limited his lung capacity but never appeared to slow his work; he reprised PJ Berri one last time for 2012's <em>PlayStation All-Stars Battle Royale</em>. He died in New Bedford, Massachusetts in early 2016.</span>
+          <span class="block-ja">ヴォーカリストでありバークリー音楽大学の教授でもあった<strong>アームステッド・クリスチャン</strong>（1951年5月20日 – 2016年1月4日）は、シリーズでもっとも目立たぬ働き者でした。常に眠そうなDJクマ<strong>PJベリー</strong>を<strong>本編3作すべて</strong>で演じ、加えて1996年の初代と『パラッパラッパー2』では愛情深いが少々抜けている<strong>パラッパパパ</strong>役も兼任しています。彼がバークリー音楽大学の教員になったのは1999年——ちょうど『ウンジャマ・ラミー』と同じ年——で、以後16年間、聴音、ヴォーカル初見訓練、スタジオでのバックヴォーカル技術などを「Papa Flo（パパ・フロ）」の愛称で教え続けました。1970年代後半から肉芽腫性疾患のサルコイドーシスを抱え、肺機能が徐々に低下していたものの、活動ペースが落ちる様子はほとんど見られませんでした。2012年の『<em>PlayStation All-Stars Battle Royale</em>』でPJベリー役を最後に再演し、2016年初頭、マサチューセッツ州ニューベッドフォードで生涯を閉じています。</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- ── Lenky Don ── -->
+    <div class="ujl-cabinet-section">
+      <div class="ujl-cabinet-img">
+        <img class="va-photo" src="Parappa%20Site/VoiceActors/lenky-don.jpg" alt="Lenky Don, voice of Prince Fleaswallow">
+      </div>
+      <div class="ujl-cabinet-info">
+        <div class="ujl-info-title"><span class="en">Lenky Don — Prince Fleaswallow</span><span class="ja">レンキー・ドン — プリンス・フリースワロー</span></div>
+        <p>
+          <span class="block-en">Jamaican-American dancehall and reggae MC <strong>Lenky Don</strong> (d. January 29, 2022) brought a deep-toned ragga delivery to <strong>Prince Fleaswallow</strong>, the green-haired flea-market philosopher of Stage 3. His "Pricks and stones may break my bones, but rap will never hurt me" remains one of the most-quoted lines in the franchise. He returned to play Fleaswallow in <strong>Um Jammer Lammy</strong> and <strong>PaRappa the Rapper 2</strong>, and his measured, unhurried cadence is the closest thing the games have to an actual reggae record. He continued working as a touring MC and producer in the New York / Brooklyn dancehall circuit until his death in 2022.</span>
+          <span class="block-ja">ジャマイカ系アメリカ人のダンスホール／レゲエMC<strong>レンキー・ドン</strong>（2022年1月29日逝去）は、ステージ3に登場する緑髪のフリーマーケット哲学者<strong>プリンス・フリースワロー</strong>に、深く落ち着いたラガ調の声色を与えました。彼の「Pricks and stones may break my bones, but rap will never hurt me」は、いまもシリーズで最も引用されるラインの一つです。続編『<strong>ウンジャマ・ラミー</strong>』『<strong>パラッパラッパー2</strong>』にもフリースワロー役で復帰しており、その悠然としたフロウは、本シリーズの中でもっとも本物のレゲエ・レコードに近い質感を持っています。逝去まで、ニューヨーク／ブルックリンのダンスホール・サーキットでツアーMC兼プロデューサーとして活動を続けました。</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- ── Richard Bush ── -->
+    <div class="ujl-intro">
+      <p>
+        <span class="block-en"><strong>Richard Bush — MC King Kong &amp; Chief Puddle.</strong> Vocalist Richard Bush handled two of the franchise's gruffest characters: he is <strong>MC King Kong Mushi</strong>, the towering rap battle MC who introduces every match in <strong>PaRappa the Rapper</strong>, and the no-nonsense fire-academy instructor <strong>Chief Puddle</strong> from Stage 4 of <strong>Um Jammer Lammy</strong>. Bush returned in <strong>PaRappa the Rapper 2</strong> as MC King Kong Mushi for the rap battle subway car. Outside PaRappa he is best known as a New York-based jazz, R&amp;B, and gospel session vocalist who has worked extensively as a backing singer.</span>
+        <span class="block-ja"><strong>リチャード・ブッシュ — MCキングコング／チーフ・パドル。</strong>ヴォーカリストのリチャード・ブッシュは、シリーズで最もごつい二人を担当しています。一人は『<strong>パラッパラッパー</strong>』で全ラップバトルの司会を務める巨漢MC<strong>キングコング・ムシ</strong>。もう一人は『<strong>ウンジャマ・ラミー</strong>』ステージ4に登場する、規律重視の消防学校教官<strong>チーフ・パドル</strong>です。『<strong>パラッパラッパー2</strong>』にも、地下鉄ラップバトル車両のMCキングコング・ムシ役で再登場しました。シリーズの外では、ニューヨークを拠点とするジャズ／R&amp;B／ゴスペルのセッションシンガーとして長年バックヴォーカルを務めてきた人物として知られています。</span>
+      </p>
+    </div>
+
+    <!-- ── Saundra Williams ── -->
+    <div class="ujl-intro">
+      <p>
+        <span class="block-en"><strong>Saundra Williams — Mooselini.</strong> Soul vocalist <strong>Saundra Williams</strong> voiced the driving-instructor moose <strong>Mooselini</strong> for Stage 4 of <strong>PaRappa the Rapper</strong> (1996). Williams had a parallel career as one half of the Sharon Jones-adjacent neo-soul duo Sandra St. Victor &amp; Saundra Williams, and as a backing vocalist on tour with major R&amp;B acts. The role was recast for PaRappa 2, where two new voice actresses played a pair of Mooselinis ("Moosesha #1" and "Moosesha #2"), but Williams's mid-1990s recording is the original.</span>
+        <span class="block-ja"><strong>ソンドラ・ウィリアムズ — ムースリーニ。</strong>ソウル・ヴォーカリスト<strong>ソンドラ・ウィリアムズ</strong>は、1996年の『<strong>パラッパラッパー</strong>』ステージ4に登場する自動車学校教官のヘラジカ<strong>ムースリーニ</strong>を演じました。ウィリアムズはサンドラ・セント・ヴィクター＆ソンドラ・ウィリアムズというネオソウルデュオの片割れとしての顔を持ち、メジャーなR&amp;Bアーティストのツアーでバックヴォーカルも務めてきたシンガーです。『パラッパラッパー2』では本役は二人組（ムシシャ#1／ムシシャ#2）として別キャストに再キャストされましたが、シリーズの「最初のムースリーニ」は彼女の1990年代半ばの録音です。</span>
+      </p>
+    </div>
+
+    <!-- ── PaRappa 2 newcomers ── -->
+    <div class="ujl-cabinet-section">
+      <div class="ujl-cabinet-img">
+        <img src="Parappa Site/TheGames/parappa2art.jpg" alt="PaRappa the Rapper 2 cast">
+      </div>
+      <div class="ujl-cabinet-info">
+        <div class="ujl-info-title"><span class="en">PaRappa 2 Newcomers (2001)</span><span class="ja">『パラッパラッパー2』からの新規キャスト（2001）</span></div>
+        <p>
+          <span class="block-en"><strong>Andrew Alonso</strong> took the franchise's biggest 2001 villain role as <strong>Colonel Noodle</strong>, the noodle-obsessed dictator who tries to ramen-fy PaRappa Town. <strong>Lea Alomar</strong> succeeded Kenya Hathaway as <strong>Sunny Funny</strong>, while <strong>Shannon White</strong> took over from Michele Burks as the speaking-and-rapping <strong>Katy Kat</strong> for the sequel. <strong>John James</strong> voiced the gruff <strong>General Potter</strong> military instructor, <strong>Ethan Eubanks</strong> originated the fast-food nemesis <strong>Beard Burger Master</strong>, <strong>Dean Bowman</strong> introduced the philosophical <strong>Guru Ant</strong> (and reprised MC King Kong Mushi for cameos), and <strong>Freedom Bremner</strong> did double duty as <strong>Hairdresser Octopus</strong> and <strong>Boxy Boy</strong>. The Mooselini role was split between two performers, <strong>Kimberly Queen</strong> (Moosesha #1) and <strong>Aaminah Hassell</strong> (Moosesha #2). Each of the seven new teachers in PaRappa 2 was, like the original cast, an active New York vocalist or session musician chosen to fit the genre of their respective stage — funk, country, military marching cadence, R&amp;B, and so on.</span>
+          <span class="block-ja"><strong>アンドリュー・アロンソ</strong>は2001年シリーズ最大の悪役、ヌードルに執着し街中をラーメン化しようとする独裁者<strong>カーネル・ヌードル</strong>役で参加。<strong>リア・アロマー</strong>はケニヤ・ハサウェイから<strong>サニー・ファニー</strong>役を引き継ぎ、<strong>シャノン・ホワイト</strong>はミシェル・バークスから話し＆ラップ担当の<strong>ケイティ・キャット</strong>を引き継ぎました。<strong>ジョン・ジェームズ</strong>は気難しい軍事教官<strong>ポッター将軍</strong>を、<strong>イーサン・ユーバンクス</strong>はファストフード界の宿敵<strong>ビアード・バーガー・マスター</strong>を新たに造形。<strong>ディーン・ボウマン</strong>は哲学者然とした<strong>グル・アント</strong>を導入しつつ（MCキングコング・ムシのカメオも兼任）、<strong>フリーダム・ブレムナー</strong>は<strong>美容師オクトパス</strong>と<strong>ボクシー・ボーイ</strong>の二役を担当しました。ムースリーニ役は二人体制となり、<strong>キンバリー・クイーン</strong>がムシシャ#1、<strong>アーミナ・ハッセル</strong>がムシシャ#2を担当。『パラッパラッパー2』に登場する7人の新先生は、初代キャストと同様、各ステージの音楽ジャンル（ファンク、カントリー、軍隊行進曲、R&amp;B、等々）に合わせて選ばれた現役ニューヨークのヴォーカリストやセッションミュージシャンでした。</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- ── At a glance ── -->
+    <div class="ujl-details">
+      <div class="ujl-info-title"><span class="en">— RECURRING CAST AT A GLANCE —</span><span class="ja">— レギュラー陣 早見表 —</span></div>
+      <table class="ujl-table">
+        <tr><td class="ujl-label">Dred Foxx</td><td><span class="en">PaRappa Rappa — all 3 games (1996, 1999, 2001)</span><span class="ja">パラッパ・ラッパー — 本編3作（1996／1999／2001）</span></td></tr>
+        <tr><td class="ujl-label">Sara Ramirez</td><td><span class="en">Lammy — UJL (1999) &amp; PaRappa 2 (2001)</span><span class="ja">ラミー — 『ウンジャマ・ラミー』（1999）／『パラッパラッパー2』（2001）</span></td></tr>
+        <tr><td class="ujl-label">Michele Burks</td><td><span class="en">Katy Kat &amp; Cheap Cheap — PaRappa (1996), UJL (1999)</span><span class="ja">ケイティ・キャット／チープ・チープ — 初代（1996）、『ウンジャマ・ラミー』（1999）</span></td></tr>
+        <tr><td class="ujl-label">Ryu Watabe (RYU)</td><td><span class="en">Master Onion · Joe Chin · Captain Fussenpepper · Ma-san — across all 3 games</span><span class="ja">タマネギ先生／ジョー・チン／フセンペッパー大佐／マサン — 本編3作</span></td></tr>
+        <tr><td class="ujl-label">Kenya Hathaway</td><td><span class="en">Sunny Funny — PaRappa (1996)</span><span class="ja">サニー・ファニー — 初代（1996）</span></td></tr>
+        <tr><td class="ujl-label">Armstead Christian</td><td><span class="en">PJ Berri — all 3 games · PaRappa Papa — PaRappa (1996) &amp; PaRappa 2 (2001)</span><span class="ja">PJベリー — 本編3作／パラッパパパ — 初代＆『パラッパラッパー2』</span></td></tr>
+        <tr><td class="ujl-label">Lenky Don</td><td><span class="en">Prince Fleaswallow — all 3 games</span><span class="ja">プリンス・フリースワロー — 本編3作</span></td></tr>
+        <tr><td class="ujl-label">Richard Bush</td><td><span class="en">MC King Kong Mushi (PaRappa 1, 2) · Chief Puddle (UJL)</span><span class="ja">MCキングコング・ムシ（初代／2）／チーフ・パドル（UJL）</span></td></tr>
+        <tr><td class="ujl-label">Saundra Williams</td><td><span class="en">Mooselini — PaRappa (1996)</span><span class="ja">ムースリーニ — 初代（1996）</span></td></tr>
+        <tr><td class="ujl-label">PaRappa 2 (2001) newcomers</td><td><span class="en">Andrew Alonso (Colonel Noodle), Lea Alomar (Sunny Funny), Shannon White (Katy Kat), John James (General Potter), Ethan Eubanks (Beard Burger Master), Dean Bowman (Guru Ant), Freedom Bremner (Hairdresser Octopus / Boxy Boy), Kimberly Queen &amp; Aaminah Hassell (Moosesha #1 &amp; #2)</span><span class="ja">A・アロンソ（カーネル・ヌードル）、L・アロマー（サニー）、S・ホワイト（ケイティ）、J・ジェームズ（ポッター将軍）、E・ユーバンクス（B.B.マスター）、D・ボウマン（グル・アント）、F・ブレムナー（オクトパス／ボクシー・ボーイ）、K・クイーン＆A・ハッセル（ムシシャ#1／#2）</span></td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="footer">PaRappa Corner &mdash; PaRappa the Rapper Fan Site &mdash; parappacorner.com</div>
+</div>
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous image">&lsaquo;</button>
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close">&times;</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Next image">&rsaquo;</button>
+</div>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="vibri-sharpen">
+    <feConvolveMatrix order="3" preserveAlpha="true"
+      kernelMatrix="0 -0.4 0  -0.4 2.6 -0.4  0 -0.4 0"/>
+  </filter>
+</svg>
+<a href="black.html" class="vibri-link"><img src="vib/stare.gif" alt="Vibri" class="vibri-corner"></a>
+
+
+
+<!-- ZOOM-INVARIANT CORNERS
+     The "PaRappa Corner" button (bottom-left) and the Vibri link (bottom-right) must
+     sit in exactly the same spot, at exactly the same on-screen size, however
+     far the page is zoomed. They are position:fixed, so browser zoom already
+     keeps them in the corner but scales them up; pinch zoom moves them off the
+     visible area entirely. This publishes three custom properties the two rules
+     in parappa.css consume:
+       --zoom-fix              inverse of the current zoom (counter-scale)
+       --zoom-dx / --zoom-dy   shift from the layout viewport's bottom-left to
+                               the visible viewport's bottom-left
+       --zoom-dx-right         same shift for the right edge
+     Under plain desktop browser zoom the deltas stay 0 and only --zoom-fix does
+     any work. -->
+
+<!-- The label is SVG text rather than HTML text: with -webkit-text-stroke, Chrome
+     fills from the hinted glyph bitmap but strokes the raw outline, and this font's
+     hinting shortens the "p" descenders at small sizes, so the two layers disagreed
+     under "pp". SVG text fills and strokes the same path. -->
+<div class="corner-wrap">
+<button type="button" class="corner-subtitle" id="siteSubtitle" aria-label="PaRappa Corner" title="Back to the home page" onclick="showPage('welcome', document.getElementById('navHomeBtn')); window.scrollTo(0, 0);">
+  <!-- .corner-frame is a plain block wrapper in PaRappa mode; in Lammy mode it
+       carries the inner two of the nav tabs' three bevelled outline frames. -->
+  <span class="corner-frame">
+  <svg class="corner-label fit-text" width="153" height="24" aria-hidden="true" focusable="false">
+    <!-- Lammy mode only (CSS): red oval behind "Corner", like the one behind
+         "LAMMY" in the title. Geometry is set by fitTextSvgs from the word's box. -->
+    <ellipse class="corner-pill" cx="0" cy="0" rx="0" ry="0"></ellipse>
+    <text class="corner-label-back" x="0" y="17.5"><tspan class="corner-word-parappa">PaRappa</tspan><tspan class="corner-gap"> </tspan><tspan class="corner-word-corner">Corner</tspan></text>
+    <text class="corner-label-front" x="0" y="17.5"><tspan class="corner-word-parappa">PaRappa</tspan><tspan class="corner-gap"> </tspan><tspan class="corner-word-corner">Corner</tspan></text>
+  </svg>
+  </span>
+</button>
+</div>
+
+<!-- BACK TO TOP — right side, shows once the page is scrolled halfway -->
+<button type="button" class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M12 20V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+<script src="parappa.js"></script>
+</body>
+</html>

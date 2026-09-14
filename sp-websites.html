@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Original Websites — PaRappa Corner</title>
+  <meta name="description" content="PaRappa Corner: a fan site preserving and documenting PaRappa the Rapper and Um Jammer Lammy merchandise, rare collectibles, and franchise history.">
+  <link rel="canonical" href="https://parappacorner.com/sp-websites.html">
+  <meta property="og:site_name" content="PaRappa Corner">
+  <meta property="og:title" content="Original Websites — PaRappa Corner">
+  <meta property="og:description" content="A fan site preserving and documenting PaRappa the Rapper and Um Jammer Lammy merchandise, rare collectibles, and franchise history.">
+  <meta property="og:url" content="https://parappacorner.com/sp-websites.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://parappacorner.com/par.png">
+  <link id="favicon" rel="icon" type="image/png" href="par.png">
+  <link id="favicon-shortcut" rel="shortcut icon" type="image/png" href="par.png">
+  <link rel="stylesheet" href="parappa.css?v=20260914">
+</head>
+<body>
+<script>
+  // Restore Lammy mode and the JP language before the page paints, so moving
+  // between pages doesn't flash the PaRappa-mode / English versions first.
+  (function () {
+    try {
+      if (localStorage.getItem('parappaLammyMode') === '1') document.body.classList.add('theme-lammy');
+      if (localStorage.getItem('parappaLangJP') === '1') document.body.classList.add('lang-jp');
+    } catch (e) {}
+  })();
+</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="parappa-squiggle">
+    <feTurbulence type="turbulence" baseFrequency="0.012" numOctaves="1" seed="4" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="45"/>
+  </filter>
+</svg>
+
+<div class="site-wrap">
+
+  <!-- HEADER -->
+  <div class="site-header">
+    <div class="lang-toggle-wrap">
+      <div class="lang-toggle">
+        <span class="toggle-label toggle-flag"><span class="en">EN</span><span class="ja">EN</span></span>
+        <div class="toggle-track" id="langTrack" onclick="toggleLang()">
+          <div class="toggle-thumb" id="langThumb"></div>
+        </div>
+        <span class="toggle-label toggle-flag jp-flag"><span class="en">JP</span><span class="ja">JP</span></span>
+      </div>
+      <img class="lang-cover" src="LammyStuff/Language.png" alt="Language">
+      <div class="lang-menu-btns">
+        <button type="button" class="lang-menu-btn" onclick="setLang('en')"><span class="lang-menu-label">EN</span></button>
+        <button type="button" class="lang-menu-btn" onclick="setLang('jp')"><span class="lang-menu-label">JP</span></button>
+      </div>
+    </div>
+    <img class="parappa-pony" src="pony.png" alt="Pony" aria-hidden="true">
+    <img class="parappa-joe" src="thejoe.png" alt="Joe Chin" aria-hidden="true">
+    <img class="parappa-boxy" src="LammyStuff/resources/boxy.png" alt="Boxy Boy" aria-hidden="true">
+    <img class="parappa-mc" src="LammyStuff/resources/MC.png" alt="MC King Kong Mushi" aria-hidden="true">
+    <div class="logo" id="siteLogo"><svg class="logo-svg fit-text" width="367" height="33" role="img" aria-label="PaRappa the Rapper" focusable="false"><text x="0" y="25"><tspan fill="#FFB347">PA</tspan><tspan fill="#1098AD">RAPPA</tspan> <tspan fill="#5CB85C">THE</tspan> <tspan fill="#F07A8E">RAPPER</tspan></text></svg></div>
+    <div class="tagline" id="siteTagline"><span class="tagline-text" data-text="The Hip Hop Hero">The Hip Hop Hero</span></div>
+    <div class="lammy-renders">
+      <img src="LammyStuff/Renders/lammy.png" alt="Lammy">
+      <div class="masan-stack">
+        <img class="masan-hat" src="LammyStuff/ressources/flanger.png" alt="Flanger">
+        <img class="masan-harmonizer" src="LammyStuff/ressources/harmonizer.png" alt="Harmonizer">
+        <img class="masan-poofu" src="LammyStuff/ressources/poofu.png" alt="" aria-hidden="true">
+        <img class="lammy-guit" src="LammyStuff/resources/lammyguit.png" alt="Lammy's guitar" aria-hidden="true">
+        <img class="masan-drumhead" src="LammyStuff/resources/drumhead.png" alt="" aria-hidden="true">
+        <img class="masan-bass" src="LammyStuff/resources/bass.png" alt="Bass guitar" aria-hidden="true">
+        <img class="masan-pandatsu" src="LammyStuff/Renders/pandatsu.png" alt="Pandatsu" aria-hidden="true">
+        <img class="masan-squirrel" src="LammyStuff/Renders/squirrel.png" alt="Gramophone squirrel" aria-hidden="true">
+        <img class="masan-guitartopper" src="LammyStuff/Renders/guitartopper.png" alt="Guitar Topper">
+        <img src="LammyStuff/Renders/masan.png" alt="Ma-san">
+      </div>
+      <img src="LammyStuff/Renders/katy.png" alt="Katy Kat">
+      <img src="LammyStuff/Renders/onion.png" alt="Chop Chop Master Onion">
+      <img src="LammyStuff/Renders/chief.png" alt="Chief Puddle">
+      <img src="LammyStuff/Renders/cathy.png" alt="Cathy Pillar">
+      <div class="captain-stack">
+        <img class="captain-reverb" src="LammyStuff/ressources/reverb.png" alt="Reverb">
+        <img class="captain-wahwah" src="LammyStuff/ressources/wahwah.png" alt="WahWah">
+        <img src="LammyStuff/Renders/captain.png" alt="Captain Fussenpepper">
+      </div>
+      <div class="paul-stack">
+        <img class="paul-now" src="LammyStuff/resources/now!.png" alt="NOW!">
+        <img class="rammy-guit" src="LammyStuff/resources/rammyguit.png" alt="Rammy's guitar" aria-hidden="true">
+        <img class="tree-guit" src="LammyStuff/resources/treeguit.png" alt="Tree guitar" aria-hidden="true">
+        <img class="paul-goo" src="LammyStuff/Renders/goo.png" alt="" aria-hidden="true">
+        <img class="paul-drag" src="LammyStuff/Renders/drag.png" alt="Dragon" aria-hidden="true">
+        <img class="paul-ramm" src="LammyStuff/resources/ramm.png" alt="" aria-hidden="true">
+        <img class="paul-distortion" src="LammyStuff/ressources/distortion.png" alt="Distortion">
+        <img src="LammyStuff/Renders/paul.png" alt="Paul Chuck">
+      </div>
+      <div class="teri-stack">
+        <img class="teri-rammy" src="LammyStuff/Renders/rammy.png" alt="Rammy">
+        <img src="LammyStuff/Renders/teri.png" alt="Teriyaki Yoko">
+      </div>
+    </div>
+    <div class="theme-toggle">
+      <button class="theme-btn" id="themeBtn" onclick="toggleTheme()"><span class="theme-btn-label">LAMMY MODE</span></button>
+      <img class="theme-cover" src="LammyStuff/Option.png" alt="Option">
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-bar">
+
+    <div class="nav-item">
+      <button id="navHomeBtn" onclick="showPage('welcome', this)">
+        <span class="en">HOME</span><span class="ja">ホーム</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="index.html"><span class="dot"></span><span class="en">Welcome</span><span class="ja">ようこそ</span></a>
+        <a href="search.html"><span class="dot"></span><span class="en">Search</span><span class="ja">検索</span></a>
+        <a href="donate.html"><span class="dot"></span><span class="en">Donate</span><span class="ja">寄付</span></a>
+        <a href="contact.html"><span class="dot"></span><span class="en">Contact</span><span class="ja">お問い合わせ</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('aboutgame', this)">
+        <span class="en">ABOUT</span><span class="ja">アバウト</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="aboutgame.html"><span class="dot"></span><span class="en">The Games</span><span class="ja">ゲーム</span></a>
+        <a href="aboutanime.html"><span class="dot"></span><span class="en">The Anime</span><span class="ja">アニメ</span></a>
+        <a href="aboutrodney.html"><span class="dot"></span><span class="en">Rodney Alan Greenblat</span><span class="ja">ロドニー・アラン・グリーンブラット</span></a>
+        <a href="aboutmatsuura.html"><span class="dot"></span><span class="en">Masaya Matsuura</span><span class="ja">松浦 雅也</span></a>
+        <a href="aboutvoiceactors.html"><span class="dot"></span><span class="en">Voice Actors</span><span class="ja">声優</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <div class="parappa-nav-pair" aria-hidden="true">
+        <img class="parappa-bear" src="pjbear.png" alt="PJ Berri">
+        <img class="parappa-kat" src="thekat.png" alt="Katy Kat">
+        <img class="parappa-sun" src="thesunnyfunny.png" alt="Sunny Funny">
+        <img class="parappa-rapdog" src="somedog.png" alt="PaRappa">
+      </div>
+      <button onclick="showPage('chars', this)">
+        <span class="en">CHARACTERS</span><span class="ja">キャラクター</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="chars.html"><span class="dot"></span><span class="en">PaRappa The Rapper</span><span class="ja">パラッパラッパー</span></a>
+        <a href="chars-ujl.html"><span class="dot"></span><span class="en">Um Jammer Lammy</span><span class="ja">ウンジャマ・ラミー</span></a>
+        <a href="chars-ptr2.html"><span class="dot"></span><span class="en">PaRappa The Rapper 2</span><span class="ja">パラッパラッパー2</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('merch-rodneyfun-comics', this)">
+        <span class="en">MERCHANDISE</span><span class="ja">グッズ</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">RodneyFun</span><span class="ja">ロドニーファン</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="merch-rodneyfun-comics.html"><span class="dot"></span><span class="en">Comic Collection</span><span class="ja">コミックコレクション</span></a>
+            <a href="merch-rodneyfun-toys.html"><span class="dot"></span><span class="en">Toys</span><span class="ja">おもちゃ</span></a>
+            <a href="merch-rodneyfun-shirts.html"><span class="dot"></span><span class="en">Shirts</span><span class="ja">シャツ</span></a>
+            <a href="merch-rodneyfun-stationary.html"><span class="dot"></span><span class="en">Stationary</span><span class="ja">文房具</span></a>
+            <a href="merch-rodneyfun-promotional.html"><span class="dot"></span><span class="en">Promotional Items</span><span class="ja">プロモーションアイテム</span></a>
+          </div>
+        </div>
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">PaRappa The Rapper</span><span class="ja">パラッパラッパー</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="merch-ptr-plush.html"><span class="dot"></span><span class="en">Plush Toys</span><span class="ja">ぬいぐるみ</span></a>
+            <a href="merch-ptr-figures.html"><span class="dot"></span><span class="en">Figures</span><span class="ja">フィギュア</span></a>
+            <a href="merch-ptr-shirts.html"><span class="dot"></span><span class="en">Shirts</span><span class="ja">シャツ</span></a>
+            <a href="merch-ptr-misc.html"><span class="dot"></span><span class="en">Miscellaneous</span><span class="ja">その他</span></a>
+          </div>
+        </div>
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">Um Jammer Lammy</span><span class="ja">ウンジャマ・ラミー</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="merch-ujl-plush.html"><span class="dot"></span><span class="en">Plush Toys</span><span class="ja">ぬいぐるみ</span></a>
+            <a href="merch-ujl-figures.html"><span class="dot"></span><span class="en">Figures</span><span class="ja">フィギュア</span></a>
+            <a href="merch-ujl-keychains.html"><span class="dot"></span><span class="en">Keychains</span><span class="ja">キーホルダー</span></a>
+            <a href="merch-ujl-shirts.html"><span class="dot"></span><span class="en">Shirts</span><span class="ja">シャツ</span></a>
+            <a href="merch-ujl-milkcantour.html"><span class="dot"></span><span class="en">MilkCan Tour '99</span><span class="ja">ミルクカンツアー '99</span></a>
+            <a href="merch-ujl-fernandes.html"><span class="dot"></span><span class="en">Fernandes Guitars</span><span class="ja">フェルナンデス・ギター</span></a>
+            <a href="merch-ujl-stationery.html"><span class="dot"></span><span class="en">Stationery</span><span class="ja">文房具</span></a>
+            <a href="merch-ujl-misc.html"><span class="dot"></span><span class="en">Miscellaneous</span><span class="ja">その他</span></a>
+          </div>
+        </div>
+        <a href="merch-mcdonalds.html"><span class="dot"></span><span class="en">McDonald's</span><span class="ja">マクドナルド</span></a>
+        <a href="merch-dunkin.html"><span class="dot"></span><span class="en">Dunkin' Donuts</span><span class="ja">ダンキンドーナツ</span></a>
+        <a href="merch-lipton.html"><span class="dot"></span><span class="en">Lipton</span><span class="ja">リプトン</span></a>
+        <a href="merch-catalogs.html"><span class="dot"></span><span class="en">Catalogs</span><span class="ja">カタログ</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('gal-magazines', this)">
+        <span class="en">PHOTO GALLERY</span><span class="ja">フォトギャラリー</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="gal-magazines.html"><span class="dot"></span><span class="en">Magazines</span><span class="ja">雑誌</span></a>
+        <a href="gal-stratguides.html"><span class="dot"></span><span class="en">Strategy Guides</span><span class="ja">攻略本</span></a>
+        <a href="gal-shelves.html"><span class="dot"></span><span class="en">Merch On Shelves</span><span class="ja">店頭のグッズ</span></a>
+        <a href="gal-earlydesigns.html"><span class="dot"></span><span class="en">Early Character Designs</span><span class="ja">初期キャラクターデザイン</span></a>
+        <a href="sp-mascots.html"><span class="dot"></span><span class="en">Mascots</span><span class="ja">マスコット</span></a>
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">Official Art/Ads</span><span class="ja">公式アート／広告</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="gal-officialart-ptr.html"><span class="dot"></span><span class="en">PaRappa The Rapper</span><span class="ja">パラッパラッパー</span></a>
+            <a href="gal-officialart-ujl.html"><span class="dot"></span><span class="en">Um Jammer Lammy</span><span class="ja">ウンジャマ・ラミー</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <img class="parappa-chopchop" src="LammyStuff/resources/chop.png" alt="Chop Chop Master Onion" aria-hidden="true">
+      <img class="parappa-moose" src="LammyStuff/resources/themoose.png" alt="Mooselini" aria-hidden="true">
+      <img class="parappa-flea" src="LammyStuff/resources/flea.png" alt="Flea" aria-hidden="true">
+      <img class="parappa-cheap" src="LammyStuff/resources/cheap.png" alt="Cheap Cheap the Cooking Chicken" aria-hidden="true">
+      <button onclick="showPage('sp-presskits', this)">
+        <span class="en">SPECIAL ITEMS</span><span class="ja">スペシャル・キット</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="sp-presskits.html"><span class="dot"></span><span class="en">Press Kits</span><span class="ja">プレスキット</span></a>
+        <a href="sp-promos.html"><span class="dot"></span><span class="en">Promotional Items</span><span class="ja">プロモーションアイテム</span></a>
+        <a href="sp-prototypes.html"><span class="dot"></span><span class="en">Prototypes</span><span class="ja">プロトタイプ</span></a>
+        <a href="sp-crashad.html"><span class="dot"></span><span class="en">Crash Bandicoot Ad Collaboration</span><span class="ja">クラッシュ・バンディクー 広告コラボ</span></a>
+        <a href="sp-physical.html"><span class="dot"></span><span class="en">CD/Vinyl</span><span class="ja">フィジカルメディア</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('sp-websites', this)">
+        <span class="en">ORIGINAL WEBSITES</span><span class="ja">オリジナルウェブサイト</span>
+        <span class="arrow">▾</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('videos', this)">
+        <span class="en">VIDEOS</span><span class="ja">動画</span>
+        <span class="arrow">▾</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button class="nav-ujlnow" onclick="showPage('lammynow', this)">
+        <span class="en"><span class="nav-umjammer">UM JAMMER</span> <span class="nav-lammy">LAMMY</span> <span class="nav-now">NOW!</span></span><span class="ja"><span class="nav-umjammer">ウンジャマ・</span><span class="nav-lammy">ラミー</span> <span class="nav-now">Now!</span></span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="lammynow.html"><span class="dot"></span><span class="en">About</span><span class="ja">概要</span></a>
+        <a href="ujlnow-cabinet.html"><span class="dot"></span><span class="en">The Cabinet</span><span class="ja">筐体</span></a>
+        <a href="ujlnow-prize.html"><span class="dot"></span><span class="en">Prize Giveaway Campaign</span><span class="ja">プレゼントキャンペーン</span></a>
+        <a href="ujlnow-discovery.html"><span class="dot"></span><span class="en">The Discovery</span><span class="ja">発見</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button class="nav-milkcan" onclick="showPage('milkcan', this)">
+        <span class="en">MILKCAN</span><span class="ja">ミルクカン</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button class="nav-events" onclick="showPage('gal-events2', this)">
+        <span class="en">EVENTS</span><span class="ja">イベント</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('collections', this)">
+        <span class="en">COLLECTIONS</span><span class="ja">コレクション</span>
+      </button>
+    </div>
+
+  </div>
+
+  <div id="page-sp-websites" class="page active">
+    <div class="section-title"><span class="en">★ ORIGINAL WEBSITES ★</span><span class="ja">★ オリジナルウェブサイト ★</span></div>
+    <div class="ujl-intro">
+      <p><span class="block-en">Archives of the original PaRappa the Rapper websites from the late 1990s and early 2000s. Sony Computer Entertainment maintained official PaRappa websites for each game release, featuring Flash animations, downloadable wallpapers, character profiles, and mini-games. Rodney Alan Greenblat's <strong>RodneyFun.com</strong> also served as a hub for PaRappa artwork and merchandise. The official Japanese PaRappa Town website featured interactive elements and community sections. Most of these sites have since gone offline, but snapshots survive through the Wayback Machine and fan archives.</span>
+      <span class="block-ja">1990年代後半から2000年代初頭にかけて公開されていた、パラッパラッパー公式ウェブサイトのアーカイブです。ソニー・コンピュータエンタテインメントは、各ゲームのリリースに合わせてFlashアニメーション、ダウンロード可能な壁紙、キャラクタープロフィール、ミニゲームなどを掲載したパラッパ公式サイトをタイトルごとに運営していました。ロドニー・アラン・グリーンブラット氏の<strong>RodneyFun.com</strong>もまた、パラッパ関連のアートワークやグッズの発信拠点となっていました。日本の公式サイト「パラッパタウン」には、インタラクティブな要素やコミュニティ機能も用意されていました。これらのサイトの多くは現在閉鎖されていますが、Wayback Machineやファンのアーカイブによってスナップショットが残されています。</span></p>
+    </div>
+
+    <div class="ujl-cabinet-section">
+      <div class="ujl-cabinet-img">
+        <img src="Parappa%20Site/OriginalSites/parappasite.png" alt="PaRappa-The-Rapper.com archive snapshot">
+      </div>
+      <div class="ujl-cabinet-info">
+        <div class="ujl-info-title"><span class="en">PaRappa-The-Rapper.com</span><span class="ja">PaRappa-The-Rapper.com</span></div>
+        <p><span class="block-en"><strong><a href="https://web.archive.org/web/20040829025239/http://www.parappa-the-rapper.com/" target="_blank" rel="noopener noreferrer">parappa-the-rapper.com</a></strong> was the official English-language website for the <strong>PaRappa the Rapper</strong> franchise, maintained to promote the series to Western audiences. This Wayback Machine snapshot from August 29, 2004 preserves the site as it appeared around the release window of <strong>PaRappa the Rapper 2</strong>.</span>
+        <span class="block-ja"><strong><a href="https://web.archive.org/web/20040829025239/http://www.parappa-the-rapper.com/" target="_blank" rel="noopener noreferrer">parappa-the-rapper.com</a></strong>は、<strong>パラッパラッパー</strong>シリーズを欧米圏に向けて紹介するために運営されていた英語版公式ウェブサイトです。2004年8月29日付けのWayback Machineスナップショットでは、<strong>パラッパラッパー2</strong>のリリース時期前後の姿で当時のサイトが保存されています。</span></p>
+      </div>
+    </div>
+
+    <div class="ujl-cabinet-section">
+      <div class="ujl-cabinet-img">
+        <img src="Parappa%20Site/OriginalSites/milkcansite.png" alt="MilkCan.com archive snapshot">
+      </div>
+      <div class="ujl-cabinet-info">
+        <div class="ujl-info-title"><span class="en">MilkCan.com</span><span class="ja">MilkCan.com</span></div>
+        <p><span class="block-en"><strong><a href="https://web.archive.org/web/20010215012105/http://www.milkcan.com/" target="_blank" rel="noopener noreferrer">milkcan.com</a></strong> was the official promotional website for the fictional band <strong>MilkCan</strong>, built around the release of <strong>Um Jammer Lammy</strong> (1999). Presented as though the band were real, the site featured character bios for Katy Kat, Lammy, and Ma-san, downloadable media tied to the <em>Make It Sweet!</em> album, and Rodney Alan Greenblat's signature flat-color art. The domain quietly disappeared after 2001 and was never revived, making this Wayback Machine snapshot from February 15, 2001 one of the only surviving looks at the original site.</span>
+        <span class="block-ja"><strong><a href="https://web.archive.org/web/20010215012105/http://www.milkcan.com/" target="_blank" rel="noopener noreferrer">milkcan.com</a></strong>は、1999年の<strong>ウンジャマ・ラミー</strong>発売に合わせて公開された架空のバンド<strong>MilkCan</strong>の公式プロモーションサイトです。実在のバンドであるかのような体裁でケイティ・キャット、ラミー、マーさんのキャラクタープロフィール、『Make It Sweet!』関連のダウンロード素材、ロドニー・アラン・グリーンブラットのフラットカラーのアートが掲載されていました。ドメインは2001年以降ひっそりと消滅し、その後復活することはありませんでした。2001年2月15日付けのWayback Machineスナップショットが、オリジナルサイトをうかがい知れる数少ない記録となっています。</span></p>
+      </div>
+    </div>
+
+    <div class="ujl-cabinet-section">
+      <div class="ujl-cabinet-img">
+        <img src="Parappa%20Site/OriginalSites/namco.jpg" alt="Namco Um Jammer Lammy Now! arcade promo page">
+      </div>
+      <div class="ujl-cabinet-info">
+        <div class="ujl-info-title"><span class="en">Namco — Um Jammer Lammy Now!</span><span class="ja">ナムコ — ウンジャマ・ラミー NOW!</span></div>
+        <p><span class="block-en"><strong><a href="https://web.archive.org/web/20020223180226/http://www.namco.co.jp/home/aa/am/vg/umjammerlammy/" target="_blank" rel="noopener noreferrer">namco.co.jp/home/aa/am/vg/umjammerlammy/</a></strong> was Namco's official Japanese product page for the arcade port <strong>Um Jammer Lammy NOW!</strong>, released to amusement centres in 2000 on Namco System 12 hardware. The site introduced the cabinet to operators and players with the tagline "あの『ウンジャマ・ラミー』がアミューズメントスポットに新登場!" ("That very same Um Jammer Lammy is finally arriving at amusement spots!"), the Lammy logo, a render of the dedicated cabinet, and an "ENTER" link into the rest of the promo. This Wayback Machine snapshot is from <strong>February 23, 2002</strong>.</span>
+        <span class="block-ja"><strong><a href="https://web.archive.org/web/20020223180226/http://www.namco.co.jp/home/aa/am/vg/umjammerlammy/" target="_blank" rel="noopener noreferrer">namco.co.jp/home/aa/am/vg/umjammerlammy/</a></strong>は、2000年にナムコ System 12 基板でアーケードへ移植されたアーケード版『<strong>ウンジャマ・ラミー NOW!</strong>』を紹介していたナムコ公式の日本向け製品ページです。トップでは「あの『ウンジャマ・ラミー』がアミューズメントスポットに新登場!」というキャッチコピーとともに、ラミーのロゴ、専用筐体のレンダリング、そしてプロモコンテンツ本編へ進む「ENTER」リンクが掲げられ、オペレーターおよびプレイヤーに向けてキャビネットを訴求していました。本リンク先のWayback Machineスナップショットは<strong>2002年2月23日</strong>付のものです。</span></p>
+      </div>
+    </div>
+
+    <div class="ujl-cabinet-section">
+      <div class="ujl-cabinet-img">
+        <img src="Parappa%20Site/OriginalSites/rodneyfunsite.png" alt="RodneyFun.com archive snapshot — July 2000 Wayback Machine capture">
+      </div>
+      <div class="ujl-cabinet-info">
+        <div class="ujl-info-title"><span class="en">RodneyFun.com <img src="Parappa%20Site/ParappaArt/lamicon.png" alt="" style="height: 1.5em; vertical-align: middle;"></span><span class="ja">RodneyFun.com <img src="Parappa%20Site/ParappaArt/lamicon.png" alt="" style="height: 1.5em; vertical-align: middle;"></span></div>
+        <p><span class="block-en"><strong><a href="https://web.archive.org/web/20000711051004/http://www.rodneyfun.com/" target="_blank" rel="noopener noreferrer">rodneyfun.com</a></strong> was the official website of artist <strong>Rodney Alan Greenblat</strong>, serving as the central hub for all of his characters and IPs — including <strong>PaRappa the Rapper</strong>, <strong>Um Jammer Lammy</strong>, and his wider original cast. The site showcased Greenblat's signature flat-color pop art, character profiles, and links into his projects and merchandise. This Wayback Machine snapshot is dated <strong>July 11, 2000</strong>.</span>
+        <span class="block-ja"><strong><a href="https://web.archive.org/web/20000711051004/http://www.rodneyfun.com/" target="_blank" rel="noopener noreferrer">rodneyfun.com</a></strong>は、アーティスト<strong>ロドニー・アラン・グリーンブラット</strong>の公式ウェブサイトで、<strong>パラッパラッパー</strong>や<strong>ウンジャマ・ラミー</strong>をはじめとする彼のすべてのキャラクター／IPを束ねる総合拠点でした。グリーンブラットならではのフラットカラーのポップアート、キャラクタープロフィール、各プロジェクトやグッズへのリンクが掲載されていました。このWayback Machineスナップショットは<strong>2000年7月11日</strong>付のものです。</span></p>
+      </div>
+    </div>
+
+    <div class="ujl-cabinet-section">
+      <div class="ujl-cabinet-img">
+        <img src="Parappa%20Site/OriginalSites/Jan2007Shop.png" alt="RodneyFun.Com Shop storefront — January 2007 Wayback Machine capture">
+      </div>
+      <div class="ujl-cabinet-info">
+        <div class="ujl-info-title"><span class="en">RodneyFun.Com Shop</span><span class="ja">RodneyFun.Com ショップ</span></div>
+        <p><span class="block-en"><strong><a href="https://web.archive.org/web/20070102181708/http://shop.rodneyfun.com/" target="_blank" rel="noopener noreferrer">shop.rodneyfun.com</a></strong> was the official online store of artist <strong>Rodney Alan Greenblat</strong>, selling officially licensed goods for his characters and IPs — including <strong>PaRappa the Rapper</strong>, <strong>Um Jammer Lammy</strong>, and his wider RodneyFun cast. The storefront stocked T-shirts, pins, puppets, figures, and other original merchandise drawn in Greenblat's signature flat-color pop style, shipping directly to fans. This Wayback Machine snapshot is the earliest capture available, dated <strong>January 2, 2007</strong>, preserving the "RodneyFun.Com Shop" with its product grid and Japanese category sidebar.</span>
+        <span class="block-ja"><strong><a href="https://web.archive.org/web/20070102181708/http://shop.rodneyfun.com/" target="_blank" rel="noopener noreferrer">shop.rodneyfun.com</a></strong>は、アーティスト<strong>ロドニー・アラン・グリーンブラット</strong>が運営していた公式オンラインストアで、<strong>パラッパラッパー</strong>や<strong>ウンジャマ・ラミー</strong>をはじめとする彼のキャラクター／IPの正規ライセンスグッズを販売していました。グリーンブラットならではのフラットカラーのポップなタッチで描かれたTシャツ、ピンバッジ、パペット、フィギュアなどのオリジナル商品を取り扱い、ファンへ直接発送していました。このWayback Machineスナップショットは現存する最古のキャプチャで、<strong>2007年1月2日</strong>付。商品グリッドと日本語のカテゴリーサイドバーを備えた当時の「RodneyFun.Com Shop」の姿が保存されています。</span></p>
+      </div>
+    </div>
+
+    <div class="ujl-cabinet-section">
+      <div class="ujl-cabinet-img">
+        <img src="Parappa%20Site/OriginalSites/animation.png" alt="Sony Music Japan PaRappa the Rapper anime official site — April 2001 Wayback Machine capture">
+      </div>
+      <div class="ujl-cabinet-info">
+        <div class="ujl-info-title"><span class="en">Sony Music — PaRappa the Rapper Anime</span><span class="ja">ソニー・ミュージック — アニメ『パラッパラッパー』公式サイト</span></div>
+        <p><span class="block-en"><strong><a href="https://web.archive.org/web/20010414033253/http://www.sonymusic.co.jp/Animation/parappa/" target="_blank" rel="noopener noreferrer">sonymusic.co.jp/Animation/parappa</a></strong> was the official Japanese website for the <strong>2001 PaRappa the Rapper TV anime</strong>, built by <strong>Sony Music Entertainment</strong> to promote the Fuji TV broadcast. Its visitor counter reads "since 2001.3.21," placing the launch on <strong>March 21, 2001</strong> — about three weeks before the April 14 premiere. The Shift-JIS <code>frameset</code> homepage is built around a 4&times;4 grid of sixteen tiles that assemble into one big cast illustration (shown here) around a TV set announcing the start date. The top menu gave each character their own themed room — <strong>Parappa News</strong> (with Town News, Special, and Homies sub-pages), <strong>PJ Music Fun</strong>, <strong>Sunny Tea Time</strong>, <strong>Katy Cutie</strong>, and rooms for the anime-original <strong>Matt</strong> and <strong>Paula</strong> — alongside Album, Schedule, Information, a site map, a BBS, and a <code>parappa@sme.co.jp</code> contact, with partner links out to Fuji TV, SCE, and RodneyFun.com. This Wayback Machine snapshot is dated <strong>April 14, 2001</strong>.</span>
+        <span class="block-ja"><strong><a href="https://web.archive.org/web/20010414033253/http://www.sonymusic.co.jp/Animation/parappa/" target="_blank" rel="noopener noreferrer">sonymusic.co.jp/Animation/parappa</a></strong>は、<strong>2001年のテレビアニメ『パラッパラッパー』</strong>の日本語公式サイトで、フジテレビでの放送を宣伝するために<strong>ソニー・ミュージックエンタテインメント</strong>が制作しました。アクセスカウンターには「since 2001.3.21」とあり、公開日は<strong>2001年3月21日</strong>、4月14日の放送開始の約3週間前であったことがわかります。Shift-JISの<code>frameset</code>で作られたトップページは、16枚のタイルが4×4で組み合わさってキャラクター総出演の一枚絵（本画像）となり、その中央には放送開始日を告げるテレビが描かれています。上部メニューはキャラクターごとのテーマ別ルームへと分岐し、<strong>パラッパニュース</strong>（街のニュース・Special・Homiesのサブページ付き）、<strong>PJミュージックファン</strong>、<strong>サニー・ティータイム</strong>、<strong>ケイティ・キューティ</strong>、さらにアニメ版オリジナルの<strong>マット</strong>と<strong>ポーラ</strong>の部屋に加え、Album・Schedule・Information・サイトマップ・BBS・<code>parappa@sme.co.jp</code>の連絡先、そしてフジテレビ・SCE・RodneyFun.comへの提携リンクが用意されていました。このWayback Machineスナップショットは<strong>2001年4月14日</strong>付のものです。</span></p>
+      </div>
+    </div>
+
+    <div class="ujl-cabinet-section">
+      <div class="ujl-cabinet-img">
+        <img src="Parappa%20Site/OriginalSites/garage.png" alt="SCEI GARAGE official website — June 26, 1998 Wayback Machine capture">
+      </div>
+      <div class="ujl-cabinet-info">
+        <div class="ujl-info-title"><span class="en">scei.co.jp — "GARAGE"</span><span class="ja">scei.co.jp — 「GARAGE」</span></div>
+        <p><span class="block-en"><strong><a href="https://web.archive.org/web/19980626132155/http://www.scei.co.jp/tindex.html" target="_blank" rel="noopener noreferrer">scei.co.jp</a></strong> was the official website of <strong>Sony Computer Entertainment Inc.</strong>, styled as a playful <strong>"GARAGE"</strong> portal and designed by <strong>Rodney Alan Greenblat</strong> — the PaRappa the Rapper artist — together with Interlink. The homepage is wallpapered in a repeating pastel pattern of character heads, with a big bubble-letter "GARAGE" logo at the centre and the cast doubling as round navigation buttons, each in its own speech bubble: <strong>WHAT'S NEW</strong>, <strong>SOFTWARE</strong>, <strong>SCEI SOFTWARE</strong>, <strong>LOVE &amp; PlayStation</strong>, <strong>PRESENT!!</strong> (a "Garage Watch" giveaway), <strong>NEWS &amp; INFO.</strong>, <strong>HARDWARE</strong>, <strong>CORPORATE PROFILE</strong>, and a <strong>net 通販</strong> character-goods mail-order shop. A sidebar promotes the <strong>PlayStation Award '98</strong> (live 5/15 Fri) and the <strong>"Lord of Monsters 3"</strong> ("ロドモン") network game, while the footer links out to Sony Online Japan, SCE America, SCE Europe, and Sony Music. The page is trademarked to SCE and credited "© Rodney A. Greenblat / Interlink." This Wayback Machine snapshot is dated <strong>June 26, 1998</strong>.</span>
+        <span class="block-ja"><strong><a href="https://web.archive.org/web/19980626132155/http://www.scei.co.jp/tindex.html" target="_blank" rel="noopener noreferrer">scei.co.jp</a></strong>は、<strong>ソニー・コンピュータエンタテインメント</strong>の公式ウェブサイトで、遊び心あふれる<strong>「GARAGE（ガレージ）」</strong>ポータルとして、パラッパラッパーのアーティスト<strong>ロドニー・アラン・グリーンブラット</strong>とInterlinkによってデザインされました。トップページはキャラクターの顔が並ぶパステル調の繰り返し模様で覆われ、中央には大きなバブルレターの「GARAGE」ロゴが置かれ、キャラクターたちがそのまま丸いナビゲーションボタンを兼ねています。それぞれ吹き出し付きで、<strong>WHAT'S NEW</strong>、<strong>SOFTWARE</strong>、<strong>SCEI SOFTWARE</strong>、<strong>LOVE &amp; PlayStation</strong>、<strong>PRESENT!!</strong>（「ガレージウォッチ」プレゼント）、<strong>NEWS &amp; INFO.</strong>、<strong>HARDWARE</strong>、<strong>CORPORATE PROFILE</strong>、そして<strong>net通販</strong>のキャラクターグッズ通信販売へと分岐します。サイドバーでは<strong>PlayStation Award '98</strong>（5/15金 ライブ）やネットワークゲーム「<strong>ロドモン（Lord of Monsters 3）</strong>」を告知し、フッターからはSony Online Japan、SCEアメリカ、SCEヨーロッパ、ソニー・ミュージックへのリンクが張られています。ページはSCEの商標であり、「© Rodney A. Greenblat / Interlink」とクレジットされています。このWayback Machineスナップショットは<strong>1998年6月26日</strong>付のものです。</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="footer">PaRappa Corner &mdash; PaRappa the Rapper Fan Site &mdash; parappacorner.com</div>
+</div>
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous image">&lsaquo;</button>
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close">&times;</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Next image">&rsaquo;</button>
+</div>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="vibri-sharpen">
+    <feConvolveMatrix order="3" preserveAlpha="true"
+      kernelMatrix="0 -0.4 0  -0.4 2.6 -0.4  0 -0.4 0"/>
+  </filter>
+</svg>
+<a href="black.html" class="vibri-link"><img src="vib/stare.gif" alt="Vibri" class="vibri-corner"></a>
+
+
+
+<!-- ZOOM-INVARIANT CORNERS
+     The "PaRappa Corner" button (bottom-left) and the Vibri link (bottom-right) must
+     sit in exactly the same spot, at exactly the same on-screen size, however
+     far the page is zoomed. They are position:fixed, so browser zoom already
+     keeps them in the corner but scales them up; pinch zoom moves them off the
+     visible area entirely. This publishes three custom properties the two rules
+     in parappa.css consume:
+       --zoom-fix              inverse of the current zoom (counter-scale)
+       --zoom-dx / --zoom-dy   shift from the layout viewport's bottom-left to
+                               the visible viewport's bottom-left
+       --zoom-dx-right         same shift for the right edge
+     Under plain desktop browser zoom the deltas stay 0 and only --zoom-fix does
+     any work. -->
+
+<!-- The label is SVG text rather than HTML text: with -webkit-text-stroke, Chrome
+     fills from the hinted glyph bitmap but strokes the raw outline, and this font's
+     hinting shortens the "p" descenders at small sizes, so the two layers disagreed
+     under "pp". SVG text fills and strokes the same path. -->
+<div class="corner-wrap">
+<button type="button" class="corner-subtitle" id="siteSubtitle" aria-label="PaRappa Corner" title="Back to the home page" onclick="showPage('welcome', document.getElementById('navHomeBtn')); window.scrollTo(0, 0);">
+  <!-- .corner-frame is a plain block wrapper in PaRappa mode; in Lammy mode it
+       carries the inner two of the nav tabs' three bevelled outline frames. -->
+  <span class="corner-frame">
+  <svg class="corner-label fit-text" width="153" height="24" aria-hidden="true" focusable="false">
+    <!-- Lammy mode only (CSS): red oval behind "Corner", like the one behind
+         "LAMMY" in the title. Geometry is set by fitTextSvgs from the word's box. -->
+    <ellipse class="corner-pill" cx="0" cy="0" rx="0" ry="0"></ellipse>
+    <text class="corner-label-back" x="0" y="17.5"><tspan class="corner-word-parappa">PaRappa</tspan><tspan class="corner-gap"> </tspan><tspan class="corner-word-corner">Corner</tspan></text>
+    <text class="corner-label-front" x="0" y="17.5"><tspan class="corner-word-parappa">PaRappa</tspan><tspan class="corner-gap"> </tspan><tspan class="corner-word-corner">Corner</tspan></text>
+  </svg>
+  </span>
+</button>
+</div>
+
+<!-- BACK TO TOP — right side, shows once the page is scrolled halfway -->
+<button type="button" class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M12 20V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+<script src="parappa.js"></script>
+</body>
+</html>

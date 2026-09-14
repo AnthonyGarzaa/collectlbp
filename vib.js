@@ -1,3 +1,35 @@
+/* ── Layout pass ──────────────────────────────────────────────────────────
+   Everything positioned from measured layout (header render rows, poses
+   perched on the nav plates, the gutter columns, the score clip) registers
+   here. One pass reruns them all, in order, whenever something that can move
+   them changes: the Vibri font arriving (the nav plates change width), an
+   image or video getting its size, or the viewport resizing. A
+   ResizeObserver delivers before the next paint, so the poses are moved in
+   the same frame as the change instead of being painted in an old spot and
+   then jumping into place. */
+window.vibLayout = (function () {
+  var fns = [], running = false;
+  function run() {
+    if (running) return;            // our own writes resize observed boxes; don't re-enter
+    running = true;
+    try { fns.forEach(function (f) { f(); }); } finally { running = false; }
+  }
+  function add(fn) { fns.push(fn); fn(); }
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window.ResizeObserver) {
+      var ro = new ResizeObserver(run);
+      ['body', '.vib-header', '.vib-nav', 'main'].forEach(function (sel) {
+        var el = document.querySelector(sel);
+        if (el) ro.observe(el);
+      });
+    }
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(run);
+  });
+  window.addEventListener('load', run);
+  window.addEventListener('resize', run);
+  return { add: add, run: run };
+})();
+
 (function () {
   var dogLink = document.querySelector('.dog-link');
   if (!dogLink) return;
@@ -56,6 +88,7 @@
       var n = nodes[i];
       if (n.closest('.lightbox')) continue;
       if (n.closest('a')) continue;
+      if (n.closest('.yt-facade')) continue;
       list.push(n);
     }
     return list;
@@ -96,7 +129,7 @@
 
   document.addEventListener('click', function (e) {
     var target = e.target;
-    if (target && target.tagName === 'IMG' && !target.closest('.lightbox') && !target.closest('a') && !target.closest('.vib-ticker')) {
+    if (target && target.tagName === 'IMG' && !target.closest('.lightbox') && !target.closest('a') && !target.closest('.vib-ticker') && !target.closest('.yt-facade')) {
       e.preventDefault();
       openLightbox(target);
     }
@@ -115,6 +148,42 @@
     if (e.key === 'Escape') closeLightbox();
     else if (e.key === 'ArrowRight') nextImage();
     else if (e.key === 'ArrowLeft') prevImage();
+  });
+})();
+
+// ── YouTube facades: the thumbnail + play button (.yt-facade) is swapped for
+//    the real player only when clicked, so pages don't load YouTube up front. ──
+(function setupYouTubeFacades() {
+  function activate(facade) {
+    var videoId = facade.getAttribute('data-video-id');
+    if (!videoId) return;
+    var title = facade.getAttribute('data-title') || 'YouTube video';
+    var origin = (window.location.protocol === 'http:' || window.location.protocol === 'https:') ? window.location.origin : '';
+    var src = 'https://www.youtube.com/embed/' + encodeURIComponent(videoId) + '?autoplay=1&rel=0&enablejsapi=1' + (origin ? '&origin=' + encodeURIComponent(origin) : '');
+    var iframe = document.createElement('iframe');
+    iframe.setAttribute('src', src);
+    iframe.setAttribute('title', title);
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+    iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+    iframe.setAttribute('allowfullscreen', '');
+    facade.parentNode.replaceChild(iframe, facade);
+  }
+
+  document.addEventListener('click', function (e) {
+    var facade = e.target.closest && e.target.closest('.yt-facade');
+    if (!facade) return;
+    e.preventDefault();
+    activate(facade);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var active = document.activeElement;
+    if (active && active.classList && active.classList.contains('yt-facade')) {
+      e.preventDefault();
+      activate(active);
+    }
   });
 })();
 
@@ -154,7 +223,14 @@
   score.setAttribute('playsinline', '');
   score.setAttribute('aria-hidden', 'true');
   wrap.appendChild(score);
-  document.body.appendChild(wrap);
+  // Clipping box around the whole background block. The score clip's frame
+  // is mostly black and used to run on far below the line, so the page kept
+  // scrolling into empty black; this box cuts that run-out to half (see
+  // keepScoreBelowBox) without moving the line, runner or score.
+  var clip = document.createElement('div');
+  clip.id = 'vib-bg-clip';
+  clip.appendChild(wrap);
+  document.body.appendChild(clip);
   var ps = score.play();
   if (ps && ps.catch) ps.catch(function () {});
 
@@ -189,11 +265,16 @@
     var drawTop = r.bottom - h * (1 - DRAW_TOP);
     var shift = (boxBottom + BOX_GAP) - drawTop;
     score.style.top = 'calc(50% + ' + (490 + shift / zoom).toFixed(1) + 'px)';
+    // 3. End the page half as far below the line as the score frame reaches.
+    clip.style.height = '';
+    var lineBottom = line.getBoundingClientRect().bottom;
+    var scoreBottom = score.getBoundingClientRect().bottom;
+    var clipTop = clip.getBoundingClientRect().top;
+    var below = Math.max(0, scoreBottom - lineBottom);
+    clip.style.height = Math.round((lineBottom + below / 2 - clipTop) / zoom) + 'px';
   }
-  keepScoreBelowBox();
-  window.addEventListener('load', keepScoreBelowBox);
-  window.addEventListener('resize', keepScoreBelowBox);
-  score.addEventListener('loadedmetadata', keepScoreBelowBox);
+  window.vibLayout.add(keepScoreBelowBox);
+  score.addEventListener('loadedmetadata', window.vibLayout.run);
 })();
 
 // ── Vibri renders (pixel-extracted from the CHARA sheets) in the masthead
@@ -204,20 +285,21 @@
 
   // Header: five poses on each side of the centred title/nav, laid out by
   // .vib-head-row (flex, evenly spread, one shared size) so they can never
-  // overlap each other or the nav. [file, side('left'|'right'), rot°]
+  // overlap each other or the nav. [file, side('left'|'right'), rot°,
+  // optional dx px, dy px nudge, optional extra scale factor, optional
+  // `beside` file: the render is taken out of the row's flow and pinned just
+  // outward of that render, so adding it moves nothing else]
   var header = document.querySelector('.vib-header');
   if (header && !header.querySelector('.vib-head-row')) {
     var sides = { left: [], right: [] };
-    [['vibri_31.png', 'left',  -6],
-     ['vibri_07.png', 'left',   4],
-     ['vibri_21.png', 'left',   5],
-     ['vibri_23.png', 'left',  -4],
-     ['vibri_06.png', 'left',  -7],
-     ['vibri_25.png', 'right',  6],
-     ['vibri_24.png', 'right', -4],
-     ['vibri_10.png', 'right', -5],
-     ['vibri_30.png', 'right',  4],
-     ['vibri_20.png', 'right',  7]].forEach(function (p) { sides[p[1]].push(p); });
+    [['vibri_31.png', 'left',  -6, 70, 100, 1.12],
+     ['vibri_07.png', 'left',   4, 40, 100],
+     ['vibri_11.png', 'left',  -5, 74, 100, 0.8, 'vibri_31.png'],   // pinned outward of 31
+     ['vibri_04.png', 'left',   6, 90, 100, 0.95, 'vibri_11.png'],   // pinned outward of 11 (nudge tuned by eye)
+     ['vibri_10.png', 'right',  4, 50, 100],
+     ['vibri_20.png', 'right',  7, 15, 100],
+     ['vibri_22.png', 'right', -5, -15, 100, 1.12],
+     ['vibri_12.png', 'right',  6, -50, 100, 1, 'vibri_22.png']].forEach(function (p) { sides[p[1]].push(p); });
     ['left', 'right'].forEach(function (side) {
       var row = document.createElement('div');
       row.className = 'vib-head-row vib-head-row-' + side;
@@ -230,7 +312,8 @@
         img.src = R + p[0];
         img.alt = '';
         img.className = 'vib-head-vibri';
-        img.style.transform = 'rotate(' + p[2] + 'deg)';
+        img.style.transform = 'translate(' + (p[3] || 0) + 'px, ' + (p[4] || 0) + 'px) rotate(' + p[2] + 'deg) scale(' + (p[5] || 1) + ')';
+        if (p[6]) img.dataset.beside = p[6];
         row.appendChild(img);
       });
       header.appendChild(row);
@@ -239,21 +322,68 @@
     // to contain them (plus the ticker at its foot) whatever size they land at.
     var ticker = header.querySelector('.vib-ticker');
     var fitHeader = function () {
-      // Header tall enough for the rows above the ticker, then sit the rows
-      // exactly on the ticker's top line (the "floor" of the masthead).
+      // The rows hang from the top of the masthead (TOP px down, level with
+      // the title band) rather than standing on the ticker, so they never
+      // force the header taller than its title + nav + ticker need. The
+      // min-height only kicks in if that content is shorter than the rows.
       var rows = header.querySelectorAll('.vib-head-row');
       var rowH = 0;
       rows.forEach(function (row) { rowH = Math.max(rowH, row.offsetHeight); });
       var tickerH = ticker ? ticker.offsetHeight : 0;
-      header.style.minHeight = (rowH + 24 + tickerH) + 'px';
-      var floor = ticker ? (header.clientHeight - ticker.offsetTop) : 0;
-      rows.forEach(function (row) { row.style.bottom = floor + 'px'; });
-      if (window.vibLayoutGutters) window.vibLayoutGutters();   // gutters start below the header
+      var TOP = 36;
+      header.style.minHeight = (TOP + rowH + tickerH) + 'px';
+      rows.forEach(function (row) { row.style.top = TOP + 'px'; row.style.bottom = 'auto'; });
+      // Companions: pinned one gap outward of their anchor, same size and baseline.
+      // Repeated so a companion whose anchor is itself a companion settles in
+      // the same pass, whatever the DOM order.
+      for (var pass = 0; pass < 3; pass++) rows.forEach(function (row) {
+        var outward = row.classList.contains('vib-head-row-left') ? -1 : 1;
+        row.querySelectorAll('.vib-head-vibri[data-beside]').forEach(function (img) {
+          var anchor = row.querySelector('img[src$="' + img.dataset.beside + '"]');
+          if (!anchor) return;
+          img.style.width = anchor.offsetWidth + 'px';
+          img.style.top = anchor.offsetTop + 'px';
+          img.style.left = (anchor.offsetLeft + outward * (anchor.offsetWidth + 4)) + 'px';
+        });
+      });
     };
-    fitHeader();
-    window.addEventListener('load', fitHeader);
-    window.addEventListener('resize', fitHeader);
-    header.querySelectorAll('.vib-head-vibri').forEach(function (img) { img.addEventListener('load', fitHeader); });
+    window.vibLayout.add(fitHeader);   // the gutters (registered later) start below the header
+    header.querySelectorAll('.vib-head-vibri').forEach(function (img) { img.addEventListener('load', window.vibLayout.run); });
+  }
+
+  // Perched renders: a few poses stand on top of the nav plates, feet on the
+  // plate's outline. [file, plate index, fraction across the plate, rot°,
+  // optional box px override (0 = the shared --head-render box), optional dx px nudge,
+  // optional dy px nudge (positive = down)]
+  var nav = document.querySelector('.vib-nav');
+  if (nav && !nav.querySelector('.vib-nav-perch')) {
+    var perches = [['vibri_21.png', 0, 0.5,   5, 128, -80, 30],
+                   ['vibri_23.png', 1, 0.18, -4, 0, -80],
+                   ['vibri_06.png', 1, 0.74, -7, 0, -80],
+                   ['vibri_25.png', 4, 0.02, -3, 146, 52, -5],
+                   ['vibri_08.png', 4, 0.47, -4, 0, 69],
+                   ['vibri_30.png', 4, 0.86, -5, 0, 60, 60]];
+    var perchImgs = perches.map(function (p) {
+      var img = document.createElement('img');
+      img.src = R + p[0];
+      img.alt = '';
+      img.className = 'vib-nav-perch';
+      img.setAttribute('aria-hidden', 'true');
+      if (p[4]) { img.style.width = p[4] + 'px'; img.style.height = p[4] + 'px'; }   // bigger/smaller box than the shared one
+      nav.appendChild(img);
+      return img;
+    });
+    var placePerches = function () {
+      var plates = nav.querySelectorAll('a');
+      perches.forEach(function (p, i) {
+        var plate = plates[p[1]];
+        if (!plate) return;
+        perchImgs[i].style.left = (plate.offsetLeft + plate.offsetWidth * p[2] + (p[5] || 0)) + 'px';
+        perchImgs[i].style.transform = 'translateX(-50%) rotate(' + p[3] + 'deg)';
+        perchImgs[i].style.bottom = 'calc(100% - 2px - ' + (p[6] || 0) + 'px)';
+      });
+    };
+    window.vibLayout.add(placePerches);
   }
 
   // Gutters: the remaining poses zig-zag down each side margin below the
@@ -275,6 +405,9 @@
         var img = document.createElement('img');
         img.src = R + p[0];
         img.alt = '';
+        img.dataset.dx = p[4] || 0;    // optional per-pose nudge, px
+        img.dataset.dy = p[5] || 0;
+        if (p[6]) img.dataset.beside = p[6];   // optional: sit on this render's row, to its inner side
         g.appendChild(img);
       });
       document.body.appendChild(g);
@@ -302,35 +435,48 @@
         var interleave = span >= w + 4;                 // neighbours clear each other sideways
         var step = interleave ? Math.ceil((h + gap) / 2) : h + gap;
         var mirror = g.classList.contains('vib-gutter-right');
-        imgs.forEach(function (img, i) {
+        var column = [], beside = [];
+        imgs.forEach(function (img) { (img.dataset.beside ? beside : column).push(img); });
+        column.forEach(function (img, i) {
           var outer = (i % 2 === 0);                    // even rows hug the screen edge
           img.style.width = w + 'px';
           img.style.height = h + 'px';
-          img.style.top = (START + i * step) + 'px';
-          img.style.left = ((outer !== mirror) ? 0 : span) + 'px';
+          img.style.top = (START + i * step + (+img.dataset.dy || 0)) + 'px';
+          img.style.left = (((outer !== mirror) ? 0 : span) + (+img.dataset.dx || 0)) + 'px';
+        });
+        // Companions share their anchor's row, one box further in from the
+        // screen edge (dx/dy nudge from there).
+        beside.forEach(function (img) {
+          var anchor = g.querySelector('img[src$="' + img.dataset.beside + '"]');
+          if (!anchor) return;
+          img.style.width = w + 'px';
+          img.style.height = h + 'px';
+          img.style.top = (parseFloat(anchor.style.top) + (+img.dataset.dy || 0)) + 'px';
+          var inward = mirror ? -(w + gap) : (w + gap);
+          img.style.left = (parseFloat(anchor.style.left) + inward + (+img.dataset.dx || 0)) + 'px';
         });
         // Tall enough to hold the whole zig-zag so nothing is clipped.
-        g.style.height = (START + (imgs.length - 1) * step + h) + 'px';
+        g.style.height = (START + (column.length - 1) * step + h) + 'px';
       });
     };
-    // [file] — one render per row, stepped down the column.
+    // [file, (unused), (unused), (unused), dx, dy, beside] — one render per row,
+    // stepped down the column; dx/dy are an optional pixel nudge from that slot.
+    // With `beside` (another file in the same list) the render leaves the column
+    // and sits on that render's row, just inward of it.
     makeGutter('vib-gutter-left', [
       ['vibri_13.png', 12, -11, 42],
       ['vibri_14.png', 21, 9,   58],
       ['vibri_15.png', 31, -6,  44],
       ['vibri_17.png', 40, 13,  60],
-      ['vibri_12.png', 50, 8,   45],
       ['vibri_18.png', 59, -9,  41],
       ['vibri_19.png', 69, 7,   57],
-      ['vibri_11.png', 78, -12, 45],
-      ['vibri_22.png', 88, 10,  56],
       ['vibri_01.png', 97, -8,  50],
       ['vibri_03.png', 106, 9,  47],
       ['vibri_05.png', 115, -10, 55]
     ]);
     makeGutter('vib-gutter-right', [
       ['vibri_16.png', 12, 11,  58],
-      ['vibri_08.png', 23, -9,  42],
+      ['vibri_24.png', 23, -9,  42],
       ['vibri_26.png', 34, 6,   59],
       ['vibri_27.png', 45, -13, 41],
       ['vibri_28.png', 56, 9,   57],
@@ -338,13 +484,9 @@
       ['vibri_09.png', 78, 12,  58],
       ['vibri_33.png', 88, -10, 44],
       ['vibri_02.png', 97, 8,   52],
-      ['vibri_04.png', 106, -9, 46],
       ['vibri_32.png', 115, 11, 57]
     ]);
-    window.vibLayoutGutters = layoutGutters;
-    layoutGutters();
-    window.addEventListener('load', layoutGutters);
-    window.addEventListener('resize', layoutGutters);
+    window.vibLayout.add(layoutGutters);
   }
 })();
 
@@ -387,4 +529,22 @@
   });
 
   update();
+})();
+
+/* ── Region buttons on "The Game" page (same behaviour as the PaRappa
+   "The Games" page): swap the cover art for the picked region. ── */
+(function setupRegionButtons() {
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest && e.target.closest('.vib-region-btn[data-region]');
+    if (!btn) return;
+    var container = btn.closest('.vib-game-cover');
+    if (!container) return;
+    var img = container.querySelector('.region-img');
+    if (!img) return;
+    var region = btn.getAttribute('data-region');
+    var src = img.getAttribute('data-' + region);
+    img.src = src || img.getAttribute('data-default') || img.src;
+    container.querySelectorAll('.vib-region-btn').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+  });
 })();
