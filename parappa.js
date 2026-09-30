@@ -36,7 +36,7 @@ function setLang(lang) {
 // Every section of the site is its own HTML file, named after its page id
 // (aboutgame.html, merch-ptr-plush.html, ...); the welcome page is index.html.
 var PARAPPA_PAGE_IDS = [
-  'welcome', 'search', 'donate', 'contact',
+  'welcome', 'search', 'donate', 'contact', 'credits',
   'aboutgame', 'aboutanime', 'aboutrodney', 'aboutmatsuura', 'aboutvoiceactors',
   'chars', 'chars-ujl', 'chars-ptr2',
   'merch-rodneyfun-comics', 'merch-rodneyfun-toys', 'merch-rodneyfun-shirts',
@@ -103,6 +103,92 @@ function showPage(id, btn) {
   } catch (e) {}
 })();
 
+// Previous / Next buttons at the bottom of each page, stepping through the
+// pages of the nav menu the current page sits in (in menu order, running on
+// through its submenus). The event reports have no menu of their own, so they
+// follow the order of the list on the Events page.
+var PARAPPA_EVENT_PAGES = [
+  { id: 'gal-events2',    en: 'Events',                          ja: 'イベント' },
+  { id: 'ev-tgs1996',     en: 'Tokyo Game Show 1996',            ja: '東京ゲームショウ1996' },
+  { id: 'ev-psexpo96',    en: "PlayStation Expo '96",            ja: "プレイステーション・エキスポ'96" },
+  { id: 'ev-bellfare',    en: 'Roppongi Bellfare Exhibition',    ja: '六本木ベルファーレ エキシビジョン' },
+  { id: 'ev-roxy1999',    en: 'Live At The Roxy',                ja: 'ライブ・アット・ザ・ロキシー' },
+  { id: 'ev-amshow1999',  en: 'JAMMA AM Show 1999',              ja: 'JAMMA AMショー1999' },
+  { id: 'ev-tgs1999',     en: 'Tokyo Game Show 1999',            ja: '東京ゲームショウ1999' },
+  { id: 'ev-rodneyparco', en: 'Rodney Character Club PARCO 2000', ja: 'ロドニー・キャラクター・クラブ PARCO 2000' },
+  { id: 'ev-fukuoka2001', en: 'PaRappa the Rapper in Fukuoka',   ja: 'パラッパラッパー in FUKUOKA' }
+];
+
+(function addPagePager() {
+  try {
+    var page = document.querySelector('.page.active');
+    if (!page) return;
+    var id = page.id.replace(/^page-/, '');
+
+    function textOf(el, cls) {
+      var span = el && el.querySelector(':scope > .' + cls);
+      return span ? span.textContent.trim() : '';
+    }
+
+    // The ordered list of { href, en, ja } this page steps through.
+    var list = [];
+    var link = document.querySelector('.nav-bar .dropdown a[href="' + pageUrl(id) + '"]');
+    if (link) {
+      link.closest('.nav-item > .dropdown').querySelectorAll('a[href]').forEach(function(a) {
+        var en = textOf(a, 'en'), ja = textOf(a, 'ja');
+        // Name submenu pages after their submenu too ("RodneyFun — Toys"), as
+        // several submenus share page names like "Shirts".
+        var sub = a.closest('.submenu');
+        var label = sub && sub.querySelector(':scope > .submenu-label');
+        if (label) {
+          en = textOf(label, 'en') + ' — ' + en;
+          ja = textOf(label, 'ja') + ' — ' + ja;
+        }
+        list.push({ href: a.getAttribute('href'), en: en, ja: ja });
+      });
+    } else {
+      PARAPPA_EVENT_PAGES.forEach(function(p) {
+        list.push({ href: pageUrl(p.id), en: p.en, ja: p.ja });
+      });
+    }
+
+    var i = -1;
+    list.forEach(function(p, n) { if (p.href === pageUrl(id)) i = n; });
+    if (i === -1 || list.length < 2) return;
+
+    function button(p, dir) {
+      var a = document.createElement('a');
+      a.className = 'pager-btn pager-' + dir;
+      a.href = p.href;
+      var isPrev = dir === 'prev';
+      var dirEn = isPrev ? '← Previous' : 'Next →';
+      var dirJa = isPrev ? '← 前へ' : '次へ →';
+      a.innerHTML =
+        '<span class="pager-dir"><span class="en"></span><span class="ja"></span></span>' +
+        '<span class="pager-name"><span class="en"></span><span class="ja"></span></span>';
+      var spans = a.querySelectorAll('.en, .ja');
+      spans[0].textContent = dirEn;
+      spans[1].textContent = dirJa;
+      spans[2].textContent = p.en;
+      spans[3].textContent = p.ja;
+      return a;
+    }
+
+    var pager = document.createElement('nav');
+    pager.className = 'page-pager';
+    pager.setAttribute('aria-label', 'Page navigation');
+    if (i > 0) pager.appendChild(button(list[i - 1], 'prev'));
+    if (i < list.length - 1) pager.appendChild(button(list[i + 1], 'next'));
+    page.appendChild(pager);
+
+    // Same buttons at the top, just under the page title.
+    var topPager = pager.cloneNode(true);
+    topPager.classList.add('page-pager-top');
+    var title = page.querySelector(':scope > .section-title');
+    page.insertBefore(topPager, title ? title.nextSibling : page.firstChild);
+  } catch (e) {}
+})();
+
 var isLammy = false;
 // PaRappa-mode title markup (an SVG, see the header) captured from the page so it can be restored after Lammy mode.
 var parappaLogo = document.getElementById('siteLogo').innerHTML;
@@ -163,8 +249,8 @@ function toggleTheme() {
   var currentIndex = -1;
 
   var navDisabledPages = {
-    'page-welcome': 1, 'page-search': 1, 'page-donate': 1, 'page-contact': 1,
-    'page-aboutgame': 1, 'page-aboutanime': 1, 'page-aboutrodney': 1,
+    'page-welcome': 1, 'page-search': 1, 'page-donate': 1, 'page-contact': 1, 'page-credits': 1,
+    'page-aboutgame': 1, 'page-aboutrodney': 1,
     'page-aboutmatsuura': 1, 'page-aboutvoiceactors': 1,
     'page-chars': 1, 'page-chars-ujl': 1, 'page-chars-ptr2': 1,
     'page-milkcan': 1, 'page-videos': 1, 'page-sp-websites': 1
@@ -192,6 +278,7 @@ function toggleTheme() {
     currentIndex = ((index % n) + n) % n;
     var img = currentList[currentIndex];
     lightboxImg.src = img.getAttribute('data-full') || img.currentSrc || img.src;
+    unzoom();
     lightboxImg.alt = img.alt || '';
     var multi = currentList.length > 1;
     if (prevBtn) prevBtn.style.display = multi ? '' : 'none';
@@ -210,11 +297,65 @@ function toggleTheme() {
 
   function closeLightbox() {
     lightbox.classList.remove('open');
+    unzoom();
     lightbox.setAttribute('aria-hidden', 'true');
     lightboxImg.src = '';
     currentList = [];
     currentIndex = -1;
   }
+
+
+  // ── Click-to-zoom: clicking the full-size image zooms it to native size
+  //    (at least 2x) around the clicked spot; drag or scroll to pan; click
+  //    again, change image, or close to zoom back out. ──
+  var zoomed = false, dragging = false, dragMoved = false, dragX = 0, dragY = 0, dragSL = 0, dragST = 0;
+  function unzoom() {
+    zoomed = false;
+    lightbox.classList.remove('zoomed');
+    lightbox.classList.remove('dragging');
+    lightboxImg.style.width = '';
+    lightbox.scrollTop = 0;
+    lightbox.scrollLeft = 0;
+  }
+  function zoomAt(clientX, clientY) {
+    var r = lightboxImg.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    var fx = (clientX - r.left) / r.width, fy = (clientY - r.top) / r.height;
+    var target = Math.max(lightboxImg.naturalWidth || 0, Math.round(r.width * 2));
+    zoomed = true;
+    lightbox.classList.add('zoomed');
+    lightboxImg.style.width = target + 'px';
+    lightbox.scrollTop = 0;
+    lightbox.scrollLeft = 0;
+    var box = lightboxImg.getBoundingClientRect(), cont = lightbox.getBoundingClientRect();
+    lightbox.scrollLeft = Math.max(0, (box.left - cont.left) + fx * box.width - cont.width / 2);
+    lightbox.scrollTop = Math.max(0, (box.top - cont.top) + fy * box.height - cont.height / 2);
+  }
+  lightboxImg.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (dragMoved) { dragMoved = false; return; }
+    if (zoomed) unzoom(); else zoomAt(e.clientX, e.clientY);
+  });
+  lightboxImg.addEventListener('dragstart', function (e) { e.preventDefault(); });
+  lightboxImg.addEventListener('mousedown', function (e) {
+    if (!zoomed || e.button !== 0) return;
+    e.preventDefault();
+    dragging = true; dragMoved = false;
+    dragX = e.clientX; dragY = e.clientY; dragSL = lightbox.scrollLeft; dragST = lightbox.scrollTop;
+    lightbox.classList.add('dragging');
+  });
+  document.addEventListener('mousemove', function (e) {
+    if (!dragging) return;
+    var dx = e.clientX - dragX, dy = e.clientY - dragY;
+    if (Math.abs(dx) > 4 || Math.abs(dy) > 4) dragMoved = true;
+    lightbox.scrollLeft = dragSL - dx;
+    lightbox.scrollTop = dragST - dy;
+  });
+  document.addEventListener('mouseup', function () {
+    if (!dragging) return;
+    dragging = false;
+    lightbox.classList.remove('dragging');
+  });
 
   function nextImage() { showAt(currentIndex + 1); }
   function prevImage() { showAt(currentIndex - 1); }

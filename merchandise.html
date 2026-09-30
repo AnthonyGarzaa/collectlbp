@@ -10,17 +10,35 @@
 <link rel="icon" type="image/png" href="vib/vibb.png">
 <link rel="shortcut icon" type="image/png" href="vib/vibb.png">
 <link rel="preload" href="vib/vibri.otf" as="font" type="font/otf" crossorigin>
-<link rel="stylesheet" href="vib.css?v=20260914">
+<link rel="stylesheet" href="vib.css?v=20260916">
 </head>
 <body>
+<script>
+  // Restore the JP language before the page paints, so moving between pages
+  // doesn't flash the English version first. Same key as the PaRappa section.
+  (function () {
+    try {
+      if (localStorage.getItem('parappaLangJP') === '1') {
+        document.body.classList.add('lang-jp');
+        document.documentElement.lang = 'ja';
+      }
+    } catch (e) {}
+  })();
+</script>
   <header class="vib-header">
+    <div class="vib-lang" role="group" aria-label="Language">
+      <svg class="vib-lang-line" aria-hidden="true" focusable="false"><line x1="0" y1="0" x2="100%" y2="0"/></svg>
+      <button type="button" data-lang="en" class="active" aria-label="English"><span>EN</span></button>
+      <span class="vib-lang-label"><span><span class="en">Language</span><span class="ja">言語</span></span></span>
+      <button type="button" data-lang="jp" aria-label="日本語"><span>JP</span></button>
+    </div>
     <h1 class="vib-title"><img src="vib/title.png" alt="Vib-Ribbon at PaRappa Corner"></h1>
     <nav class="vib-nav">
-      <a href="black.html"><span>Home</span></a>
-      <a href="thegame.html"><span>The Game</span></a>
-      <a href="promo.html"><span>Promotional Items</span></a>
-      <a href="merchandise.html" class="active" aria-current="page"><span>Merchandise</span></a>
-      <a href="originalwebsite.html"><span>Original Website</span></a>
+      <a href="black.html"><span><span class="en">Home</span><span class="ja">ホーム</span></span></a>
+      <a href="thegame.html"><span><span class="en">The Game</span><span class="ja">ゲーム</span></span></a>
+      <a href="promo.html"><span><span class="en">Promotional Items</span><span class="ja">販促アイテム</span></span></a>
+      <a href="merchandise.html" class="active" aria-current="page"><span><span class="en">Merchandise</span><span class="ja">グッズ</span></span></a>
+      <a href="originalwebsite.html"><span><span class="en">Original Website</span><span class="ja">当時の公式サイト</span></span></a>
     </nav>
     <div class="vib-ticker" aria-hidden="true">
       <div class="vib-ticker-track">
@@ -34,64 +52,64 @@
 
   <main>
     <section id="merchandise" class="vib-section">
-      <h2>Merchandise</h2>
-      <p>Vib-Ribbon's cult following has left behind a small but devoted trail of collectibles &mdash; from Japanese store-exclusive goods to the kind of fan-made oddities only a game about a four-line rabbit could inspire. This is a home for that stuff: figures, plush, apparel, stationery, and whatever else Vibri has ended up printed on over the years.</p>
+      <h2><span class="en">Merchandise</span><span class="ja">グッズ</span></h2>
+      <p><span class="block-en">Vib-Ribbon's cult following has left behind a small but devoted trail of collectibles &mdash; from Japanese store-exclusive goods to the kind of fan-made oddities only a game about a four-line rabbit could inspire. This is a home for that stuff: figures, plush, apparel, stationery, and whatever else Vibri has ended up printed on over the years.</span><span class="block-ja">ビブリボンのカルト的な人気は、日本のショップ限定グッズから、四本の線でできたウサギのゲームだからこそ生まれたようなファンメイドの珍品まで、小さいながらも熱のこもったコレクティブルの足跡を残してきました。ここはそうしたものたちの置き場所です。フィギュア、ぬいぐるみ、アパレル、文房具、そして長年のあいだにビブリが印刷されてきたあらゆるものを集めています。</span></p>
     </section>
 
     <section id="candb-sculpture" class="vib-section">
-      <h2>Vib-Ribbon Crystal Sculpture (Masaya Matsuura)</h2>
-      <p>The rarest piece of Vib-Ribbon merchandise is barely "merch" at all &mdash; it's a fine-art collectible. To commemorate the game, series creator Masaya Matsuura and his studio NanaOn-Sha produced a hand-signed crystal glass statuette of Vibri, rendered as a clear, faceted sculpture that catches the light in the same spare, vector-line spirit as the game itself. Only 50 originals were ever made, each signed by Matsuura, making it one of the most sought-after objects in any Vib-Ribbon collection.</p>
+      <h2><span class="en">Vib-Ribbon Crystal Sculpture (Masaya Matsuura)</span><span class="ja">ビブリボン クリスタル彫刻（松浦雅也）</span></h2>
+      <p><span class="block-en">The rarest piece of Vib-Ribbon merchandise is barely "merch" at all &mdash; it's a fine-art collectible. To commemorate the game, series creator Masaya Matsuura and his studio NanaOn-Sha produced a hand-signed crystal glass statuette of Vibri, rendered as a clear, faceted sculpture that catches the light in the same spare, vector-line spirit as the game itself. Only 50 originals were ever made, each signed by Matsuura, making it one of the most sought-after objects in any Vib-Ribbon collection.</span><span class="block-ja">ビブリボンで最も希少なグッズは、もはや「グッズ」とは呼びにくい、ファインアートのコレクティブルです。ゲームを記念して、シリーズの生みの親である松浦雅也氏と七音社は、直筆サイン入りのクリスタルガラス製ビブリ像を制作しました。透明で多面体のこの彫刻は、ゲームそのものと同じ簡潔なベクター線の精神で光を受け止めます。オリジナルは50体しか作られず、そのすべてに松浦氏のサインが入っており、ビブリボンのコレクションの中でも屈指の逸品となっています。</span></p>
 
-      <p>The sculpture stands roughly 18&nbsp;cm tall and about 5&nbsp;cm wide, translating Vibri's flat, four-stroke silhouette into a three-dimensional crystal form. It has been offered through the Dutch game-art gallery Cook &amp; Becker, who at the time of writing listed just 9 of the original 50 pieces as still available &mdash; a reminder of how thin on the ground genuine Vib-Ribbon collectibles really are.</p>
+      <p><span class="block-en">The sculpture stands roughly 18&nbsp;cm tall and about 5&nbsp;cm wide, translating Vibri's flat, four-stroke silhouette into a three-dimensional crystal form. It has been offered through the Dutch game-art gallery Cook &amp; Becker, who at the time of writing listed just 9 of the original 50 pieces as still available &mdash; a reminder of how thin on the ground genuine Vib-Ribbon collectibles really are.</span><span class="block-ja">高さ約18cm、幅約5cmの彫刻は、ビブリの平面的な四本線のシルエットを立体のクリスタルへと翻訳したものです。オランダのゲームアートギャラリーCook &amp; Beckerを通じて販売されており、執筆時点では50体のうち9体だけが購入可能とされていました。本物のビブリボンのコレクティブルがいかに少ないかを物語っています。</span></p>
 
       <div class="vib-gallery">
         <figure>
           <img src="https://res.cloudinary.com/cook-becker/image/fetch/q_auto:best,f_auto,w_1920/https://candb.com/site/candb/images/artwork/masaya_matsuura-vib_ribbon_1_r.jpg" alt="Vib-Ribbon crystal glass sculpture by Masaya Matsuura">
-          <figcaption>The signed crystal Vibri sculpture</figcaption>
-        </figure>
-        <figure>
-          <img src="https://res.cloudinary.com/cook-becker/image/fetch/q_auto:best,f_auto,w_1920/https://candb.com/site/candb/images/artwork/masaya_matsuura-vib_ribbon_2.jpg" alt="Vib-Ribbon crystal sculpture, detail view">
-          <figcaption>Detail view</figcaption>
+          <figcaption><span class="en">The signed crystal Vibri sculpture</span><span class="ja">サイン入りクリスタルのビブリ像</span></figcaption>
         </figure>
         <figure>
           <img src="https://res.cloudinary.com/cook-becker/image/fetch/q_auto:best,f_auto,w_1920/https://candb.com/site/candb/images/artwork/masaya_matsuura-vib_ribbon_3.jpg" alt="Vib-Ribbon crystal sculpture, alternate angle">
-          <figcaption>Alternate angle</figcaption>
+          <figcaption><span class="en">Alternate angle</span><span class="ja">別の角度から</span></figcaption>
+        </figure>
+        <figure>
+          <img src="https://res.cloudinary.com/cook-becker/image/fetch/q_auto:best,f_auto,w_1920/https://candb.com/site/candb/images/artwork/masaya_matsuura-vib_ribbon_2.jpg" alt="Vib-Ribbon crystal sculpture, detail view">
+          <figcaption><span class="en">Detail view</span><span class="ja">ディテール</span></figcaption>
         </figure>
       </div>
 
-      <p>Images and details courtesy of <a href="https://www.cookandbecker.com/en/artwork/52/vib-ribbon-masaya-matsuura.html" target="_blank" rel="noopener">Cook &amp; Becker</a>.</p>
+      <p><span class="block-en">Images and details courtesy of <a href="https://www.cookandbecker.com/en/artwork/52/vib-ribbon-masaya-matsuura.html" target="_blank" rel="noopener">Cook &amp; Becker</a>.</span><span class="block-ja">画像と情報は<a href="https://www.cookandbecker.com/en/artwork/52/vib-ribbon-masaya-matsuura.html" target="_blank" rel="noopener">Cook &amp; Becker</a>のご厚意によるものです。</span></p>
     </section>
 
     <section id="hawaiian-shirt" class="vib-section">
-      <h2>Vib-Ribbon Hawaiian Shirt (2000)</h2>
-      <p>Some of the best evidence that this shirt existed at all comes straight from the source. The screen below is lifted from the original Vib-Ribbon website, where Sony ran a giveaway around the European launch: a "vib ribbon competition" teased as opening shortly, offering ten of the shirts as prizes for answering a gently silly multiple-choice question about the game. The styling is pure turn-of-the-millennium PlayStation &mdash; a model in wraparound shades posed against an electric magenta block, letting the black shirt and its scribbly white cast do the talking.</p>
+      <h2><span class="en">Vib-Ribbon Hawaiian Shirt (2000)</span><span class="ja">ビブリボン アロハシャツ（2000年）</span></h2>
+      <p><span class="block-en">Some of the best evidence that this shirt existed at all comes straight from the source. The screen below is lifted from the original Vib-Ribbon website, where Sony ran a giveaway around the European launch: a "vib ribbon competition" teased as opening shortly, offering ten of the shirts as prizes for answering a gently silly multiple-choice question about the game. The styling is pure turn-of-the-millennium PlayStation &mdash; a model in wraparound shades posed against an electric magenta block, letting the black shirt and its scribbly white cast do the talking.</span><span class="block-ja">このシャツが実在した最良の証拠のひとつは、公式そのものから得られます。下の画面は当時のビブリボン公式サイトからのもので、ソニーはヨーロッパ発売に合わせてプレゼント企画を行いました。「vib ribbon competition」は近日開始と予告され、ゲームについてのちょっとおかしな選択式クイズに答えると、10着のシャツが当たるというものでした。そのビジュアルは2000年前後のPlayStationそのもので、ラップアラウンドのサングラスをかけたモデルが鮮やかなマゼンタのブロックの前に立ち、黒いシャツとその上の落書きのような白いキャラクターたちに語らせています。</span></p>
 
       <figure class="vib-figure">
         <img src="vib/competition.png" alt="Screenshot from the original Vib-Ribbon website advertising a competition to win the Hawaiian shirt" style="max-width: 50%;">
-        <figcaption>The competition page from the original Vib-Ribbon website, offering ten shirts as prizes</figcaption>
+        <figcaption><span class="en">The competition page from the original Vib-Ribbon website, offering ten shirts as prizes</span><span class="ja">当時のビブリボン公式サイトのプレゼント企画ページ。シャツ10着が賞品でした</span></figcaption>
       </figure>
 
-      <p>What makes the piece more than a novelty is who made it. The promo credits London designer Daniel Poole with the shirt, and it was produced as genuine PlayStation Europe apparel rather than a bootleg &mdash; the surviving example below still carries a glossy PlayStation woven label printed with <em>www.playstation-europe.com</em> at the collar. Instead of the usual palm trees, the "Hawaiian" print is a scattered field of Vibri and her devolved forms &mdash; the rabbit, the frog, the worm &mdash; drawn in the game's exact white vector line, punctuated with little stars and faceted shapes across a matte black rayon body.</p>
+      <p><span class="block-en">What makes the piece more than a novelty is who made it. The promo credits London designer Daniel Poole with the shirt, and it was produced as genuine PlayStation Europe apparel rather than a bootleg &mdash; the surviving example below still carries a glossy PlayStation woven label printed with <em>www.playstation-europe.com</em> at the collar. Instead of the usual palm trees, the "Hawaiian" print is a scattered field of Vibri and her devolved forms &mdash; the rabbit, the frog, the worm &mdash; drawn in the game's exact white vector line, punctuated with little stars and faceted shapes across a matte black rayon body.</span><span class="block-ja">この一着を単なるノベルティ以上のものにしているのは、誰が作ったかという点です。プロモーションではロンドンのデザイナーDaniel Pooleがシャツのデザイナーとしてクレジットされており、海賊版ではなく正真正銘のPlayStation Europeアパレルとして生産されました。下の現存品には、襟元に<em>www.playstation-europe.com</em>と織り込まれた光沢のあるPlayStationのラベルが今も付いています。定番のヤシの木の代わりに、この「アロハ」柄はビブリと退化した姿（ウサギ、カエル、ミミズ）をゲームそのままの白いベクター線で描き、小さな星や多面体の図形を散らして、マットな黒いレーヨン地の全面に広げています。</span></p>
 
       <div class="vib-gallery">
         <figure>
           <img src="vib/theshirt.png" alt="The full Vib-Ribbon Hawaiian shirt on a hanger">
-          <figcaption>A surviving shirt, front and full</figcaption>
+          <figcaption><span class="en">A surviving shirt, front and full</span><span class="ja">現存するシャツの正面全体</span></figcaption>
         </figure>
         <figure>
           <img src="vib/shirt.png" alt="Close-up of the Vib-Ribbon shirt print and PlayStation collar label">
-          <figcaption>Print detail and collar label</figcaption>
+          <figcaption><span class="en">Print detail and collar label</span><span class="ja">プリントの細部と襟のラベル</span></figcaption>
         </figure>
         <figure>
           <img src="vib/tag.png" alt="PlayStation Europe woven label inside the shirt">
-          <figcaption>The PlayStation Europe woven tag</figcaption>
+          <figcaption><span class="en">The PlayStation Europe woven tag</span><span class="ja">PlayStation Europeの織りタグ</span></figcaption>
         </figure>
       </div>
     </section>
 
     <section id="promo-ribbon" class="vib-section">
-      <h2>Vib-Ribbon Promotional Ribbon (Not For Sale)</h2>
-      <p>A fabric ribbon given out when Vib-Ribbon was first released in Japan, believed to have been a pre-order bonus or promotional item rather than something sold at retail. The black satin ribbon is printed in the game's white vector line with the <em>vib-ribbon&trade;</em> wordmark, its Japanese counterpart <em>&#12499;&#12502;&#12522;&#12508;&#12531;&trade;</em>, and Vibri walking along a single baseline, all wound on a plain cardboard spool. The sealed example below still carries its Sony Computer Entertainment Inc. sticker marked <em>NOT FOR SALE</em>.</p>
+      <h2><span class="en">Vib-Ribbon Promotional Ribbon (Not For Sale)</span><span class="ja">ビブリボン 販促リボン（非売品）</span></h2>
+      <p><span class="block-en">A fabric ribbon given out when Vib-Ribbon was first released in Japan, believed to have been a pre-order bonus or promotional item rather than something sold at retail. The black satin ribbon is printed in the game's white vector line with the <em>vib-ribbon&trade;</em> wordmark, its Japanese counterpart <em>&#12499;&#12502;&#12522;&#12508;&#12531;&trade;</em>, and Vibri walking along a single baseline, all wound on a plain cardboard spool. The sealed example below still carries its Sony Computer Entertainment Inc. sticker marked <em>NOT FOR SALE</em>.</span><span class="block-ja">ビブリボンの日本初発売時に配布された布製リボンで、店頭で販売されたものではなく、予約特典か販促品だったと考えられています。黒いサテンのリボンには、ゲームの白いベクター線で<em>vib-ribbon&trade;</em>のワードマーク、その日本語版<em>ビブリボン&trade;</em>、そして一本の線の上を歩くビブリがプリントされ、無地の厚紙のスプールに巻かれています。下の未開封品には、<em>NOT FOR SALE</em>と記されたソニー・コンピュータエンタテインメントのシールが今も付いたままです。</span></p>
 
       <div class="vib-gallery">
         <figure>
@@ -124,6 +142,6 @@
     <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Next image">&rsaquo;</button>
   </div>
 
-  <script src="vib.js?v=20260914"></script>
+  <script src="vib.js?v=20260916"></script>
 </body>
 </html>

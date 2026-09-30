@@ -147,7 +147,7 @@ main img, .lightbox-inner img {
   text-align: center;
   gap: 14px;
   padding: 16px 40px 28px;
-  border-bottom: 4px double #fff;
+  border-bottom: 2px solid #fff;   /* the ticker's bottom edge */
   position: relative;      /* anchor for the scattered header renders */
 }
 
@@ -287,6 +287,122 @@ main img, .lightbox-inner img {
   );
 }
 
+/* ── Language: EN / JP ──
+   Same body.lang-jp switch and localStorage key as the PaRappa section, so one
+   choice carries across the whole site. .en/.ja are inline pairs (headings,
+   captions, nav labels); .block-en/.block-ja are paragraph pairs. */
+.en { display: inline; }
+.ja { display: none; }
+body.lang-jp .en { display: none; }
+body.lang-jp .ja { display: inline; }
+.block-en { display: block; }
+.block-ja { display: none; }
+body.lang-jp .block-en { display: none; }
+body.lang-jp .block-ja { display: block; }
+
+/* Vibri has no kana or kanji, so Japanese text falls through to a real
+   Japanese face instead of whatever Arial's fallback happens to be. */
+.ja, .block-ja {
+  font-family: "Vibri", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", "Noto Sans JP", sans-serif;
+}
+
+/* The switch: two small decagon plates, built exactly like the nav plates
+   (white outline, black face, white text; inverted when active), pinned to
+   the top-left corner of the viewport on every Vib-Ribbon page. */
+.vib-lang {
+  position: absolute;    /* in the masthead's top-left corner; scrolls away with it */
+  top: 14px;
+  left: 14px;
+  z-index: 5;            /* above the render rows that hang in the same corner */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* The thin ribbon through all three plates, like the nav's, but drawn as an
+   SVG line so it can run diagonally from the centre of the lowered left plate
+   up to the centre of the raised right one (vib.js sets the two y values). */
+.vib-lang-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: calc(100% + 60px);   /* covers the plates stepped down */
+  overflow: visible;
+  pointer-events: none;
+}
+
+.vib-lang-line line {
+  stroke: #fff;
+  stroke-width: 1;
+}
+
+/* The "Language" label in the middle is a plate too, just not a button. */
+.vib-lang button,
+.vib-lang-label {
+  --line: 2px;
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  border: 0;
+  background: #fff;
+  color: #fff;
+  font-family: inherit;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  line-height: 1;
+  clip-path: var(--decagon);
+  transition: color 0.2s;
+}
+
+.vib-lang button,
+.vib-lang-label {
+  z-index: 1;    /* plates sit above the connecting line */
+}
+
+.vib-lang button span,
+.vib-lang-label > span {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin: var(--line);
+  padding: 16px 18px;
+  background: #000;
+  clip-path: var(--decagon);
+  transition: background 0.2s;
+}
+
+/* The chosen language always sits on the right; the other button and the
+   Language label step down in a staircase beside it. */
+.vib-lang button:not(.active) { order: 1; }
+.vib-lang-label { order: 2; }
+.vib-lang button.active { order: 3; }
+.vib-lang-label { transform: translateY(30px); }
+.vib-lang button:not(.active) { transform: translateY(60px); }
+
+/* The label plate stands a little taller than the two buttons. */
+.vib-lang-label > span {
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
+.vib-lang button:hover,
+.vib-lang button.active {
+  color: #000;
+}
+
+.vib-lang button:hover span,
+.vib-lang button.active span {
+  background: #fff;
+}
+
+@media (max-width: 800px) {
+  .vib-lang { top: 8px; left: 8px; gap: 6px; }
+  .vib-lang button, .vib-lang-label { font-size: 15px; }
+  .vib-lang button span, .vib-lang-label > span { padding: 12px 14px; }
+  .vib-lang-label > span { padding-top: 17px; padding-bottom: 17px; }
+}
+
 /* The title sits in a decagon plate like the nav links: the h1 is the white
    outline (clip-path clips borders away, so it's a filled shape) and ::before
    is the black face inset by the line width. */
@@ -383,7 +499,7 @@ main img, .lightbox-inner img {
   transition: color 0.2s;
 }
 
-.vib-nav a span {
+.vib-nav a > span {
   position: relative;
   z-index: 1;
   display: block;
@@ -400,8 +516,8 @@ main img, .lightbox-inner img {
   color: #000;
 }
 
-.vib-nav a:hover span,
-.vib-nav a.active span {
+.vib-nav a:hover > span,
+.vib-nav a.active > span {
   background: #fff;
 }
 
@@ -412,7 +528,7 @@ main img, .lightbox-inner img {
   margin-top: auto;      /* always at the foot of the header, however tall it grows */
   overflow: hidden;
   background: #000;
-  border-top: 4px double #fff;
+  border-top: 2px solid #fff;
 }
 
 .vib-ticker-track {
@@ -434,8 +550,8 @@ main img, .lightbox-inner img {
 }
 
 @keyframes vib-ticker-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -873,6 +989,16 @@ main > .vib-section:last-child {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
   cursor: default;
 }
+
+/* Click-to-zoom inside the lightbox: the zoomed image sits in a plain
+   scrollable box (flex centering would clip its top/left edge), the close
+   button pins to the corner, and the cursor tells the user what a click does. */
+.lightbox-inner img { cursor: zoom-in !important; }
+.lightbox.open.zoomed { display: block; padding: 0; }
+.lightbox.zoomed .lightbox-inner { display: block; width: max-content; max-width: none; max-height: none; margin: 0 auto; }
+.lightbox.zoomed .lightbox-inner img { max-width: none; max-height: none; height: auto; cursor: zoom-out !important; }
+.lightbox.zoomed.dragging .lightbox-inner img { cursor: grabbing !important; }
+.lightbox.zoomed .lightbox-close { position: fixed; top: 16px; right: 16px; }
 
 .lightbox-close {
   position: absolute;

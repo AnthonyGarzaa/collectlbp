@@ -100,6 +100,7 @@ window.vibLayout = (function () {
     currentIndex = ((index % n) + n) % n;
     var img = currentList[currentIndex];
     lightboxImg.src = img.currentSrc || img.src;
+    unzoom();
     lightboxImg.alt = img.alt || '';
     var multi = currentList.length > 1;
     if (prevBtn) prevBtn.style.display = multi ? '' : 'none';
@@ -118,11 +119,65 @@ window.vibLayout = (function () {
 
   function closeLightbox() {
     lightbox.classList.remove('open');
+    unzoom();
     lightbox.setAttribute('aria-hidden', 'true');
     lightboxImg.src = '';
     currentList = [];
     currentIndex = -1;
   }
+
+
+  // ── Click-to-zoom: clicking the full-size image zooms it to native size
+  //    (at least 2x) around the clicked spot; drag or scroll to pan; click
+  //    again, change image, or close to zoom back out. ──
+  var zoomed = false, dragging = false, dragMoved = false, dragX = 0, dragY = 0, dragSL = 0, dragST = 0;
+  function unzoom() {
+    zoomed = false;
+    lightbox.classList.remove('zoomed');
+    lightbox.classList.remove('dragging');
+    lightboxImg.style.width = '';
+    lightbox.scrollTop = 0;
+    lightbox.scrollLeft = 0;
+  }
+  function zoomAt(clientX, clientY) {
+    var r = lightboxImg.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    var fx = (clientX - r.left) / r.width, fy = (clientY - r.top) / r.height;
+    var target = Math.max(lightboxImg.naturalWidth || 0, Math.round(r.width * 2));
+    zoomed = true;
+    lightbox.classList.add('zoomed');
+    lightboxImg.style.width = target + 'px';
+    lightbox.scrollTop = 0;
+    lightbox.scrollLeft = 0;
+    var box = lightboxImg.getBoundingClientRect(), cont = lightbox.getBoundingClientRect();
+    lightbox.scrollLeft = Math.max(0, (box.left - cont.left) + fx * box.width - cont.width / 2);
+    lightbox.scrollTop = Math.max(0, (box.top - cont.top) + fy * box.height - cont.height / 2);
+  }
+  lightboxImg.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (dragMoved) { dragMoved = false; return; }
+    if (zoomed) unzoom(); else zoomAt(e.clientX, e.clientY);
+  });
+  lightboxImg.addEventListener('dragstart', function (e) { e.preventDefault(); });
+  lightboxImg.addEventListener('mousedown', function (e) {
+    if (!zoomed || e.button !== 0) return;
+    e.preventDefault();
+    dragging = true; dragMoved = false;
+    dragX = e.clientX; dragY = e.clientY; dragSL = lightbox.scrollLeft; dragST = lightbox.scrollTop;
+    lightbox.classList.add('dragging');
+  });
+  document.addEventListener('mousemove', function (e) {
+    if (!dragging) return;
+    var dx = e.clientX - dragX, dy = e.clientY - dragY;
+    if (Math.abs(dx) > 4 || Math.abs(dy) > 4) dragMoved = true;
+    lightbox.scrollLeft = dragSL - dx;
+    lightbox.scrollTop = dragST - dy;
+  });
+  document.addEventListener('mouseup', function () {
+    if (!dragging) return;
+    dragging = false;
+    lightbox.classList.remove('dragging');
+  });
 
   function nextImage() { showAt(currentIndex + 1); }
   function prevImage() { showAt(currentIndex - 1); }
@@ -277,6 +332,73 @@ window.vibLayout = (function () {
   score.addEventListener('loadedmetadata', window.vibLayout.run);
 })();
 
+// ── Ticker: repeat the ribbon set until each half of the track is at least
+//    as wide as the bar, so the loop never shows an empty stretch on wide
+//    screens. The track is always two identical halves (the keyframes slide
+//    by 50%), and the duration scales with the width so the speed is constant. ──
+(function fillTicker() {
+  var ticker = document.querySelector('.vib-ticker');
+  var track = ticker && ticker.querySelector('.vib-ticker-track');
+  if (!track) return;
+  var imgs = Array.prototype.slice.call(track.querySelectorAll('img'));
+  if (!imgs.length) return;
+  // The base set is the first half of the markup (it ships as set + copy).
+  var set = imgs.slice(0, Math.max(1, Math.floor(imgs.length / 2))).map(function (img) { return img.cloneNode(true); });
+  var PX_PER_SEC = 33;     // the original 38s over one ~1264px ribbon pair
+  var reps = 0;
+  var fit = function () {
+    // Measure one set from the live track (the first `set.length` images).
+    var live = track.querySelectorAll('img');
+    var setW = 0;
+    for (var i = 0; i < set.length && i < live.length; i++) setW += live[i].offsetWidth || 0;
+    if (!setW) return;               // images not measurable yet; the load handlers re-run us
+    var need = Math.max(1, Math.ceil(ticker.clientWidth / setW));
+    if (need !== reps) {
+      reps = need;
+      track.innerHTML = '';
+      for (var r = 0; r < reps * 2; r++) set.forEach(function (img) { track.appendChild(img.cloneNode(true)); });
+      track.querySelectorAll('img').forEach(function (img) { img.addEventListener('load', window.vibLayout.run); });
+    }
+    track.style.animationDuration = Math.round(track.scrollWidth / 2 / PX_PER_SEC) + 's';
+  };
+  window.vibLayout.add(fit);
+  imgs.forEach(function (img) { img.addEventListener('load', window.vibLayout.run); });
+})();
+
+// ── Language switch (EN / JP decagons, top-left). Shares the PaRappa
+//    section's localStorage key so one choice covers the whole site. ──
+(function setupLang() {
+  var KEY = 'parappaLangJP';
+  var buttons = document.querySelectorAll('.vib-lang button[data-lang]');
+  function apply(jp) {
+    document.body.classList.toggle('lang-jp', jp);
+    document.documentElement.lang = jp ? 'ja' : 'en';
+    buttons.forEach(function (b) { b.classList.toggle('active', (b.getAttribute('data-lang') === 'jp') === jp); });
+  }
+  var jp = false;
+  try { jp = localStorage.getItem(KEY) === '1'; } catch (e) {}
+  apply(jp);
+  // The diagonal ribbon: from the centre of the lowest plate on the left
+  // (container middle + 60px) to the centre of the raised plate on the right.
+  var group = document.querySelector('.vib-lang');
+  var line = group && group.querySelector('.vib-lang-line line');
+  if (line) {
+    var fitLine = function () {
+      var mid = group.offsetHeight / 2;
+      line.setAttribute('y1', mid + 60);
+      line.setAttribute('y2', mid);
+    };
+    if (window.vibLayout) window.vibLayout.add(fitLine); else fitLine();
+  }
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var want = b.getAttribute('data-lang') === 'jp';
+      try { localStorage.setItem(KEY, want ? '1' : '0'); } catch (e) {}
+      apply(want);
+    });
+  });
+})();
+
 // ── Vibri renders (pixel-extracted from the CHARA sheets) in the masthead
 //    and dancing down the left/right background gutters, on every page. ──
 (function setupVibriDecor() {
@@ -297,7 +419,7 @@ window.vibLayout = (function () {
      ['vibri_11.png', 'left',  -5, 74, 100, 0.8, 'vibri_31.png'],   // pinned outward of 31
      ['vibri_04.png', 'left',   6, 90, 100, 0.95, 'vibri_11.png'],   // pinned outward of 11 (nudge tuned by eye)
      ['vibri_10.png', 'right',  4, 50, 100],
-     ['vibri_20.png', 'right',  7, 15, 100],
+     ['vibri_20.png', 'right',  7, 20, 100],
      ['vibri_22.png', 'right', -5, -15, 100, 1.12],
      ['vibri_12.png', 'right',  6, -50, 100, 1, 'vibri_22.png']].forEach(function (p) { sides[p[1]].push(p); });
     ['left', 'right'].forEach(function (side) {

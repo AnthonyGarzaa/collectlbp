@@ -10,17 +10,35 @@
 <link rel="icon" type="image/png" href="vib/vibb.png">
 <link rel="shortcut icon" type="image/png" href="vib/vibb.png">
 <link rel="preload" href="vib/vibri.otf" as="font" type="font/otf" crossorigin>
-<link rel="stylesheet" href="vib.css?v=20260914">
+<link rel="stylesheet" href="vib.css?v=20260916">
 </head>
 <body>
+<script>
+  // Restore the JP language before the page paints, so moving between pages
+  // doesn't flash the English version first. Same key as the PaRappa section.
+  (function () {
+    try {
+      if (localStorage.getItem('parappaLangJP') === '1') {
+        document.body.classList.add('lang-jp');
+        document.documentElement.lang = 'ja';
+      }
+    } catch (e) {}
+  })();
+</script>
   <header class="vib-header">
+    <div class="vib-lang" role="group" aria-label="Language">
+      <svg class="vib-lang-line" aria-hidden="true" focusable="false"><line x1="0" y1="0" x2="100%" y2="0"/></svg>
+      <button type="button" data-lang="en" class="active" aria-label="English"><span>EN</span></button>
+      <span class="vib-lang-label"><span><span class="en">Language</span><span class="ja">言語</span></span></span>
+      <button type="button" data-lang="jp" aria-label="日本語"><span>JP</span></button>
+    </div>
     <h1 class="vib-title"><img src="vib/title.png" alt="Vib-Ribbon at PaRappa Corner"></h1>
     <nav class="vib-nav">
-      <a href="black.html"><span>Home</span></a>
-      <a href="thegame.html"><span>The Game</span></a>
-      <a href="promo.html" class="active" aria-current="page"><span>Promotional Items</span></a>
-      <a href="merchandise.html"><span>Merchandise</span></a>
-      <a href="originalwebsite.html"><span>Original Website</span></a>
+      <a href="black.html"><span><span class="en">Home</span><span class="ja">ホーム</span></span></a>
+      <a href="thegame.html"><span><span class="en">The Game</span><span class="ja">ゲーム</span></span></a>
+      <a href="promo.html" class="active" aria-current="page"><span><span class="en">Promotional Items</span><span class="ja">販促アイテム</span></span></a>
+      <a href="merchandise.html"><span><span class="en">Merchandise</span><span class="ja">グッズ</span></span></a>
+      <a href="originalwebsite.html"><span><span class="en">Original Website</span><span class="ja">当時の公式サイト</span></span></a>
     </nav>
     <div class="vib-ticker" aria-hidden="true">
       <div class="vib-ticker-track">
@@ -34,127 +52,127 @@
 
   <main>
     <section id="promo" class="vib-section">
-      <h2>Promotional Items &amp; Print</h2>
-      <p>Sony leaned into the quirky, black-and-white identity for the game's promotion. Rather than shipping a loud, screenshot-heavy sleeve, the European release used a stark cover centered on Vibri. Press kits went out to European outlets in 2000 alongside a companion music CD and a disc of promo assets, including an exclusive interview with Masaya Matsuura.</p>
-      <p>In Japan, NanaOn-Sha also produced a tie-in art book called Vib-Rihon (ビブリホン), published by Sony Magazines, full of storyboards, character sketches, and 3D studies of Vibri.</p>
+      <h2><span class="en">Promotional Items &amp; Print</span><span class="ja">販促アイテムと印刷物</span></h2>
+      <p><span class="block-en">Sony leaned into the quirky, black-and-white identity for the game's promotion. Rather than shipping a loud, screenshot-heavy sleeve, the European release used a stark cover centered on Vibri. Press kits went out to European outlets in 2000 alongside a companion music CD and a disc of promo assets, including an exclusive interview with Masaya Matsuura.</span><span class="block-ja">ソニーはこのゲームの宣伝で、風変わりなモノクロのアイデンティティを前面に押し出しました。派手でスクリーンショットだらけのジャケットではなく、欧州版はビブリを中心に据えた簡素な表紙を採用しています。2000年には欧州のメディア向けにプレスキットが配られ、松浦雅也氏の独占インタビューを収めた販促素材ディスクと、付属の音楽CDが添えられました。</span></p>
+      <p><span class="block-en">In Japan, NanaOn-Sha also produced a tie-in art book called Vib-Rihon (ビブリホン), published by Sony Magazines, full of storyboards, character sketches, and 3D studies of Vibri.</span><span class="block-ja">日本では七音社が、ソニー・マガジンズから出版されたタイアップのアートブック『ビブリホン』も制作しました。絵コンテ、キャラクタースケッチ、ビブリの3D習作がぎっしり詰まった一冊です。</span></p>
 
       <div class="vib-gallery">
         <figure>
           <img src="https://archive.org/download/vib-rihon-scans/VibRihonScans.zip/VibRihonScans/vibrihoncoverA.png" alt="Vib-Rihon art book front cover">
-          <figcaption>Vib-Rihon art book, front cover</figcaption>
+          <figcaption><span class="en">Vib-Rihon art book, front cover</span><span class="ja">アートブック『ビブリホン』表紙</span></figcaption>
         </figure>
         <figure>
           <img src="https://archive.org/download/vib-rihon-scans/VibRihonScans.zip/VibRihonScans/vibrihoncoverB.png" alt="Vib-Rihon art book back cover">
-          <figcaption>Vib-Rihon art book, back cover</figcaption>
+          <figcaption><span class="en">Vib-Rihon art book, back cover</span><span class="ja">アートブック『ビブリホン』裏表紙</span></figcaption>
         </figure>
         <figure>
           <img src="https://archive.org/download/vib-rihon-scans/VibRihonScans.zip/VibRihonScans/vibrihon3DA.png" alt="Vib-Rihon 3D render page A">
-          <figcaption>Vibri 3D studies</figcaption>
+          <figcaption><span class="en">Vibri 3D studies</span><span class="ja">ビブリの3D習作</span></figcaption>
         </figure>
         <figure>
           <img src="https://archive.org/download/vib-rihon-scans/VibRihonScans.zip/VibRihonScans/vibrihon3DB.png" alt="Vib-Rihon 3D render page B">
-          <figcaption>More Vibri 3D studies</figcaption>
+          <figcaption><span class="en">More Vibri 3D studies</span><span class="ja">ビブリの3D習作、続き</span></figcaption>
         </figure>
         <figure>
           <img src="https://archive.org/download/vib-rihon-scans/VibRihonScans.zip/VibRihonScans/vibrihonpg1.png" alt="Vib-Rihon interior page 1">
-          <figcaption>Interior art, page 1</figcaption>
+          <figcaption><span class="en">Interior art, page 1</span><span class="ja">本文アート、1ページ</span></figcaption>
         </figure>
         <figure>
           <img src="https://archive.org/download/vib-rihon-scans/VibRihonScans.zip/VibRihonScans/vibrihonpg4.png" alt="Vib-Rihon interior page 4">
-          <figcaption>Interior art, page 4</figcaption>
+          <figcaption><span class="en">Interior art, page 4</span><span class="ja">本文アート、4ページ</span></figcaption>
         </figure>
       </div>
 
-      <p>The game's afterlife as a cult favorite has only grown since the PSN re-release. Its austere look, its willingness to hand level design over to the player's own CD collection, and the fact that a rabbit named Vibri can be doodled in four strokes have all helped it stay quietly legendary decades after launch.</p>
+      <p><span class="block-en">The game's afterlife as a cult favorite has only grown since the PSN re-release. Its austere look, its willingness to hand level design over to the player's own CD collection, and the fact that a rabbit named Vibri can be doodled in four strokes have all helped it stay quietly legendary decades after launch.</span><span class="block-ja">PSNでの再配信以来、カルト的名作としての本作の評価は高まる一方です。禁欲的なルック、ステージデザインをプレイヤー自身のCDコレクションに委ねる姿勢、そしてビブリというウサギが四本の線で描けてしまう事実が、発売から数十年を経た今も、この作品をひそかな伝説であり続けさせています。</span></p>
     </section>
 
     <section id="promoshirt" class="vib-section">
-      <h2>Promotional Shirt Package</h2>
-      <p>A promotional T-shirt from Sony Computer Entertainment Japan, sold nowhere and marked NOT FOR SALE. The black shirt carries Vibri on the front in the game's white line art, with a speech bubble in the same hand-drawn katakana as the box: オコノミCDデアソブ, "play with your favourite CD". The back repeats the Japanese ビブリボン logo above the four button symbols. It came sealed in a clear sleeve behind a red insert printed with the PlayStation mark, the same Vibri artwork and a row of the character's forms.</p>
+      <h2><span class="en">Promotional Shirt Package</span><span class="ja">販促Tシャツパッケージ</span></h2>
+      <p><span class="block-en">A promotional T-shirt from Sony Computer Entertainment Japan, sold nowhere and marked NOT FOR SALE. The black shirt carries Vibri on the front in the game's white line art, with a speech bubble in the same hand-drawn katakana as the box: オコノミCDデアソブ, "play with your favourite CD". The back repeats the Japanese ビブリボン logo above the four button symbols. It came sealed in a clear sleeve behind a red insert printed with the PlayStation mark, the same Vibri artwork and a row of the character's forms.</span><span class="block-ja">ソニー・コンピュータエンタテインメントによる販促Tシャツで、どこにも売られておらず、NOT FOR SALEと記されています。黒いシャツの前面には、ゲームの白い線画でビブリが描かれ、パッケージと同じ手書き風カタカナの吹き出しに「オコノミCDデアソブ」とあります。背面には日本語のビブリボンロゴが、4つのボタン記号の上に配されています。PlayStationのマーク、同じビブリのアートワーク、キャラクターの各形態が並ぶ赤い台紙を背に、透明な袋に封入されていました。</span></p>
 
       <div class="vib-gallery">
         <figure class="wide">
           <img src="vib/Merch/promoshirt (5).png" alt="Vib-Ribbon promotional T-shirt laid out beside its red package insert">
-          <figcaption>The shirt and its package insert</figcaption>
+          <figcaption><span class="en">The shirt and its package insert</span><span class="ja">シャツとパッケージの台紙</span></figcaption>
         </figure>
         <figure>
           <img src="vib/Merch/promoshirt (3).png" alt="Front of the black Vib-Ribbon promotional T-shirt showing Vibri and a speech bubble">
-          <figcaption>Front: Vibri and the "play with your favourite CD" bubble</figcaption>
+          <figcaption><span class="en">Front: Vibri and the "play with your favourite CD" bubble</span><span class="ja">前面：ビブリと「オコノミCDデアソブ」の吹き出し</span></figcaption>
         </figure>
         <figure>
           <img src="vib/Merch/promoshirt (2).png" alt="Back of the Vib-Ribbon promotional T-shirt showing the Japanese logo and button symbols">
-          <figcaption>Back: ビブリボン logo and the button symbols</figcaption>
+          <figcaption><span class="en">Back: ビブリボン logo and the button symbols</span><span class="ja">背面：ビブリボンのロゴとボタン記号</span></figcaption>
         </figure>
         <figure>
           <img src="vib/Merch/promoshirt (4).png" alt="Red Vib-Ribbon package insert with the PlayStation mark and Vibri artwork">
-          <figcaption>The red package insert</figcaption>
+          <figcaption><span class="en">The red package insert</span><span class="ja">赤いパッケージ台紙</span></figcaption>
         </figure>
         <figure>
           <img src="vib/Merch/promoshirt (1).png" alt="Sealed clear sleeve of the Vib-Ribbon promotional shirt package, back side">
-          <figcaption>The sealed sleeve, back, marked NOT FOR SALE</figcaption>
+          <figcaption><span class="en">The sealed sleeve, back, marked NOT FOR SALE</span><span class="ja">封入袋の裏面、NOT FOR SALEの表記</span></figcaption>
         </figure>
       </div>
     </section>
 
     <section id="xmasdisc" class="vib-section">
-      <h2>Vib-Ribbon X'mas Disc</h2>
-      <p>For Christmas 1999, Tsutaya stores in Japan gave away a Vib-Ribbon-branded 8cm mini CD, the <strong>ビブリボン X'mas ディスク</strong> (catalogue number XMAS-2000, marked NOT FOR SALE). It was a joint promotion for the PlayStation game and for the <em>Symphonic Orgel</em> (シンフォニックオルゴール) series of antique music-box albums sold at Tsutaya. The disc carries a single track, もみの木 (Momi no Ki, "O Tannenbaum"), lifted from <em>OPUS 4: Christmas Carol</em>, so the whole thing is a music CD you can drop into Vib-Ribbon and play as a level. The sleeve front says exactly that, and the small print reminds you the disc alone won't run the game.</p>
-      <p>The back of the sleeve is a straight advert for the four Symphonic Orgel OPUS volumes, ¥2,800 each, with a phone number and web address for ordering. It was produced by D3 Publisher and Medix under Sony Computer Entertainment's copyright. Each disc came tucked into a black Vib-Ribbon envelope with Vibri carrying a present on the front, made so that buyers could post the disc to someone as a Christmas card. For two decades the disc was known only from that description; a copy finally surfaced in 2024, and the photos below are of that copy, documented on <a href="https://www.discogs.com/release/32004815" target="_blank" rel="noopener">Discogs</a>.</p>
+      <h2><span class="en">Vib-Ribbon X'mas Disc</span><span class="ja">ビブリボン X'mas ディスク</span></h2>
+      <p><span class="block-en">For Christmas 1999, Tsutaya stores in Japan gave away a Vib-Ribbon-branded 8cm mini CD, the <strong>ビブリボン X'mas ディスク</strong> (catalogue number XMAS-2000, marked NOT FOR SALE). It was a joint promotion for the PlayStation game and for the <em>Symphonic Orgel</em> (シンフォニックオルゴール) series of antique music-box albums sold at Tsutaya. The disc carries a single track, もみの木 (Momi no Ki, "O Tannenbaum"), lifted from <em>OPUS 4: Christmas Carol</em>, so the whole thing is a music CD you can drop into Vib-Ribbon and play as a level. The sleeve front says exactly that, and the small print reminds you the disc alone won't run the game.</span><span class="block-ja">1999年のクリスマス、日本のTSUTAYA各店ではビブリボン仕様の8cmミニCD、<strong>ビブリボン X'mas ディスク</strong>（品番XMAS-2000、NOT FOR SALE表記）が配布されました。PlayStationのゲームと、TSUTAYAで販売されていたアンティークオルゴールのアルバムシリーズ<em>シンフォニックオルゴール</em>の共同プロモーションです。収録曲は<em>OPUS 4: Christmas Carol</em>からの「もみの木」1曲のみで、つまりこれはビブリボンに入れてステージとして遊べる音楽CDなのです。ジャケットの表にはまさにそう書かれており、小さな注意書きが、このディスクだけではゲームは動かないと念を押しています。</span></p>
+      <p><span class="block-en">The back of the sleeve is a straight advert for the four Symphonic Orgel OPUS volumes, ¥2,800 each, with a phone number and web address for ordering. It was produced by D3 Publisher and Medix under Sony Computer Entertainment's copyright. Each disc came tucked into a black Vib-Ribbon envelope with Vibri carrying a present on the front, made so that buyers could post the disc to someone as a Christmas card. For two decades the disc was known only from that description; a copy finally surfaced in 2024, and the photos below are of that copy, documented on <a href="https://www.discogs.com/release/32004815" target="_blank" rel="noopener">Discogs</a>.</span><span class="block-ja">ジャケットの裏面は、シンフォニックオルゴールのOPUS全4巻（各2,800円）の広告そのもので、注文用の電話番号とウェブアドレスが載っています。制作はD3パブリッシャーとメディックス、著作権はソニー・コンピュータエンタテインメントです。各ディスクは、プレゼントを抱えたビブリが表に描かれた黒いビブリボンの封筒に収められていて、クリスマスカードとして誰かに郵送できるようになっていました。20年のあいだ、このディスクはその説明でしか知られていませんでしたが、2024年についに現物が見つかり、下の写真はその1枚で、<a href="https://www.discogs.com/release/32004815" target="_blank" rel="noopener">Discogs</a>に記録されています。</span></p>
 
       <div class="vib-gallery">
         <figure>
           <img src="vib/xmasdisc/xmasdisc_01.jpg" alt="Vib-Ribbon X'mas Disc sleeve front: red and green Christmas-tree design with Vibri and the Tsutaya logo">
-          <figcaption>Sleeve front: "もみの木" from Symphonic Orgel OPUS 4, ©1999 SCE, Not For Sale</figcaption>
+          <figcaption><span class="en">Sleeve front: "もみの木" from Symphonic Orgel OPUS 4, ©1999 SCE, Not For Sale</span><span class="ja">ジャケット表：シンフォニックオルゴール OPUS 4より「もみの木」、©1999 SCE、非売品</span></figcaption>
         </figure>
         <figure>
           <img src="vib/xmasdisc/xmasdisc_02.jpg" alt="Vib-Ribbon X'mas Disc sleeve back advertising the Symphonic Orgel OPUS 1 to 4 albums">
-          <figcaption>Sleeve back: Symphonic Orgel OPUS 1–4 advert, ¥2,800 each, D3 Publisher / Medix</figcaption>
+          <figcaption><span class="en">Sleeve back: Symphonic Orgel OPUS 1–4 advert, ¥2,800 each, D3 Publisher / Medix</span><span class="ja">ジャケット裏：シンフォニックオルゴール OPUS 1〜4の広告、各2,800円、D3パブリッシャー／メディックス</span></figcaption>
         </figure>
         <figure>
           <img src="vib/xmasdisc/xmasdisc_03.jpg" alt="Vib-Ribbon X'mas Disc 8cm mini CD, green label side with Vibri and snowflakes">
-          <figcaption>The 8cm disc, label side: Vibri and snowflakes on green, XMAS-2000 Not For Sale</figcaption>
+          <figcaption><span class="en">The 8cm disc, label side: Vibri and snowflakes on green, XMAS-2000 Not For Sale</span><span class="ja">8cmディスクのレーベル面：緑地にビブリと雪の結晶、XMAS-2000 非売品</span></figcaption>
         </figure>
         <figure>
           <img src="vib/xmasdisc/xmasdisc_04.jpg" alt="Vib-Ribbon X'mas Disc 8cm mini CD, data side">
-          <figcaption>The 8cm disc, data side</figcaption>
+          <figcaption><span class="en">The 8cm disc, data side</span><span class="ja">8cmディスクの記録面</span></figcaption>
         </figure>
         <figure>
           <img src="vib/xmasdisc/xmasdisc_05.jpg" alt="Close-up of the disc's inner ring showing the matrix text XMAS-2000 MT B01 and IFPI L262">
-          <figcaption>Matrix / run-out: XMAS-2000 MT B01, mastering SID IFPI L262</figcaption>
+          <figcaption><span class="en">Matrix / run-out: XMAS-2000 MT B01, mastering SID IFPI L262</span><span class="ja">マトリクス：XMAS-2000 MT B01、マスタリングSID IFPI L262</span></figcaption>
         </figure>
         <figure>
           <img src="vib/xmasdisc/xmasdisc_06.jpg" alt="Close-up of the disc's clear inner ring showing the mould SID code IFPI 4446">
-          <figcaption>Mould SID code: IFPI 4446</figcaption>
+          <figcaption><span class="en">Mould SID code: IFPI 4446</span><span class="ja">モールドSIDコード：IFPI 4446</span></figcaption>
         </figure>
         <figure class="wide">
           <img src="vib/xmasdisc/xmasdisc_07.jpg" alt="The black Vib-Ribbon mailing envelope with Vibri holding a present, shown beside the disc sleeve">
-          <figcaption>The black mailing envelope, Vibri carrying a present, with the sleeve beside it</figcaption>
+          <figcaption><span class="en">The black mailing envelope, Vibri carrying a present, with the sleeve beside it</span><span class="ja">プレゼントを抱えたビブリの黒い郵送用封筒と、その横のジャケット</span></figcaption>
         </figure>
       </div>
 
-      <h3>Videos</h3>
-      <p>The single track on the disc, and the disc being played through Vib-Ribbon as a level, recorded after the copy above was found.</p>
+      <h3><span class="en">Videos</span><span class="ja">動画</span></h3>
+      <p><span class="block-en">The single track on the disc, and the disc being played through Vib-Ribbon as a level, recorded after the copy above was found.</span><span class="block-ja">ディスク収録の1曲と、上の現物が見つかった後に録画された、このディスクをビブリボンでステージとして遊ぶ映像です。</span></p>
       <div class="vib-videos">
         <figure>
           <div class="yt-facade" data-video-id="yux7mUqDI38" data-title="Vib-Ribbon Soundtrack - Christmas Disc track" role="button" tabindex="0" aria-label="Play video">
             <img src="https://i.ytimg.com/vi/yux7mUqDI38/hqdefault.jpg" alt="Vib-Ribbon Soundtrack - Christmas Disc track">
             <span class="yt-facade-play" aria-hidden="true">&#9654;</span>
           </div>
-          <figcaption>The track: もみの木 (O Tannenbaum), 2:37</figcaption>
+          <figcaption><span class="en">The track: もみの木 (O Tannenbaum), 2:37</span><span class="ja">収録曲：もみの木（O Tannenbaum）、2:37</span></figcaption>
         </figure>
         <figure>
           <div class="yt-facade" data-video-id="5_reBP84ld4" data-title="Lost Vib-Ribbon Christmas Disc" role="button" tabindex="0" aria-label="Play video">
             <img src="https://i.ytimg.com/vi/5_reBP84ld4/hqdefault.jpg" alt="Lost Vib-Ribbon Christmas Disc">
             <span class="yt-facade-play" aria-hidden="true">&#9654;</span>
           </div>
-          <figcaption>The lost Christmas disc, played in Vib-Ribbon</figcaption>
+          <figcaption><span class="en">The lost Christmas disc, played in Vib-Ribbon</span><span class="ja">失われていたクリスマスディスクをビブリボンでプレイ</span></figcaption>
         </figure>
       </div>
     </section>
 
     <section id="presskit" class="vib-section">
-      <h2>Press Kit Assets</h2>
-      <p>The artwork disc that shipped with the Vib-Ribbon press kit gave magazines and retailers a ready-made set of high-resolution vector art to drop into features and adverts. Everything here is drawn in the same handful of white strokes as the game itself: a run of PlayStation-branded posters in each of the standard paper sizes, an A3 key-art collage, a colour manga strip explaining the swap-in-your-own-CD trick, and numbered character sheets cataloguing Vibri in every form from Super Vibri down to the worm. The repeating logo ribbons at the bottom were cut for page borders and headers &mdash; the same strips that scroll across the top of this site.</p>
+      <h2><span class="en">Press Kit Assets</span><span class="ja">プレスキット素材</span></h2>
+      <p><span class="block-en">The artwork disc that shipped with the Vib-Ribbon press kit gave magazines and retailers a ready-made set of high-resolution vector art to drop into features and adverts. Everything here is drawn in the same handful of white strokes as the game itself: a run of PlayStation-branded posters in each of the standard paper sizes, an A3 key-art collage, a colour manga strip explaining the swap-in-your-own-CD trick, and numbered character sheets cataloguing Vibri in every form from Super Vibri down to the worm. The repeating logo ribbons at the bottom were cut for page borders and headers &mdash; the same strips that scroll across the top of this site.</span><span class="block-ja">ビブリボンのプレスキットに付属したアートワークディスクは、雑誌や小売店が特集記事や広告にそのまま使える高解像度のベクターアート一式を提供するものでした。ここにあるものはすべて、ゲームそのものと同じわずかな白い線で描かれています。各標準用紙サイズのPlayStationブランドのポスター、A3のキーアートコラージュ、自分のCDと入れ替える仕掛けを説明するカラー漫画、そしてスーパービブリからミミズまでビブリのあらゆる形態を収めた番号付きキャラクターシート。下段の繰り返しロゴのリボンはページの飾り罫や見出し用に切り出されたもので、このサイトの上部を流れているのと同じ帯です。</span></p>
 
       <div class="vib-gallery">
         <figure>
@@ -213,8 +231,8 @@
         </figure>
       </div>
 
-      <h3>Screenshots</h3>
-      <p>The same disc carried a set of sixteen numbered screenshots for print use, captured straight from the game and showing Vibri in every form &mdash; Super Vibri, the standard rabbit, and the worm &mdash; working through pits, loops, blocks, zig-zags, and spiky chains, with the coloured shape-strings at the top marking each track&rsquo;s progress.</p>
+      <h3><span class="en">Screenshots</span><span class="ja">スクリーンショット</span></h3>
+      <p><span class="block-en">The same disc carried a set of sixteen numbered screenshots for print use, captured straight from the game and showing Vibri in every form &mdash; Super Vibri, the standard rabbit, and the worm &mdash; working through pits, loops, blocks, zig-zags, and spiky chains, with the coloured shape-strings at the top marking each track&rsquo;s progress.</span><span class="block-ja">同じディスクには印刷用の番号付きスクリーンショット16枚も収められていました。ゲームからそのまま取り込んだもので、スーパービブリ、通常のウサギ、ミミズといった各形態のビブリが、穴、ループ、ブロック、ジグザグ、トゲの連なりを切り抜けていく様子が写っており、上部の色付きの図形列が各トラックの進行を示しています。</span></p>
 
       <div class="vib-gallery">
         <figure>
@@ -280,6 +298,6 @@
     <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Next image">&rsaquo;</button>
   </div>
 
-  <script src="vib.js?v=20260914"></script>
+  <script src="vib.js?v=20260916"></script>
 </body>
 </html>

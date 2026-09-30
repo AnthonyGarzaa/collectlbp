@@ -15,7 +15,7 @@
   <meta property="og:image" content="https://parappacorner.com/par.png">
   <link id="favicon" rel="icon" type="image/png" href="par.png">
   <link id="favicon-shortcut" rel="shortcut icon" type="image/png" href="par.png">
-  <link rel="stylesheet" href="parappa.css?v=20260914">
+  <link rel="stylesheet" href="parappa.css?v=20260930k">
 </head>
 <body>
 <script>
@@ -68,7 +68,9 @@
         <img class="masan-poofu" src="LammyStuff/ressources/poofu.png" alt="" aria-hidden="true">
         <img class="lammy-guit" src="LammyStuff/resources/lammyguit.png" alt="Lammy's guitar" aria-hidden="true">
         <img class="masan-drumhead" src="LammyStuff/resources/drumhead.png" alt="" aria-hidden="true">
+        <img class="masan-joeswitch" src="LammyStuff/resources/joe_switch_small.png" alt="" aria-hidden="true">
         <img class="masan-bass" src="LammyStuff/resources/bass.png" alt="Bass guitar" aria-hidden="true">
+        <img class="masan-turntable" src="LammyStuff/resources/chin_turn_table_small.png" alt="" aria-hidden="true">
         <img class="masan-pandatsu" src="LammyStuff/Renders/pandatsu.png" alt="Pandatsu" aria-hidden="true">
         <img class="masan-squirrel" src="LammyStuff/Renders/squirrel.png" alt="Gramophone squirrel" aria-hidden="true">
         <img class="masan-guitartopper" src="LammyStuff/Renders/guitartopper.png" alt="Guitar Topper">
@@ -117,6 +119,7 @@
         <a href="search.html"><span class="dot"></span><span class="en">Search</span><span class="ja">検索</span></a>
         <a href="donate.html"><span class="dot"></span><span class="en">Donate</span><span class="ja">寄付</span></a>
         <a href="contact.html"><span class="dot"></span><span class="en">Contact</span><span class="ja">お問い合わせ</span></a>
+        <a href="credits.html"><span class="dot"></span><span class="en">Special Credits</span><span class="ja">スペシャルクレジット</span></a>
       </div>
     </div>
 
@@ -251,6 +254,12 @@
     </div>
 
     <div class="nav-item">
+      <button class="nav-events" onclick="showPage('gal-events2', this)">
+        <span class="en">EVENTS</span><span class="ja">イベント</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
       <button class="nav-ujlnow" onclick="showPage('lammynow', this)">
         <span class="en"><span class="nav-umjammer">UM JAMMER</span> <span class="nav-lammy">LAMMY</span> <span class="nav-now">NOW!</span></span><span class="ja"><span class="nav-umjammer">ウンジャマ・</span><span class="nav-lammy">ラミー</span> <span class="nav-now">Now!</span></span>
         <span class="arrow">▾</span>
@@ -266,12 +275,6 @@
     <div class="nav-item">
       <button class="nav-milkcan" onclick="showPage('milkcan', this)">
         <span class="en">MILKCAN</span><span class="ja">ミルクカン</span>
-      </button>
-    </div>
-
-    <div class="nav-item">
-      <button class="nav-events" onclick="showPage('gal-events2', this)">
-        <span class="en">EVENTS</span><span class="ja">イベント</span>
       </button>
     </div>
 
@@ -414,19 +417,6 @@
       </p>
     </div>
 
-    <div class="ujl-details">
-      <div class="ujl-info-title"><span class="en">— AT A GLANCE —</span><span class="ja">— プロフィール —</span></div>
-      <table class="ujl-table">
-        <tr><td class="ujl-label"><span class="en">Born</span><span class="ja">生年月日</span></td><td><span class="en">June 16, 1961 — Osaka, Japan</span><span class="ja">1961年6月16日 — 大阪</span></td></tr>
-        <tr><td class="ujl-label"><span class="en">Education</span><span class="ja">学歴</span></td><td><span class="en">Ritsumeikan University — Industrial Society (1983)</span><span class="ja">立命館大学 産業社会学部（1983年卒）</span></td></tr>
-        <tr><td class="ujl-label"><span class="en">Band</span><span class="ja">バンド</span></td><td>PSY-S (1985–1996)</td></tr>
-        <tr><td class="ujl-label"><span class="en">Studio</span><span class="ja">所属</span></td><td><span class="en">NanaOn-Sha (founded 1996)</span><span class="ja">七音社（1996年設立）</span></td></tr>
-        <tr><td class="ujl-label"><span class="en">PaRappa Roles</span><span class="ja">パラッパでの役割</span></td><td><span class="en">Producer · Director · Lead Composer</span><span class="ja">プロデューサー／ディレクター／メインコンポーザー</span></td></tr>
-        <tr><td class="ujl-label"><span class="en">PaRappa Games</span><span class="ja">主要作</span></td><td><span class="en">PaRappa the Rapper (1996), Um Jammer Lammy (1999), PaRappa the Rapper 2 (2001), PaRappa PSP (2007), PaRappa Remastered (2017)</span><span class="ja">パラッパラッパー（1996）、ウンジャマ・ラミー（1999）、パラッパラッパー2（2001）、パラッパラッパー PSP（2007）、パラッパラッパー リマスター（2017）</span></td></tr>
-        <tr><td class="ujl-label"><span class="en">Other Games</span><span class="ja">その他</span></td><td><span class="en">The Seven Colors (1993), Vib-Ribbon (1999), Mojib-Ribbon (2003), Vib-Ripple (2004), Major Minor's Majestic March (2009)</span><span class="ja">The Seven Colors（1993）、ビブリボン（1999）、モジブリボン（2003）、ビブリップル（2004）、メジャー・マイナーズ・マジェスティック・マーチ（2009）</span></td></tr>
-        <tr><td class="ujl-label"><span class="en">Honours</span><span class="ja">受賞</span></td><td><span class="en">Multimedia Grand Prix (1993), IAA Original Music Composition (2000), IGDA First Penguin Award (2004), IGN Top 100 Game Creators (2009)</span><span class="ja">マルチメディアグランプリ（1993）、IAA最優秀オリジナル音楽作曲賞（2000）、IGDA First Penguin Award（2004）、IGN歴代ゲームクリエイター100選（2009）</span></td></tr>
-      </table>
-    </div>
   </div>
   <div class="footer">PaRappa Corner &mdash; PaRappa the Rapper Fan Site &mdash; parappacorner.com</div>
 </div>
@@ -491,6 +481,6 @@
           stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
 </button>
-<script src="parappa.js"></script>
+<script src="parappa.js?v=20260929b"></script>
 </body>
 </html>

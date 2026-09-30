@@ -15,7 +15,7 @@
   <meta property="og:image" content="https://parappacorner.com/par.png">
   <link id="favicon" rel="icon" type="image/png" href="par.png">
   <link id="favicon-shortcut" rel="shortcut icon" type="image/png" href="par.png">
-  <link rel="stylesheet" href="parappa.css?v=20260914">
+  <link rel="stylesheet" href="parappa.css?v=20260930k">
 </head>
 <body>
 <script>
@@ -68,7 +68,9 @@
         <img class="masan-poofu" src="LammyStuff/ressources/poofu.png" alt="" aria-hidden="true">
         <img class="lammy-guit" src="LammyStuff/resources/lammyguit.png" alt="Lammy's guitar" aria-hidden="true">
         <img class="masan-drumhead" src="LammyStuff/resources/drumhead.png" alt="" aria-hidden="true">
+        <img class="masan-joeswitch" src="LammyStuff/resources/joe_switch_small.png" alt="" aria-hidden="true">
         <img class="masan-bass" src="LammyStuff/resources/bass.png" alt="Bass guitar" aria-hidden="true">
+        <img class="masan-turntable" src="LammyStuff/resources/chin_turn_table_small.png" alt="" aria-hidden="true">
         <img class="masan-pandatsu" src="LammyStuff/Renders/pandatsu.png" alt="Pandatsu" aria-hidden="true">
         <img class="masan-squirrel" src="LammyStuff/Renders/squirrel.png" alt="Gramophone squirrel" aria-hidden="true">
         <img class="masan-guitartopper" src="LammyStuff/Renders/guitartopper.png" alt="Guitar Topper">
@@ -117,6 +119,7 @@
         <a href="search.html"><span class="dot"></span><span class="en">Search</span><span class="ja">検索</span></a>
         <a href="donate.html"><span class="dot"></span><span class="en">Donate</span><span class="ja">寄付</span></a>
         <a href="contact.html"><span class="dot"></span><span class="en">Contact</span><span class="ja">お問い合わせ</span></a>
+        <a href="credits.html"><span class="dot"></span><span class="en">Special Credits</span><span class="ja">スペシャルクレジット</span></a>
       </div>
     </div>
 
@@ -251,6 +254,12 @@
     </div>
 
     <div class="nav-item">
+      <button class="nav-events" onclick="showPage('gal-events2', this)">
+        <span class="en">EVENTS</span><span class="ja">イベント</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
       <button class="nav-ujlnow" onclick="showPage('lammynow', this)">
         <span class="en"><span class="nav-umjammer">UM JAMMER</span> <span class="nav-lammy">LAMMY</span> <span class="nav-now">NOW!</span></span><span class="ja"><span class="nav-umjammer">ウンジャマ・</span><span class="nav-lammy">ラミー</span> <span class="nav-now">Now!</span></span>
         <span class="arrow">▾</span>
@@ -270,12 +279,6 @@
     </div>
 
     <div class="nav-item">
-      <button class="nav-events" onclick="showPage('gal-events2', this)">
-        <span class="en">EVENTS</span><span class="ja">イベント</span>
-      </button>
-    </div>
-
-    <div class="nav-item">
       <button onclick="showPage('collections', this)">
         <span class="en">COLLECTIONS</span><span class="ja">コレクション</span>
       </button>
@@ -287,153 +290,356 @@
     <div class="section-title"><span class="en">★ THE ANIME ★</span><span class="ja">★ アニメ ★</span></div>
 
     <div class="ujl-intro">
-      <p><span class="block-en">In the spring of 2001, almost five years after the original PlayStation game first turned PaRappa Rappa into a household character in Japan, Sony Music Entertainment Visual Works and Fuji Television sat down with animation studio <strong>J.C.Staff</strong> to bring PaRappa Town to weekly television. The result — simply titled <em>PaRappa the Rapper</em> — premiered on Fuji TV's Saturday-morning lineup on <strong>April 14, 2001</strong> and ran for <strong>thirty episodes</strong> until its hour-long finale on <strong>January 11, 2002</strong>. It is the only animated incarnation of the franchise to date, and the only place where Rodney Alan Greenblat's flat paper-doll cast has ever existed as fully traditional, hand-drawn animation cels.</span>
-      <span class="block-ja">2001年春、初代PS版『パラッパラッパー』がパラッパ・ラッパを日本中の人気キャラクターに押し上げてからおよそ5年。ソニー・ミュージックエンタテインメント ビジュアルワークスとフジテレビは、アニメーションスタジオ<strong>ジェー・シー・スタッフ</strong>を起用し、ついにパラッパタウンを毎週放送のテレビアニメとして届ける企画を立ち上げました。タイトルもそのまま『<em>パラッパラッパー</em>』。<strong>2001年4月14日</strong>のフジテレビ系土曜午前枠でスタートし、<strong>2002年1月11日</strong>の1時間スペシャルまで全<strong>30話</strong>が放送されました。本作は現在に至るまでシリーズ唯一のアニメ化作品であり、ロドニー・アラン・グリーンブラットの「平面紙人形」キャラクターたちが、伝統的な作画によるセルアニメとして動いた唯一の場でもあります。</span></p>
+      <p><span class="block-en">In spring 2001, five years after the PlayStation game turned PaRappa into a household name in Japan, Fuji Television and Sony Music's anime label SME Visual Works brought PaRappa Town to weekly television with animation studio <strong>J.C.Staff</strong>. The series, titled simply <em>PaRappa the Rapper</em>, premiered on <strong>April 14, 2001</strong> in Fuji TV's Saturday 6:30 pm slot and ran for <strong>30 episodes</strong> until <strong>January 11, 2002</strong>. It is a standalone slice-of-life comedy about PaRappa and his friends rather than an adaptation of any one game, and it adds a whole troupe of anime-original characters designed by Rodney Alan Greenblat. It remains the only full-length animated version of the franchise, and it has never been released outside Japan. This page covers the production, the seasons, the complete voice cast, the music, the home video, and the long fan rediscovery that finally made the show easy to see.</span>
+      <span class="block-ja">2001年春、PlayStation版のヒットでパラッパが日本中に知られるようになってから5年、フジテレビとソニー・ミュージック系のアニメレーベル<strong>SME・ビジュアルワークス</strong>は、アニメーション制作にジェー・シー・スタッフを迎え、パラッパタウンを毎週のテレビアニメとして届けました。タイトルはそのまま『<em>パラッパラッパー</em>』で、<strong>2001年4月14日</strong>にフジテレビの土曜18時30分枠で放送を開始し、<strong>2002年1月11日</strong>まで<strong>全30話</strong>が放送されました。特定のゲームの映像化ではなく、パラッパと仲間たちの日常を描く独立したコメディで、ロドニー・アラン・グリーンブラットがデザインしたアニメオリジナルのキャラクターが多数加わっています。シリーズ唯一の本格的なアニメ化作品でありながら、日本国外では一度も公式リリースされていません。このページでは、制作、シーズン構成、全キャスト、音楽、映像ソフト、そしてこの作品をようやく気軽に観られるものにしたファンによる「再発見」の歩みをまとめます。</span></p>
     </div>
 
     <div class="ujl-cabinet-section">
       <div class="ujl-cabinet-img">
-        <img src="https://upload.wikimedia.org/wikipedia/en/b/b9/Parappa_the_Rapper_logo.jpg" alt="PaRappa the Rapper anime logo">
+        <img src="ParappaStuff/ParappaAnime/tumblr_mx18vz0Bzk1ry1z4no1_1280.jpg" alt="PaRappa the Rapper TV Animation DVD Collection box front: PaRappa sitting on a red background">
       </div>
       <div class="ujl-cabinet-info">
         <div class="ujl-info-title"><span class="en">PaRappa the Rapper (TV Anime, 2001–2002)</span><span class="ja">パラッパラッパー（テレビアニメ、2001〜2002年）</span></div>
-        <p><span class="block-en"><strong>Original run:</strong> April 14, 2001 – January 11, 2002. <strong>Network:</strong> Fuji Television (FNS network). <strong>Format:</strong> 30 episodes (the final episodes 29 and 30 were broadcast back-to-back as a one-hour special). <strong>Animation studio:</strong> J.C.Staff. <strong>Producers:</strong> Sōsuke Osabe and Hideo Katsumata for Sony Music Entertainment Visual Works. <strong>Directed by</strong> Hiroaki Sakurai. <strong>Series composition / head writer:</strong> Yoshio Urasawa. <strong>Music:</strong> Masaya Matsuura, Yoshihisa Suzuki, and Yasushi Kurobane. The series was framed as a stand-alone weekly comedy aimed at family audiences rather than as a direct adaptation of any one game, and is best understood as a "slice-of-life-in-PaRappa-Town" prequel to the events of the original PS1 title.</span>
-        <span class="block-ja"><strong>放送期間：</strong>2001年4月14日〜2002年1月11日。<strong>放送局：</strong>フジテレビ（フジテレビ系FNS）。<strong>話数：</strong>全30話（最終話の29・30話は1時間スペシャルとして連続放送）。<strong>アニメーション制作：</strong>ジェー・シー・スタッフ。<strong>プロデューサー：</strong>長部聡介、勝俣英夫（ソニー・ミュージックエンタテインメント ビジュアルワークス）。<strong>監督：</strong>桜井弘明。<strong>シリーズ構成・脚本：</strong>浦沢義雄。<strong>音楽：</strong>松浦雅也、鈴木慶久、黒鞘靖。本作はファミリー層向けの単発エピソード型コメディとして企画されており、特定のゲームをそのまま映像化したものではなく、初代PS版のさらに前の時間軸を描く「パラッパタウンの日常譚」として位置付けられています。</span></p>
+        <p><span class="block-en"><strong>Original run:</strong> April 14, 2001 to January 11, 2002 on Fuji Television and the FNS network. <strong>Format:</strong> 30 half-hour episodes, with Episodes 29 and 30 broadcast together on the final day. <strong>Staff:</strong> animation by J.C.Staff with production cooperation from Production I.G, directed by Hiroaki Sakurai, series composition by Yoshio Urasawa, and animation character design by Takayuki Goto. <strong>Music:</strong> Masaya Matsuura, Yoshihisa Suzuki, and Yasushi Kurobane. The show was produced by Fuji TV and SME Visual Works, the Sony Music company renamed Aniplex in 2003, which is why Aniplex still hosts the official product pages today. Pictured: the front of the 2002 DVD Collection box.</span>
+        <span class="block-ja"><strong>放送期間：</strong>2001年4月14日〜2002年1月11日、フジテレビ系列（FNS）。<strong>形式：</strong>30分枠の全30話で、最終日には第29話と第30話が連続放送されました。<strong>スタッフ：</strong>アニメーション制作はジェー・シー・スタッフ（制作協力：Production I.G）、監督は桜井弘明、シリーズ構成は浦沢義雄、アニメーションキャラクターデザインは後藤隆幸。<strong>音楽：</strong>松浦雅也、鈴木禎久、黒羽康司。製作はフジテレビとSME・ビジュアルワークスで、同社は2003年にアニプレックスへ社名変更したため、現在も公式の商品ページはアニプレックスが掲載しています。写真は2002年発売のDVDコレクションBOXの表面です。</span></p>
       </div>
     </div>
 
     <div class="ujl-details">
       <div class="ujl-info-title"><span class="en">— PRODUCTION CREDITS —</span><span class="ja">— 制作スタッフ —</span></div>
       <table class="ujl-table">
-        <tr><td class="ujl-label"><span class="en">Original Concept</span><span class="ja">原作</span></td><td>Masaya Matsuura, Rodney Alan Greenblat / NanaOn-Sha</td></tr>
+        <tr><td class="ujl-label"><span class="en">Original Work</span><span class="ja">原作</span></td><td>Rodney Alan Greenblat, Masaya Matsuura (ロドニー・アラン・グリーンブラット、松浦雅也)</td></tr>
+        <tr><td class="ujl-label"><span class="en">Character Concepts</span><span class="ja">キャラクター原案</span></td><td>Rodney Alan Greenblat</td></tr>
         <tr><td class="ujl-label"><span class="en">Director</span><span class="ja">監督</span></td><td>Hiroaki Sakurai (桜井弘明)</td></tr>
         <tr><td class="ujl-label"><span class="en">Series Composition</span><span class="ja">シリーズ構成</span></td><td>Yoshio Urasawa (浦沢義雄)</td></tr>
-        <tr><td class="ujl-label"><span class="en">Character Design</span><span class="ja">キャラクターデザイン</span></td><td><span class="en">Based on Rodney A. Greenblat originals, adapted for animation by J.C.Staff</span><span class="ja">ロドニー・A・グリーンブラットの原案を基に、ジェー・シー・スタッフがアニメ用にリデザイン</span></td></tr>
-        <tr><td class="ujl-label"><span class="en">Music</span><span class="ja">音楽</span></td><td>Masaya Matsuura, Yoshihisa Suzuki, Yasushi Kurobane</td></tr>
-        <tr><td class="ujl-label"><span class="en">Animation Studio</span><span class="ja">アニメーション制作</span></td><td>J.C.Staff</td></tr>
-        <tr><td class="ujl-label"><span class="en">Production</span><span class="ja">製作</span></td><td>Fuji Television, SME Visual Works, Aniplex</td></tr>
+        <tr><td class="ujl-label"><span class="en">Animation Character Design</span><span class="ja">アニメーションキャラクターデザイン</span></td><td>Takayuki Goto (後藤隆幸)</td></tr>
+        <tr><td class="ujl-label"><span class="en">Character Advisor</span><span class="ja">キャラクターアドバイザー</span></td><td>Kiri Matsuura (松浦季里)</td></tr>
+        <tr><td class="ujl-label"><span class="en">Music</span><span class="ja">音楽</span></td><td>Masaya Matsuura (松浦雅也), Yoshihisa Suzuki (鈴木禎久), Yasushi Kurobane (黒羽康司)</td></tr>
+        <tr><td class="ujl-label"><span class="en">Music Directors</span><span class="ja">音楽監督</span></td><td>長崎行男、中武敬文</td></tr>
+        <tr><td class="ujl-label"><span class="en">Producers</span><span class="ja">プロデューサー</span></td><td>Sōsuke Osabe (長部聡介), Hideo Katsumata (勝股英夫)</td></tr>
+        <tr><td class="ujl-label"><span class="en">Animation Studio</span><span class="ja">アニメーション制作</span></td><td>J.C.Staff <span class="en">(production cooperation: Production I.G)</span><span class="ja">（制作協力：Production I.G）</span></td></tr>
+        <tr><td class="ujl-label"><span class="en">Production</span><span class="ja">製作</span></td><td>Fuji Television, SME Visual Works <span class="en">(now Aniplex)</span><span class="ja">（現アニプレックス）</span></td></tr>
         <tr><td class="ujl-label"><span class="en">Network</span><span class="ja">放送局</span></td><td>Fuji TV (FNS)</td></tr>
-        <tr><td class="ujl-label"><span class="en">Episodes</span><span class="ja">話数</span></td><td>30 (final 29–30 broadcast as 1-hour special)</td></tr>
+        <tr><td class="ujl-label"><span class="en">Episodes</span><span class="ja">話数</span></td><td>30</td></tr>
         <tr><td class="ujl-label"><span class="en">Run</span><span class="ja">放送期間</span></td><td>April 14, 2001 – January 11, 2002</td></tr>
       </table>
     </div>
 
     <div class="ujl-intro">
-      <div class="ujl-info-title"><span class="en">— THE LOOK: HOW J.C.STAFF TRANSLATED A PAPER WORLD —</span><span class="ja">— ビジュアルアプローチ：紙の世界をどうアニメ化したか —</span></div>
-      <p><span class="block-en">The hardest creative problem the production faced was an obvious one: PaRappa is, by design, two-dimensional. Rodney Greenblat's original character sheets explicitly treat PaRappa, Katy Kat, PJ Berri, and Sunny Funny as flat illustrations whose entire personality lives in pose and silhouette. The PS1 game leaned into that, rendering everyone as paper cut-outs floating through 3D environments. For weekly television, J.C.Staff and director Hiroaki Sakurai had to figure out how to keep that paper-doll charm while still producing a show that could move, gesture, and emote across 22 minutes per episode.</span>
-      <span class="block-ja">企画段階で最も大きな課題となったのは明白でした。パラッパはそもそも「平面」のキャラクターだということです。ロドニー・グリーンブラットによる原案では、パラッパ、ケイティ・キャット、PJベリー、サニー・ファニーらは、いずれも姿勢とシルエットだけで個性を表現する平面イラストとして設計されています。PS版ではその設計をそのまま活かし、3D空間に紙人形のキャラクターを配置するという表現が採用されました。週1放送のテレビアニメとなれば話は別で、J.C.スタッフと桜井弘明監督は、紙人形ならではの魅力を保ちつつ、毎話22分のなかで芝居や表情、身振りで物語を運ぶ方法を模索する必要がありました。</span></p>
-      <p><span class="block-en">Their solution was a hybrid: they kept Greenblat's flat, frontal silhouettes wherever an iconic pose was called for — title cards, song-and-dance moments, big reaction shots — but quietly reintroduced soft three-quarter angles, simple eye animation, and gentle volumetric shading for the in-between dialogue beats. Backgrounds were redrawn in a thicker-outlined cel-paint style that matched the saturated colour palette of PaRappa Town in the games but read as flat gouache rather than 3D scenery. The compromise gives the anime its own distinct visual identity: it is unmistakably the same cast as the PlayStation original, but slightly rounder, slightly warmer, and built for the rhythm of TV comedy rather than for rapping along to a beat.</span>
-      <span class="block-ja">彼らの答えはハイブリッドでした。タイトルバック、ミュージカル風シーン、大きなリアクションカットなど、決め絵が必要な場面ではグリーンブラットの正面ベタ塗りシルエットをそのまま採用。一方でセリフやちょっとした芝居が中心の場面では、ナチュラルな斜めアングル、シンプルな目のパカパカ、軽い陰影をそっと足しています。背景もパラッパタウン本来の高彩度カラーパレットを活かしつつ、3D風ではなく、太めの輪郭線とグワッシュ調のセル塗りで描き直されました。結果として、アニメ版はPS版とまぎれもなく同じキャラクター造形を持ちながらも、わずかに丸みと温かみが加わり、ラップに合わせるための映像ではなく、テレビコメディのリズムに最適化された独自のビジュアルアイデンティティを獲得しています。</span></p>
+      <div class="ujl-info-title"><span class="en">— HOW MANY SEASONS? —</span><span class="ja">— シーズンはいくつ？ —</span></div>
+      <p><span class="block-en">The 2001 anime is a <strong>single season of 30 episodes</strong>, and no Japanese source, from J.C.Staff's works list to the Aniplex product pages, ever splits it into a first and second series. What changed midway was the packaging: the opening and ending themes were swapped at Episode 16, and from Episode 18 Fuji TV moved the show from Saturday evening to Friday afternoon. The only other PaRappa animation is <strong><em>PJ Berri no Mogumogu Munyamunya</em></strong>, a spin-off of roughly 96-second shorts made for the game's 20th anniversary in 2016 with an entirely new staff and cast. Fuji TV labelled its two runs Season 1 (20 episodes) and Season 2 (6 episodes), but those are seasons of the spin-off, not of the 2001 series. So the honest count is one season of the TV anime, plus two short seasons of the PJ Berri spin-off.</span>
+      <span class="block-ja">2001年のアニメは<strong>全30話の1シーズン</strong>で、ジェー・シー・スタッフの作品リストからアニプレックスの商品ページまで、日本の資料で第1期・第2期に分けているものはありません。途中で変わったのは体裁だけで、第16話でオープニングとエンディングが入れ替わり、第18話からはフジテレビの放送枠が土曜夕方から金曜午後へ移りました。パラッパのアニメ作品はほかに『<strong><em>PJベリーのもぐもぐむにゃむにゃ</em></strong>』があるのみで、これはゲーム20周年を記念して2016年に作られた1話約96秒のショートアニメで、スタッフもキャストも完全に一新されたスピンオフです。フジテレビはその2回の放送期間をシーズン1（全20話）、シーズン2（全6話）と呼びましたが、これはスピンオフのシーズンであって2001年版のものではありません。正確に数えれば、テレビアニメが1シーズン、PJベリーのスピンオフが短い2シーズン、ということになります。</span></p>
+    </div>
+
+    <div class="ujl-details">
+      <div class="ujl-info-title"><span class="en">— EVERY PARAPPA ANIME AT A GLANCE —</span><span class="ja">— パラッパのアニメ作品一覧 —</span></div>
+      <table class="ujl-table">
+        <tr><td class="ujl-label">PaRappa the Rapper (2001)</td><td><span class="en">1 season, 30 episodes / April 14, 2001 – January 11, 2002 / Fuji TV, 30-minute slot / J.C.Staff</span><span class="ja">1シーズン、全30話／2001年4月14日〜2002年1月11日／フジテレビ、30分枠／ジェー・シー・スタッフ</span></td></tr>
+        <tr><td class="ujl-label">PJ Berri no Mogumogu Munyamunya, Season 1</td><td><span class="en">20 episodes of about 96 seconds / pilot August 18, 2016, weekly run October 13, 2016 – March 9, 2017 inside Fuji TV's #Hi_Poul / Doga Kobo</span><span class="ja">1話約96秒、全20話／2016年8月18日にパイロット版、2016年10月13日〜2017年3月9日にフジテレビ『#ハイ_ポール』内でレギュラー放送／動画工房</span></td></tr>
+        <tr><td class="ujl-label">PJ Berri no Mogumogu Munyamunya, Season 2</td><td><span class="en">6 episodes / August 3 – September 14, 2017, again inside #Hi_Poul / ODDJOB</span><span class="ja">全6話／2017年8月3日〜9月14日、同じく『#ハイ_ポール』内で放送／ODDJOB</span></td></tr>
+      </table>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— THE EIGHT DVD STAGES —</span><span class="ja">— DVD全8巻「Stage.1〜8」 —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-dvd-stage1-cover.jpg" alt="PaRappa the Rapper TV Animation Stage.1 DVD cover">
+          <div class="ujl-caption"><span class="en">Stage.1 (Episodes 1–4), released October 24, 2001 (SVWB-1531). PaRappa skateboards past PJ Berri and Matt on his bicycle.</span><span class="ja">Stage.1（第1〜4話）、2001年10月24日発売（SVWB-1531）。スケートボードのパラッパと、PJベリー、自転車に乗ったマット。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-dvd-stage2-cover.jpg" alt="PaRappa the Rapper TV Animation Stage.2 DVD cover">
+          <div class="ujl-caption"><span class="en">Stage.2 (Episodes 5–8), released October 24, 2001 (SVWB-1532). PJ Berri behind the turntables in his DJ shades.</span><span class="ja">Stage.2（第5〜8話）、2001年10月24日発売（SVWB-1532）。サングラス姿でターンテーブルに向かうPJベリー。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-dvd-stage3-cover.jpg" alt="PaRappa the Rapper TV Animation Stage.3 DVD cover">
+          <div class="ujl-caption"><span class="en">Stage.3 (Episodes 9–11), released January 23, 2002 (SVWB-1533). Baseball day for PaRappa, Katy Kat, Sunny Funny, Matt and Paula.</span><span class="ja">Stage.3（第9〜11話）、2002年1月23日発売（SVWB-1533）。野球姿のパラッパ、ケイティ、サニー、マット、ポーラ。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-dvd-stage4-cover.jpg" alt="PaRappa the Rapper TV Animation Stage.4 DVD cover">
+          <div class="ujl-caption"><span class="en">Stage.4 (Episodes 12–15), released January 23, 2002 (SVWB-1534). Chop Chop Master Onion in the dojo with PaRappa and Sunny.</span><span class="ja">Stage.4（第12〜15話）、2002年1月23日発売（SVWB-1534）。道場のタマネギ先生とパラッパ、サニー。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-dvd-stage5-cover.jpg" alt="PaRappa the Rapper TV Animation Stage.5 DVD cover">
+          <div class="ujl-caption"><span class="en">Stage.5 (Episodes 16–19), released February 20, 2002 (SVWB-1535). The first volume of the second half, with the new opening and ending themes.</span><span class="ja">Stage.5（第16〜19話）、2002年2月20日発売（SVWB-1535）。新しいオープニングとエンディングに切り替わった後期最初の巻。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-dvd-stage6-cover.jpg" alt="PaRappa the Rapper TV Animation Stage.6 DVD cover">
+          <div class="ujl-caption"><span class="en">Stage.6 (Episodes 20–23), released February 20, 2002 (SVWB-1536). PaRappa surfs with Prince Fleaswallow, whose episode is on this disc.</span><span class="ja">Stage.6（第20〜23話）、2002年2月20日発売（SVWB-1536）。サーフィンするパラッパとカエル先生（登場話を収録）。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-dvd-stage7-cover.jpg" alt="PaRappa the Rapper TV Animation Stage.7 DVD cover">
+          <div class="ujl-caption"><span class="en">Stage.7 (Episodes 24–26), released March 20, 2002 (SVWB-1537). The gang makes a movie, with PJ on the clapperboard and Katy on camera.</span><span class="ja">Stage.7（第24〜26話）、2002年3月20日発売（SVWB-1537）。映画づくりに挑む仲間たちで、PJがカチンコ、ケイティがカメラ担当。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-dvd-stage8-cover.jpg" alt="PaRappa the Rapper TV Animation Stage.8 DVD cover">
+          <div class="ujl-caption"><span class="en">Stage.8 (Episodes 27–30), released March 20, 2002 (SVWB-1538). PaRappa and Sunny Funny in formal wear inside a heart, with PJ and Pinto behind them, for the final volume.</span><span class="ja">Stage.8（第27〜30話）、2002年3月20日発売（SVWB-1538）。最終巻はハートの中で正装したパラッパとサニー、後ろにPJとピント。</span></div>
+        </div>
+      </div>
     </div>
 
     <div class="ujl-cabinet-section">
       <div class="ujl-cabinet-img">
-        <img src="https://www.animenewsnetwork.com/images/encyc/A1950-22.jpg" alt="PaRappa the Rapper anime — promotional cast group shot">
+        <img src="ParappaStuff/ParappaAnime/Art/anime-wallpaper-cast.jpg" alt="Official 2001 anime wallpaper: Katy Kat, Paula Fox and Sunny Funny at the Big Beef diner while Gaster and Groober peer through the window">
       </div>
       <div class="ujl-cabinet-info">
         <div class="ujl-info-title"><span class="en">— THE CAST —</span><span class="ja">— キャラクター —</span></div>
-        <p><span class="block-en">The anime keeps the full PS1 cast — <strong>PaRappa</strong>, his crush <strong>Sunny Funny</strong>, his best friend <strong>PJ Berri</strong>, the no-nonsense Katy Kat, and most of the rapping instructors — but expands the world with a small troupe of TV-only originals who appear in nearly every episode. <strong>Matt Major</strong> is a sporty, popular dog who joins PaRappa and PJ as a third member of the boys' inner circle and is most often seen on a basketball court. <strong>Paula Fox</strong> is Sunny's high-strung friend (and Katy's reluctant rival), introduced to give the girls' side of the cast a comic foil. <strong>Pinto Rappa</strong>, PaRappa's tiny baby sister, becomes a recurring "wandering toddler" engine for trouble. The villains are <strong>Gaster and Groober</strong>, a pair of inept, heavily disguised crooks whose schemes the kids of PaRappa Town accidentally derail every other week.</span>
-        <span class="block-ja">アニメ版にはPS版のキャストが全員登場します。<strong>パラッパ</strong>、想い人の<strong>サニー・ファニー</strong>、親友<strong>PJベリー</strong>、しっかり者のケイティ・キャット、各先生たちはほぼそのまま登場するうえに、ほぼ毎話顔を見せるテレビアニメ版オリジナルキャラクターも追加されました。<strong>マット・メジャー</strong>はスポーティで人気者の犬で、パラッパ・PJと並んで男子の3人組を構成し、バスケットコートで描かれる場面が多いキャラクター。<strong>ポーラ・フォックス</strong>はサニーの落ち着きのない友人にしてケイティのライバル枠で、女子組サイドのコメディ要員として配置されました。パラッパの妹<strong>ピント・ラッパ</strong>は、よちよち歩きで街に騒動を呼び込む常連トラブルメーカー。悪役の<strong>ガスターとグルーバー</strong>はマヌケな変装犯罪者コンビで、毎回パラッパタウンの子どもたちに作戦を阻止されるお約束の立ち位置に収まりました。</span></p>
+        <p><span class="block-en">The anime keeps the PS1 regulars, <strong>PaRappa</strong>, <strong>Sunny Funny</strong>, <strong>PJ Berri</strong> and <strong>Katy Kat</strong>, and builds a town around them with anime-original characters that Rodney Greenblat designed: sporty <strong>Matt Major</strong>, Sunny's friend <strong>Paula Fox</strong>, PaRappa's baby sister <strong>Pinto</strong>, the walking boombox <strong>Boxy Boy</strong>, and the bumbling crooks <strong>Gaster and Groober</strong>. Greenblat has said he designed the new cast but was not allowed to write for the show or take part in production. Of the game instructors, only Chop Chop Master Onion, Prince Fleaswallow and MC King Kong Mushi turn up, and Hairdresser Octopus from <em>PaRappa 2</em> gets a single episode. <em>Um Jammer Lammy</em>'s Chief Puddle appears in Episode 7, but Lammy, Ma-san, Joe Chin and General Potter never do. Pictured: the official 2001 website wallpaper of the girls at the Big Beef diner, with Gaster and Groober lurking outside.</span>
+        <span class="block-ja">アニメ版にはPS版のレギュラーである<strong>パラッパ</strong>、<strong>サニー・ファニー</strong>、<strong>PJベリー</strong>、<strong>ケイティ・キャット</strong>がそのまま登場し、その周りにロドニー・グリーンブラットがデザインしたアニメオリジナルのキャラクターたち、スポーツ好きの<strong>マット</strong>、サニーの友達<strong>ポーラ</strong>、パラッパの妹<strong>ピント</strong>、歩くラジカセ<strong>ボクシーボーイ</strong>、間抜けな悪党コンビ<strong>ガスターとグルーバー</strong>が加わって街が作られています。グリーンブラットは新キャラクターをデザインしたものの、脚本や制作には関わらせてもらえなかったと語っています。ゲームの先生たちのうち登場するのはタマネギ先生、カエル先生、キングコングムシだけで、『<em>パラッパラッパー2</em>』のタコ山は1話のみ出演します。『<em>ウンジャマ・ラミー</em>』のパドル隊長は第7話に登場しますが、ラミー、マーさん、ジョー・チン、ジェネラル・ポッターは最後まで登場しません。写真は2001年の公式サイト壁紙で、ビッグビーフの店内にいる女の子たちと、外から覗くガスターとグルーバー。</span></p>
       </div>
     </div>
 
     <div class="ujl-details">
-      <div class="ujl-info-title"><span class="en">— JAPANESE VOICE CAST (selected) —</span><span class="ja">— 日本語キャスト（主要） —</span></div>
+      <div class="ujl-info-title"><span class="en">— JAPANESE VOICE CAST (2001 TV ANIME) —</span><span class="ja">— 日本語キャスト（2001年テレビアニメ） —</span></div>
       <table class="ujl-table">
-        <tr><td class="ujl-label">PaRappa Rappa</td><td>Miyu Irino (入野自由)</td></tr>
-        <tr><td class="ujl-label">PJ Berri</td><td>Masami Kikuchi (菊池正美)</td></tr>
-        <tr><td class="ujl-label">Sunny Funny</td><td>Mika Kanai (かないみか)</td></tr>
-        <tr><td class="ujl-label">Katy Kat</td><td>Rina Nakayama (中山理奈)</td></tr>
-        <tr><td class="ujl-label">Matt Major</td><td>Kenichi Suzumura (鈴村健一)</td></tr>
-        <tr><td class="ujl-label">Paula Fox</td><td>Akiko Kobayashi (小林晃子)</td></tr>
-        <tr><td class="ujl-label">Boxy Boy</td><td>Masashi Ebara (江原正士)</td></tr>
-        <tr><td class="ujl-label">Gaster</td><td>Ryō Naitō (内藤玲)</td></tr>
-        <tr><td class="ujl-label">Groober</td><td>Akio Suyama (陶山章央)</td></tr>
-        <tr><td class="ujl-label">MC King Kong Mushi</td><td>Norio Wakamoto (若本規夫)</td></tr>
+        <tr><td class="ujl-label">PaRappa (パラッパ)</td><td>Miyu Irino (入野自由)</td></tr>
+        <tr><td class="ujl-label">Sunny Funny (サニー・ファニー)</td><td>Mika Kanai (かないみか)</td></tr>
+        <tr><td class="ujl-label">PJ Berri (PJベリー)</td><td>Masami Kikuchi (菊池正美)</td></tr>
+        <tr><td class="ujl-label">Katy Kat (ケイティ・キャット)</td><td>Rina Nakayama (中山理奈)</td></tr>
+        <tr><td class="ujl-label">Matt Major (マット)</td><td>Kenichi Suzumura (鈴村健一)</td></tr>
+        <tr><td class="ujl-label">Paula Fox (ポーラ)</td><td>Akiko Kobayashi (小林晃子)</td></tr>
+        <tr><td class="ujl-label">Pinto (ピント)</td><td>mikko <span class="en">(credited as Mikko sky in Episodes 1–12)</span><span class="ja">（第1〜12話はミッコsky名義）</span></td></tr>
+        <tr><td class="ujl-label">Boxy Boy (ボクシーボーイ)</td><td>Masashi Ebara (江原正士)</td></tr>
+        <tr><td class="ujl-label">Gaster (ガスター)</td><td>Ryō Naitō (内藤玲)</td></tr>
+        <tr><td class="ujl-label">Groober (グルーバー)</td><td>Akio Suyama (陶山章央)</td></tr>
+        <tr><td class="ujl-label">Papa PaRappa (パラッパのパパ)</td><td>Kunihiko Yasui (安井邦彦)</td></tr>
+        <tr><td class="ujl-label">Chop Chop Master Onion (タマネギ先生)</td><td>RYU (MC RYU)</td></tr>
+        <tr><td class="ujl-label">Prince Fleaswallow (カエル先生)</td><td>Yoshito Yasuhara (安原義人)</td></tr>
+        <tr><td class="ujl-label">MC King Kong Mushi (キングコングムシ)</td><td>Norio Wakamoto (若本規夫)</td></tr>
+        <tr><td class="ujl-label">Hairdresser Octopus (タコ山)</td><td>Yūji Mitsuya (三ツ矢雄二)</td></tr>
+        <tr><td class="ujl-label">Sister Corn (シスターコーン)</td><td>Masako Nozawa (野沢雅子)</td></tr>
+        <tr><td class="ujl-label">Shyman-sensei (シャイマン先生)</td><td>Toshiya Ueda (上田敏也)</td></tr>
+        <tr><td class="ujl-label">Hippo-sensei (ヒッポ先生)</td><td>Seiko Tomoe (巴菁子)</td></tr>
+        <tr><td class="ujl-label">Bobzy-sensei (ボブジー先生)</td><td>Tomoyuki Shimura (志村知幸)</td></tr>
+        <tr><td class="ujl-label">Chief Puddle (パドル)</td><td>Nobuo Tobita (飛田展男)</td></tr>
+        <tr><td class="ujl-label">Ann (アン)</td><td>Sara Nakayama (中山さら)</td></tr>
+        <tr><td class="ujl-label">Tambourine (タンバリン)</td><td>Kinryū Arimoto (有本欽隆)</td></tr>
+        <tr><td class="ujl-label">Paul (ポール)</td><td>Hideyuki Umezu (梅津秀行)</td></tr>
+        <tr><td class="ujl-label">Sweety Bancha (スウィーティー・バンチャ)</td><td>Yūko Mizutani (水谷優子)</td></tr>
+        <tr><td class="ujl-label">Eray (イーレイ)</td><td>Yūichi Nagashima (長島雄一)</td></tr>
+        <tr><td class="ujl-label">Schmidt (シュミット)</td><td>Ken'yū Horiuchi (堀内賢雄)</td></tr>
+        <tr><td class="ujl-label">Jonathan (ジョナサン)</td><td>Shōtarō Morikubo (森久保祥太郎)</td></tr>
+        <tr><td class="ujl-label">Don (ドン)</td><td>Jūrōta Kosugi (小杉十郎太)</td></tr>
+        <tr><td class="ujl-label">Domonjo (ドモンジョ)</td><td>田の上一洲</td></tr>
+        <tr><td class="ujl-label">Umpire / Mayor (アンパイア／市長)</td><td>Toshitaka Hirano (平野俊隆)</td></tr>
       </table>
     </div>
 
     <div class="ujl-intro">
-      <div class="ujl-info-title"><span class="en">— THE STORIES, AND HOW THEY WORK —</span><span class="ja">— 物語の作り方 —</span></div>
-      <p><span class="block-en">Where the games hang their structure on a stage-by-stage rapping showdown, the anime is built almost entirely around the kind of low-stakes, week-to-week schoolyard storytelling that head writer Yoshio Urasawa was already famous for in shows like <em>Tottoko Hamtaro</em> and <em>Magical DoReMi</em>. Most episodes drop the gang into a single self-contained problem — PaRappa promises two different friend groups he'll hang out with them on the same afternoon and has to scramble to keep both sides happy; an aging florist named Dorothy wants one last dance recital before her old theatre is demolished; a stray pet escapes; a school festival goes off the rails; Pinto vanishes into the city for an afternoon. Songs and rapping appear, but they tend to surface naturally inside the story rather than gate-keep gameplay-style "stages."</span>
-      <span class="block-en">Recurring threads run beneath the standalone episodes. PaRappa's crush on Sunny Funny stays politely unstated for most of the run; Katy Kat's rivalry with Paula simmers; Gaster and Groober keep failing upward; PJ continues to be hungry. The 30-episode arc culminates in the back-to-back episodes 29 and 30, broadcast as a single one-hour finale on January 11, 2002.</span>
-      <span class="block-ja">ゲーム本編がステージごとのラップ対決という構造で物語を進めるのに対し、アニメ版はほぼ全話、シリーズ構成の浦沢義雄が『とっとこハム太郎』『おジャ魔女どれみ』などで得意としてきたスタイル、すなわち低カロリーな日常コメディとして組み立てられています。多くの話は単発のシンプルな問題でパラッパたちを動かします。<br>同じ日の午後にバスケと買い物の両方の約束をしてしまい、両グループを満足させようと奔走するパラッパ。引退した花屋のドロシーが、取り壊し直前の昔の劇場でもう一度ダンスステージに立ちたいと願う話。逃げ出した飼いペット、暴走する学園祭、午後だけ街を彷徨う妹ピント。<br>ラップやソングシーンも登場しますが、ゲームのような「ステージクリア型」の関門ではなく、自然に物語の中から立ち上がってくる演出として配置されているのが特徴です。</span>
-      <span class="block-ja">単発エピソードの下には、いくつかの連続的なテーマも流れています。パラッパのサニーへの想いは最終盤までほぼ口に出されないまま続き、ケイティ・キャットとポーラのライバル関係はじりじり熱を上げ、ガスター＆グルーバーは毎回うまく行きそうでしくじり、PJはずっと何か食べています。30話のシリーズは、2002年1月11日に1時間スペシャルとして放送された第29・30話で締めくくられました。</span></p>
+      <div class="ujl-info-title"><span class="en">— ABOUT THE CAST —</span><span class="ja">— キャストについて —</span></div>
+      <p><span class="block-en">PaRappa was <strong>Miyu Irino</strong>'s first lead role in a TV anime, cast the same year he voiced Haku in <em>Spirited Away</em>. <strong>RYU</strong>, the rapper behind Chop Chop Master Onion in the games, reprised the role for the anime's two Master Onion episodes. Pinto was voiced by the singer <strong>mikko</strong>, credited as Mikko sky for Episodes 1–12 and as mikko from Episode 13. The supporting bench is deep for a kids' show, with Masako Nozawa as Sister Corn, Norio Wakamoto as MC King Kong Mushi and Yūji Mitsuya as Hairdresser Octopus. Every role was recast for the 2016 PJ Berri shorts, so the table above is the only voice cast the 2001 characters ever had. The game-side English cast is covered on the <a href="aboutvoiceactors.html">Voice Actors</a> page.</span>
+      <span class="block-ja">パラッパ役の<strong>入野自由</strong>にとって本作はテレビアニメ初主演で、同じ年に『千と千尋の神隠し』のハク役も務めています。ゲーム版でタマネギ先生を演じたラッパーの<strong>RYU</strong>が、アニメ版でもタマネギ先生が登場する2話で同じ役を演じました。ピント役は歌手の<strong>mikko</strong>で、第1〜12話はミッコsky、第13話からはmikkoとクレジットされています。子ども向け番組としては脇役陣が豪華で、シスターコーンに野沢雅子、キングコングムシに若本規夫、タコ山に三ツ矢雄二が出演しています。2016年のPJベリーのショートアニメでは全キャストが一新されたため、上の表が2001年版キャラクターの唯一の声の出演者です。ゲーム版の英語キャストについては<a href="aboutvoiceactors.html">声優</a>ページをご覧ください。</span></p>
+    </div>
+
+    <div class="ujl-details">
+      <div class="ujl-info-title"><span class="en">— CAST OF THE 2016 SHORTS (PJ BERRI NO MOGUMOGU MUNYAMUNYA) —</span><span class="ja">— 2016年ショートアニメ『PJベリーのもぐもぐむにゃむにゃ』キャスト —</span></div>
+      <table class="ujl-table">
+        <tr><td class="ujl-label">PJ Berri (PJベリー)</td><td>Jun Ōsuka (大須賀純)</td></tr>
+        <tr><td class="ujl-label">PaRappa (パラッパ)</td><td>Yūto Suzuki (鈴木裕斗)</td></tr>
+        <tr><td class="ujl-label">Chop Chop Master Onion / General Potter (タマネギ先生／ジェネラル・ポッター)</td><td>Yōji Ueda (上田燿司)</td></tr>
+        <tr><td class="ujl-label">Sunny Funny / Lammy / Paula (サニー・ファニー／ラミー／ポーラ)</td><td>Nanaka Suwa (諏訪ななか)</td></tr>
+        <tr><td class="ujl-label">Joe Chin and others (ジョー・チン ほか)</td><td>Hideki Kojima (小島英樹)</td></tr>
+        <tr><td class="ujl-label">Sweety Bancha and others (スウィーティ・バンチャ ほか)</td><td>Satomi Akesaka (明坂聡美)</td></tr>
+      </table>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— OFFICIAL 2001 WEBSITE WALLPAPERS —</span><span class="ja">— 2001年公式サイトの壁紙 —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-wallpaper-pinto-anime.jpg" alt="Official anime wallpaper: PJ Berri, Pinto and PaRappa outside a shop">
+          <div class="ujl-caption"><span class="en">PJ Berri, Pinto and PaRappa outside a PaRappa Town shop, from the wallpaper album of the official Sony Music anime site.</span><span class="ja">パラッパタウンの店先に立つPJベリー、ピント、パラッパ。ソニー・ミュージック公式アニメサイトの壁紙アルバムより。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-wallpaper-matt.jpg" alt="Official anime wallpaper of Matt Major holding a basketball">
+          <div class="ujl-caption"><span class="en">Matt Major, the sporty new best friend, with his basketball.</span><span class="ja">バスケットボールを持った、スポーツ好きの新しい親友マット。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-wallpaper-paula.jpg" alt="Official anime wallpaper of Paula Fox">
+          <div class="ujl-caption"><span class="en">Paula Fox, Sunny's friend and Katy's rival, in her white cardigan.</span><span class="ja">サニーの友達でケイティのライバル、白いカーディガン姿のポーラ。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-wallpaper-pinto.jpg" alt="Official anime wallpaper of Pinto with her toy">
+          <div class="ujl-caption"><span class="en">Pinto, PaRappa's little sister, with her toy car and the tiny dinosaur that follows her around.</span><span class="ja">パラッパの妹ピントと、おもちゃの車、そしていつも付いてくる小さな恐竜。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-wallpaper-boxy.jpg" alt="Official anime wallpaper of Boxy Boy">
+          <div class="ujl-caption"><span class="en">Boxy Boy, the walking, talking boombox, on a rainbow burst.</span><span class="ja">虹色の光を背にした、歩いてしゃべるラジカセのボクシーボーイ。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-wallpaper-gaster.jpg" alt="Official anime wallpaper of Gaster">
+          <div class="ujl-caption"><span class="en">Gaster, the tall half of the town's least competent crime duo.</span><span class="ja">街いちばん頼りない悪党コンビの、のっぽのほうのガスター。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-wallpaper-groober.jpg" alt="Official anime wallpaper of Groober">
+          <div class="ujl-caption"><span class="en">Groober, Gaster's short and grumpy partner.</span><span class="ja">ガスターの相棒で、小柄で不機嫌なグルーバー。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-wallpaper-uee.jpg" alt="Official anime wallpaper of Uee in a small green vehicle">
+          <div class="ujl-caption"><span class="en">Uee, the little blue creature from Episode 22, who was popular enough to earn his own wallpaper.</span><span class="ja">第22話に登場する小さな青い生き物ウイー。専用の壁紙が作られるほどの人気者でした。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— MODEL SHEETS —</span><span class="ja">— 設定画 —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-concept-1.jpg" alt="Pencil model sheet of PaRappa's skateboarding poses for the anime">
+          <div class="ujl-caption"><span class="en">Pencil model sheet of PaRappa's skateboarding poses, stamped with the Rodney A. Greenblat / Interlink copyright.</span><span class="ja">スケートボードに乗るパラッパのポーズを集めた鉛筆の設定画。ロドニー・A・グリーンブラット／インターリンクの著作権表記入り。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-concept-2.jpg" alt="Pencil model sheet of PaRappa's walking and standing poses for the anime">
+          <div class="ujl-caption"><span class="en">A second sheet of walking, running and standing poses, showing how Takayuki Goto's team turned Greenblat's flat design into a character that could move every week.</span><span class="ja">歩く、走る、立つといったポーズをまとめた2枚目の設定画。後藤隆幸率いるチームが、グリーンブラットの平面的なデザインを毎週動かせるキャラクターに翻訳した様子がわかります。</span></div>
+        </div>
+      </div>
     </div>
 
     <div class="ujl-cabinet-section">
       <div class="ujl-cabinet-img">
-        <img src="https://archive.org/services/img/parappa-anime" alt="PJ Berri in PaRappa the Rapper anime — episode screenshot">
+        <img src="ParappaStuff/ParappaAnime/Screenshot%202026-04-14%20161104.png" alt="Music Fun page of the official 2001 PaRappa anime website listing the two soundtrack CDs">
       </div>
       <div class="ujl-cabinet-info">
-        <div class="ujl-info-title"><span class="en">— TONE AND HUMOUR —</span><span class="ja">— 作風とユーモア —</span></div>
-        <p><span class="block-en">Tonally, the show splits the difference between the dry absurdism of the games and the gentler, kid-friendly comedy that Saturday-morning Fuji TV demanded. PaRappa's interior monologue is the centre of gravity — the audience hears him narrate his own escalating panic as plans fall apart. PJ Berri's deadpan, Boxy Boy's robotic literalism, and Mushi's manic intensity (Norio Wakamoto, in an extremely Norio Wakamoto performance) keep the comic register varied. Visual gags are deliberately low-budget by design: characters slide off-screen on conveyor belts, bodies stretch sideways for a single beat, and hats fly off into the void. The show is sweet rather than sharp, but never saccharine.</span>
-        <span class="block-ja">作品の手触りとしては、ゲームの乾いた不条理コメディと、フジテレビ土曜午前帯に求められる子ども向けの優しいコメディとのちょうど中間を行きます。物語の重心はパラッパの内心モノローグで、計画が次々と狂っていく中でじわじわ膨らむ自身の焦りを、彼自身がそのまま実況していくスタイル。PJベリーのテンション低めのツッコミ、ボクシー・ボーイのロボット的な直訳ボケ、そして若本規夫が「いつもの若本」全開で演じるムシのハイテンションが、コメディのレジスターに変化を与えています。ビジュアルギャグは意図的にチープに作られており、コンベアでスッと画面外にフレームアウトしたり、瞬間的に体が横に伸びたり、帽子だけ虚空へ飛んでいったりと、ロドニー・グリーンブラット原案らしい遊び心が随所に効いています。総じて、辛口ではなく優しい、けれど甘ったるすぎはしないトーンに仕上がっています。</span></p>
+        <div class="ujl-info-title"><span class="en">— MUSIC —</span><span class="ja">— 音楽 —</span></div>
+        <p><span class="block-en">For Episodes 1–15 the opening was <strong>"LOVE TOGETHER ~PaRappa the Rapper MIX~"</strong> by Nona Reeves, a remix of the band's 2000 single, and the ending was <strong>"SCHOOL GIRL"</strong> by BENNIE K, the duo's second single. From Episode 16 the package changed to Crystal Kay's <strong>"Attitude"</strong> as the opening and Chara's <strong>"Yellow Balloon"</strong> as the ending, and neither was ever an A-side: "Attitude" arrived as the B-side of "think of U", and "Yellow Balloon" on the album <em>Madrigal</em> and the single "Boku ni Utsushite". The score was written by Masaya Matsuura, Yoshihisa Suzuki and Yasushi Kurobane, and Chara's 1997 song "Ai no Kizuna" was reused as an insert song. SME Visual Works released two soundtrack CDs, volume 1 on August 22, 2001 (SVWC-1312, 25 tracks) and volume 2 on December 19, 2001 (SVWC-1317, 36 tracks), each ¥2,913 before tax. Pictured: the Music Fun page of the official 2001 website listing both discs.</span>
+        <span class="block-ja">第1〜15話のオープニングはノーナ・リーヴスの<strong>「LOVE TOGETHER 〜パラッパラッパーMIX〜」</strong>（2000年のシングルのリミックス）、エンディングはBENNIE Kの2枚目のシングル<strong>「SCHOOL GIRL」</strong>でした。第16話からはオープニングがCrystal Kayの<strong>「Attitude」</strong>、エンディングがCharaの<strong>「イエローバルーン」</strong>に切り替わりましたが、どちらもA面曲ではなく、「Attitude」は「think of U」のカップリング、「イエローバルーン」はアルバム『マドリガル』とシングル「ボクにうつして」に収録されています。劇伴は松浦雅也、鈴木禎久、黒羽康司が手掛け、Charaの1997年の楽曲「愛の絆」が挿入歌として使われました。サウンドトラックCDはSME・ビジュアルワークスから2枚発売され、volume.1が2001年8月22日（SVWC-1312、25曲）、volume.2が2001年12月19日（SVWC-1317、36曲）で、各2,913円（税抜）でした。写真は公式サイト（2001年）の「MUSIC FUN」ページで、2枚のディスクが紹介されています。</span></p>
       </div>
     </div>
 
     <div class="ujl-intro">
-      <div class="ujl-info-title"><span class="en">— OPENINGS, ENDINGS, AND THE NONA REEVES THEME —</span><span class="ja">— OP・ED と ノーナ・リーヴスの主題歌 —</span></div>
-      <p><span class="block-en">For the first half of the run (episodes 1–15), the opening title is <strong>"Love Together: PaRappa the Rapper MIX"</strong> by Tokyo pop-funk band <strong>Nona Reeves</strong> — a remix of the band's existing single explicitly retooled for the anime, with PaRappa-themed cues laced into the brass arrangement. The closing theme over the same block is <strong>"School Girl"</strong> by R&amp;B duo <strong>Bennie K</strong>. From episode 16 onward the music package was completely refreshed: the new opening became <strong>"Attitude"</strong> by then-rising R&amp;B singer <strong>Crystal Kay</strong>, and the new ending was <strong>"Yellow Balloon"</strong> by <strong>Chara</strong>. All four songs are now strongly associated with the anime in Japan and circulate well outside the show's audience.</span>
-      <span class="block-ja">第1〜15話までの前期OPには、東京のポップ／ファンクバンド<strong>ノーナ・リーヴス</strong>の<strong>「Love Together ～PaRappa the Rapper MIX～」</strong>が起用されました。これは同バンドの既発曲をアニメ用にリミックスしたもので、ブラスアレンジの随所にパラッパ世界らしいモチーフが仕込まれています。同じ前期EDには、R&amp;Bユニット<strong>BENNIE K</strong>の<strong>「School Girl」</strong>が採用されました。第16話以降、楽曲パッケージは全面刷新され、新OPには当時急上昇中のR&amp;Bシンガー<strong>Crystal Kay</strong>の<strong>「Attitude」</strong>、新EDには<strong>Chara</strong>の<strong>「Yellow Balloon」</strong>が起用されています。これら4曲は現在も日本ではアニメ版『パラッパラッパー』と強く結び付けられており、本作のファン以外の層にも広く届いた楽曲群となっています。</span></p>
+      <div class="ujl-info-title"><span class="en">— BROADCAST AND HOME VIDEO —</span><span class="ja">— 放送と映像ソフト —</span></div>
+      <p><span class="block-en">Fuji TV aired Episodes 1–17 on Saturdays at 6:30 pm, moved the show to Fridays at 4:25 pm from Episode 18 on October 5, 2001, and broadcast Episodes 29 and 30 together on January 11, 2002. Greenblat later complained that the prime slot "kept on getting preempted by baseball games", and most regional affiliates dropped the series after Episode 17. SME Visual Works released the show on DVD and VHS in eight volumes, <strong>Stage.1 to Stage.8</strong>, between October 24, 2001 and March 20, 2002, at ¥4,800 per DVD before tax, with the odd-numbered discs carrying interactive extras. A limited <strong>DVD Collection</strong> box (SVZB-6061) followed on December 4, 2002, gathering all eight discs and 742 minutes for ¥16,000 before tax. There has never been a Blu-ray, and as of 2026 the 2001 series is not on any streaming service in Japan or abroad. The DVDs are long out of print, so secondhand copies are the only official way to own it.</span>
+      <span class="block-ja">フジテレビでは第1〜17話を土曜18時30分に放送し、第18話（2001年10月5日）からは金曜16時25分へ枠を移し、2002年1月11日に第29話と第30話を連続放送しました。グリーンブラットは後に、良い枠だったのに「野球中継で何度も休止になった」と嘆いており、地方局の多くは第17話で放送を打ち切っています。映像ソフトはSME・ビジュアルワークスからDVDとVHSで<strong>「Stage.1〜Stage.8」</strong>の全8巻が2001年10月24日から2002年3月20日にかけて発売され、DVDは各4,800円（税抜）、奇数巻には遊べる特典コンテンツが収録されました。2002年12月4日には全8枚・742分を収めた初回生産限定の<strong>DVDコレクション</strong>BOX（SVZB-6061）が16,000円（税抜）で発売されています。Blu-ray化は一度もなく、2026年現在、2001年版は国内外どの配信サービスにもありません。DVDはとうに廃盤で、中古品を探すのが唯一の正規の入手方法です。</span></p>
     </div>
 
-    <div class="ujl-cabinet-section">
-      <div class="ujl-cabinet-img">
-        <img src="https://cdn.suruga-ya.com/database/pics_webp/game/120132765.jpg.webp" alt="Nona Reeves — Love Together ~PaRappa the Rapper MIX~ single">
-      </div>
-      <div class="ujl-cabinet-info">
-        <div class="ujl-info-title"><span class="en">Nona Reeves — "Love Together ~PaRappa the Rapper MIX~" (Single, 2001)</span><span class="ja">ノーナ・リーヴス「Love Together ～PaRappa the Rapper MIX～」（シングル, 2001年）</span></div>
-        <p><span class="block-en">The CD single bundling the anime's first opening theme. The disc collects four cuts: the "PaRappa the Rapper MIX" used in the show, the original-version "Love Together," the album track "Just My Imagination (Running Away With Me)," and the instrumental of the PaRappa mix. Released by Warner Music Japan with cover art that gives PaRappa his own miniature record-sleeve portrait — a small but telling piece of OP-tie-in marketing for a band that wasn't otherwise associated with kids' programming.</span>
-        <span class="block-ja">アニメ版前期オープニング主題歌を収めたCDシングル。収録曲は劇中で使用された「PaRappa the Rapper MIX」、オリジナル・バージョンの「Love Together」、アルバム収録曲「Just My Imagination（Running Away With Me）」、そしてPaRappa MIXのインストゥルメンタルの全4曲。ワーナーミュージック・ジャパンからリリースされ、ジャケットにはパラッパ単体のミニ・ジャケット風ポートレートが描かれた、子供番組とは縁の薄かったバンドにとっては象徴的なタイアップ盤です。</span></p>
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— DVD COLLECTION BOX AND SLEEVES —</span><span class="ja">— DVDコレクションBOXとジャケット —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/tumblr_mx18vz0Bzk1ry1z4no2_1280.jpg" alt="Back of the PaRappa the Rapper DVD Collection box with all eight Stage covers and the staff and cast credits">
+          <div class="ujl-caption"><span class="en">Back of the 2002 DVD Collection box: thumbnails of all eight Stage covers with their episode ranges, plus the full staff, cast and theme-song credits beside a giant PJ Berri.</span><span class="ja">2002年のDVDコレクションBOX裏面。全8巻のジャケットと収録話数、スタッフ・キャスト・主題歌のクレジットが、大きなPJベリーの横に並びます。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/tumblr_mx18vz0Bzk1ry1z4no3_1280.jpg" alt="The eight DVD spines inside the PaRappa the Rapper DVD Collection box">
+          <div class="ujl-caption"><span class="en">The eight spines inside the box, each with its own character portrait and an SME Visual Works imprint.</span><span class="ja">BOX内の8枚の背表紙。それぞれにキャラクターの顔とSME Visual Worksの表記が入っています。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-dvd-stage1-sleeve-full.jpg" alt="Full unfolded sleeve of the Stage.1 DVD showing the back, spine and front">
+          <div class="ujl-caption"><span class="en">The complete Stage.1 sleeve, back to front, with the episode synopses and bonus-content notes on the reverse.</span><span class="ja">Stage.1のジャケット全面。裏面には各話のあらすじと特典の説明が印刷されています。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-dvd-stage8-sleeve-full.jpg" alt="Full unfolded sleeve of the Stage.8 DVD showing the back, spine and front">
+          <div class="ujl-caption"><span class="en">The complete Stage.8 sleeve, the last of the series.</span><span class="ja">シリーズ最終巻、Stage.8のジャケット全面。</span></div>
+        </div>
       </div>
     </div>
 
-    <div class="ujl-cabinet-section">
-      <div class="ujl-cabinet-img">
-        <img src="https://cdn.suruga-ya.com/database/pics_webp/game/120007815.jpg.webp" alt="PaRappa the Rapper TV Animation Soundtrack Volume 1">
-      </div>
-      <div class="ujl-cabinet-info">
-        <div class="ujl-info-title"><span class="en">PaRappa the Rapper TV Animation Soundtrack Vol. 1 (2001)</span><span class="ja">パラッパラッパー TVアニメーション オリジナルサウンドトラック Vol.1（2001年）</span></div>
-        <p><span class="block-en">The first of two original soundtrack CDs released for the anime, with music supervised by Masaya Matsuura — the same composer behind the PS1 game — alongside Yoshihisa Suzuki and Yasushi Kurobane. The album collects the show's incidental cues, character themes, and short song interludes from the first half of the broadcast run. Sleeve art uses a fully posed PaRappa mid-rap on a deep purple ground, and the track listing leans heavily on Matsuura's signature blend of cartoon hip-hop, easy-listening jazz, and synthetic samba.</span>
-        <span class="block-ja">アニメ版のために制作された2枚組オリジナルサウンドトラックのうちの1作目。PS版本編と同じく松浦雅也が音楽を統括し、鈴木慶久・黒鞘靖が楽曲を共同担当しました。本盤には前期放送ぶんの劇伴、キャラクターテーマ、短い挿入歌などが収録されています。ジャケットは深い紫の地に、ラップ中のパラッパが大きく配されたデザイン。トラック構成も、松浦雅也らしいカートゥーン・ヒップホップ、イージーリスニング・ジャズ、シンセ・サンバが交差する作風がそのまま反映されています。</span></p>
-      </div>
-    </div>
-
-    <div class="ujl-cabinet-section">
-      <div class="ujl-cabinet-img">
-        <img src="https://cdn.suruga-ya.com/database/pics_webp/game/120007816.jpg.webp" alt="PaRappa the Rapper TV Animation Soundtrack Volume 2">
-      </div>
-      <div class="ujl-cabinet-info">
-        <div class="ujl-info-title"><span class="en">PaRappa the Rapper TV Animation Soundtrack Vol. 2 (2002)</span><span class="ja">パラッパラッパー TVアニメーション オリジナルサウンドトラック Vol.2（2002年）</span></div>
-        <p><span class="block-en">The companion volume, released after the second cour finished broadcasting. Vol. 2 covers the second half of the run, including cues written around the new "Attitude" / "Yellow Balloon" music package, and rounds out the show's incidental score. The cover replaces Vol. 1's purple ground with a sliced-orange motif, in keeping with the brighter mid-show creative refresh.</span>
-        <span class="block-ja">続編にあたるボリューム2は、後期放送終了後にリリースされました。後期分の劇伴に加え、第16話以降の新主題歌「Attitude」「Yellow Balloon」周りで制作された楽曲群も収録され、本作の劇伴サウンドが網羅されています。ジャケットはVol.1の紫地から、カットされたオレンジを大胆に配したビジュアルへ刷新され、シリーズ後期のフレッシュな空気感に合わせたデザインになっています。</span></p>
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— EPISODE STILLS —</span><span class="ja">— 本編の場面 —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-still-matt-intro.jpg" alt="Matt Major's introduction card from the opening">
+          <div class="ujl-caption"><span class="en">Matt Major's introduction card from the opening sequence.</span><span class="ja">オープニングでのマットの紹介カット。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-still-ep02-1.jpg" alt="Episode 2: PJ Berri, PaRappa and Matt indoors">
+          <div class="ujl-caption"><span class="en">Episode 2: PJ Berri, PaRappa and Matt.</span><span class="ja">第2話より、PJベリー、パラッパ、マット。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-still-ep02-dorothy.jpg" alt="Episode 2: Dorothy dancing alone in the old theatre">
+          <div class="ujl-caption"><span class="en">Episode 2: Dorothy rehearses alone in the old theatre.</span><span class="ja">第2話より、古い劇場でひとり練習するドロシー。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-still-ep07-puddle-anne.jpg" alt="Episode 7: Chief Puddle from Um Jammer Lammy with Ann">
+          <div class="ujl-caption"><span class="en">Episode 7: Chief Puddle and Ann, the only appearance by an <em>Um Jammer Lammy</em> instructor in the series.</span><span class="ja">第7話より、パドル隊長とアン。『ウンジャマ・ラミー』の先生が登場する唯一の回です。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-still-ep08-title.jpg" alt="Title card of Episode 8, Dare ni mo Mitsukaru na">
+          <div class="ujl-caption"><span class="en">Title card of Episode 8, "Dare ni mo Mitsukaru na" (Don't Let Anyone Find You), first aired June 23, 2001.</span><span class="ja">2001年6月23日放送、第8話「誰にも見つかるな」のタイトルカード。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-still-ep11-food-town.jpg" alt="Episode 11: Matt, PaRappa and PJ arrive at a town made of food">
+          <div class="ujl-caption"><span class="en">Episode 11: Matt, PaRappa and PJ discover a town made entirely of food.</span><span class="ja">第11話より、食べ物でできた街にたどり着いたマット、パラッパ、PJ。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-still-ep11-ending.jpg" alt="Episode 11's closing shot of PJ, PaRappa and Matt at sunset">
+          <div class="ujl-caption"><span class="en">The closing shot of Episode 11, with the three boys against the sunset.</span><span class="ja">第11話ラストカット、夕日を背にした3人。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-still-ep22-uee.jpg" alt="Episode 22: Uee sitting on a tree branch">
+          <div class="ujl-caption"><span class="en">Episode 22: Uee on a branch.</span><span class="ja">第22話より、枝の上のウイー。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-still-ep23-fleaswallow.jpg" alt="Episode 23: Prince Fleaswallow with PaRappa and his friends">
+          <div class="ujl-caption"><span class="en">Episode 23: Prince Fleaswallow, voiced by Yoshito Yasuhara, with PaRappa and the gang.</span><span class="ja">第23話より、安原義人が演じるカエル先生とパラッパたち。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/anime-still-ending-gaster.jpg" alt="Gaster striking a pose in the ending sequence">
+          <div class="ujl-caption"><span class="en">Gaster strikes a pose in the ending sequence.</span><span class="ja">エンディングでポーズを決めるガスター。</span></div>
+        </div>
       </div>
     </div>
 
     <div class="ujl-intro">
-      <div class="ujl-info-title"><span class="en">— BROADCAST AND HOME VIDEO —</span><span class="ja">— 放送・パッケージ展開 —</span></div>
-      <p><span class="block-en">In Japan the show aired weekly on Fuji Television and its FNS network affiliates throughout 2001. The home-video release rolled out across <strong>eight DVD volumes</strong> (titled "Stage.1" through "Stage.8") between 2001 and March 2002, each disc collecting roughly four episodes. The volumes were issued by Sony's home-video arm — the discs themselves carry the SME (Sony Music Entertainment) and S.E.P. imprints — and have remained the only authorised way to watch the series on a permanent format. No Blu-ray reissue, no streaming licence, and no English-language commercial DVD release ever followed.</span>
-      <span class="block-en">English-speaking fans went without an official localisation for the entire 21st-century run of the show; a fan-subbed compilation built from the Japanese DVD masters circulated in 2018 and has since been the standard way new viewers encounter it outside Japan. The lack of a dub puts the anime in a strange archival position: it is one of the most visible adaptations of a major PlayStation IP that has never been formally released in the West.</span>
-      <span class="block-ja">日本国内では2001年を通じてフジテレビ系FNSにて毎週放送されました。映像ソフトは<strong>全8巻のDVD</strong>（「Stage.1」〜「Stage.8」）として2001年から2002年3月にかけて順次リリースされ、各巻に約4話ずつが収録されています。リリース元はソニーの映像ソフト部門で、ディスクにはSME（ソニー・ミュージックエンタテインメント）およびS.E.P.のクレジットが入っています。本作のオフィシャルなパッケージはこのDVDシリーズが現在唯一の選択肢で、Blu-ray再発、配信ライセンス、海外向け英語版DVDなどはいずれもリリースされていません。</span>
-      <span class="block-ja">英語圏のファンは21世紀を通じて公式ローカライズに恵まれず、2018年頃に日本版DVDマスターから作られたファンサブ版が流通し、それが事実上の海外視聴ルートとして定着しています。公式英語版が一度も存在しないという事実は、PlayStation主要IPの主要アニメ化作品としては非常に珍しい立ち位置です。</span></p>
+      <div class="ujl-info-title"><span class="en">— THE REDISCOVERY —</span><span class="ja">— 再発見の歩み —</span></div>
+      <p><span class="block-en">Because the anime was never licensed abroad and never streamed at home, its afterlife has been written entirely by fans. A group called FightingMagic subtitled a handful of episodes around 2004, and from 2008 raw episodes trickled onto YouTube, but when the main uploader's channel vanished around 2012 more than half the series disappeared from the internet. In 2013 the channel <strong>DefendPTR</strong> launched a hunt for the missing episodes, and on February 22, 2014 the channel parappawithfries posted all 30, ripped from VHS tapes bought online. After that channel was deleted, DefendPTR re-uploaded the full series on <strong>May 31, 2016</strong>, and its Episode 1 has since passed two million views. From 2018 the translators Trainfan1055 and Michaela Worsley subtitled every episode, DVD-quality rips reached the Internet Archive in June 2021, and a corrected "accurate subtitles" set by Forrealsyall followed in January 2025. That slow chain, not any official release, is how the show was rediscovered.</span>
+      <span class="block-ja">海外でライセンスされず、国内でも配信されなかったため、このアニメのその後はすべてファンの手で紡がれてきました。2004年頃にFightingMagicというグループが数話に英語字幕を付け、2008年からは無字幕の各話がYouTubeに少しずつ上がりましたが、2012年頃に主要な投稿者のチャンネルが消えると、シリーズの半分以上がネット上から姿を消しました。2013年、チャンネル<strong>DefendPTR</strong>が失われた話数の捜索を呼びかけ、2014年2月22日にはチャンネルparappawithfriesが、通販で買ったVHSからリッピングした全30話を公開しました。そのチャンネルが削除された後、<strong>2016年5月31日</strong>にDefendPTRが全話を再アップロードし、その第1話は現在までに200万回以上再生されています。2018年からは翻訳者のTrainfan1055とMichaela Worsleyが全話に字幕を付け、2021年6月にはDVD品質のリップがInternet Archiveに保存され、2025年1月にはForrealsyallによる修正版の「正確な字幕」が公開されました。公式リリースではなく、こうした地道な連鎖こそが、この作品が再発見された経緯です。</span></p>
+    </div>
+
+    <div class="ujl-details">
+      <div class="ujl-info-title"><span class="en">— REDISCOVERY TIMELINE —</span><span class="ja">— 再発見の年表 —</span></div>
+      <table class="ujl-table">
+        <tr><td class="ujl-label"><span class="en">c. 2004</span><span class="ja">2004年頃</span></td><td><span class="en">FightingMagic fan-subtitles Episodes 1, 2 and 4</span><span class="ja">FightingMagicが第1・2・4話に英語字幕を付ける</span></td></tr>
+        <tr><td class="ujl-label"><span class="en">2008</span><span class="ja">2008年</span></td><td><span class="en">Earliest surviving YouTube uploads of raw episodes</span><span class="ja">現存する最古の無字幕YouTube投稿</span></td></tr>
+        <tr><td class="ujl-label"><span class="en">c. 2012</span><span class="ja">2012年頃</span></td><td><span class="en">The main uploader's channel vanishes; Episodes 3, 12 and 14–30 go offline</span><span class="ja">主要投稿者のチャンネルが消え、第3・12・14〜30話がネットから消える</span></td></tr>
+        <tr><td class="ujl-label"><span class="en">July 17, 2013</span><span class="ja">2013年7月17日</span></td><td><span class="en">DefendPTR starts the search for the missing episodes</span><span class="ja">DefendPTRが失われた話数の捜索を開始</span></td></tr>
+        <tr><td class="ujl-label"><span class="en">February 22, 2014</span><span class="ja">2014年2月22日</span></td><td><span class="en">parappawithfries uploads all 30 episodes from VHS tapes</span><span class="ja">parappawithfriesがVHSから全30話を公開</span></td></tr>
+        <tr><td class="ujl-label"><span class="en">May 31, 2016</span><span class="ja">2016年5月31日</span></td><td><span class="en">DefendPTR re-uploads the complete series after the earlier channel is deleted</span><span class="ja">先のチャンネル削除を受け、DefendPTRが全話を再アップロード</span></td></tr>
+        <tr><td class="ujl-label"><span class="en">August 18, 2016</span><span class="ja">2016年8月18日</span></td><td><span class="en">The PJ Berri no Mogumogu Munyamunya pilot airs on Fuji TV</span><span class="ja">『PJベリーのもぐもぐむにゃむにゃ』パイロット版がフジテレビで放送</span></td></tr>
+        <tr><td class="ujl-label"><span class="en">2018–2020</span><span class="ja">2018〜2020年</span></td><td><span class="en">Trainfan1055 and Michaela Worsley complete the English fan subtitles with DefendPTR</span><span class="ja">Trainfan1055とMichaela WorsleyがDefendPTRと共に英語字幕を全話分完成</span></td></tr>
+        <tr><td class="ujl-label"><span class="en">January 7, 2020</span><span class="ja">2020年1月7日</span></td><td><span class="en">A 1080p upscale of the opening is posted and passes 800,000 views</span><span class="ja">オープニングの1080pアップスケール版が公開され、80万回以上再生される</span></td></tr>
+        <tr><td class="ujl-label"><span class="en">June 23, 2021</span><span class="ja">2021年6月23日</span></td><td><span class="en">EruPii-Raws DVD rips (768x576) are uploaded to the Internet Archive, with a subtitled DVD version following on August 11</span><span class="ja">EruPii-RawsのDVDリップ（768x576）がInternet Archiveに保存され、8月11日には字幕付きDVD版も公開</span></td></tr>
+        <tr><td class="ujl-label"><span class="en">2021</span><span class="ja">2021年</span></td><td><span class="en">Hardcore Gaming 101 (March) and TheGamer (June) run English articles on the forgotten anime</span><span class="ja">Hardcore Gaming 101（3月）とTheGamer（6月）が忘れられたアニメとして英語記事を掲載</span></td></tr>
+        <tr><td class="ujl-label"><span class="en">January 8, 2025</span><span class="ja">2025年1月8日</span></td><td><span class="en">Forrealsyall releases corrected subtitles; a full playlist with them follows from March 13</span><span class="ja">Forrealsyallが修正版字幕を公開し、3月13日からはそれを付けた全話プレイリストが登場</span></td></tr>
+        <tr><td class="ujl-label"><span class="en">2026</span><span class="ja">2026年</span></td><td><span class="en">Still no official streaming, Blu-ray or overseas release</span><span class="ja">公式配信、Blu-ray、海外リリースはいまだになし</span></td></tr>
+      </table>
+    </div>
+
+    <div class="ujl-intro">
+      <div class="ujl-info-title"><span class="en">— MYTHS AND LOST MEDIA —</span><span class="ja">— 俗説とロストメディア —</span></div>
+      <p><span class="block-en">No English dub of the anime has ever existed. Pages claiming it aired on FoxBox, 4Kids, Disney Channel UK, Animax or Italia 1 come from fan-fiction wikis and have no basis in any primary source. A Latin American Spanish dub has been discussed on the Lost Media Wiki forums since 2016, but no footage or studio has ever been confirmed. In November 2023 a "lost PaRappa anime pilot" thread turned out to be the 2016 PJ Berri pilot, which is not lost at all: Fuji TV's official upload is still online, only region-locked to Japan. The one thing genuinely lost for a while was Episodes 12–20 of the PJ Berri shorts, which were never posted officially and resurfaced through fans in 2020. The 2001 official website, meanwhile, is still live at sonymusic.co.jp/Animation/parappa/.</span>
+      <span class="block-ja">このアニメの英語吹替は一度も作られていません。FoxBox、4Kids、ディズニー・チャンネルUK、Animax、Italia 1で放送されたと書くページはファンフィクション系のwikiが出どころで、一次資料の裏付けはまったくありません。ラテンアメリカ向けスペイン語吹替については2016年からLost Media Wikiのフォーラムで語られてきましたが、映像も制作スタジオも確認されたことはありません。2023年11月に「失われたパラッパアニメのパイロット版」として話題になったものは、実は2016年のPJベリーのパイロット版で、フジテレビ公式のアップロードが日本国内限定ながら今も公開されており、失われてなどいませんでした。本当にしばらく失われていたのはPJベリーのショートアニメの第12〜20話で、公式には一度も公開されず、2020年にファンの手で再浮上しました。なお、2001年の公式サイトはsonymusic.co.jp/Animation/parappa/で今も公開されています。</span></p>
     </div>
 
     <div class="ujl-cabinet-section">
       <div class="ujl-cabinet-img">
-        <img src="https://cdn.suruga-ya.com/database/pics_webp/game/128003995.jpg.webp" alt="PaRappa the Rapper TV Animation Stage.8 DVD cover">
+        <img src="ParappaStuff/ParappaAnime/Art/pjberri-characters.jpg" alt="Character line-up of PJ Berri no Mogumogu Munyamunya: PJ Berri, PaRappa and Chop Chop Master Onion in the 2016 flat style">
       </div>
       <div class="ujl-cabinet-info">
-        <div class="ujl-info-title"><span class="en">PaRappa the Rapper TV Animation — Stage.8 DVD (March 20, 2002)</span><span class="ja">パラッパラッパー TVアニメーション Stage.8 DVD（2002年3月20日）</span></div>
-        <p><span class="block-en">The final volume in the series' eight-DVD home-video run, released by S.E.P. on March 20, 2002 to coincide with the finale broadcast. Stage.8 collects the closing episodes of the show, including the one-hour finale that aired on January 11, 2002. The cover composition pulls back from the gag-comedy framing of the earlier volumes and stages PaRappa and Sunny Funny in formal wear, hand in hand inside a pink heart, with PJ Berri and Pinto framed in the background — a quietly sentimental capstone for the set.</span>
-        <span class="block-ja">本シリーズの全8巻DVDの最終巻。発売はS.E.P.、2002年3月20日。本巻には、2002年1月11日放送の1時間スペシャル最終話を含むラスト数話が収められています。前巻までのギャグ寄りジャケットとは趣を変え、ピンクのハート枠のなかでフォーマル衣装のパラッパとサニー・ファニーが手をつなぎ、背後にPJベリーとピントが配されるという、シリーズの締めくくりにふさわしい少しセンチメンタルなビジュアルになっています。</span></p>
+        <div class="ujl-info-title"><span class="en">— PJ BERRI NO MOGUMOGU MUNYAMUNYA (2016–2017) —</span><span class="ja">— PJベリーのもぐもぐむにゃむにゃ（2016〜2017年） —</span></div>
+        <p><span class="block-en"><em>PJ Berri no Mogumogu Munyamunya</em> was announced by Fuji TV on August 12, 2016 as a "double anniversary" project marking 20 years of the game and 15 years of the anime. Each episode runs about 96 seconds and aired as a corner inside the late-night variety show <em>#Hi_Poul</em> on Fuji TV, Kanto only, with a free one-week catch-up on FOD. The character designs are Rodney Alan Greenblat's, the writer is Gabin Ito, Season 1 was animated by Doga Kobo and Season 2 by ODDJOB. The pilot aired on August 18, 2016, the weekly run lasted from October 13, 2016 to March 9, 2017 for 20 episodes, and a six-episode second season ran from August 3 to September 14, 2017. Joe Chin and General Potter, absent from the 2001 series, finally appear here. Season 1 went to Fuji TV's FOD Premium on October 5, 2017 and later, as a "complete version", to Apple TV and Prime Video in Japan.</span>
+        <span class="block-ja">『<em>PJベリーのもぐもぐむにゃむにゃ</em>』は、ゲーム20周年とアニメ15周年の「ダブルアニバーサリー」企画として2016年8月12日にフジテレビが発表しました。1話約96秒で、フジテレビの深夜バラエティ『<em>#ハイ_ポール</em>』内のコーナーとして関東ローカルで放送され、放送後1週間はFODで無料配信されました。キャラクター原案はロドニー・アラン・グリーンブラット、脚本は伊藤ガビン、アニメーション制作はシーズン1が動画工房、シーズン2がODDJOBです。2016年8月18日にパイロット版が放送され、レギュラー放送は2016年10月13日から2017年3月9日までの全20話、続くシーズン2は2017年8月3日から9月14日までの全6話でした。2001年版には登場しなかったジョー・チンとジェネラル・ポッターが、ここでようやくアニメに登場します。シーズン1は2017年10月5日からFODプレミアムで配信され、その後「完全版」として日本のApple TVとPrime Videoでも配信されています。</span></p>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— THE PJ BERRI SHORTS —</span><span class="ja">— PJベリーのショートアニメ —</span></div>
+      <div class="ujl-gallery-grid">
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/pjberri-still-ep09.jpg" alt="PJ Berri no Mogumogu Munyamunya Episode 9: PaRappa and PJ on a bench beside a fortune-telling stand">
+          <div class="ujl-caption"><span class="en">Episode 9 of the shorts: PaRappa and PJ on a park bench beside a fortune-telling stand, in the flat 2016 style.</span><span class="ja">ショートアニメ第9話より、占いの看板の横のベンチに座るパラッパとPJ。2016年版らしい平面的な作画です。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="ParappaStuff/ParappaAnime/Art/pjberri-ep01-end-screen.jpg" alt="End screen of PJ Berri no Mogumogu Munyamunya Episode 1">
+          <div class="ujl-caption"><span class="en">The end screen of Episode 1, the pilot broadcast on August 18, 2016.</span><span class="ja">2016年8月18日放送のパイロット版、第1話のエンドカード。</span></div>
+        </div>
       </div>
     </div>
 
     <div class="ujl-intro">
-      <div class="ujl-info-title"><span class="en">— LEGACY —</span><span class="ja">— 評価とその後 —</span></div>
-      <p><span class="block-en">The anime is often the forgotten middle child of the PaRappa franchise — overshadowed by the cult success of the original 1996 game and the long-tail merch boom that followed <em>Um Jammer Lammy</em> and <em>PaRappa 2</em>. Inside Japan, however, it slots cleanly into the early-2000s J.C.Staff comedy lineage alongside <em>DiGi Charat</em>, <em>Magical DoReMi</em>, and Sakurai's later <em>Bottle Fairy</em>; in the West it has acquired a quieter cult following, mostly via fan subtitles and game-history documentaries. PaRappa himself would not appear in another animated production at this scale again, which has only sharpened the show's value as the only sustained look at PaRappa Town as a place where people actually live, eat, fight, and rap their way out of small problems — week by week, for thirty episodes.</span>
-      <span class="block-ja">パラッパラッパーシリーズの中でも、アニメ版はしばしば「忘れられた中間っ子」として語られます。1996年のオリジナル版がもたらしたカルト的支持や、『ウンジャマ・ラミー』『パラッパラッパー2』を中心としたグッズブームの陰に隠れがちなのが実情です。一方、日本国内では2000年代初頭のJ.C.スタッフ系コメディ作品群（『デ・ジ・キャラット』、『おジャ魔女どれみ』、桜井監督の後年作『瓶詰妖精』など）の系譜にすっと収まる位置にあり、海外ではファンサブやゲーム史系のドキュメンタリー経由で、静かながら確かなカルト人気を獲得しています。これ以降、パラッパが同規模のアニメーション作品に再登場することはなく、その事実が逆に、本作が「パラッパタウンに人々が実際に暮らし、食べ、ケンカし、小さなトラブルをラップで切り抜けていく場所」として描かれた、唯一にして最長のテキスト群であることの価値を際立たせています。週ごとの30話というかたちで、それは今も静かに残り続けています。</span></p>
+      <div class="ujl-info-title"><span class="en">— LEGACY —</span><span class="ja">— その後と評価 —</span></div>
+      <p><span class="block-en">Inside Japan the anime is a footnote next to the games: Greenblat himself has called it "not a success" and "not a good show", and its most lasting mainstream trace was the popularity of Nona Reeves' opening theme. It did sell a wave of Takara plush and toys, documented on this site's <a href="merch-anime.html">anime merchandise</a> page, and it gave PaRappa Town its only sustained portrait as a place where people live, argue and get into trouble week after week. Abroad it has become a small cult object precisely because it was so hard to see, passed along through YouTube uploads, fan subtitles and "PaRappa had an anime?" clips. PaRappa raps exactly once in all 30 episodes, in the finale, which says a lot about how far the show wandered from the game. For a franchise built on one perfect idea, the anime is the strange, warm detour, and it is finally easy to watch.</span>
+      <span class="block-ja">日本国内では、このアニメはゲームの陰に隠れた脚注のような存在で、グリーンブラット自身も「成功ではなかった」「良い番組ではなかった」と語っており、世間に最も長く残ったのはノーナ・リーヴスのオープニング曲の人気でした。それでもタカラのぬいぐるみや玩具が数多く発売され（当サイトの<a href="merch-anime.html">アニメグッズ</a>ページで紹介しています）、パラッパタウンを人々が暮らし、言い合い、毎週トラブルに巻き込まれる場所として描いた唯一の作品となりました。海外では観ること自体が難しかったからこそ小さなカルト作品となり、YouTubeの投稿、ファン字幕、「パラッパにアニメがあったの？」という切り抜き動画を通じて受け継がれています。全30話でパラッパがラップするのは最終回の一度きりで、この作品がゲームからどれほど遠くへ歩いていったかを物語っています。ひとつの完璧なアイデアの上に築かれたシリーズにとって、アニメは奇妙で温かい寄り道であり、そしてようやく気軽に観られるものになりました。</span></p>
     </div>
   </div>
   <div class="footer">PaRappa Corner &mdash; PaRappa the Rapper Fan Site &mdash; parappacorner.com</div>
@@ -499,6 +705,6 @@
           stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
 </button>
-<script src="parappa.js"></script>
+<script src="parappa.js?v=20260929b"></script>
 </body>
 </html>

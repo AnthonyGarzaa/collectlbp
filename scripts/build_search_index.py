@@ -20,7 +20,7 @@ OUT = ROOT / "parappa-search-index.js"
 
 # Pages under the HOME menu are not counted as "content pages" (same rule as
 # the old in-page counter) but Search still looks through them.
-HOME_PAGES = {"welcome", "search", "donate", "contact"}
+HOME_PAGES = {"welcome", "search", "donate", "contact", "credits"}
 
 VOID = {"img", "br", "source", "input", "meta", "link", "hr", "wbr", "area", "col", "embed", "param", "track"}
 
