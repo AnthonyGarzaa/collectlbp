@@ -40,15 +40,15 @@ var PARAPPA_PAGE_IDS = [
   'aboutgame', 'aboutanime', 'aboutrodney', 'aboutmatsuura', 'aboutvoiceactors',
   'chars', 'chars-ujl', 'chars-ptr2',
   'merch-rodneyfun-comics', 'merch-rodneyfun-toys', 'merch-rodneyfun-shirts',
-  'merch-rodneyfun-stationary', 'merch-rodneyfun-promotional',
-  'merch-ptr-plush', 'merch-ptr-figures', 'merch-ptr-shirts', 'merch-ptr-misc',
+  'merch-rodneyfun-stationary', 'merch-rodneyfun-promotional', 'merch-rodneyfun-misc',
+  'merch-ptr-plush', 'merch-ptr-figures', 'merch-ptr-shirts', 'merch-ptr-misc', 'merch-ptr-pjberri',
   'merch-ujl-plush', 'merch-ujl-figures', 'merch-ujl-keychains', 'merch-ujl-shirts',
   'merch-ujl-milkcantour', 'merch-ujl-fernandes', 'merch-ujl-stationery', 'merch-ujl-misc',
-  'merch-ptr2', 'merch-anime', 'merch-mcdonalds', 'merch-dunkin', 'merch-lipton', 'merch-catalogs',
+  'merch-ptr2', 'merch-mcdonalds', 'merch-dunkin', 'merch-lipton', 'merch-catalogs',
   'gal-magazines', 'gal-stratguides', 'gal-shelves', 'gal-earlydesigns',
   'gal-officialart-ptr', 'gal-officialart-ujl', 'gal-events2',
   'ev-tgs1996', 'ev-psexpo96', 'ev-bellfare', 'ev-tgs1999', 'ev-roxy1999',
-  'ev-amshow1999', 'ev-fukuoka2001', 'ev-rodneyparco',
+  'ev-amshow1999', 'ev-seasidefuji2001', 'ev-fukuoka2001', 'ev-rodneyparco',
   'sp-presskits', 'sp-promos', 'sp-prototypes', 'sp-websites', 'sp-crashad',
   'sp-physical', 'sp-mascots',
   'lammynow', 'ujlnow-cabinet', 'ujlnow-prize', 'ujlnow-discovery',
@@ -116,6 +116,7 @@ var PARAPPA_EVENT_PAGES = [
   { id: 'ev-amshow1999',  en: 'JAMMA AM Show 1999',              ja: 'JAMMA AMショー1999' },
   { id: 'ev-tgs1999',     en: 'Tokyo Game Show 1999',            ja: '東京ゲームショウ1999' },
   { id: 'ev-rodneyparco', en: 'Rodney Character Club PARCO 2000', ja: 'ロドニー・キャラクター・クラブ PARCO 2000' },
+  { id: 'ev-seasidefuji2001', en: 'PaRappa Seaside GO! in Fuji TV', ja: 'パラッパラッパー・シーサイドGO！ in フジテレビ' },
   { id: 'ev-fukuoka2001', en: 'PaRappa the Rapper in Fukuoka',   ja: 'パラッパラッパー in FUKUOKA' }
 ];
 
@@ -171,6 +172,37 @@ var PARAPPA_EVENT_PAGES = [
       spans[1].textContent = dirJa;
       spans[2].textContent = p.en;
       spans[3].textContent = p.ja;
+      // the artwork already says "Pre" / "Next", so the button keeps only the page name
+      a.removeChild(a.querySelector('.pager-dir'));
+      // Sunny pointing back ("Pre") on the Previous button's left end, PaRappa
+      // running off with a "Next" arrow on the Next button's right end
+      var mascot = document.createElement('img');
+      mascot.className = 'pager-mascot';
+      mascot.src = isPrev ? 'Parappa%20Site/Welcome/snext%20-%20Copy.png' : 'Parappa%20Site/Welcome/pnext%20-%20Copy.png';
+      mascot.alt = '';
+      mascot.setAttribute('aria-hidden', 'true');
+      a.appendChild(mascot);
+      // Lammy mode swaps Sunny and PaRappa for just their arrows (each cut
+      // from the same canvas, so it sits in the same spot)
+      var arrow = document.createElement('img');
+      arrow.className = 'pager-mascot pager-arrow';
+      arrow.src = isPrev ? 'LammyStuff/bluearrow.png' : 'LammyStuff/redarrow.png';
+      arrow.alt = '';
+      arrow.setAttribute('aria-hidden', 'true');
+      a.appendChild(arrow);
+      // ...with Kat standing beside the Previous arrow and Lamster beside the
+      // Next one
+      var buddy = document.createElement('img');
+      buddy.className = isPrev ? 'pager-kat' : 'pager-lamster';
+      buddy.src = isPrev ? 'LammyStuff/kat.png' : 'LammyStuff/lamster.png';
+      buddy.alt = '';
+      buddy.setAttribute('aria-hidden', 'true');
+      a.appendChild(buddy);
+      var label = document.createElement('span');
+      label.className = 'pager-mascot-label';
+      label.textContent = isPrev ? 'Previous' : 'Next';
+      label.setAttribute('aria-hidden', 'true');
+      a.appendChild(label);
       return a;
     }
 
@@ -180,12 +212,6 @@ var PARAPPA_EVENT_PAGES = [
     if (i > 0) pager.appendChild(button(list[i - 1], 'prev'));
     if (i < list.length - 1) pager.appendChild(button(list[i + 1], 'next'));
     page.appendChild(pager);
-
-    // Same buttons at the top, just under the page title.
-    var topPager = pager.cloneNode(true);
-    topPager.classList.add('page-pager-top');
-    var title = page.querySelector(':scope > .section-title');
-    page.insertBefore(topPager, title ? title.nextSibling : page.firstChild);
   } catch (e) {}
 })();
 
@@ -305,13 +331,18 @@ function toggleTheme() {
   }
 
 
-  // ── Click-to-zoom: clicking the full-size image zooms it to native size
-  //    (at least 2x) around the clicked spot; drag or scroll to pan; click
-  //    again, change image, or close to zoom back out. ──
+  // ── Click-to-zoom: each click on the full-size image steps through three
+  //    zoom levels (2x, 3x, 4x the fitted size) around the clicked spot; drag
+  //    or scroll to pan; a fourth click, changing image, or closing zooms back
+  //    out. ──
+  var ZOOM_LEVELS = [2, 3, 4];
+  var zoomLevel = 0, baseWidth = 0;
   var zoomed = false, dragging = false, dragMoved = false, dragX = 0, dragY = 0, dragSL = 0, dragST = 0;
   function unzoom() {
     zoomed = false;
+    zoomLevel = 0;
     lightbox.classList.remove('zoomed');
+    lightbox.classList.remove('zoom-max');
     lightbox.classList.remove('dragging');
     lightboxImg.style.width = '';
     lightbox.scrollTop = 0;
@@ -321,9 +352,12 @@ function toggleTheme() {
     var r = lightboxImg.getBoundingClientRect();
     if (!r.width || !r.height) return;
     var fx = (clientX - r.left) / r.width, fy = (clientY - r.top) / r.height;
-    var target = Math.max(lightboxImg.naturalWidth || 0, Math.round(r.width * 2));
+    if (!zoomed) baseWidth = r.width;
+    zoomLevel++;
+    var target = Math.round(baseWidth * ZOOM_LEVELS[zoomLevel - 1]);
     zoomed = true;
     lightbox.classList.add('zoomed');
+    lightbox.classList.toggle('zoom-max', zoomLevel === ZOOM_LEVELS.length);
     lightboxImg.style.width = target + 'px';
     lightbox.scrollTop = 0;
     lightbox.scrollLeft = 0;
@@ -334,7 +368,7 @@ function toggleTheme() {
   lightboxImg.addEventListener('click', function (e) {
     e.stopPropagation();
     if (dragMoved) { dragMoved = false; return; }
-    if (zoomed) unzoom(); else zoomAt(e.clientX, e.clientY);
+    if (zoomLevel >= ZOOM_LEVELS.length) unzoom(); else zoomAt(e.clientX, e.clientY);
   });
   lightboxImg.addEventListener('dragstart', function (e) { e.preventDefault(); });
   lightboxImg.addEventListener('mousedown', function (e) {
@@ -657,56 +691,117 @@ function toggleTheme() {
   }
 })();
 // ──────────────────────────────────────────────────────────────────────────
-// Swap the main squiggle's left/right vertical waves at runtime so their
-// fill is transparent pink from the top down through the nav bar, then
-// white below — matching whatever pink (header / nav) or white (page
-// content) sits next to them at every y-position.
+// Draw the PaRappa-mode squiggle frame as ONE shape instead of a patchwork of
+// tiles. The frame used to be ten separate translucent-pink pieces (corner
+// joints, wave runs, header and nav backgrounds); wherever two of them met on a
+// fractional pixel (html is zoomed to 0.8, so that's almost everywhere) the
+// shared pixel was only partly covered by each and the background pattern
+// showed through as a thin light seam. Now:
+//   ::before — a single closed path (frame outline + everything inside it),
+//              pink down to the nav's bottom edge then white, behind content;
+//   ::after  — a single continuous stroke for the visible purple border.
+// The header and nav go transparent so the pink comes only from that one
+// fill. The tiled CSS backgrounds remain as the no-JS fallback.
 (function () {
-  var root = document.documentElement;
   var wrap = document.querySelector('.site-wrap');
   var nav = document.querySelector('.nav-bar');
   if (!wrap || !nav) return;
 
-  var leftWave = 'M 20 0 C 20 12.5 2 12.5 2 25 C 2 37.5 20 37.5 20 50 C 20 62.5 2 62.5 2 75 C 2 87.5 20 87.5 20 100 C 20 112.5 2 112.5 2 125 C 2 137.5 20 137.5 20 150 C 20 162.5 2 162.5 2 175 C 2 187.5 20 187.5 20 200';
-  var rightWave = 'M 20 0 C 20 12.5 38 12.5 38 25 C 38 37.5 20 37.5 20 50 C 20 62.5 38 62.5 38 75 C 38 87.5 20 87.5 20 100 C 20 112.5 38 112.5 38 125 C 38 137.5 20 137.5 20 150 C 20 162.5 38 162.5 38 175 C 38 187.5 20 187.5 20 200';
+  function r(n) { return Math.round(n * 100) / 100; }
 
-  function waveUrl(side, navBottomFrac) {
-    var wave = side === 'left' ? leftWave : rightWave;
-    var close = side === 'left' ? ' L 40 200 L 40 0 Z' : ' L 0 200 L 0 0 Z';
-    var stroke = side === 'left' ? '#5B3256' : 'transparent';
+  // Target length of one half-period (base line to peak and back is two of
+  // these), in CSS px. Each run gets as many curls as fit at this spacing, so
+  // long pages get more curls instead of the same few stretched out.
+  var HALF_WAVE = 82;
+
+  // Cubic segments for one wave run along `axis` ('x' or 'y'), starting at
+  // `start` on the base line and travelling `len` (may be negative), swinging
+  // between `base` and `peak` on the other axis. The half-period count is kept
+  // even so every run ends back on the base line where the corner joints meet,
+  // and rounded down so curls are never closer together than HALF_WAVE (on the
+  // short top/bottom runs, rounding to nearest could leave them unchanged).
+  function wave(axis, start, len, base, peak) {
+    var d = '';
+    var n = Math.max(2, 2 * Math.floor(Math.abs(len) / (2 * HALF_WAVE)));
+    var step = len / n;
+    for (var i = 0; i < n; i++) {
+      var pos = start + step * i;
+      var from = i % 2 === 0 ? base : peak;
+      var to = i % 2 === 0 ? peak : base;
+      var mid = pos + step / 2;
+      var end = pos + step;
+      d += axis === 'x'
+        ? ' C ' + r(mid) + ' ' + r(from) + ' ' + r(mid) + ' ' + r(to) + ' ' + r(end) + ' ' + r(to)
+        : ' C ' + r(from) + ' ' + r(mid) + ' ' + r(to) + ' ' + r(mid) + ' ' + r(to) + ' ' + r(end);
+    }
+    return d;
+  }
+
+  function svgUrl(W, H, body) {
     var svg =
-      "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 200' preserveAspectRatio='none'>" +
-        "<defs><linearGradient id='g' x1='0' y1='0' x2='0' y2='1'>" +
-          "<stop offset='0' stop-color='#ff14c8' stop-opacity='0.7'/>" +
-          "<stop offset='" + navBottomFrac + "' stop-color='#ff14c8' stop-opacity='0.7'/>" +
-          "<stop offset='" + navBottomFrac + "' stop-color='#fff'/>" +
-          "<stop offset='1' stop-color='#fff'/>" +
-        "</linearGradient></defs>" +
-        "<path d='" + wave + close + "' fill='url(#g)'/>" +
-        "<path d='" + wave + "' stroke='" + stroke + "' stroke-width='8' stroke-linecap='round' fill='none'/>" +
-      "</svg>";
+      "<svg xmlns='http://www.w3.org/2000/svg' width='" + r(W + 80) + "' height='" + r(H + 80) +
+      "' viewBox='0 0 " + r(W + 80) + ' ' + r(H + 80) + "' preserveAspectRatio='none'>" + body + '</svg>';
     return 'url("data:image/svg+xml,' + encodeURIComponent(svg) + '")';
   }
 
   function update() {
-    if (document.body.classList.contains('theme-lammy')) {
-      root.style.removeProperty('--left-vertical-wave');
-      root.style.removeProperty('--right-vertical-wave');
-      return;
-    }
+    if (document.body.classList.contains('theme-lammy')) return;
+    // Used size in the wrap's own CSS px (unaffected by the html zoom), so the
+    // 40px frame margins in the SVG line up with the pseudo-elements' -40px.
+    var cs = getComputedStyle(wrap);
+    var W = parseFloat(cs.width);
+    var H = parseFloat(cs.height);
+    if (!(W > 0 && H > 0)) return;
     var wrapRect = wrap.getBoundingClientRect();
     var navRect = nav.getBoundingClientRect();
-    var H = wrapRect.height;
-    if (H <= 0) return;
-    var navBottom = navRect.bottom - wrapRect.top;
-    var frac = Math.max(0, Math.min(1, navBottom / H)).toFixed(5);
-    root.style.setProperty('--left-vertical-wave', waveUrl('left', frac));
-    root.style.setProperty('--right-vertical-wave', waveUrl('right', frac));
+    var navY = 40 + (navRect.bottom - wrapRect.top) / wrapRect.height * H;
+
+    var R = W + 40;  // x of the right run's inner edge
+    var B = H + 40;  // y of the bottom run's inner edge
+
+    // Pieces of the outline, clockwise from the top-left corner joint.
+    var tlJoint = 'M 20 40 L 20 30 L 16 16 L 30 20 L 40 20';
+    var top = wave('x', 40, W, 20, 2);
+    var trJoint = ' L ' + r(R + 10) + ' 20 L ' + r(R + 24) + ' 16 L ' + r(R + 20) + ' 30 L ' + r(R + 20) + ' 40';
+    var right = wave('y', 40, H, R + 20, R + 38);
+    var brJoint = ' L ' + r(R + 20) + ' ' + r(B + 10) + ' L ' + r(R + 24) + ' ' + r(B + 24) +
+                  ' L ' + r(R + 10) + ' ' + r(B + 20) + ' L ' + r(R) + ' ' + r(B + 20);
+    var bottom = wave('x', R, -W, B + 20, B + 38);
+    var blJoint = ' L 30 ' + r(B + 20) + ' L 16 ' + r(B + 24) + ' L 20 ' + r(B + 10) + ' L 20 ' + r(B);
+    var left = wave('y', B, -H, 20, 2);
+
+    var fill =
+      "<defs><linearGradient id='g' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='" + r(H + 80) + "'>" +
+        "<stop offset='0' stop-color='#ff14c8' stop-opacity='0.7'/>" +
+        "<stop offset='" + (navY / (H + 80)).toFixed(5) + "' stop-color='#ff14c8' stop-opacity='0.7'/>" +
+        "<stop offset='" + (navY / (H + 80)).toFixed(5) + "' stop-color='#fff'/>" +
+        "<stop offset='1' stop-color='#fff'/>" +
+      '</linearGradient></defs>' +
+      "<path fill='url(#g)' d='" + tlJoint + top + trJoint + right + brJoint + bottom + blJoint + left + " Z'/>";
+
+    // Visible border: from the bottom-left joint's pointed tip, up the left
+    // side, across the top, and out to the top-right joint's pointed tip. Both
+    // ends stop 1px short of their tips so the bottom and right sides stay
+    // clear. Butt caps match the old tiles, which clipped their round caps
+    // flat at the tile edge.
+    var trim = 1 / Math.sqrt(212);  // 1px along the joints' (14, 4) tip segments
+    var stroke =
+      "<path fill='none' stroke='#6B3B66' stroke-width='8' stroke-linejoin='miter' stroke-miterlimit='20' stroke-linecap='butt' d='" +
+      'M ' + r(16 + 4 * trim) + ' ' + r(B + 24 - 14 * trim) + ' L 20 ' + r(B + 10) + ' L 20 ' + r(B) +
+      left + ' L 20 30 L 16 16 L 30 20 L 40 20' + top +
+      ' L ' + r(R + 10) + ' 20 L ' + r(R + 24 - 14 * trim) + ' ' + r(16 + 4 * trim) + "'/>";
+
+    wrap.style.setProperty('--frame-fill', svgUrl(W, H, fill));
+    wrap.style.setProperty('--frame-stroke', svgUrl(W, H, stroke));
+    wrap.classList.add('frame-svg');
   }
   update();
   window.addEventListener('resize', update);
+  window.addEventListener('load', update);
   if (typeof ResizeObserver !== 'undefined') {
-    new ResizeObserver(update).observe(wrap);
+    var ro = new ResizeObserver(update);
+    ro.observe(wrap);
+    ro.observe(nav);
   }
   if (typeof MutationObserver !== 'undefined') {
     new MutationObserver(update).observe(document.body,
@@ -875,4 +970,17 @@ if (document.fonts) document.fonts.ready.then(window.fitTextSvgs);
   });
 
   update();
+})();
+// ──────────────────────────────────────────────────────────────────────────
+// Lammy mode: a strip of MilkCan foil wrapper (LammyStuff/wrappers-tile.png)
+// running along the underside of the chocolate-bar site box, forming the
+// very bottom of the page. Added here so every page gets it; CSS only shows
+// it in Lammy mode.
+(function () {
+  var wrap = document.querySelector('.site-wrap');
+  if (!wrap) return;
+  var foil = document.createElement('div');
+  foil.className = 'lammy-foil';
+  foil.setAttribute('aria-hidden', 'true');
+  wrap.appendChild(foil);
 })();

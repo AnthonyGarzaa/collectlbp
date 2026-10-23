@@ -549,13 +549,12 @@ body.lang-jp .block-ja { display: block; }
   width: auto;
 }
 
+/* No prefers-reduced-motion opt-out: Windows reports "reduce" whenever its
+   Animation effects setting is off, which froze the ticker for those
+   visitors. Hovering it still pauses it. */
 @keyframes vib-ticker-scroll {
   from { transform: translateX(-50%); }
   to { transform: translateX(0); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .vib-ticker-track { animation: none; }
 }
 
 /* 1300px content box to match the PaRappa / Lammy site (.site-wrap). The
@@ -787,13 +786,11 @@ main > .vib-section:last-child {
   z-index: -1;
 }
 
+/* No prefers-reduced-motion opt-out, for the same reason as the ticker:
+   Windows reports "reduce" whenever Animation effects is off. */
 @keyframes vib-run-cycle {
   from { background-position-x: 0; }
   to { background-position-x: -875px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  #vib-bg-runner { animation: none; }
 }
 
 .vib-gallery {

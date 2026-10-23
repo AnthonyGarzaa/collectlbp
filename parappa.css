@@ -12,6 +12,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Dazzeloids';
+  src: url('Dazzeloids Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -244,7 +251,7 @@ body.theme-lammy .submenu-label, body.theme-lammy .submenu-label * {
   max-width: calc(50% - 650px);     /* never wider than the margin */
   height: auto;
   pointer-events: none;
-  z-index: 0;
+  z-index: -2;                      /* behind the site box (.site-wrap makes no stacking context) */
   filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
 }
 
@@ -291,14 +298,14 @@ body:not(.theme-lammy) .site-wrap::before {
   width: 40px;
   background:
     /* Squiggle wave — top-left corner joint (connects the left vertical wave into the top wave) */
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M 20 40 L 20 30 L 16 16 L 30 20 L 40 20 L 40 40 Z' fill='%23FF14C8' fill-opacity='0.7'/%3E%3Cpath d='M 20 40 L 20 30 L 16 16 L 30 20 L 40 20' stroke='%235B3256' stroke-width='8' stroke-linejoin='miter' stroke-miterlimit='20' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") top left / 40px 40px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M 20 40 L 20 30 L 16 16 L 30 20 L 40 20 L 40 40 Z' fill='%23FF14C8' fill-opacity='0.7'/%3E%3Cpath d='M 20 40 L 20 30 L 16 16 L 30 20 L 40 20' stroke='%236B3B66' stroke-width='8' stroke-linejoin='miter' stroke-miterlimit='20' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") top left / 40px 40px no-repeat,
     /* Squiggle wave — bottom-left corner joint (connects the left vertical wave into the bottom wave) */
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M 20 0 L 20 10 L 16 24 L 30 20 L 40 20 L 40 0 Z' fill='%23ffffff'/%3E%3Cpath d='M 20 0 L 20 10 L 16 24 L 30 20 L 40 20' stroke='%235B3256' stroke-width='8' stroke-linejoin='miter' stroke-miterlimit='20' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") bottom left / 40px 40px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M 20 0 L 20 10 L 16 24 L 30 20 L 40 20 L 40 0 Z' fill='%23ffffff'/%3E%3Cpath d='M 20 0 L 20 10 L 16 24 L 30 20 L 40 20' stroke='%236B3B66' stroke-width='8' stroke-linejoin='miter' stroke-miterlimit='20' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") bottom left / 40px 40px no-repeat,
     /* Squiggle wave — left vertical run. Its fill is pink (matching header &
        nav-bar) from the top down to the nav's bottom edge, then white for the
        rest, so it blends into the adjacent page at every y. The JS below sets
        --left-vertical-wave with a gradient-fill version of this SVG. */
-    var(--left-vertical-wave, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 200' preserveAspectRatio='none'%3E%3Cpath d='M 20 0 C 20 12.5 2 12.5 2 25 C 2 37.5 20 37.5 20 50 C 20 62.5 2 62.5 2 75 C 2 87.5 20 87.5 20 100 C 20 112.5 2 112.5 2 125 C 2 137.5 20 137.5 20 150 C 20 162.5 2 162.5 2 175 C 2 187.5 20 187.5 20 200 L 40 200 L 40 0 Z' fill='%23ffffff'/%3E%3Cpath d='M 20 0 C 20 12.5 2 12.5 2 25 C 2 37.5 20 37.5 20 50 C 20 62.5 2 62.5 2 75 C 2 87.5 20 87.5 20 100 C 20 112.5 2 112.5 2 125 C 2 137.5 20 137.5 20 150 C 20 162.5 2 162.5 2 175 C 2 187.5 20 187.5 20 200' stroke='%235B3256' stroke-width='8' stroke-linecap='round' fill='none'/%3E%3C/svg%3E")) left 0 top 40px / 40px calc(100% - 80px) no-repeat;
+    var(--left-vertical-wave, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 200' preserveAspectRatio='none'%3E%3Cpath d='M 20 0 C 20 12.5 2 12.5 2 25 C 2 37.5 20 37.5 20 50 C 20 62.5 2 62.5 2 75 C 2 87.5 20 87.5 20 100 C 20 112.5 2 112.5 2 125 C 2 137.5 20 137.5 20 150 C 20 162.5 2 162.5 2 175 C 2 187.5 20 187.5 20 200 L 40 200 L 40 0 Z' fill='%23ffffff'/%3E%3Cpath d='M 20 0 C 20 12.5 2 12.5 2 25 C 2 37.5 20 37.5 20 50 C 20 62.5 2 62.5 2 75 C 2 87.5 20 87.5 20 100 C 20 112.5 2 112.5 2 125 C 2 137.5 20 137.5 20 150 C 20 162.5 2 162.5 2 175 C 2 187.5 20 187.5 20 200' stroke='%236B3B66' stroke-width='8' stroke-linecap='round' fill='none'/%3E%3C/svg%3E")) left 0 top 40px / 40px calc(100% - 80px) no-repeat;
   pointer-events: none;
   z-index: 50;
 }
@@ -313,7 +320,7 @@ body:not(.theme-lammy) .site-wrap::after {
   bottom: -40px;
   background:
     /* Squiggle wave — top-right corner joint (connects the top wave into the right vertical wave) */
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M 20 40 L 20 30 L 24 16 L 10 20 L 0 20 L 0 40 Z' fill='%23FF14C8' fill-opacity='0.7'/%3E%3Cpath d='M 20 40 L 20 30 L 24 16 L 10 20 L 0 20' stroke='%235B3256' stroke-width='8' stroke-linejoin='miter' stroke-miterlimit='20' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") top right / 40px 40px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M 20 40 L 20 30 L 24 16 L 10 20 L 0 20 L 0 40 Z' fill='%23FF14C8' fill-opacity='0.7'/%3E%3Cpath d='M 20 40 L 20 30 L 24 16 L 10 20 L 0 20' stroke='%236B3B66' stroke-width='8' stroke-linejoin='miter' stroke-miterlimit='20' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") top right / 40px 40px no-repeat,
     /* Squiggle wave — bottom-right corner joint (mirrored vertically) */
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M 20 0 L 20 10 L 24 24 L 10 20 L 0 20 L 0 0 Z' fill='%23ffffff'/%3E%3Cpath d='M 20 0 L 20 10 L 24 24 L 10 20 L 0 20' stroke='transparent' stroke-width='4' stroke-linejoin='miter' stroke-miterlimit='20' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") bottom right / 40px 40px no-repeat,
     /* Squiggle wave — right vertical run (mirrored). Same dynamic pink/white
@@ -321,11 +328,140 @@ body:not(.theme-lammy) .site-wrap::after {
     var(--right-vertical-wave, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 200' preserveAspectRatio='none'%3E%3Cpath d='M 20 0 C 20 12.5 38 12.5 38 25 C 38 37.5 20 37.5 20 50 C 20 62.5 38 62.5 38 75 C 38 87.5 20 87.5 20 100 C 20 112.5 38 112.5 38 125 C 38 137.5 20 137.5 20 150 C 20 162.5 38 162.5 38 175 C 38 187.5 20 187.5 20 200 L 0 200 L 0 0 Z' fill='%23ffffff'/%3E%3Cpath d='M 20 0 C 20 12.5 38 12.5 38 25 C 38 37.5 20 37.5 20 50 C 20 62.5 38 62.5 38 75 C 38 87.5 20 87.5 20 100 C 20 112.5 38 112.5 38 125 C 38 137.5 20 137.5 20 150 C 20 162.5 38 162.5 38 175 C 38 187.5 20 187.5 20 200' stroke='transparent' stroke-width='4' fill='none'/%3E%3C/svg%3E")) right 0 top 40px / 40px calc(100% - 80px) no-repeat,
     /* Squiggle wave — top horizontal run, stretched so its centre-line phase
        matches the top-left and top-right corner joints. */
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M 0 20 C 12.5 20 12.5 2 25 2 C 37.5 2 37.5 20 50 20 C 62.5 20 62.5 2 75 2 C 87.5 2 87.5 20 100 20 C 112.5 20 112.5 2 125 2 C 137.5 2 137.5 20 150 20 C 162.5 20 162.5 2 175 2 C 187.5 2 187.5 20 200 20 L 200 40 L 0 40 Z' fill='%23FF14C8' fill-opacity='0.7'/%3E%3Cpath d='M 0 20 C 12.5 20 12.5 2 25 2 C 37.5 2 37.5 20 50 20 C 62.5 20 62.5 2 75 2 C 87.5 2 87.5 20 100 20 C 112.5 20 112.5 2 125 2 C 137.5 2 137.5 20 150 20 C 162.5 20 162.5 2 175 2 C 187.5 2 187.5 20 200 20' stroke='%235B3256' stroke-width='8' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") top left / calc(100% - 40px) 40px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M 0 20 C 12.5 20 12.5 2 25 2 C 37.5 2 37.5 20 50 20 C 62.5 20 62.5 2 75 2 C 87.5 2 87.5 20 100 20 C 112.5 20 112.5 2 125 2 C 137.5 2 137.5 20 150 20 C 162.5 20 162.5 2 175 2 C 187.5 2 187.5 20 200 20 L 200 40 L 0 40 Z' fill='%23FF14C8' fill-opacity='0.7'/%3E%3Cpath d='M 0 20 C 12.5 20 12.5 2 25 2 C 37.5 2 37.5 20 50 20 C 62.5 20 62.5 2 75 2 C 87.5 2 87.5 20 100 20 C 112.5 20 112.5 2 125 2 C 137.5 2 137.5 20 150 20 C 162.5 20 162.5 2 175 2 C 187.5 2 187.5 20 200 20' stroke='%236B3B66' stroke-width='8' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") top left / calc(100% - 40px) 40px no-repeat,
     /* Squiggle wave — bottom horizontal run, stretched to match the bottom corners. */
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M 0 20 C 12.5 20 12.5 38 25 38 C 37.5 38 37.5 20 50 20 C 62.5 20 62.5 38 75 38 C 87.5 38 87.5 20 100 20 C 112.5 20 112.5 38 125 38 C 137.5 38 137.5 20 150 20 C 162.5 20 162.5 38 175 38 C 187.5 38 187.5 20 200 20 L 200 0 L 0 0 Z' fill='%23ffffff'/%3E%3Cpath d='M 0 20 C 12.5 20 12.5 38 25 38 C 37.5 38 37.5 20 50 20 C 62.5 20 62.5 38 75 38 C 87.5 38 87.5 20 100 20 C 112.5 20 112.5 38 125 38 C 137.5 38 137.5 20 150 20 C 162.5 20 162.5 38 175 38 C 187.5 38 187.5 20 200 20' stroke='transparent' stroke-width='4' fill='none'/%3E%3C/svg%3E") bottom left / calc(100% - 40px) 40px no-repeat;
   pointer-events: none;
   z-index: 50;
+}
+
+/* Once parappa.js has drawn the frame as one shape (.frame-svg): ::before is
+   the single seamless fill (outline + interior, pink to the nav's bottom then
+   white) behind the content, ::after the single continuous purple stroke on
+   top. The header and nav drop their own pink so no translucent edges meet. */
+body:not(.theme-lammy) .site-wrap.frame-svg::before,
+body:not(.theme-lammy) .site-wrap.frame-svg::after {
+  top: -40px;
+  bottom: -40px;
+  left: -40px;
+  right: -40px;
+  width: auto;
+}
+
+/* The wrap's drop shadow would otherwise paint over the fill (which now sits
+   behind the wrap); the old on-top fill tiles hid it entirely anyway. */
+body:not(.theme-lammy) .site-wrap.frame-svg {
+  box-shadow: none;
+}
+
+body:not(.theme-lammy) .site-wrap.frame-svg::before {
+  background: var(--frame-fill) 0 0 / 100% 100% no-repeat;
+  z-index: -1;
+}
+
+body:not(.theme-lammy) .site-wrap.frame-svg::after {
+  background: var(--frame-stroke) 0 0 / 100% 100% no-repeat;
+}
+
+body:not(.theme-lammy) .site-wrap.frame-svg .site-header,
+body:not(.theme-lammy) .site-wrap.frame-svg .nav-bar {
+  background: transparent;
+}
+
+/* Lammy mode: the site box is a chocolate bar like the non-special nav tabs —
+   chocolate brown with three bevelled outline frames (outline 1 = the wrap's
+   own border, outline 2 = ::before, outline 3 = ::after hugging the content,
+   which sits sunk into the bar) and the same drop/inner shadows. */
+body.theme-lammy .site-wrap {
+  padding: 16px;
+  background: #8A3324;
+  border: none;
+  border-top: 3px solid rgba(215, 215, 215, 0.25);
+  border-left: 3px solid rgba(215, 215, 215, 0.25);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+  border-right: 3px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6), inset 0 0 18px rgba(0, 0, 0, 0.35);
+}
+
+/* outline 2 — middle outline */
+body.theme-lammy .site-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border-top: 2px solid rgba(215, 215, 215, 0.25);
+  border-left: 2px solid rgba(215, 215, 215, 0.25);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  border-right: 2px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.55);
+  pointer-events: none;
+}
+
+/* outline 3 — innermost outline wrapping the content, with the inner shadow
+   falling over the content's edges so it reads as pressed into the bar */
+body.theme-lammy .site-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  border-top: 2px solid rgba(0, 0, 0, 0.2);
+  border-left: 2px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid rgba(215, 215, 215, 0.25);
+  border-right: 2px solid rgba(215, 215, 215, 0.25);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55), inset 0 0 9px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+/* MilkCan foil wrapper running along the whole underside of the bar, from the
+   bottom-left corner to the bottom-right (element added by parappa.js).
+   wrappers-tile.png is LammyStuff/wrappers.png with its 2 empty top rows
+   removed, cut to a 324px repeat (6 chocolate teeth) and its first 40px
+   cross-faded with the columns that follow the cut, so copies join without a
+   seam. The right end is capped with wrapper.png flipped horizontally
+   (wrapper-end.png: its 7 empty top rows trimmed and its inner 40px faded
+   out so it cross-fades into the tiles). Offsets cancel the wrap's 3px border
+   so it lines up with the bar's outer edges; all drawn at half size. */
+.lammy-foil {
+  display: none;
+}
+
+body.theme-lammy .lammy-foil {
+  display: block;
+  position: absolute;
+  top: calc(100% - 17px);
+  left: -3px;
+  right: -3px;
+  height: 97px;
+  pointer-events: none;
+}
+
+/* Tiles start at the left corner and run 97.5px under the end cap (a tile
+   width minus the 64.5px where the cap best matches the tile pattern); 'round'
+   nudges the tile width so whole tiles end exactly there at any page width. */
+body.theme-lammy .lammy-foil::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - 114.5px);
+  height: 100%;
+  background: url('LammyStuff/wrappers-tile.png') 0 0 / 162px 97px;
+  background-repeat: round no-repeat;
+}
+
+body.theme-lammy .lammy-foil::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 212px;
+  height: 100%;
+  background: url('LammyStuff/wrapper-end.png') 0 0 / 100% 100% no-repeat;
+}
+
+@media (max-width: 600px) {
+  body.theme-lammy .site-wrap { padding: 10px; }
+  body.theme-lammy .site-wrap::before { inset: 3px; }
+  body.theme-lammy .site-wrap::after { inset: 8px; }
 }
 
 
@@ -869,8 +1005,8 @@ body.theme-lammy .theme-btn {
   -webkit-text-stroke: 0.4px rgba(215, 215, 215, 0.25);
   paint-order: stroke fill;
   text-shadow:
-    1px 1px 0 rgba(255, 220, 180, 0.35),
-    -1px -1px 0 rgba(0, 0, 0, 0.55) !important;
+    0.72px 0.72px 0 rgba(255, 220, 180, 0.45),
+    -0.72px -0.72px 0 rgba(0, 0, 0, 0.55) !important;
   transition: border-color 0.15s;
   position: absolute;
   top: 0;
@@ -1029,8 +1165,8 @@ body.theme-lammy .lang-menu-btn {
   -webkit-text-stroke: 0.4px rgba(215, 215, 215, 0.25);
   paint-order: stroke fill;
   text-shadow:
-    1px 1px 0 rgba(255, 220, 180, 0.35),
-    -1px -1px 0 rgba(0, 0, 0, 0.55);
+    0.72px 0.72px 0 rgba(255, 220, 180, 0.45),
+    -0.72px -0.72px 0 rgba(0, 0, 0, 0.55);
   cursor: pointer;
   transition: border-color 0.15s;
   position: relative;
@@ -1502,10 +1638,27 @@ body.theme-lammy .lammy-renders .paul-stack .tree-guit {
 body.theme-lammy .lammy-renders .paul-stack .rammy-guit {
   display: block;
   position: absolute;
-  left: 106px;
+  left: 102px;
   bottom: 91px;
   transform: rotate(90deg);
   width: 36px;
+  height: auto;
+  pointer-events: none;
+  z-index: 200;
+}
+
+/* Bell sits just past the rotated guitar's right end (its visual box spans
+   roughly left+18 ± 47px), vertically centred on it. */
+.paul-ding {
+  display: none;
+}
+
+body.theme-lammy .lammy-renders .paul-stack .paul-ding {
+  display: block;
+  position: absolute;
+  left: 172px;
+  bottom: 119px;
+  width: 33px;
   height: auto;
   pointer-events: none;
   z-index: 200;
@@ -1730,13 +1883,13 @@ body.theme-lammy .lammy-renders .captain-stack {
 body.theme-lammy .lammy-renders .captain-stack .captain-wahwah {
   width: 40px;
   margin-bottom: -12px;
-  transform: translate(24px, -6px);
+  transform: translate(20px, -6px);
 }
 
 body.theme-lammy .lammy-renders .captain-stack .captain-reverb {
   width: 45px;
   margin-bottom: 8px;
-  transform: translate(25px, 0);
+  transform: translate(23px, 0);
 }
 
 body.theme-lammy .lammy-renders .paul-stack {
@@ -1751,19 +1904,19 @@ body.theme-lammy .lammy-renders .paul-stack {
 body.theme-lammy .lammy-renders .paul-stack .paul-ramm {
   width: 50px;
   margin-bottom: -2px;
-  transform: translate(28px, -5px);
+  transform: translate(24px, -5px);
 }
 
 body.theme-lammy .lammy-renders .paul-stack .paul-now {
   width: 70px;
   margin-bottom: -4px;
-  transform: translate(84px, 63px);
+  transform: translate(80px, 63px);
 }
 
 body.theme-lammy .lammy-renders .paul-stack .paul-distortion {
   width: 50px;
   margin-bottom: -2px;
-  transform: translateX(29px);
+  transform: translateX(25px);
 }
 
 /* Teri holds the same single 40px flex slot she always did; Rammy hangs off her
@@ -1782,24 +1935,24 @@ body.theme-lammy .lammy-renders .teri-stack .teri-rammy {
 }
 
 body.theme-lammy.lang-jp .lammy-renders .captain-stack .captain-wahwah {
-  transform: translate(114px, -8px);
+  transform: translate(110px, -8px);
 }
 
 body.theme-lammy.lang-jp .lammy-renders .captain-stack .captain-reverb {
-  transform: translate(115px, 0);
+  transform: translate(113px, 0);
 }
 
 body.theme-lammy.lang-jp .lammy-renders .paul-stack .paul-ramm {
-  transform: translate(113px, -5px);
+  transform: translate(109px, -5px);
 }
 
 body.theme-lammy.lang-jp .lammy-renders .paul-stack .paul-now {
   width: 67px;
-  transform: translate(171px, 60px);
+  transform: translate(167px, 60px);
 }
 
 body.theme-lammy.lang-jp .lammy-renders .paul-stack .paul-distortion {
-  transform: translate(114px, -8px);
+  transform: translate(110px, -8px);
 }
 
 body.theme-lammy.lang-jp .lammy-renders .paul-stack .tree-guit {
@@ -1816,7 +1969,11 @@ body.theme-lammy.lang-jp .lammy-renders .paul-stack .paul-drag {
 }
 
 body.theme-lammy.lang-jp .lammy-renders .paul-stack .rammy-guit {
-  left: 191px;
+  left: 187px;
+}
+
+body.theme-lammy.lang-jp .lammy-renders .paul-stack .paul-ding {
+  left: 257px;
 }
 
 /* PaRappa-mode nav bar: pink background shrink-wraps the button outlines so
@@ -1825,7 +1982,7 @@ body.theme-lammy.lang-jp .lammy-renders .paul-stack .rammy-guit {
 body:not(.theme-lammy) .nav-bar {
   background: rgba(255, 20, 200, 0.7);
   border-top: none;
-  border-bottom: 2px solid #6A1B9A;
+  border-bottom: 2px solid #6B3B66;   /* same purple as the frame's wavy border */
   row-gap: 0;
   padding-top: 0;
   padding-bottom: 0;
@@ -2002,8 +2159,8 @@ body.theme-lammy .nav-item > button:not(.nav-ujlnow):not(.nav-milkcan).active {
   -webkit-text-stroke: 0.4px rgba(215, 215, 215, 0.25);
   paint-order: stroke fill;
   text-shadow:
-    1px 1px 0 rgba(255, 220, 180, 0.35),
-    -1px -1px 0 rgba(0, 0, 0, 0.55) !important;
+    0.72px 0.72px 0 rgba(255, 220, 180, 0.45),
+    -0.72px -0.72px 0 rgba(0, 0, 0, 0.55) !important;
 }
 
 body.theme-lammy .nav-item > button:not(.nav-ujlnow):not(.nav-milkcan) {
@@ -2440,6 +2597,31 @@ body:not(.theme-lammy) .sub-dropdown > a:last-child {
 
 .submenu:hover .sub-dropdown {
   display: block;
+}
+
+/* Merchandise › PaRappa / Um Jammer Lammy: goods artwork perched on top of the submenu.
+   Out of the flow and click-through so it never shifts or steals the rows. */
+.sub-dropdown-topper {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130px;
+  height: auto;
+  margin-bottom: -6px;
+  pointer-events: none;
+  /* soft dark halo traced around the artwork's outline */
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.55)) drop-shadow(3px 5px 8px rgba(0, 0, 0, 0.45));
+}
+
+/* PaRappa goods art sits fully above the submenu instead of dipping into the first row */
+.sub-dropdown-topper[src*="Parappagoods"] {
+  margin-bottom: 2px;
+}
+
+body:not(.theme-lammy) .sub-dropdown > .sub-dropdown-topper + a {
+  border-top-left-radius: 13px;
+  border-top-right-radius: 13px;
 }
 
 .sub-dropdown a {
@@ -3040,12 +3222,59 @@ body.lang-jp .block-ja { display: block; }
   border-radius: 0;
 }
 
+/* Small animated GIF lifted from the archived page, shown at its native
+   size and centred under the main screenshot. */
+.ujl-cabinet-img img.ujl-cabinet-gif {
+  width: auto;
+  max-width: 100%;
+  margin: 12px auto 0;
+}
+
+/* Several of those GIFs side by side, centred as a group and lined up
+   on their middles. */
+.ujl-cabinet-gif-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.ujl-cabinet-img .ujl-cabinet-gif-row img.ujl-cabinet-gif {
+  margin: 0;
+  min-width: 0;
+}
+
 #page-aboutgame .ujl-cabinet-img img {
   width: 460px;
 }
 
+/* Lammy logo art shown under the Um Jammer Lammy cover and its region buttons. */
+#page-aboutgame .ujl-cabinet-img img.aboutgame-ujl-logo {
+  width: 340px;
+  max-width: 100%;
+  margin: 14px auto 0;
+}
+
 #page-milkcan .ujl-cabinet-img img {
   width: 460px;
+}
+
+/* Rodney page: the "Rodney's World" logo below the section title. */
+.rodney-world-banner {
+  padding: 6px 0 0;
+}
+
+.rodney-world-banner img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Tighten the gap between the logo and the first section below it. */
+.rodney-world-banner + .ujl-cabinet-section {
+  padding-top: 8px;
 }
 
 #page-aboutrodney .ujl-cabinet-img img {
@@ -3307,6 +3536,80 @@ body.lang-jp .block-ja { display: block; }
   }
 }
 
+/* PaRappa Figures page — tighter sections: three across, capped image
+   height, smaller captions and slimmer section headers. */
+#page-merch-ptr-figures .ujl-gallery-title {
+  padding: 6px 24px;
+}
+
+#page-merch-ptr-figures .ujl-gallery-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#page-merch-ptr-figures .ujl-gallery-item {
+  padding: 8px;
+  border-left: none;
+}
+
+#page-merch-ptr-figures .ujl-gallery-item:not(:nth-child(3n+1)) {
+  border-left: 1px solid #eee;
+}
+
+#page-merch-ptr-figures .ujl-gallery-item img {
+  max-width: 100%;
+  max-height: 240px;
+  width: auto;
+}
+
+#page-merch-ptr-figures .ujl-caption {
+  margin-top: 6px;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  #page-merch-ptr-figures .ujl-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #page-merch-ptr-figures .ujl-gallery-item:not(:nth-child(3n+1)) {
+    border-left: none;
+  }
+  #page-merch-ptr-figures .ujl-gallery-item:not(:nth-child(2n+1)) {
+    border-left: 1px solid #eee;
+  }
+}
+
+/* Anime page — the eight DVD Stage covers, packed four across */
+.ujl-gallery-grid.dvd-stages-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.ujl-gallery-grid.dvd-stages-grid .ujl-gallery-item {
+  padding: 8px;
+  border-left: none;
+}
+
+.ujl-gallery-grid.dvd-stages-grid .ujl-gallery-item:not(:nth-child(4n+1)) {
+  border-left: 1px solid #eee;
+}
+
+.ujl-gallery-grid.dvd-stages-grid .ujl-caption {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+@media (max-width: 500px) {
+  .ujl-gallery-grid.dvd-stages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ujl-gallery-grid.dvd-stages-grid .ujl-gallery-item:not(:nth-child(4n+1)) {
+    border-left: none;
+  }
+  .ujl-gallery-grid.dvd-stages-grid .ujl-gallery-item:nth-child(even) {
+    border-left: 1px solid #eee;
+  }
+}
+
 #page-sp-presskits .ujl-gallery-grid.presskit-condense .ujl-gallery-item img {
   max-width: 100%;
   width: 100%;
@@ -3506,6 +3809,122 @@ body.lang-jp .block-ja { display: block; }
   height: auto;
   border: 2px solid var(--border-wrap);
   border-radius: 4px;
+}
+
+/* Rodney Special Fukuoka 2001 — tighter sections: the photos are small and
+   mostly uncaptioned, so pack them three to a row with less padding. */
+#page-ev-fukuoka2001 .ujl-gallery-title {
+  padding: 6px 16px;
+  font-size: 19px;
+}
+
+#page-ev-fukuoka2001 .ujl-gallery .ujl-intro {
+  padding: 10px 20px;
+  line-height: 1.6;
+}
+
+#page-ev-fukuoka2001 .ujl-gallery-grid:not(.lead-grid) {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#page-ev-fukuoka2001 .ujl-gallery-item {
+  padding: 8px;
+}
+
+#page-ev-fukuoka2001 .ujl-gallery-grid:not(.lead-grid) .ujl-gallery-item:nth-child(odd) {
+  border-left: 1px solid #eee;
+}
+
+#page-ev-fukuoka2001 .ujl-gallery-grid:not(.lead-grid) .ujl-gallery-item:nth-child(3n+1) {
+  border-left: none;
+}
+
+@media (max-width: 500px) {
+  #page-ev-fukuoka2001 .ujl-gallery-grid:not(.lead-grid) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #page-ev-fukuoka2001 .ujl-gallery-grid:not(.lead-grid) .ujl-gallery-item:nth-child(3n+1) {
+    border-left: 1px solid #eee;
+  }
+  #page-ev-fukuoka2001 .ujl-gallery-grid:not(.lead-grid) .ujl-gallery-item:nth-child(odd) {
+    border-left: none;
+  }
+}
+
+/* Seaside GO! in Fuji TV 2001 — the archived photos are tiny, so each img
+   carries width/height at double its native size; keep the aspect ratio
+   when max-width shrinks them on narrow screens. */
+#page-ev-seasidefuji2001 .ujl-gallery-item img {
+  height: auto;
+}
+
+/* ── Whimsyload star frame (Contact page) ──
+   Four separate strips from the old Whimsyload site, laid out on a grid around
+   the artwork, with the stars facing out and the green band lining the inside:
+     top    www (8).png   left  www (4).png
+     bottom www (7).png   right www (5).png
+   The bars are only 336px wide, so each is drawn with border-image: the
+   corner-head ends stay fixed and the 210px middle (exactly 7 star periods,
+   cut between stars) repeats to fill whatever width the frame has. */
+.whimsy-frame {
+  display: inline-grid;
+  grid-template-columns: 40px minmax(0, 466px) 40px;
+  grid-template-rows: 41px auto 44px;
+  max-width: 100%;
+  vertical-align: top;
+  /* shrink strips and artwork together, keeping the border-image tiling intact */
+  zoom: 0.85;
+}
+
+.whimsy-frame-top,
+.whimsy-frame-bottom {
+  grid-column: 1 / -1;
+  border-style: solid;
+  border-image-repeat: round;
+}
+
+.whimsy-frame-top {
+  border-width: 0 54px 0 72px;
+  border-image-source: url("Parappa Site/Welcome/www (8).png");
+  border-image-slice: 0 54 0 72 fill;
+}
+
+.whimsy-frame-bottom {
+  border-width: 0 71px 0 55px;
+  border-image-source: url("Parappa Site/Welcome/www (7).png");
+  border-image-slice: 0 71 0 55 fill;
+}
+
+/* the side strips are 200px tall with stars every 40px, so they tile cleanly
+   if the artwork ever makes the frame taller */
+.whimsy-frame-left {
+  background: url("Parappa Site/Welcome/www (4).png") -3px 0 repeat-y;
+}
+
+.whimsy-frame-right {
+  background: url("Parappa Site/Welcome/www (5).png") 0 0 repeat-y;
+}
+
+.whimsy-frame-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  padding: 8px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.whimsy-frame-inner img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  .whimsy-frame-inner {
+    min-height: 0;
+  }
 }
 
 /* ── Document viewer ──
@@ -3790,6 +4209,496 @@ body.lang-jp .block-ja { display: block; }
   }
 }
 
+/* ── Flyer-styled translation (.fd) ──
+   The Lammy NOW! flyer's English translation, laid out like the printed flyer
+   rather than a typed letter: the red panel with prize A, the yellow (B) and
+   orange (C) prize bands beside the NEW!! cabinet, the black "GET THE 3
+   CHANCE" banner, and the teal quiz strip. Opens in the same
+   .doc-viewer as the letter transcriptions. */
+.fd {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  color: #111;
+  font-family: 'Arial Black', 'Arial Bold', Arial, sans-serif;
+  font-weight: 900;
+  line-height: 1.2;
+  text-align: left;
+  border: 1px solid #000;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.65);
+}
+
+/* :where() keeps this reset weaker than the single-class margins below. */
+:where(.fd) p {
+  margin: 0;
+}
+
+/* Every image click on the site opens the lightbox; the flyer's art is decoration. */
+.fd img {
+  display: block;
+  pointer-events: none;
+}
+
+/* Red top panel */
+.fd-top {
+  position: relative;
+  padding: 14px 18px 10px;
+  background: #e82821;
+}
+
+/* The flyer's header (kicker, namco mark, UJL logo, NOW! burst) as one SVG drawn in
+   the flyer's coordinates; it bleeds to the panel's edges so those coordinates map
+   straight onto the panel's full width. */
+.fd-head {
+  display: block;
+  width: calc(100% + 36px);
+  height: auto;
+  aspect-ratio: 1243 / 197;
+  margin: -14px -18px 0;
+  overflow: visible;
+}
+
+.fd-head-kicker {
+  font-family: 'Arial Black', 'Arial Bold', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 32px;
+  stroke-width: 7px;
+  stroke-linejoin: round;
+  paint-order: stroke fill;
+}
+
+.fd-head-tm {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  fill: #fff;
+}
+
+.fd-headline {
+  margin: 2px 0 4px;
+  color: #f9f0cc;
+  font-size: 33px;
+  letter-spacing: -0.5px;
+  text-align: center;
+  text-shadow: -3px -3px 0 #111, 3px -3px 0 #111, -3px 3px 0 #111, 3px 3px 0 #111,
+               0 -3px 0 #111, 0 3px 0 #111, -3px 0 0 #111, 3px 0 0 #111, 5px 6px 0 #111;
+}
+
+.fd-hot {
+  color: #fa8d18;
+}
+
+.fd-stage {
+  display: grid;
+  grid-template-columns: 120px 1fr 240px;
+  align-items: start;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.fd-parappa {
+  width: 118px;
+  margin-top: 6px;
+  transform: rotate(-8deg);
+}
+
+.fd-speech {
+  padding-top: 22px;
+}
+
+.fd-shout {
+  color: #f7e129;
+  font-size: 18px;
+  font-style: italic;
+  transform: rotate(-7deg);
+  text-shadow: -2px -2px 0 #111, 2px -2px 0 #111, -2px 2px 0 #111, 2px 2px 0 #111,
+               0 -2px 0 #111, 0 2px 0 #111, -2px 0 0 #111, 2px 0 0 #111, 3px 4px 0 #111;
+}
+
+.fd-fine {
+  margin-top: 6px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11.5px;
+  font-weight: bold;
+}
+
+.fd-top .fd-fine {
+  color: #fff;
+  text-shadow: -1px -1px 0 #111, 1px -1px 0 #111, -1px 1px 0 #111, 1px 1px 0 #111;
+}
+
+.fd-speech .fd-fine {
+  margin-top: 12px;
+  transform: rotate(-4deg);
+}
+
+/* Lammy leaps down out of the stage into prize A's row, as on the flyer. */
+.fd-lammy {
+  position: relative;
+  z-index: 1;
+  width: 250px;
+  margin: 0 -14px -96px 0;
+  justify-self: end;
+}
+
+.fd-prize {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fd-prize-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.fd-letter {
+  flex: 0 0 auto;
+  font-family: Impact, 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+  font-weight: normal;
+  font-size: 88px;
+  line-height: 0.9;
+  color: #111;
+  text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff,
+               0 -2px 0 #fff, 0 2px 0 #fff, -2px 0 0 #fff, 2px 0 0 #fff;
+}
+
+.fd-prize-title {
+  font-size: 19px;
+}
+
+.fd-prize-a {
+  margin-top: 6px;
+  padding-right: 200px;
+}
+
+.fd-prize-a .fd-prize-title {
+  color: #fff;
+  font-size: 21px;
+  text-shadow: -2px -2px 0 #111, 2px -2px 0 #111, -2px 2px 0 #111, 2px 2px 0 #111,
+               0 -2px 0 #111, 0 2px 0 #111, -2px 0 0 #111, 2px 0 0 #111, 3px 4px 0 #111;
+}
+
+.fd-sticker {
+  flex: 0 0 auto;
+  width: 132px;
+  border: 2px solid #111;
+  box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.45);
+}
+
+.fd-copy {
+  position: relative;
+  z-index: 2;
+  margin-top: 8px;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: normal;
+  line-height: 1.35;
+  text-align: right;
+}
+
+/* Prize bands B and C beside the NEW!! cabinet */
+.fd-mid {
+  display: grid;
+  grid-template-columns: 1fr 180px;
+}
+
+.fd-bands {
+  display: flex;
+  flex-direction: column;
+}
+
+.fd-prize-b,
+.fd-prize-c {
+  flex: 1 1 auto;
+  padding: 12px 8px 10px 10px;
+  border-top: 4px dotted #39a845;
+}
+
+.fd-prize-b {
+  background: #f8e92d;
+}
+
+.fd-prize-c {
+  background: #fcae28;
+}
+
+.fd-pics {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.fd-tam {
+  width: 104px;
+}
+
+.fd-card {
+  width: 92px;
+  background: #fff;
+  border: 1px solid #111;
+  transform: rotate(-5deg);
+  box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.35);
+}
+
+.fd-guitar {
+  flex: 0 0 auto;
+  width: 96px;
+}
+
+.fd-char {
+  flex: 0 0 auto;
+  width: 92px;
+  align-self: flex-end;
+}
+
+.fd-premium {
+  color: #b5121b;
+  font-size: 18px;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.fd-paren {
+  margin-top: 4px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.fd-new {
+  position: relative;
+  padding: 10px 8px 8px;
+  text-align: center;
+  border-top: 4px dotted #39a845;
+  border-left: 3px solid #111;
+  background: #fff;
+}
+
+.fd-new-tag {
+  color: #5b7fc0;
+  font-size: 32px;
+  font-style: italic;
+  text-align: left;
+  transform: rotate(-6deg);
+  text-shadow: 2px 2px 0 #fff, -2px -2px 0 #fff, 3px 3px 0 #1c2f63;
+}
+
+.fd-cabinet {
+  width: 140px;
+  margin: 4px auto 0;
+}
+
+.fd-date {
+  margin-top: -8px;
+  color: #e2333b;
+  font-size: 18px;
+  text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff, 3px 3px 0 #111;
+}
+
+.fd-namcocopy {
+  margin-top: 6px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: normal;
+  text-align: right;
+}
+
+/* Black banner */
+.fd-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  padding: 6px 10px 8px;
+  background: #10100e;
+  color: #fff;
+  font-family: Impact, 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+  font-weight: normal;
+  font-size: 24px;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+.fd-banner b {
+  font-weight: normal;
+  font-size: 32px;
+}
+
+.fd-arrow {
+  color: #fbaf27;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9em;
+}
+
+.fd-three {
+  color: #fbaf27;
+}
+
+/* Teal quiz strip */
+.fd-bottom {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 10px;
+  padding: 12px 16px 14px 6px;
+  background: #aee2d6;
+}
+
+.fd-onion {
+  position: relative;
+  align-self: end;
+}
+
+.fd-onion img {
+  width: 124px;
+  margin: 54px auto 0;
+}
+
+.fd-onion-say {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: #ea6f7c;
+  font-size: 15px;
+  font-style: italic;
+  text-align: center;
+  transform: rotate(-10deg);
+  text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff;
+}
+
+.fd-quiz-text {
+  color: #2a6fb0;
+  font-family: 'Arial Rounded MT Bold', 'Hiragino Maru Gothic ProN', Arial, sans-serif;
+  font-size: 14.5px;
+  font-weight: bold;
+  line-height: 1.45;
+}
+
+.fd-post {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 14px;
+  margin-top: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12.5px;
+  font-weight: bold;
+  line-height: 1.45;
+}
+
+.fd-post ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fd-post-head {
+  margin-bottom: 2px;
+}
+
+.fd-deadline {
+  margin-top: 4px;
+  font-size: 11.5px;
+}
+
+@media (max-width: 600px) {
+  .fd-headline {
+    font-size: 21px;
+  }
+  .fd-stage {
+    grid-template-columns: 70px 1fr 120px;
+  }
+  .fd-parappa {
+    width: 70px;
+  }
+  .fd-speech {
+    padding-top: 6px;
+  }
+  .fd-shout {
+    font-size: 13px;
+  }
+  .fd-lammy {
+    width: 130px;
+    margin: 0 -8px -40px 0;
+  }
+  .fd-letter {
+    font-size: 56px;
+  }
+  .fd-prize-title,
+  .fd-prize-a .fd-prize-title,
+  .fd-premium {
+    font-size: 15px;
+  }
+  .fd-prize-a {
+    padding-right: 90px;
+    flex-wrap: wrap;
+  }
+  .fd-sticker {
+    width: 96px;
+  }
+  .fd-mid {
+    grid-template-columns: 1fr;
+  }
+  .fd-new {
+    display: grid;
+    grid-template-columns: 1fr 90px;
+    align-items: center;
+    border-left: none;
+  }
+  .fd-cabinet {
+    grid-row: 1 / span 3;
+    grid-column: 2;
+    width: 86px;
+  }
+  .fd-date {
+    margin-top: 0;
+  }
+  .fd-pics {
+    gap: 6px;
+  }
+  .fd-tam {
+    width: 62px;
+  }
+  .fd-card {
+    width: 58px;
+  }
+  .fd-char {
+    width: 64px;
+  }
+  .fd-guitar {
+    width: 62px;
+  }
+  .fd-banner {
+    font-size: 16px;
+  }
+  .fd-banner b {
+    font-size: 20px;
+  }
+  .fd-bottom {
+    grid-template-columns: 70px 1fr;
+    gap: 8px;
+    padding: 10px 12px 12px 6px;
+  }
+  .fd-onion img {
+    width: 66px;
+    margin-top: 46px;
+  }
+  .fd-onion-say {
+    font-size: 12px;
+  }
+  .fd-quiz-text {
+    font-size: 13px;
+  }
+  .fd-post {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
 /* Stacked photo "folder" — a condensed pile of prints that fans open on hover; clicking opens the lightbox */
 .photo-folder {
   position: relative;
@@ -3834,6 +4743,37 @@ body.lang-jp .block-ja { display: block; }
 .photo-folder.fan-2:hover img:nth-child(1) { transform: rotate(-3deg) translate(-66px, -6px); }
 .photo-folder.fan-2:hover img:nth-child(2) { transform: rotate(3deg) translate(66px, -6px); }
 
+/* Folder of scanned pages with photos of the physical issue beside it.
+   The folder's side margins leave room for the fan-4 hover spread. */
+.folder-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+
+.folder-row .photo-folder {
+  margin: 14px 140px 30px;
+}
+
+.folder-row .folder-photo {
+  height: 326px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  border: 6px solid #fff;
+  border-radius: 3px;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.45);
+  box-sizing: border-box;
+  cursor: zoom-in;
+}
+
+@media (max-width: 600px) {
+  .folder-row .photo-folder { margin: 14px auto 30px; }
+  .folder-row .folder-photo { height: auto; width: 44%; }
+}
+
 /* Velfarre completion-exhibition report — original Weekly GARAGE title-GIF masthead */
 #page-gal-events .velfarre-masthead,
 #page-ev-bellfare .velfarre-masthead,
@@ -3852,11 +4792,15 @@ body.lang-jp .block-ja { display: block; }
 }
 
 #page-merch-ptr-plush .ujl-gallery-item img {
-  max-width: 50%;
+  max-width: 40%;
 }
 
 #page-merch-ptr-figures .ujl-gallery-item img {
-  max-width: 50%;
+  max-width: 40%;
+}
+
+#page-merch-ptr-shirts .ujl-gallery-item img {
+  max-width: 70%;
 }
 
 #page-merch-rodneyfun-comics .ujl-gallery-item img {
@@ -3891,7 +4835,7 @@ body.lang-jp .block-ja { display: block; }
 }
 
 #page-merch-ptr-misc .ujl-gallery-item img {
-  max-width: 75%;
+  max-width: 60%;
 }
 
 #page-merch-ujl-plush .ujl-gallery-item img {
@@ -3957,8 +4901,8 @@ body.lang-jp .block-ja { display: block; }
 }
 
 #page-merch-ptr-plush .ujl-gallery-grid.condense-grid .ujl-gallery-item img {
-  max-width: 75%;
-  width: 75%;
+  max-width: 60%;
+  width: 60%;
   height: auto;
   object-fit: cover;
 }
@@ -4412,6 +5356,19 @@ body.theme-lammy .search-result:hover .search-snippet mark {
   margin-bottom: 16px;
 }
 
+/* Rodney page — Selected Works, laid out like the 2005 Whimsyload bio:
+   a heading line per category with one entry per line beneath it. */
+.rodney-works p {
+  margin: 0 0 1.2em;
+  line-height: 1.6;
+}
+
+.rodney-works p strong {
+  display: inline-block;
+  margin-bottom: 2px;
+  font-size: 1.1em;
+}
+
 .ujl-table {
   width: 100%;
   border-collapse: collapse;
@@ -4430,6 +5387,12 @@ body.theme-lammy .search-result:hover .search-snippet mark {
   font-weight: bold;
   color: var(--color-goods-name);
   width: 30%;
+}
+
+/* UJL NOW! prize page tables sit on a white panel, where the white label
+   colour vanishes; use the same colour as the text beside it. */
+#page-ujlnow-prize .ujl-label {
+  color: inherit;
 }
 
 .ujl-rarity {
@@ -4500,7 +5463,8 @@ img {
 .lightbox-inner img { cursor: zoom-in; }
 .lightbox.open.zoomed { display: block; padding: 0; }
 .lightbox.zoomed .lightbox-inner { display: block; width: max-content; max-width: none; max-height: none; margin: 0 auto; }
-.lightbox.zoomed .lightbox-inner img { max-width: none; max-height: none; height: auto; cursor: zoom-out; }
+.lightbox.zoomed .lightbox-inner img { max-width: none; max-height: none; height: auto; cursor: zoom-in; }
+.lightbox.zoomed.zoom-max .lightbox-inner img { cursor: zoom-out; }
 .lightbox.zoomed.dragging .lightbox-inner img { cursor: grabbing; }
 .lightbox.zoomed .lightbox-close { position: fixed; top: 16px; right: 16px; }
 
@@ -4752,7 +5716,7 @@ body.theme-lammy .back-to-top:focus-visible {
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  padding: 18px 16px 22px;
+  padding: 60px 16px 30px;  /* room for the "Previous" / "Next" lettering */
   clear: both;
 }
 
@@ -4781,6 +5745,178 @@ body.theme-lammy .back-to-top:focus-visible {
 .pager-prev { margin-right: auto; text-align: left; }
 .pager-next { margin-left: auto; text-align: right; }
 
+/* Mascots on the pager buttons, overlapping each button's outer end a little
+   and drawn on top: snext.png (Sunny, "Pre") hangs off the Previous button's
+   left end, pnext.png (PaRappa, "Next") off the Next button's right end. Each
+   button gives up room on that side so the art fits. */
+.pager-prev,
+.pager-next {
+  position: relative;
+}
+
+.pager-prev { margin-left: 92px; }
+
+.pager-next { margin-right: 92px; }
+
+/* no "← Previous" / "Next →" line any more, so centre the page name */
+.pager-prev,
+.pager-next {
+  justify-content: center;
+}
+
+.pager-mascot {
+  position: absolute;
+  top: 50%;
+  width: 120px;
+  height: auto;
+  /* raised 20px off centre so the art clears the card's wavy bottom edge */
+  transform: translateY(calc(-50% - 20px));
+  z-index: 2;
+  /* faint soft shadow traced around the artwork */
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.25));
+  transition: filter 0.15s;
+}
+
+.pager-prev .pager-mascot {
+  right: 100%;
+  margin-right: -28px;
+}
+
+.pager-next .pager-mascot {
+  left: 100%;
+  margin-left: -28px;
+  /* 6px lower than Sunny so "Next" lines up with "Previous" */
+  transform: translateY(calc(-50% - 14px));
+}
+
+/* "Previous" / "Next" lettered over the mascots in the Dazzeloids font, each
+   in the colour of that mascot's arrow with a thin white outline, centred
+   above the character's head. */
+.pager-mascot-label {
+  position: absolute;
+  transform: translateX(-50%);
+  font-family: 'Dazzeloids', 'RodneyWrite', sans-serif;
+  font-size: 29px;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  text-shadow:
+    -1px -1px 0 #fff, 0 -1px 0 #fff, 1px -1px 0 #fff,
+    -1px 0 0 #fff, 1px 0 0 #fff,
+    -1px 1px 0 #fff, 0 1px 0 #fff, 1px 1px 0 #fff,
+    0 3px 5px rgba(0, 0, 0, 0.25);
+  z-index: 3;
+  transition: filter 0.15s;
+}
+
+/* Sunny's head is ~69% across the 120px art, which ends 28px inside the
+   button: 28 - 120 + 83 = 9px left of the button's edge. */
+.pager-prev .pager-mascot-label {
+  left: -9px;
+  bottom: calc(50% + 50px);
+  color: #00009C;
+}
+
+/* PaRappa's head is ~47% across the 120px art, which starts 28px inside the
+   button: -28 + 56 = 28px right of the button's edge. His art is set 6px
+   lower than Sunny's, so "Next" sits level with "Previous". */
+.pager-next .pager-mascot-label {
+  left: calc(100% + 28px);
+  bottom: calc(50% + 50px);
+  color: #CE0000;
+}
+
+.pager-btn:hover .pager-mascot-label {
+  filter: brightness(0.85);
+}
+
+.pager-btn:hover .pager-mascot {
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.25)) brightness(0.85);
+}
+
+/* Lammy mode: no Sunny or PaRappa art on the pager buttons, just their
+   arrows (bluearrow.png / redarrow.png, cut from the same canvases so each sits
+   where theirs was); the buttons and their lettering stay. */
+body.theme-lammy .pager-mascot:not(.pager-arrow),
+body:not(.theme-lammy) .pager-arrow,
+body:not(.theme-lammy) .pager-kat,
+body:not(.theme-lammy) .pager-lamster {
+  display: none;
+}
+
+/* Lammy mode: the arrow and Kat as two separate figures side by side. Kat
+   (104px tall, ~92px wide) overlaps the button's end by 51px; she and the
+   arrow are both centred 5px above the button's middle, level with Lamster
+   and the red Next arrow. The arrow's blue shape spans 10.8-72px of its 120px
+   art; with the art's right edge 40.5px inside the button, its tail end
+   tucks ~31px behind Kat. The button keeps the same 92px side margin as
+   Next, so both sit equally far from the border; Kat, the arrow and
+   "Previous" are placed as a group so the blue arrow's tip (bevel included)
+   is as far from the border as the red arrow's. */
+body.theme-lammy .page-pager {
+  padding-top: 80px;  /* "Previous" is lifted to clear Kat's ears */
+}
+
+body.theme-lammy .pager-prev .pager-arrow {
+  margin-right: -40.5px;
+  transform: translateY(calc(-50% - 13.4px));
+  z-index: 1;  /* behind Kat (z-index 2) */
+}
+
+.pager-kat {
+  position: absolute;
+  right: calc(100% - 51px);
+  top: calc(50% - 5px);
+  width: auto;
+  height: 104px;
+  transform: translateY(-50%);
+  z-index: 2;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.25));
+  transition: filter 0.15s;
+}
+
+/* "Previous" centred over Kat's head (~36% across her art) */
+body.theme-lammy .pager-prev .pager-mascot-label {
+  left: -8px;
+  bottom: calc(50% + 61px);
+}
+
+.pager-btn:hover .pager-kat,
+.pager-btn:hover .pager-lamster {
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.25)) brightness(0.85);
+}
+
+/* Lammy mode, Next side: Lamster just left of the red arrow, both centred 5px
+   above the button's middle. Her art (106.3px tall, ~87px wide) has more empty
+   space around her than Kat's, so it is drawn taller to make her figure the
+   same 102.7px height as Kat's. Her art starts 41px inside the button's right
+   end (her guitar and body sit 20-73px across her art at button height); the
+   arrow, 20px left of where PaRappa's was, starts 4.8px past the button, so
+   its tail tucks ~38px behind her. */
+body.theme-lammy .pager-next .pager-arrow {
+  margin-left: -48px;
+  z-index: 1;  /* behind Lamster (z-index 2) */
+}
+
+.pager-lamster {
+  position: absolute;
+  left: calc(100% - 41px);
+  top: calc(50% - 5px);
+  width: auto;
+  height: 106.3px;
+  transform: translateY(-50%);
+  z-index: 2;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.25));
+  transition: filter 0.15s;
+}
+
+/* "Next" centred over Lamster's head (~72% across her art), level with
+   "Previous" and clear of her ears */
+body.theme-lammy .pager-next .pager-mascot-label {
+  left: calc(100% + 21px);
+  bottom: calc(50% + 61px);
+}
+
 .pager-dir {
   font-size: 14px;
   letter-spacing: 1px;
@@ -4794,13 +5930,9 @@ body.theme-lammy .back-to-top:focus-visible {
 }
 
 @media (max-width: 600px) {
-  .page-pager { padding: 14px 16px 18px; gap: 8px; }
+  .page-pager { padding: 58px 16px 28px; gap: 8px; }
   .pager-btn { padding: 6px 10px; }
   .pager-name { font-size: 16px; }
-}
-
-.page-pager-top {
-  padding: 12px 16px 4px;
 }
 
 /* JAMMA AM Show 1999 — the Videos section's clips, side by side */
@@ -4818,6 +5950,22 @@ body.theme-lammy .back-to-top:focus-visible {
   max-width: 500px;
 }
 
+/* Tokyo Game Show 1996 — the three clips from SCE's original TGS Report page */
+#page-ev-tgs1996 .tgs1996-video-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+}
+
+#page-ev-tgs1996 .tgs1996-video-item {
+  flex: 1 1 260px;
+  max-width: 360px;
+}
+
+#page-ev-tgs1996 .tgs1996-video-item video,
 #page-ev-amshow1999 .amshow-video-item video {
   display: block;
   width: 100%;
@@ -4915,4 +6063,33 @@ body.theme-lammy .nav-item:has(> .nav-ujlnow) .dropdown a,
 body.theme-lammy .nav-item:has(> .nav-ujlnow) .dropdown a:hover,
 body.theme-lammy .nav-item:has(> .nav-ujlnow) .dropdown a * {
   color: #3A3A3A !important;
+}
+
+/* SCP m.ix! catalog listing — its own centred row above the SCP cushion grid,
+   at twice the size of the condensed thumbnails below it. */
+#page-merch-ptr-plush .ujl-gallery-grid.lead-grid .ujl-gallery-item img[src$="cushion.png"] {
+  max-width: 40%;
+  width: 40%;
+}
+
+@media (max-width: 600px) {
+  #page-merch-ptr-plush .ujl-gallery-grid.lead-grid .ujl-gallery-item img[src$="cushion.png"] {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* Limited-edition anime T-shirt announcement — shown at roughly 60% of its 772px width. */
+#page-merch-ptr-shirts .ujl-gallery-grid.lead-grid .ujl-gallery-item img[src$="shirts.png"] {
+  width: 460px;
+  max-width: 100%;
+}
+
+/* Merchandise › PaRappa › PJ Berri Goods: brown menu button, in both modes. */
+body .sub-dropdown a[href="merch-ptr-pjberri.html"] {
+  background: #8B5A2B;
+}
+
+body .sub-dropdown a[href="merch-ptr-pjberri.html"]:hover {
+  background: #A8703A;
 }
