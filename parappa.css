@@ -12,6 +12,24 @@
   font-style: normal;
 }
 
+/* RodneyWrite draws the middle dot (·, U+00B7 / U+2219) as a mouse doodle, so take
+   just that character from a plain system font (later faces win for overlapping ranges) */
+@font-face {
+  font-family: 'RodneyWrite';
+  src: local('Arial'), local('Helvetica'), local('Roboto'), local('DejaVu Sans');
+  font-weight: normal;
+  font-style: normal;
+  unicode-range: U+00B7, U+2219;
+}
+
+@font-face {
+  font-family: 'RodneyWrite';
+  src: local('Arial Bold'), local('Arial-BoldMT'), local('Helvetica Bold'), local('Roboto Bold'), local('DejaVu Sans Bold');
+  font-weight: bold;
+  font-style: normal;
+  unicode-range: U+00B7, U+2219;
+}
+
 @font-face {
   font-family: 'Dazzeloids';
   src: url('Dazzeloids Bold.ttf') format('truetype');
@@ -205,6 +223,26 @@ body.theme-lammy {
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
+}
+
+/* PaRappa mode: light-blue text highlight */
+body ::selection {
+  background: #50B2E5;
+  color: #fff;
+}
+body ::-moz-selection {
+  background: #50B2E5;
+  color: #fff;
+}
+
+/* Lammy mode: red text highlight instead of the browser's default blue */
+body.theme-lammy ::selection {
+  background: #D32F2F;
+  color: #fff;
+}
+body.theme-lammy ::-moz-selection {
+  background: #D32F2F;
+  color: #fff;
 }
 
 html, *, *::before, *::after {
@@ -1688,6 +1726,10 @@ body:not(.theme-lammy) .parappa-kat {
   height: auto;
 }
 
+body:not(.theme-lammy) .parappa-rapdog {
+  width: 76px;
+}
+
 body:not(.theme-lammy) .parappa-bear {
   display: block;
   width: 60px;
@@ -1706,6 +1748,9 @@ body:not(.theme-lammy) .parappa-sun {
   body:not(.theme-lammy) .parappa-sun,
   body:not(.theme-lammy) .parappa-kat {
     width: 44px;
+  }
+  body:not(.theme-lammy) .parappa-rapdog {
+    width: 52px;
   }
   body:not(.theme-lammy) .parappa-bear {
     width: 40px;
@@ -3178,6 +3223,34 @@ body.lang-jp .block-ja { display: block; }
   }
 }
 
+/* Welcome page: "Random Page!" button, after What's New. */
+.welcome-random {
+  display: flex;
+  justify-content: center;
+  padding: 8px 16px 28px;
+}
+
+.random-page-btn {
+  padding: 10px 28px;
+  background: var(--bg-nav);
+  color: var(--color-nav);
+  border: 2px solid var(--border-nav);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  font-family: 'RodneyWrite', 'MS PGothic', 'Hiragino Kaku Gothic Pro', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.random-page-btn:hover {
+  background: var(--bg-nav-hover);
+  color: var(--color-nav-hover);
+  border-color: var(--border-nav-hover);
+}
+
 .donate-methods {
   display: flex;
   flex-wrap: wrap;
@@ -3230,6 +3303,36 @@ body.lang-jp .block-ja { display: block; }
   margin: 12px auto 0;
 }
 
+/* milkcan.com front-page picture rebuilt from its six original GIF slices
+   (sp-websites.html). The slices sit where the 380x329 table on the archived
+   page put them, in percentages so the whole picture can shrink on narrow
+   screens. Clicks pass through: a single slice is not worth a lightbox. */
+.ujl-cabinet-img .milkcan-top-art {
+  position: relative;
+  /* Each slice is resized on its own, so at in-between sizes their edges
+     blend with whatever is behind them. A flat copy of the whole picture
+     (first frames) sits behind the slices so those edges blend with the
+     picture itself instead of the white page, hiding the seams. */
+  background: url("Parappa%20Site/OriginalSites/milkcan_top_full.png") 0 0 / 100% 100% no-repeat;
+  width: 380px;
+  max-width: 100%;
+  aspect-ratio: 380 / 329;
+  margin: 12px auto 0;
+}
+
+.ujl-cabinet-img .milkcan-top-art img {
+  position: absolute;
+  margin: 0;
+  pointer-events: none;
+}
+
+.ujl-cabinet-img .milkcan-top-art .mct-top1 { left: 0%; top: 0%; width: 44.2105%; height: 81.7629%; }
+.ujl-cabinet-img .milkcan-top-art .mct-top2 { left: 0%; top: 81.7629%; width: 44.2105%; height: 18.2371%; }
+.ujl-cabinet-img .milkcan-top-art .mct-top3 { left: 44.2105%; top: 0%; width: 11.0526%; height: 55.9271%; }
+.ujl-cabinet-img .milkcan-top-art .mct-top4 { left: 55.2632%; top: 0%; width: 22.8947%; height: 55.9271%; }
+.ujl-cabinet-img .milkcan-top-art .mct-top5 { left: 78.1579%; top: 0%; width: 21.8421%; height: 55.9271%; }
+.ujl-cabinet-img .milkcan-top-art .mct-top6 { left: 44.2105%; top: 55.9271%; width: 55.7895%; height: 44.0729%; }
+
 /* Several of those GIFs side by side, centred as a group and lined up
    on their middles. */
 .ujl-cabinet-gif-row {
@@ -3256,8 +3359,178 @@ body.lang-jp .block-ja { display: block; }
   margin: 14px auto 0;
 }
 
-#page-milkcan .ujl-cabinet-img img {
+#page-milkcan .ujl-cabinet-img > img {
   width: 460px;
+}
+
+/* MilkCan page: SHOUT! message board, rebuilt from the archived bbs.cgi
+   captures. Colours and layout follow the original board: a cream page,
+   blue text, lavender titles, orange names, a milk-bottle image beside
+   each 500px-wide post and a rule between posts. */
+.shout-intro {
+  text-align: center;
+  padding-top: 16px;
+}
+
+.shout-logo {
+  display: block;
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border: none;
+  pointer-events: none;
+}
+
+.shout-intro .ujl-intro {
+  text-align: left;
+}
+
+.shout-board {
+  background: #FFFFE5;
+  color: #0099CC;
+  font-family: "Times New Roman", "Yu Gothic", "Meiryo", "MS PGothic", serif;
+  font-size: 16px;          /* the board's own size, against its 500px posts */
+  padding: 8px 16px 24px;
+}
+
+/* Capture buttons above the SHOUT! board: one per Wayback capture. parappa.js
+   shows only the chosen capture's messages and starts on the earliest. */
+.shout-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 980px;
+  margin: 16px auto 4px;
+}
+
+.shout-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  min-width: 124px;
+  padding: 8px 12px 9px;
+  background: #fff;
+  color: #0099CC;
+  border: 2px solid #CC99FF;
+  border-radius: 14px;
+  box-shadow: 0 2px 0 #CC99FF;
+  font-family: 'RodneyWrite', 'MS PGothic', 'Hiragino Kaku Gothic Pro', sans-serif;
+  font-size: 18px;
+  line-height: 1.2;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.15s;
+}
+
+.shout-tab:hover {
+  background: #F7EFFF;
+  transform: translateY(-1px);
+}
+
+.shout-tab.active {
+  background: #0099CC;
+  border-color: #0099CC;
+  box-shadow: 0 2px 0 #FF9900;
+  color: #fff;
+}
+
+.shout-tab:focus-visible {
+  outline: 3px solid #FF9900;
+  outline-offset: 2px;
+}
+
+.shout-tab-icon {
+  width: 30px;
+  height: auto;
+  opacity: 0.45;
+  border: none;
+  pointer-events: none;   /* clicks go to the button, not the image lightbox */
+}
+
+.shout-tab.active .shout-tab-icon {
+  opacity: 1;
+}
+
+.shout-tab-date {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.shout-tab-count {
+  font-size: 14px;
+  color: #FF9900;
+  white-space: nowrap;
+}
+
+.shout-tab.active .shout-tab-count {
+  color: #FFFFE5;
+}
+
+.shout-capture-title {
+  max-width: 500px;
+  margin: 24px auto 4px;
+  padding: 6px 10px;
+  background: var(--bg-goods-cat);
+  border: 1px solid var(--border-goods-cat);
+  color: var(--color-goods-cat);
+  font-family: 'RodneyWrite', 'MS PGothic', 'Hiragino Kaku Gothic Pro', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.shout-capture-title a {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.shout-post {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 12px 4px;
+  border-top: 1px solid #aaa;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.shout-post-icon {
+  flex: 0 0 auto;
+  width: 79px;
+  height: auto;
+  border: none;
+  pointer-events: none;
+}
+
+.shout-post-main {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.shout-post-title {
+  color: #CC99FF;
+  font-weight: bold;
+}
+
+.shout-post-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 6px 0;
+}
+
+.shout-post-name {
+  color: #FF9900;
+  font-weight: bold;
+}
+
+.shout-post-date {
+  white-space: nowrap;
 }
 
 /* Rodney page: the "Rodney's World" logo below the section title. */
@@ -3536,6 +3809,32 @@ body.lang-jp .block-ja { display: block; }
   }
 }
 
+/* Mascots page — PaRappa and Lammy grids, packed three across */
+#page-sp-mascots .ujl-gallery-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#page-sp-mascots .ujl-gallery-item {
+  padding: 8px;
+  border-left: none;
+}
+
+#page-sp-mascots .ujl-gallery-item:not(:nth-child(3n+1)) {
+  border-left: 1px solid #eee;
+}
+
+@media (max-width: 500px) {
+  #page-sp-mascots .ujl-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #page-sp-mascots .ujl-gallery-item {
+    border-left: none;
+  }
+  #page-sp-mascots .ujl-gallery-item:not(:nth-child(2n+1)) {
+    border-left: 1px solid #eee;
+  }
+}
+
 /* PaRappa Figures page — tighter sections: three across, capped image
    height, smaller captions and slimmer section headers. */
 #page-merch-ptr-figures .ujl-gallery-title {
@@ -3557,7 +3856,7 @@ body.lang-jp .block-ja { display: block; }
 
 #page-merch-ptr-figures .ujl-gallery-item img {
   max-width: 100%;
-  max-height: 240px;
+  max-height: 300px;
   width: auto;
 }
 
@@ -3667,6 +3966,51 @@ body.lang-jp .block-ja { display: block; }
   grid-template-columns: 1fr;
 }
 
+/* R.C.C.P.O. page — full flyer scan centred above the PARCO 2000 grid */
+.ujl-gallery-grid.rccpo-flyer-lead .ujl-caption {
+  margin: 0 0 10px;
+}
+
+.ujl-gallery-grid.rccpo-flyer-lead .ujl-gallery-item img {
+  width: 100%;
+  max-width: 440px;
+}
+
+/* Translation of the flyer's Japanese text, under the scan */
+.rccpo-translation {
+  max-width: 560px;
+  margin: 14px auto 4px;
+  padding: 14px 20px;
+  background: var(--bg-intro);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-align: left;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.rccpo-translation .rccpo-tr-head {
+  margin-bottom: 8px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.rccpo-translation p {
+  margin: 0 0 10px;
+}
+
+.rccpo-translation .rccpo-tr-tag,
+.rccpo-translation .rccpo-tr-title {
+  text-align: center;
+}
+
+.rccpo-translation ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
 .ujl-gallery-item {
   padding: 16px;
   border-top: 1px solid #eee;
@@ -3688,9 +4032,13 @@ body.lang-jp .block-ja { display: block; }
   max-width: 45%;
 }
 
-/* Lipton FIGURES section — render the dancing figures at half size */
+/* Lipton FIGURES section — dancing figures shown small, with tighter cells */
+.ujl-gallery-grid.lipton-figures-grid .ujl-gallery-item {
+  padding: 10px 16px;
+}
+
 .ujl-gallery-grid.lipton-figures-grid .ujl-gallery-item img {
-  max-width: 50%;
+  max-width: 40%;
 }
 
 #page-gal-stratguides .ujl-gallery-item.small img {
@@ -3743,6 +4091,15 @@ body.lang-jp .block-ja { display: block; }
   height: auto;
 }
 
+/* Event page — the 1996 report images carry a width attribute of twice their
+   natural size; keep them in proportion and inside their column. */
+#page-ev-tgs1996 .ujl-gallery-item img[width],
+#page-ev-psexpo96 img[width],
+#page-ev-psexpo96 .psexpo96-lead img[width] {
+  max-width: 100%;
+  height: auto;
+}
+
 #page-gal-events .psexpo96-lead .ujl-caption,
 #page-ev-psexpo96 .psexpo96-lead .ujl-caption {
   margin-top: 8px;
@@ -3763,7 +4120,8 @@ body.lang-jp .block-ja { display: block; }
 }
 
 /* Tokyo Game Show '99 — official poster beside the exhibit video */
-#page-gal-events .tgs-media-row {
+#page-gal-events .tgs-media-row,
+#page-ev-tgs1999 .tgs-media-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -3772,7 +4130,8 @@ body.lang-jp .block-ja { display: block; }
   padding: 16px;
 }
 
-#page-gal-events .tgs-media-row video {
+#page-gal-events .tgs-media-row video,
+#page-ev-tgs1999 .tgs-media-row video {
   flex: 0 1 500px;
   width: 100%;
   max-width: 500px;
@@ -3781,7 +4140,8 @@ body.lang-jp .block-ja { display: block; }
   border-radius: 4px;
 }
 
-#page-gal-events .tgs-media-row .tgs-poster {
+#page-gal-events .tgs-media-row .tgs-poster,
+#page-ev-tgs1999 .tgs-media-row .tgs-poster {
   flex: 0 0 auto;
   width: auto;
   max-width: 220px;
@@ -3803,9 +4163,9 @@ body.lang-jp .block-ja { display: block; }
 
 #page-ev-amshow1999 .amshow-media-row img,
 #page-ev-amshow1999 .amshow-media-row video {
-  flex: 0 1 500px;
+  flex: 0 1 600px;
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   height: auto;
   border: 2px solid var(--border-wrap);
   border-radius: 4px;
@@ -4743,6 +5103,10 @@ body.lang-jp .block-ja { display: block; }
 .photo-folder.fan-2:hover img:nth-child(1) { transform: rotate(-3deg) translate(-66px, -6px); }
 .photo-folder.fan-2:hover img:nth-child(2) { transform: rotate(3deg) translate(66px, -6px); }
 
+.photo-folder.fan-3:hover img:nth-child(1) { transform: rotate(-3deg) translate(-96px, -6px); }
+.photo-folder.fan-3:hover img:nth-child(2) { transform: translate(0, -8px); }
+.photo-folder.fan-3:hover img:nth-child(3) { transform: rotate(3deg) translate(96px, -6px); }
+
 /* Folder of scanned pages with photos of the physical issue beside it.
    The folder's side margins leave room for the fan-4 hover spread. */
 .folder-row {
@@ -4791,12 +5155,20 @@ body.lang-jp .block-ja { display: block; }
   margin: 4px;
 }
 
+/* Bellfare page — the 1996 report images are tiny, so each carries a width
+   attribute of twice its natural size; keep them in proportion and inside
+   their column. */
+#page-ev-bellfare img[width] {
+  max-width: 100%;
+  height: auto;
+}
+
 #page-merch-ptr-plush .ujl-gallery-item img {
   max-width: 40%;
 }
 
 #page-merch-ptr-figures .ujl-gallery-item img {
-  max-width: 40%;
+  max-width: 50%;
 }
 
 #page-merch-ptr-shirts .ujl-gallery-item img {
@@ -4863,6 +5235,27 @@ body.lang-jp .block-ja { display: block; }
 #page-merch-ujl-plush .ujl-gallery-grid.condense-grid .ujl-gallery-item img[src*="Lammy%20Plush%20Page"] {
   max-width: 100%;
   width: 100%;
+}
+
+/* Jamming Lammy: online shop banner across the top of the gallery, centred,
+   at its native pixel size on desktop (296px x 0.8 zoom = 237px). The cells
+   after it start each row at 3n+2, so the row-start borders move with them. */
+#page-merch-ujl-plush .ujl-gallery-grid.condense-grid .ujl-gallery-item:has(img[src$="open.png"]) {
+  grid-column: 1 / -1;
+}
+
+#page-merch-ujl-plush .ujl-gallery-grid.condense-grid .ujl-gallery-item img[src$="open.png"] {
+  width: 296px;
+  max-width: 100%;
+}
+
+#page-merch-ujl-plush .ujl-gallery-grid.condense-grid:has(img[src$="open.png"]) .ujl-gallery-item:nth-child(3n+1) {
+  border-left: 1px solid #eee;
+}
+
+#page-merch-ujl-plush .ujl-gallery-grid.condense-grid:has(img[src$="open.png"]) .ujl-gallery-item:nth-child(3n+2),
+#page-merch-ujl-plush .ujl-gallery-grid.condense-grid:has(img[src$="open.png"]) .ujl-gallery-item:first-child {
+  border-left: none;
 }
 
 #page-merch-ujl-plush .ujl-gallery-grid.condense-grid {
@@ -6092,4 +6485,173 @@ body .sub-dropdown a[href="merch-ptr-pjberri.html"] {
 
 body .sub-dropdown a[href="merch-ptr-pjberri.html"]:hover {
   background: #A8703A;
+}
+
+/* PJ Berri head icon at the right end of the PJ Berri Goods button */
+.sub-dropdown a:has(> .sub-dropdown-icon) {
+  position: relative;
+  padding-right: 52px;
+  white-space: nowrap;
+}
+
+.sub-dropdown a .sub-dropdown-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 30px;
+  width: auto;
+  pointer-events: none;
+}
+
+/* Crash head 5px after the word "Crash" on the Crash Bandicoot Ad Collaboration button.
+   Absolutely positioned, so it takes no room and the label wraps exactly as before. */
+.crash-nav-word {
+  position: relative;
+}
+
+.crash-nav-icon {
+  position: absolute;
+  left: 100%;
+  margin-left: 5px;
+  top: 50%;
+  transform: translateY(calc(-50% - 3.75px));   /* 3px higher on screen at the desktop 80% zoom */
+  height: 34px;
+  width: auto;
+  pointer-events: none;
+}
+
+/* Lammy mode: the PJ Berri Goods button takes the chocolate-brown nav-tab colors */
+body.theme-lammy .sub-dropdown a[href="merch-ptr-pjberri.html"],
+body.theme-lammy .sub-dropdown a[href="merch-ptr-pjberri.html"]:hover {
+  background: #8A3324;
+}
+
+body.theme-lammy .sub-dropdown a[href="merch-ptr-pjberri.html"],
+body.theme-lammy .sub-dropdown a[href="merch-ptr-pjberri.html"] * {
+  color: #3D200E !important;
+  -webkit-text-stroke: 0.4px rgba(215, 215, 215, 0.25);
+  paint-order: stroke fill;
+  text-shadow:
+    0.72px 0.72px 0 rgba(255, 220, 180, 0.45),
+    -0.72px -0.72px 0 rgba(0, 0, 0, 0.55);
+}
+
+/* Press Kits › McDonald's employee kit: three across, slightly tighter than the default two */
+#page-sp-presskits .ujl-gallery-grid.mcd-condense { grid-template-columns: repeat(3, 1fr); }
+#page-sp-presskits .ujl-gallery-grid.mcd-condense .ujl-gallery-item { padding: 10px; border-left: none; }
+#page-sp-presskits .ujl-gallery-grid.mcd-condense .ujl-gallery-item:not(:nth-child(3n+1)) { border-left: 1px solid #eee; }
+#page-sp-presskits .ujl-gallery-grid.mcd-condense .ujl-gallery-item img { max-width: 75%; }
+
+/* Posters & Flyers › soundtrack promo booklet: two-across grid. Spreads fill their cell and
+   the single portrait pages take half a cell, so both come out about the same height.
+   The odd last page (back cover) spans the row and stays centred at the same size.
+   The translation button sits under each scan instead of hanging off its edge. */
+#page-sp-posters .ujl-gallery-grid.pamphlet-grid { align-items: center; }
+#page-sp-posters .pamphlet-grid .ujl-gallery-item { padding: 12px; }
+#page-sp-posters .pamphlet-grid .ujl-gallery-item:last-child:nth-child(odd) { grid-column: 1 / -1; }
+#page-sp-posters .pamphlet-grid .pamphlet-scan { width: 100%; margin: 0 auto; }
+#page-sp-posters .pamphlet-grid .ujl-gallery-item.small .pamphlet-scan { width: 50%; }
+#page-sp-posters .pamphlet-grid .ujl-gallery-item.small:last-child:nth-child(odd) .pamphlet-scan { width: 25%; }
+#page-sp-posters .pamphlet-grid .pamphlet-scan img { display: block; width: 100%; max-width: 100%; height: auto; }
+#page-sp-posters .pamphlet-grid .doc-btn { position: static; transform: none; margin: 8px auto 0; width: auto; flex-direction: row; gap: 12px; }
+#page-sp-posters .pamphlet-grid .doc-btn-label { white-space: nowrap; }
+#page-sp-posters .pamphlet-grid .ujl-gallery-item.small .doc-btn { margin-left: 50%; transform: translateX(-50%); }
+@media (max-width: 700px) {
+  #page-sp-posters .ujl-gallery-grid.pamphlet-grid { grid-template-columns: 1fr; }
+  #page-sp-posters .pamphlet-grid .ujl-gallery-item { border-left: none; }
+  #page-sp-posters .pamphlet-grid .ujl-gallery-item.small:last-child:nth-child(odd) .pamphlet-scan { width: 50%; }
+}
+
+/* Translated booklet pages: a landscape spread gets a landscape button thumbnail,
+   and the viewer shows the typeset page image instead of a typed letter */
+.doc-btn-thumb.wide { width: 120px; aspect-ratio: 320 / 225; }
+.doc-viewer-inner.doc-viewer-page { max-width: min(1400px, 96vw); }
+.doc-viewer-inner.doc-viewer-page.portrait { max-width: min(760px, 96vw); }
+.doc-page-img { display: block; width: 100%; height: auto; background: #fff; border: 1px solid #000; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.65); cursor: zoom-in; }
+
+/* Early Character Designs — small pencil variant sketches, packed four across */
+#page-gal-earlydesigns .ujl-gallery-grid.sketch-condense {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+#page-gal-earlydesigns .ujl-gallery-grid.sketch-condense .ujl-gallery-item {
+  padding: 8px;
+  border-left: none;
+}
+
+#page-gal-earlydesigns .ujl-gallery-grid.sketch-condense .ujl-gallery-item:not(:nth-child(4n+1)) {
+  border-left: 1px solid #eee;
+}
+
+#page-gal-earlydesigns .ujl-gallery-grid.sketch-condense .ujl-caption {
+  margin-top: 4px;
+}
+
+@media (max-width: 800px) {
+  #page-gal-earlydesigns .ujl-gallery-grid.sketch-condense {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #page-gal-earlydesigns .ujl-gallery-grid.sketch-condense .ujl-gallery-item {
+    border-left: none;
+  }
+  #page-gal-earlydesigns .ujl-gallery-grid.sketch-condense .ujl-gallery-item:not(:nth-child(3n+1)) {
+    border-left: 1px solid #eee;
+  }
+}
+
+@media (max-width: 500px) {
+  #page-gal-earlydesigns .ujl-gallery-grid.sketch-condense {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #page-gal-earlydesigns .ujl-gallery-grid.sketch-condense .ujl-gallery-item {
+    border-left: none;
+  }
+  #page-gal-earlydesigns .ujl-gallery-grid.sketch-condense .ujl-gallery-item:not(:nth-child(2n+1)) {
+    border-left: 1px solid #eee;
+  }
+}
+
+/* Um Jammer Lammy misc — every section packed tight: up to four photos per
+   row, rows with fewer photos centred. Flex rather than grid so a one- or
+   two-photo section doesn't leave empty columns on the right. */
+#page-merch-ujl-misc .ujl-gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+}
+
+#page-merch-ujl-misc .ujl-gallery-grid .ujl-gallery-item {
+  box-sizing: border-box;
+  flex: 0 0 calc(25% - 3px);
+  padding: 6px;
+  border-left: none;
+}
+
+/* !important: the page-wide "max-width: 70%" rule above has a long :not() chain
+   that outranks this selector. */
+#page-merch-ujl-misc .ujl-gallery-grid .ujl-gallery-item img {
+  max-width: 100% !important;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 800px) {
+  #page-merch-ujl-misc .ujl-gallery-grid .ujl-gallery-item {
+    flex-basis: calc(50% - 2px);
+  }
+}
+
+/* PaRappa plush — "TAITO LOGO" subheading bar in pink, after the Taito hang-tag logo */
+.ujl-gallery-subtitle.taito-pink {
+  background: #CE5B7A;
+  border-top-color: #CE5B7A;
+  border-bottom-color: #CE5B7A;
+  color: #fff;
+}
+
+/* PaRappa keychains — photos at half the cell width, matching the UJL keychains page */
+#page-merch-ptr-keychains .ujl-gallery-item img {
+  max-width: 50%;
 }

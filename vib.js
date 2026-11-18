@@ -483,8 +483,8 @@ window.vibLayout = (function () {
                    ['vibri_23.png', 1, 0.18, -4, 0, -80],
                    ['vibri_06.png', 1, 0.74, -7, 0, -80],
                    ['vibri_25.png', 4, 0.02, -3, 146, 52, -5],
-                   ['vibri_08.png', 4, 0.47, -4, 0, 69],
-                   ['vibri_30.png', 4, 0.86, -5, 0, 60, 60]];
+                   ['vibri_30.png', 4, 0.47, -4, 112, 79],
+                   ['vibri_08.png', 4, 0.86, -5, 128, 70, 60]];
     var perchImgs = perches.map(function (p) {
       var img = document.createElement('img');
       img.src = R + p[0];

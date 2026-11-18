@@ -41,7 +41,7 @@ var PARAPPA_PAGE_IDS = [
   'chars', 'chars-ujl', 'chars-ptr2',
   'merch-rodneyfun-comics', 'merch-rodneyfun-toys', 'merch-rodneyfun-shirts',
   'merch-rodneyfun-stationary', 'merch-rodneyfun-promotional', 'merch-rodneyfun-misc',
-  'merch-ptr-plush', 'merch-ptr-figures', 'merch-ptr-shirts', 'merch-ptr-misc', 'merch-ptr-pjberri',
+  'merch-ptr-plush', 'merch-ptr-figures', 'merch-ptr-keychains', 'merch-ptr-shirts', 'merch-ptr-misc', 'merch-ptr-pjberri',
   'merch-ujl-plush', 'merch-ujl-figures', 'merch-ujl-keychains', 'merch-ujl-shirts',
   'merch-ujl-milkcantour', 'merch-ujl-fernandes', 'merch-ujl-stationery', 'merch-ujl-misc',
   'merch-ptr2', 'merch-mcdonalds', 'merch-dunkin', 'merch-lipton', 'merch-catalogs',
@@ -49,7 +49,7 @@ var PARAPPA_PAGE_IDS = [
   'gal-officialart-ptr', 'gal-officialart-ujl', 'gal-events2',
   'ev-tgs1996', 'ev-psexpo96', 'ev-bellfare', 'ev-tgs1999', 'ev-roxy1999',
   'ev-amshow1999', 'ev-seasidefuji2001', 'ev-fukuoka2001', 'ev-rodneyparco',
-  'sp-presskits', 'sp-promos', 'sp-prototypes', 'sp-websites', 'sp-crashad',
+  'sp-presskits', 'sp-promos', 'sp-posters', 'sp-prototypes', 'sp-websites', 'sp-crashad',
   'sp-physical', 'sp-mascots',
   'lammynow', 'ujlnow-cabinet', 'ujlnow-prize', 'ujlnow-discovery',
   'milkcan', 'videos', 'collections', 'goods', 'kit'
@@ -73,6 +73,16 @@ function showPage(id, btn) {
     document.querySelectorAll('.nav-item > button').forEach(function(b) { b.classList.remove('active'); });
     btn.classList.add('active');
   }
+}
+
+// The "Random Page!" button on the welcome page. Picks from the content pages:
+// not the HOME menu pages, and not goods / kit / merch-ptr2, which nothing on
+// the site links to any more.
+var PARAPPA_RANDOM_EXCLUDED = ['welcome', 'search', 'donate', 'contact', 'credits', 'goods', 'kit', 'merch-ptr2'];
+
+function goToRandomPage() {
+  var pool = PARAPPA_PAGE_IDS.filter(function(id) { return PARAPPA_RANDOM_EXCLUDED.indexOf(id) === -1; });
+  window.location.href = pageUrl(pool[Math.floor(Math.random() * pool.length)]);
 }
 
 // Old deep links pointed at the home page with a hash (index.html#merch-ptr-plush).
@@ -235,7 +245,8 @@ function applyTheme(lammy) {
     document.body.classList.add('theme-lammy');
     if (window.fitTextSvgs) window.fitTextSvgs();
     btn.innerHTML = '<span class="theme-btn-label">PARAPPA MODE</span>';
-    logo.innerHTML = '<span class="en"><span class="lammy-title-now"><span class="nav-umjammer">Um Jammer</span> <span class="nav-lammy">LAMMY</span></span></span><span class="ja"><img class="lammy-logo-jp" src="LammyStuff/Renders/logoujl.png" alt="ウンジャマ・ラミー"></span>';
+    // translate="no" + notranslate: Google Translate and similar tools leave the title as-is.
+    logo.innerHTML = '<span class="en notranslate" translate="no"><span class="lammy-title-now"><span class="nav-umjammer">Um Jammer</span> <span class="nav-lammy">LAMMY</span></span></span><span class="ja"><img class="lammy-logo-jp" src="LammyStuff/Renders/logoujl.png" alt="ウンジャマ・ラミー"></span>';
     document.title = parappaTitle.indexOf('PaRappa Corner \u2014') === 0
       ? 'Um Jammer Lammy \u2014 PaRappa Corner'
       : parappaTitle.replace('PaRappa Corner', 'Um Jammer Lammy');
@@ -285,7 +296,7 @@ function toggleTheme() {
   function collectSectionImages(img) {
     var page = img.closest('.page');
     if (page && navDisabledPages[page.id]) return [img];
-    var section = img.closest('.ujl-gallery') || page || document.body;
+    var section = img.closest('.doc-viewer') || img.closest('.ujl-gallery') || page || document.body;
     var nodes = section.querySelectorAll('img');
     var list = [];
     for (var i = 0; i < nodes.length; i++) {
@@ -448,9 +459,10 @@ function toggleTheme() {
     if (c) c.addEventListener('click', function (e) { e.stopPropagation(); closeDoc(v); });
     v.addEventListener('click', function (e) { if (e.target === v) closeDoc(v); });
   });
+  // Capture phase, so a page zoomed into the lightbox from a viewer closes first and the viewer stays open
   document.addEventListener('keydown', function (e) {
-    if (openViewer && e.key === 'Escape') closeDoc(openViewer);
-  });
+    if (openViewer && e.key === 'Escape' && !document.querySelector('.lightbox.open')) closeDoc(openViewer);
+  }, true);
 })();
 
 (function () {
@@ -983,4 +995,37 @@ if (document.fonts) document.fonts.ready.then(window.fitTextSvgs);
   foil.className = 'lammy-foil';
   foil.setAttribute('aria-hidden', 'true');
   wrap.appendChild(foil);
+})();
+
+// MilkCan page: SHOUT! board capture buttons. Each button shows only the
+// messages from its Wayback capture; the page starts on the earliest one.
+// Without this script every capture stays visible.
+(function shoutCaptureButtons() {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.shout-tabs .shout-tab'));
+  if (!tabs.length) return;
+  function select(tab, focus) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      t.classList.toggle('active', on);
+      var panel = document.getElementById(t.getAttribute('aria-controls'));
+      if (panel) panel.hidden = !on;
+    });
+    if (focus) tab.focus();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { select(t); });
+    t.addEventListener('keydown', function (e) {
+      var j = -1;
+      if (e.key === 'ArrowRight') j = (i + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft') j = (i - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home') j = 0;
+      else if (e.key === 'End') j = tabs.length - 1;
+      if (j < 0) return;
+      e.preventDefault();
+      select(tabs[j], true);
+    });
+  });
+  select(tabs[0]);
 })();

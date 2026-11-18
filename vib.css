@@ -564,7 +564,7 @@ body.lang-jp .block-ja { display: block; }
 main {
   max-width: min(1300px, calc(100% - 420px));
   margin: 0 auto;
-  padding: 60px 32px 0;
+  padding: 0 32px;
 }
 
 /* No gap between the last content box and the background video below it. */
@@ -574,7 +574,7 @@ main > .vib-section:last-child {
 
 .vib-section {
   scroll-margin-top: 24px;
-  border: 4px double #fff;
+  border: 4px double transparent;   /* outline hidden; keeps the same spacing */
   padding: 40px;
   margin-bottom: 60px;
 }
@@ -587,6 +587,11 @@ main > .vib-section:last-child {
   text-decoration: underline double #fff;
   text-decoration-thickness: 2px;
   text-underline-offset: 6px;
+}
+
+/* Home page "Welcome": same size as the PaRappa Welcome page title. */
+#home > h2 {
+  font-size: 44px;
 }
 
 /* Sub-heading inside a section (e.g. "Screenshots" under Press Kit Assets). */
