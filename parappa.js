@@ -41,7 +41,7 @@ var PARAPPA_PAGE_IDS = [
   'chars', 'chars-ujl', 'chars-ptr2',
   'merch-rodneyfun-comics', 'merch-rodneyfun-toys', 'merch-rodneyfun-shirts',
   'merch-rodneyfun-stationary', 'merch-rodneyfun-promotional', 'merch-rodneyfun-misc',
-  'merch-ptr-plush', 'merch-ptr-figures', 'merch-ptr-keychains', 'merch-ptr-shirts', 'merch-ptr-misc', 'merch-ptr-pjberri',
+  'merch-ptr-plush', 'merch-ptr-figures', 'merch-ptr-keychains', 'merch-ptr-shirts', 'merch-ptr-carddass', 'merch-ptr-misc', 'merch-ptr-pjberri',
   'merch-ujl-plush', 'merch-ujl-figures', 'merch-ujl-keychains', 'merch-ujl-shirts',
   'merch-ujl-milkcantour', 'merch-ujl-fernandes', 'merch-ujl-stationery', 'merch-ujl-misc',
   'merch-ptr2', 'merch-mcdonalds', 'merch-dunkin', 'merch-lipton', 'merch-catalogs',
@@ -303,6 +303,7 @@ function toggleTheme() {
       var n = nodes[i];
       if (n.closest('.lightbox')) continue;
       if (n.closest('.yt-facade')) continue;
+      if (n.closest('.page-banner')) continue;
       if (n.closest('a')) continue;
       list.push(n);
     }
@@ -407,7 +408,7 @@ function toggleTheme() {
 
   document.addEventListener('click', function(e) {
     var target = e.target;
-    if (target && target.tagName === 'IMG' && !target.closest('.lightbox') && !target.closest('.yt-facade') && !target.closest('a')) {
+    if (target && target.tagName === 'IMG' && !target.closest('.lightbox') && !target.closest('.yt-facade') && !target.closest('.page-banner') && !target.closest('a')) {
       e.preventDefault();
       openLightbox(target);
     }
@@ -782,12 +783,45 @@ function toggleTheme() {
     var blJoint = ' L 30 ' + r(B + 20) + ' L 16 ' + r(B + 24) + ' L 20 ' + r(B + 10) + ' L 20 ' + r(B);
     var left = wave('y', B, -H, 20, 2);
 
+    // Gradient stops down the frame: pink to the nav's bottom, then white —
+    // except where a page marks a full-width band with data-frame-band="TOP
+    // BOTTOM" (e.g. the Lipton header). There the frame margin repeats that
+    // band's vertical gradient over its padding box, then its bottom border
+    // colour over the border, so the band runs out to the wavy edge seamlessly.
+    var total = H + 80;
+    var stops = [[0, '#ff14c8', 0.7], [navY, '#ff14c8', 0.7], [navY, '#fff', 1]];
+    var bands = document.querySelectorAll('[data-frame-band]');
+    for (var b = 0; b < bands.length; b++) {
+      var el = bands[b];
+      if (!el.offsetParent) continue;  // hidden page
+      // "TOP BOTTOM", or a CSS-style stop list "COLOR PCT%, COLOR PCT%, ..."
+      // (stops without a percentage are spread evenly).
+      var spec = el.getAttribute('data-frame-band').trim();
+      var parts = spec.indexOf(',') >= 0 ? spec.split(/\s*,\s*/) : spec.split(/\s+/);
+      var br = el.getBoundingClientRect();
+      var ecs = getComputedStyle(el);
+      var bw = parseFloat(ecs.borderBottomWidth) || 0;
+      var y1 = 40 + (br.top - wrapRect.top) / wrapRect.height * H;
+      var y2 = 40 + (br.bottom - wrapRect.top) / wrapRect.height * H;
+      stops.push([y1, '#fff', 1]);
+      for (var p = 0; p < parts.length; p++) {
+        var m = parts[p].split(/\s+/);
+        var pct = m[1] ? parseFloat(m[1]) / 100 : (parts.length > 1 ? p / (parts.length - 1) : 0);
+        stops.push([y1 + (y2 - bw - y1) * pct, m[0], 1]);
+      }
+      if (bw > 0) stops.push([y2 - bw, ecs.borderBottomColor, 1], [y2, ecs.borderBottomColor, 1]);
+      stops.push([y2, '#fff', 1]);
+    }
+    stops.push([total, '#fff', 1]);
+    var stopTags = '';
+    for (var s = 0; s < stops.length; s++) {
+      stopTags += "<stop offset='" + Math.min(1, Math.max(0, stops[s][0] / total)).toFixed(6) +
+        "' stop-color='" + stops[s][1] + "'" + (stops[s][2] < 1 ? " stop-opacity='" + stops[s][2] + "'" : '') + '/>';
+    }
+
     var fill =
-      "<defs><linearGradient id='g' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='" + r(H + 80) + "'>" +
-        "<stop offset='0' stop-color='#ff14c8' stop-opacity='0.7'/>" +
-        "<stop offset='" + (navY / (H + 80)).toFixed(5) + "' stop-color='#ff14c8' stop-opacity='0.7'/>" +
-        "<stop offset='" + (navY / (H + 80)).toFixed(5) + "' stop-color='#fff'/>" +
-        "<stop offset='1' stop-color='#fff'/>" +
+      "<defs><linearGradient id='g' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='" + r(total) + "'>" +
+        stopTags +
       '</linearGradient></defs>' +
       "<path fill='url(#g)' d='" + tlJoint + top + trJoint + right + brJoint + bottom + blJoint + left + " Z'/>";
 

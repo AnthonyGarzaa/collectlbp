@@ -30,6 +30,162 @@ window.vibLayout = (function () {
   return { add: add, run: run };
 })();
 
+/* ── Starfield background ─────────────────────────────────────────────────
+   Copies of the poster starbursts down both sides of the content box, from
+   the bottom of the masthead to the score clip. Every star is measured from
+   the box's border, not the screen edge: the pattern (vib/starfield.js,
+   built by scripts/build_vib_starfield.py) puts each star's inner edge a
+   fixed distance out from the border, anywhere across the 230px strip
+   beside the box that the renders also use, and staggers them down the
+   page, so a wider window or zooming out never spreads the stars apart. Stars never
+   touch a Vibri render or each other, and never cross the top or bottom of
+   the field. */
+(function () {
+  var data = window.VIB_STARFIELD;
+  if (!data) return;
+  var head = document.querySelector('.vib-header');
+  var layer = document.createElement('div');
+  layer.className = 'vib-stars';
+  layer.setAttribute('aria-hidden', 'true');
+  document.body.insertBefore(layer, document.body.firstChild);
+  var dir = encodeURI(data.dir), lastKey = '';
+  var PAD = 8;    // clear space kept around each render (covers its 6px glow)
+  var CLEAR = 25; // stars keep at least this much space between each other
+  var SPREAD = 130; // and at least this far apart centre to centre, so they never clump
+  var SPREAD_TOP = 95; // closer alongside the renders, where the openings are small
+  var SPAN = data.span || 230;   // strip beside the box the stars spread across
+
+  // Registered once the rest of this file has run, so each layout pass places
+  // the stars after the renders have moved to their new spots.
+  function placeStars() {
+    var main = document.querySelector('main');
+    if (!main) return;
+    // Wait until every render has loaded: before that their drawn size is
+    // unknown, and placing stars around placeholder boxes would make them
+    // jump once the renders arrive. The window load re-runs the layout.
+    var pending = [].some.call(document.querySelectorAll('.vib-gutter img'), function (img) {
+      return !img.complete;
+    });
+    if (pending) return;
+    // Everything here is in the page's layout px (the same space as the
+    // strips' and main's offsets), so it holds at any zoom.
+    var top = head ? head.offsetTop + head.offsetHeight : 0;
+    layer.style.top = top + 'px';
+    // Stop where the score clip's drawing begins: keepScoreBelowBox sits it
+    // BOX_GAP (24px) under main's bottom edge on every page.
+    var H = Math.max(0, main.offsetTop + main.offsetHeight + 24 - top);
+    layer.style.height = H + 'px';
+    var boxL = main.offsetLeft, boxR = main.offsetLeft + main.offsetWidth;
+
+    // Keep clear of every shown render's tilted drawing (vib.js stores its
+    // bounds on the img as page px), with a little room for its glow.
+    var renders = [];
+    document.querySelectorAll('.vib-gutter img').forEach(function (img) {
+      if (!img.dataset.drawn) return;
+      var r = img.dataset.drawn.split(',').map(Number);
+      renders.push([r[0] - PAD, r[1] - top - PAD, r[2] + PAD, r[3] - top + PAD]);
+    });
+
+    // Each side walks its fixed sequence down from the top of the field in
+    // small steps (shorter than the stars, so neighbours overlap in height
+    // and stagger sideways). At each step the star tries a few distances
+    // from the box border, spread across the strip (outer edge never past
+    // it, so none run off the screen); if none is free of renders
+    // and other stars, it drops to just below whatever blocked it. Renders
+    // are fixed relative to the box, so the result is the same at every
+    // window width.
+    var keep = [];
+    ['left', 'right'].forEach(function (side) {
+      var seq = data[side], y = 0, i = 0, mine = [], centres = [];
+      // The stretch alongside the renders (down to the lowest one) gets the
+      // closer spacing so its small openings still fill.
+      var renderZone = renders.reduce(function (m, a) { return Math.max(m, a[3]); }, 0);
+      // Free of renders, at least CLEAR from every other star's edges, and
+      // at least SPREAD from every other star's centre (keeps them evenly
+      // spread instead of clumping). Returns the bottom of whatever blocks
+      // the spot (so the walk can skip down past it), or null if it is free.
+      function blocked(x, y, w, h) {
+        var low = null;
+        renders.concat(mine).forEach(function (a) {
+          if (x < a[2] && a[0] < x + w && y < a[3] && a[1] < y + h) low = Math.max(low || 0, a[3]);
+        });
+        if (low !== null) return low;
+        var cx = x + w / 2, cy = y + h / 2;
+        var sp = y < renderZone ? SPREAD_TOP : SPREAD;
+        for (var j = 0; j < centres.length; j++) {
+          var dx = cx - centres[j][0], dy = cy - centres[j][1];
+          if (dx * dx + dy * dy < sp * sp) return y + 8;   // nudge down a little and retry
+        }
+        return null;
+      }
+      for (var guard = 0; guard < 2000; guard++) {
+        var s = seq[i++ % seq.length];
+        var w = s[3], h = s[4];
+        y += s[2];
+        var room = Math.max(0, SPAN - w);
+        // Its own distance first, then every other one across the strip in
+        // 10px steps, so it can slot into odd-shaped openings beside renders.
+        var insets = [s[1]];
+        for (var v = 0; v <= room; v += 10) if (v !== s[1]) insets.push(v);
+        var spot = null;
+        while (!spot && y + h <= H) {
+          var lowest = Infinity;
+          for (var t = 0; t < insets.length && !spot; t++) {
+            var x = side === 'left' ? boxL - insets[t] - w : boxR + insets[t];
+            var b = blocked(x, y, w, h);
+            if (b === null) spot = [s[0], Math.round(x), y, w, h];
+            else lowest = Math.min(lowest, b);
+          }
+          if (!spot) y = Math.max(y + 1, Math.ceil(lowest));
+        }
+        if (!spot) break;
+        keep.push(spot);
+        mine.push([spot[1] - CLEAR, y - CLEAR, spot[1] + w + CLEAR, y + h + CLEAR]);
+        centres.push([spot[1] + w / 2, y + h / 2]);
+      }
+      // Second pass, alongside the renders only: the walk above only moves
+      // down, so openings it skipped past are filled here, top to bottom,
+      // with the same spacing rules.
+      for (var fy = 0; fy < renderZone; fy += 12) {
+        var f = seq[i % seq.length], fw = f[3], fh = f[4];
+        if (fy + fh > H) break;
+        var froom = Math.max(0, SPAN - fw);
+        for (var v = 0; v <= froom; v += 10) {
+          var fx = side === 'left' ? boxL - v - fw : boxR + v;
+          if (blocked(fx, fy, fw, fh) === null) {
+            keep.push([f[0], Math.round(fx), fy, fw, fh]);
+            mine.push([Math.round(fx) - CLEAR, fy - CLEAR, Math.round(fx) + fw + CLEAR, fy + fh + CLEAR]);
+            centres.push([fx + fw / 2, fy + fh / 2]);
+            i++;
+            break;
+          }
+        }
+      }
+    });
+
+    // Only touch the DOM when the set of visible stars actually changed.
+    var key = keep.map(function (k) { return k[1] + ',' + k[2]; }).join(';');
+    if (key === lastKey) return;
+    lastKey = key;
+    var frag = document.createDocumentFragment();
+    keep.forEach(function (k) {
+      var img = document.createElement('img');
+      img.src = dir + encodeURIComponent(k[0]);
+      img.alt = '';
+      img.width = k[3];
+      img.height = k[4];
+      img.style.left = k[1] + 'px';
+      img.style.top = k[2] + 'px';
+      frag.appendChild(img);
+    });
+    layer.textContent = '';
+    layer.appendChild(frag);
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    window.vibLayout.add(placeStars);
+  });
+})();
+
 (function () {
   var dogLink = document.querySelector('.dog-link');
   if (!dogLink) return;
@@ -508,16 +664,22 @@ window.vibLayout = (function () {
     window.vibLayout.add(placePerches);
   }
 
-  // Gutters: the remaining poses zig-zag down each side margin below the
-  // masthead, alternating between the outer and inner edge of the gutter.
-  // Only the filename is used; position/size come from the box + layout below.
+  // Gutters: the remaining poses run down each side of the content box below
+  // the masthead. Everything is measured from the box's border, not the
+  // screen edge: each render's drawn edge sits a fixed 0-REACH px out from
+  // the border, so a wider window or zooming out never spreads them apart.
+  // Only the filename is used; position/size come from the layout below.
   if (!document.querySelector('.vib-gutter')) {
-    // Uniform 170x210 box (see .vib-gutter img). Where the gutter is wide
-    // enough for the two zig-zag columns to clear each other sideways, rows
-    // are packed at half a box height (every other render shares a column,
-    // so same-column neighbours are still a full box apart); otherwise rows
-    // fall back to a full box height. Either way nothing overlaps.
-    var BOX_W = 170, BOX_H = 210, GAP = 10, START = 24;
+    // Uniform 170x210 box (see .vib-gutter img). The drawing is pushed to the
+    // box's inner side (object-position), so the box edge IS the drawn edge.
+    var BOX_W = 170, BOX_H = 210, GAP = 10, START = 24, REACH = 60;
+    var STRIP = REACH + BOX_W;          // keep in step with main's max-width in vib.css
+    // Fixed scatter per row: distance of the (tilted) drawing from the box
+    // border (0-REACH), space above it (openings for the starfield, see
+    // .vib-stars) and a small tilt. Same on every screen size.
+    var INSET = [8, 52, 24, 60, 0, 40, 16, 56, 32, 4];
+    var DROP  = [0, 120, 70, 140, 90, 60, 130, 80, 110, 100];
+    var TILT  = [-6, 8, -3, 10, -9, 4, -7, 6, -4, 9];
     var gutters = [];
     var makeGutter = function (cls, list) {
       var g = document.createElement('div');
@@ -536,49 +698,74 @@ window.vibLayout = (function () {
       gutters.push(g);
     };
     var layoutGutters = function () {
-      // Exact free width beside main, in layout px (unaffected by the page
-      // zoom), so the strips never sit behind the box whatever the zoom.
-      // body.clientWidth and main.offsetWidth are both in the zoomed layout
-      // space (documentElement.clientWidth is not), so this stays exact.
+      // main's offsets are in the same zoomed layout px as the strips'
+      // left/width, so this stays exact at any zoom.
       var main = document.querySelector('main');
-      var pageW = document.body.clientWidth || document.documentElement.clientWidth;
-      var free = main ? Math.max(0, (pageW - main.offsetWidth) / 2) : 0;
+      if (!main) return;
+      var boxL = main.offsetLeft, boxR = main.offsetLeft + main.offsetWidth;
       var head = document.querySelector('.vib-header');
       var top = head ? head.offsetTop + head.offsetHeight + 24 : 290;
-      gutters.forEach(function (g) {
-        g.style.top = top + 'px';
-        g.style.width = Math.floor(free) + 'px';
-        var imgs = g.querySelectorAll('img');
-        var G = g.clientWidth;
-        // Fixed-size renders: they never scale with viewport width or zoom.
-        // (main reserves at least a 178px gutter so the 170px box always fits.)
-        var w = BOX_W, h = BOX_H, gap = GAP;
-        var span = Math.max(0, G - w);                  // sideways travel between the two columns
-        var interleave = span >= w + 4;                 // neighbours clear each other sideways
-        var step = interleave ? Math.ceil((h + gap) / 2) : h + gap;
+      // Only renders that start beside the box are shown (their top is above
+      // its bottom edge); the rest of a long column is left out on short
+      // pages, so the columns never make the page longer. Measured from the
+      // box, so it is the same at every window width.
+      var limit = main.offsetTop + main.offsetHeight - top;
+      gutters.forEach(function (g, side) {
         var mirror = g.classList.contains('vib-gutter-right');
+        g.style.top = top + 'px';
+        g.style.width = STRIP + 'px';
+        g.style.right = 'auto';
+        g.style.left = (mirror ? boxR : boxL - STRIP) + 'px';
+        var imgs = g.querySelectorAll('img');
+        var w = BOX_W, h = BOX_H, gap = GAP;
         var column = [], beside = [];
         imgs.forEach(function (img) { (img.dataset.beside ? beside : column).push(img); });
+        var y = START, last = 0;
         column.forEach(function (img, i) {
-          var outer = (i % 2 === 0);                    // even rows hug the screen edge
+          var k = (i + side * 3) % INSET.length;        // the two sides scatter differently
+          var inset = INSET[k], deg = TILT[k] * (mirror ? -1 : 1);
+          y += DROP[k];
+          // The drawn area inside the box (object-fit: contain), then the
+          // bounding box of that drawing once tilted. Before the image has
+          // loaded the whole box stands in; the load re-runs the layout.
+          var nw = img.naturalWidth, nh = img.naturalHeight;
+          var sc = nw ? Math.min(w / nw, h / nh) : 1;
+          var cw = nw ? nw * sc : w, ch = nw ? nh * sc : h;
+          var rad = deg * Math.PI / 180, cos = Math.abs(Math.cos(rad)), sin = Math.abs(Math.sin(rad));
+          var hw = (cw * cos + ch * sin) / 2, hh = (cw * sin + ch * cos) / 2;
+          // Drawing centre in the box, and where it goes in the strip: its
+          // tilted inner edge `inset` px from the content box.
+          var ox = mirror ? cw / 2 : w - cw / 2, oy = h / 2;
+          var cx = mirror ? inset + hw : STRIP - inset - hw, cy = y + hh;
+          var bl = cx - ox, bt = cy - oy;
           img.style.width = w + 'px';
           img.style.height = h + 'px';
-          img.style.top = (START + i * step + (+img.dataset.dy || 0)) + 'px';
-          img.style.left = (((outer !== mirror) ? 0 : span) + (+img.dataset.dx || 0)) + 'px';
+          img.style.objectPosition = (mirror ? 'left' : 'right') + ' center';
+          img.style.transformOrigin = ox + 'px ' + oy + 'px';
+          img.style.transform = 'rotate(' + deg + 'deg)';
+          img.style.top = (bt + (+img.dataset.dy || 0)) + 'px';
+          img.style.left = (bl + (+img.dataset.dx || 0)) + 'px';
+          var shown = y < limit;
+          img.style.display = shown ? '' : 'none';
+          // Tilted drawing's bounds in page px, for the starfield to keep clear of.
+          var gl = mirror ? boxR : boxL - STRIP;
+          img.dataset.drawn = shown ? [gl + cx - hw, top + cy - hh, gl + cx + hw, top + cy + hh].join(',') : '';
+          if (shown) last = Math.max(last, cy + hh, bt + h);
+          y += 2 * hh + gap;
         });
-        // Companions share their anchor's row, one box further in from the
-        // screen edge (dx/dy nudge from there).
+        // Companions share their anchor's row, one box further out from the
+        // content box (dx/dy nudge from there).
         beside.forEach(function (img) {
           var anchor = g.querySelector('img[src$="' + img.dataset.beside + '"]');
           if (!anchor) return;
           img.style.width = w + 'px';
           img.style.height = h + 'px';
           img.style.top = (parseFloat(anchor.style.top) + (+img.dataset.dy || 0)) + 'px';
-          var inward = mirror ? -(w + gap) : (w + gap);
-          img.style.left = (parseFloat(anchor.style.left) + inward + (+img.dataset.dx || 0)) + 'px';
+          var outward = mirror ? (w + gap) : -(w + gap);
+          img.style.left = (parseFloat(anchor.style.left) + outward + (+img.dataset.dx || 0)) + 'px';
         });
-        // Tall enough to hold the whole zig-zag so nothing is clipped.
-        g.style.height = (START + (column.length - 1) * step + h) + 'px';
+        // Tall enough to hold the shown renders so nothing is clipped.
+        g.style.height = last + 'px';
       });
     };
     // [file, (unused), (unused), (unused), dx, dy, beside] — one render per row,

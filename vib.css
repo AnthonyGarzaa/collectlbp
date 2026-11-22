@@ -228,18 +228,19 @@ main img, .lightbox-inner img {
   .vib-head-row, .vib-nav-perch { display: none; }
 }
 
-/* Site background: Vibri poses zig-zagging down the empty gutters either side
-   of the 1300px content column, starting just below the masthead (the top band
-   is left to the header renders). Positions come from vib.js so they never
-   overlap at any gutter width.
-   The strips are exactly a gutter wide, so none sit behind the text boxes.
+/* Site background: Vibri poses scattered down a column on each side of the
+   content box, starting just below the masthead (the top band is left to the
+   header renders). Each strip is attached to the box's border, not the
+   screen edge: 230px wide (the 170px render plus 60px of reach), and vib.js
+   places every render's drawn edge 0-60px out from the border, so a wider
+   window or zooming out never spreads them apart.
    Absolutely positioned (not fixed) so the renders stay anchored to their spot
    on the page and scroll with the content instead of following the viewport.
    The height is set from JS to fit the column of renders extending downward. */
 .vib-gutter {
   position: absolute;
   top: 290px;                     /* vib.js re-sets this to just below the masthead */
-  width: 178px;                          /* vib.js sets the exact free width beside main */
+  width: 230px;                          /* vib.js: 60px reach + 170px render, beside main's border */
   overflow: clip;                        /* see .vib-head-row: nudged poses may paint a little past the strip */
   overflow-clip-margin: 140px;
   pointer-events: none;
@@ -247,6 +248,30 @@ main img, .lightbox-inner img {
 }
 .vib-gutter-left  { left: 0; }
 .vib-gutter-right { right: 0; }
+
+/* Starfield: copies of the poster starbursts placed by vib.js from the fixed
+   pattern in vib/starfield.js (built by scripts/build_vib_starfield.py),
+   from just under the masthead down to the score clip, behind everything
+   else. Every star has a fixed spot on the page, so nothing rearranges or
+   moves with the window size; they scroll with the page like the gutter
+   renders. Stars that would touch a render, sit under the content box or be
+   cut off at the field's edges are left out whole by vib.js. */
+.vib-stars {
+  position: absolute;
+  top: 290px;            /* vib.js: just under the header */
+  left: 0;
+  width: 100%;
+  height: 0;             /* vib.js: down to the score clip */
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -2;           /* below the gutter renders, score clip and runner (-1) */
+}
+
+.vib-stars img {
+  position: absolute;    /* left/top/width/height set by vib.js */
+  display: block;
+  max-width: none;
+}
 
 .vib-gutter img {
   position: absolute;
@@ -560,11 +585,17 @@ body.lang-jp .block-ja { display: block; }
 /* 1300px content box to match the PaRappa / Lammy site (.site-wrap). The
    32px side padding sits outside it, so main spans 1364px overall. On
    narrower viewports (or when zoomed in) the box gives up width so that a
-   178px gutter always remains on each side for the fixed 170px renders. */
+   230px strip always remains on each side for the renders and stars hugging
+   its border (60px reach + the fixed 170px renders; see .vib-gutter).
+   524px = 2 x 230 + the 2 x 32px padding. */
 main {
-  max-width: min(1300px, calc(100% - 420px));
+  max-width: min(1300px, calc(100% - 524px));
   margin: 0 auto;
   padding: 0 32px;
+  /* Solid black content box: the starfield (.vib-stars) shows around it but
+     never behind the text and images. Normal-flow, so it paints above every
+     negative-z background layer (stars, gutter renders, score clip). */
+  background: #000;
 }
 
 /* No gap between the last content box and the background video below it. */

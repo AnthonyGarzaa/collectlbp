@@ -120,7 +120,7 @@ body.theme-lammy {
   --shadow-wrap: rgba(0, 0, 0, 0.4);
 
   --bg-header: #E8D8A7;
-  --border-header: #F7D344;
+  --border-header: #D32F2F;
   --color-logo: #F7D344;
   --shadow-logo: #7B1FA2;
   --color-subtitle: #FFCDD2;
@@ -524,6 +524,10 @@ body:not(.theme-lammy) .site-header {
   background: rgba(255, 20, 200, 0.7);
   border-bottom: none;
   padding: 0;
+  /* Keep the title pill's top margin inside the header (it used to collapse
+     out and push the whole wrap, wavy frame included, down with it), so a
+     negative margin on the pill really moves it up toward the wavy border. */
+  display: flow-root;
 }
 
 body.theme-lammy .site-header {
@@ -547,9 +551,13 @@ body.theme-lammy .site-header {
   transition: color 0.4s;
 }
 
-/* PaRappa-mode title is SVG text (same reason as the corner button: HTML
+/* PaRappa-mode title is SVG (same reason as the corner button: HTML
    text-stroke fills from the hinted glyph but strokes the outline, which left
-   gaps and spikes on this font). Font properties inherit from .logo. */
+   gaps and spikes on this font). It is drawn as paths built from the font by
+   scripts/build_logo_svg.py, with the thick outline on the letters' outside
+   contours only, so it can't fill the holes in P, A and R; the stroke and
+   fill come from attributes in that markup. The text rule below only
+   matters if the title is ever plain SVG text again. */
 .site-header .logo .logo-svg {
   display: block;
   overflow: visible;
@@ -568,12 +576,12 @@ body.theme-lammy .site-header {
 body:not(.theme-lammy) .site-header .logo {
   display: block;
   width: fit-content;
-  margin: 5px auto;
+  margin: -8px auto 5px;   /* pulled up toward the wavy top border */
   background: #fff;
   border: none;
   box-shadow: 0 0 0 5px #000;
   border-radius: 9999px;
-  padding: 3px 22px;
+  padding: 0 22px;   /* no top/bottom padding: the title and tagline sit close to the border */
   font-size: 31px;
   position: relative;
   z-index: 60;
@@ -632,24 +640,29 @@ body:not(.theme-lammy) .site-header .logo {
 }
 
 .site-header .logo .lammy-title-now .nav-umjammer {
-  -webkit-text-stroke: 3.4px #000;
+  /* No stroke: Chrome paints the white text-shadow ring over the stroke, so a
+     stroke wider than the ring showed as a black rim (and miter spikes at
+     sharp corners) outside the white outline. */
+  -webkit-text-stroke: 0;
   text-shadow:
-     2.20px  0.00px 0 #FFF,
-     2.03px  0.85px 0 #FFF,
-     1.55px  1.55px 0 #FFF,
-     0.85px  2.03px 0 #FFF,
-     0.00px  2.20px 0 #FFF,
-    -0.85px  2.03px 0 #FFF,
-    -1.55px  1.55px 0 #FFF,
-    -2.03px  0.85px 0 #FFF,
-    -2.20px  0.00px 0 #FFF,
-    -2.03px -0.85px 0 #FFF,
-    -1.55px -1.55px 0 #FFF,
-    -0.85px -2.03px 0 #FFF,
-     0.00px -2.20px 0 #FFF,
-     0.85px -2.03px 0 #FFF,
-     1.55px -1.55px 0 #FFF,
-     2.03px -0.85px 0 #FFF;
+      1.50px   0.00px 0 #FFF,
+      1.39px   0.57px 0 #FFF,
+      1.06px   1.06px 0 #FFF,
+      0.57px   1.39px 0 #FFF,
+      0.00px   1.50px 0 #FFF,
+     -0.57px   1.39px 0 #FFF,
+     -1.06px   1.06px 0 #FFF,
+     -1.39px   0.57px 0 #FFF,
+     -1.50px   0.00px 0 #FFF,
+     -1.39px  -0.57px 0 #FFF,
+     -1.06px  -1.06px 0 #FFF,
+     -0.57px  -1.39px 0 #FFF,
+      0.00px  -1.50px 0 #FFF,
+      0.57px  -1.39px 0 #FFF,
+      1.06px  -1.06px 0 #FFF,
+      1.39px  -0.57px 0 #FFF,
+     /* slight drop shadow behind the white outline */
+     3px 4px 2px rgba(0, 0, 0, 0.7);
 }
 
 .site-header .logo .lammy-title-now .nav-lammy {
@@ -670,7 +683,9 @@ body:not(.theme-lammy) .site-header .logo {
      0.00px -1.80px 0 #000,
      0.68px -1.67px 0 #000,
      1.27px -1.27px 0 #000,
-     1.67px -0.68px 0 #000;
+     1.67px -0.68px 0 #000,
+     /* slight drop shadow behind the black outline */
+     3px 4px 2px rgba(0, 0, 0, 0.7);
 }
 
 .site-header .logo .lammy-title-now .nav-lammy::before {
@@ -851,15 +866,16 @@ body.theme-lammy .corner-subtitle .corner-gap {
 }
 
 .site-header .tagline {
-  font-size: 18px;
-  color: #FA2A55;
-  letter-spacing: 2px;
+  font-size: 24px;
+  color: #EE0153;
+  letter-spacing: 2.5px;    /* 2px gap + the extra 0.5px the thicker stroke takes up */
   font-family: 'RodneyWrite', 'MS PGothic', 'Hiragino Kaku Gothic Pro', sans-serif;
   font-weight: bold;
   font-style: italic;
   text-transform: uppercase;
-  /* Back to the original hairline stroke weight. */
-  -webkit-text-stroke: 0.5px #FA2A55;
+  /* Same-colour stroke behind the fill (paint-order) thickens the letters:
+     1px adds about 0.5px per side, taking the ~2.75px stroke weight to ~3.25px. */
+  -webkit-text-stroke: 1px #EE0153;
   paint-order: stroke fill;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
@@ -885,22 +901,50 @@ body.theme-lammy .corner-subtitle .corner-gap {
   display: inline-block;
   position: relative;
   transform: skewX(-12deg);
+  word-spacing: -7px;   /* tighter gaps between the words */
 }
 
-/* Exact yellow duplicate of the tagline, offset diagonally down-right. It
-   inherits every font property (and the 1px stroke) so its silhouette matches
-   the red text precisely; only the down-right lip is ever visible. */
-.site-header .tagline-text::before {
-  content: attr(data-text);
+/* The tagline curves downward (ends up, middle dipping): each letter is its
+   own span (built by scripts/build_tagline.py) moved down and tilted along
+   the curve by --dy / --r. Each letter carries an exact yellow duplicate of
+   itself (::before, from data-ch), offset diagonally down-right, so the
+   yellow shadow follows the curve; it inherits every font property (and
+   the stroke) so its silhouette matches the red letter precisely, and only
+   the down-right lip is ever visible. */
+.site-header .tl-ch {
+  display: inline-block;
+  position: relative;
+  transform: translateY(var(--dy, 0)) rotate(var(--r, 0));
+  transform-origin: 50% 100%;
+}
+
+.site-header .tl-ch::before {
+  content: attr(data-ch);
   position: absolute;
   top: 0;
   left: 0;
   color: #FFFF00;
-  -webkit-text-stroke: 0.5px #FFFF00;
-  transform: translate(1.5px, 1.5px);
+  -webkit-text-stroke: 1px #FFFF00;      /* same weight as the red letters */
+  paint-order: stroke fill;
+  transform: translate(2.5px, 2.5px);
   white-space: nowrap;
   pointer-events: none;
   z-index: -1;
+}
+
+/* The tagline now sits inside the title's white pill, under the title, so it
+   drops its own pill (background, border, padding) and just stacks below. */
+.site-header .logo .tagline {
+  background: none;
+  border: none;
+  /* Bottom padding (not margin: with no padding on the pill, a margin would
+     collapse out through its edge) leaves room for the curve's dip, which is a
+     transform and takes no layout space, above the pill's border. */
+  padding: 0 0 4px;
+  margin: -12px auto 0;    /* pulled up close to the title (the tagline's ends
+                              reach under the title's low ends; -12px keeps
+                              them clear) */
+  line-height: 1.2;
 }
 
 body.theme-lammy .tagline {
@@ -1455,6 +1499,12 @@ body.theme-lammy .nav-bar {
   padding: 6px 24px;
   background: linear-gradient(180deg, #fff200 0%, #eaff00 35%, #7dff3a 70%, #2bff5e 100%);
   border-radius: 16px;
+}
+
+/* PaRappa mode: the header gradient continues out to the wavy frame
+   (data-frame-band), so its corners are square to meet it cleanly. */
+body:not(.theme-lammy) .site-wrap.frame-svg .ujlnow-header {
+  border-radius: 0;
 }
 
 .ujlnow-topper {
@@ -2320,6 +2370,13 @@ body.theme-lammy .nav-item > button.nav-milkcan {
   font-size: 18px !important;
 }
 
+/* Lammy mode: italic lettering on the Um Jammer Lammy Now! tab, like the
+   other Lammy-mode nav tabs. */
+body.theme-lammy .nav-item > button.nav-ujlnow,
+body.theme-lammy .nav-item > button.nav-ujlnow * {
+  font-style: italic !important;
+}
+
 /* ── "UM JAMMER" thick black fill with white outline in the Um Jammer Lammy Now! nav tab ── */
 .nav-umjammer {
   display: inline-block;
@@ -2851,8 +2908,22 @@ body:not(.theme-lammy) #page-welcome > .section-title {
   scroll-margin-top: 14px;
 }
 
+/* Events page (gal-events2) — one section per year */
+.event-year {
+  max-width: 1000px;
+  margin: 0 auto 24px;
+  padding: 0 1em;
+}
+
+.event-year-title {
+  margin-bottom: 12px;
+  border-radius: 4px;
+}
+
 /* Events page (gal-events2) — uniform landscape cards, two per row */
 .event-list {
+  margin: 0;
+  padding: 0;
   list-style: none;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -3170,6 +3241,28 @@ body.lang-jp .block-ja { display: block; }
   .welcome-hero {
     grid-template-columns: 1fr;
   }
+}
+
+/* Decorative page banner between a page's title and its intro (e.g. the Um
+   Jammer Lammy "Goods" plate on the UJL merchandise pages). Shown at its
+   native pixel size, centred, on the intro's background so the two read as
+   one block; not part of the photo lightbox (parappa.js skips .page-banner). */
+.page-banner {
+  text-align: center;
+  padding: 18px 16px 0;
+  background: var(--bg-intro);
+}
+
+.page-banner img {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  image-rendering: pixelated;   /* pixel art: stay crisp under the page zoom */
+}
+
+html .page-banner img,
+html body.theme-lammy .page-banner img {
+  cursor: inherit !important;   /* not clickable: keep the normal cursor */
 }
 
 .ujl-intro {
@@ -5744,6 +5837,51 @@ body.theme-lammy .search-result:hover .search-snippet mark {
   border-bottom: 1px solid #ddd;
 }
 
+/* Voice actors page — cast list, games stacked vertically */
+.va-cast .ujl-info-title {
+  text-align: center;
+}
+
+.va-cast-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+}
+
+.va-cast-game-title {
+  margin-bottom: 6px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--color-char-name);
+  font-weight: bold;
+  color: var(--color-char-name);
+}
+
+.va-cast-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  line-height: 1.6;
+}
+
+.va-cast-list li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2px 10px;
+  padding: 5px 0;
+  border-bottom: 1px dotted #ccc;
+}
+
+.va-cast-list .va-char {
+  font-weight: bold;
+}
+
+.va-cast-list .va-actor {
+  margin-left: auto;
+  text-align: right;
+  color: #555;
+}
+
 .ujl-details .ujl-info-title {
   text-align: center;
   margin-bottom: 16px;
@@ -5786,6 +5924,14 @@ body.theme-lammy .search-result:hover .search-snippet mark {
    colour vanishes; use the same colour as the text beside it. */
 #page-ujlnow-prize .ujl-label {
   color: inherit;
+}
+
+/* Anime page — production credits and voice cast tables, all text black */
+.anime-jp-cast,
+.anime-jp-cast .ujl-info-title,
+.anime-jp-cast .ujl-label,
+.anime-jp-cast td {
+  color: #000;
 }
 
 .ujl-rarity {
@@ -6369,12 +6515,12 @@ body.theme-lammy .pager-next .pager-mascot-label {
 
 /* ── Lammy mode: dropdowns styled like the nav tabs ──
    Each row is a bevelled tab (light top/left edge, dark bottom/right, inner
-   shadow) in the Lammy theme's purple with its yellow lettering, an inner
+   shadow) in the Lammy theme's red (#F03D32) with green (#389939) lettering outlined in yellow (#FCE638), an inner
    bevelled frame (::after, like the tabs' middle outline) and orange edges on
    hover. */
 body.theme-lammy .dropdown,
 body.theme-lammy .sub-dropdown {
-  background: #4A1263 !important;
+  background: #E15195 !important;
   border: 2px solid rgba(0, 0, 0, 0.45);
   box-shadow: 0 4px 9px rgba(0, 0, 0, 0.6);
   padding: 3px;
@@ -6386,7 +6532,7 @@ body.theme-lammy .sub-dropdown a {
   position: relative;
   margin: 0 0 3px;
   padding: 9px 16px;
-  background: #7B1FA2;
+  background: #F03D32;
   font-size: 18px;
   font-weight: bold;
   font-style: italic;
@@ -6394,9 +6540,18 @@ body.theme-lammy .sub-dropdown a {
   border: 2px solid;
   border-color: rgba(215, 215, 215, 0.25) rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.2) rgba(215, 215, 215, 0.25);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5), inset 0 0 12px rgba(0, 0, 0, 0.35);
-  -webkit-text-stroke: 0.4px rgba(215, 215, 215, 0.25);
-  paint-order: stroke fill;
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.55);
+  /* Thin #FCE638 outline drawn as a 1px ring of text-shadows (round corners,
+     which a text stroke can't do). No drop shadow. */
+  -webkit-text-stroke: 0;
+  text-shadow:
+     1px     0     0 #FCE638,
+     0.71px  0.71px 0 #FCE638,
+     0       1px   0 #FCE638,
+    -0.71px  0.71px 0 #FCE638,
+    -1px     0     0 #FCE638,
+    -0.71px -0.71px 0 #FCE638,
+     0      -1px   0 #FCE638,
+     0.71px -0.71px 0 #FCE638;
 }
 
 body.theme-lammy .dropdown a,
@@ -6405,7 +6560,7 @@ body.theme-lammy .submenu > .submenu-label,
 body.theme-lammy .submenu > .submenu-label *,
 body.theme-lammy .sub-dropdown a,
 body.theme-lammy .sub-dropdown a * {
-  color: #F7D344 !important;
+  color: #389939 !important;
 }
 
 body.theme-lammy .dropdown a:last-child,
@@ -6431,7 +6586,7 @@ body.theme-lammy .sub-dropdown a::after {
 body.theme-lammy .dropdown a:hover,
 body.theme-lammy .submenu:hover > .submenu-label,
 body.theme-lammy .sub-dropdown a:hover {
-  background: #7B1FA2;
+  background: #F03D32;
   border-color: #FF8C1A;
 }
 
@@ -6449,7 +6604,7 @@ body.theme-lammy .nav-item:has(> .nav-ujlnow) .dropdown {
 body.theme-lammy .nav-item:has(> .nav-ujlnow) .dropdown a,
 body.theme-lammy .nav-item:has(> .nav-ujlnow) .dropdown a:hover {
   background: #E8D8A7;
-  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.35);
+  text-shadow: none;
 }
 
 body.theme-lammy .nav-item:has(> .nav-ujlnow) .dropdown a,
@@ -6532,9 +6687,7 @@ body.theme-lammy .sub-dropdown a[href="merch-ptr-pjberri.html"] * {
   color: #3D200E !important;
   -webkit-text-stroke: 0.4px rgba(215, 215, 215, 0.25);
   paint-order: stroke fill;
-  text-shadow:
-    0.72px 0.72px 0 rgba(255, 220, 180, 0.45),
-    -0.72px -0.72px 0 rgba(0, 0, 0, 0.55);
+  text-shadow: none;
 }
 
 /* Press Kits › McDonald's employee kit: three across, slightly tighter than the default two */
