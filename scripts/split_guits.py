@@ -1,4 +1,4 @@
-"""Split LammyStuff/resources/guits.png (4 guitars in a row) into 4 separate
+"""Split LammyStuff/Renders/resources/guits.png (4 guitars in a row) into 4 separate
 tightly-cropped transparent PNGs."""
 from pathlib import Path
 import numpy as np

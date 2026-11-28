@@ -1,4 +1,4 @@
-"""Cut out the red background of LammyStuff/ressources/poofu.png.
+"""Cut out the red background of LammyStuff/Renders/ressources/poofu.png.
 
 Flood-fills red pixels starting from the image edges, stopping at the black
 outline so the red drops inside the design are preserved.

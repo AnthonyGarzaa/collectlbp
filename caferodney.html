@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Cafe Rodney — PaRappa Corner</title>
+  <meta name="description" content="PaRappa Corner: a fan site preserving and documenting PaRappa the Rapper and Um Jammer Lammy merchandise, rare collectibles, and franchise history.">
+  <link rel="canonical" href="https://parappacorner.com/caferodney.html">
+  <meta property="og:site_name" content="PaRappa Corner">
+  <meta property="og:title" content="Cafe Rodney — PaRappa Corner">
+  <meta property="og:description" content="A fan site preserving and documenting PaRappa the Rapper and Um Jammer Lammy merchandise, rare collectibles, and franchise history.">
+  <meta property="og:url" content="https://parappacorner.com/caferodney.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://parappacorner.com/par.png">
+  <link id="favicon" rel="icon" type="image/png" href="par.png">
+  <link id="favicon-shortcut" rel="shortcut icon" type="image/png" href="par.png">
+  <link rel="stylesheet" href="parappa.css?v=20261130e">
+</head>
+<body>
+<script>
+  // Restore Lammy mode and the JP language before the page paints, so moving
+  // between pages doesn't flash the PaRappa-mode / English versions first.
+  (function () {
+    try {
+      if (localStorage.getItem('parappaLammyMode') === '1') document.body.classList.add('theme-lammy');
+      if (localStorage.getItem('parappaLangJP') === '1') document.body.classList.add('lang-jp');
+    } catch (e) {}
+  })();
+</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="parappa-squiggle">
+    <feTurbulence type="turbulence" baseFrequency="0.012" numOctaves="1" seed="4" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="45"/>
+  </filter>
+</svg>
+
+<div class="site-wrap">
+
+  <!-- HEADER -->
+  <div class="site-header">
+    <div class="lang-toggle-wrap">
+      <div class="lang-toggle">
+        <span class="toggle-label toggle-flag"><span class="en">EN</span><span class="ja">EN</span></span>
+        <div class="toggle-track" id="langTrack" onclick="toggleLang()">
+          <div class="toggle-thumb" id="langThumb"></div>
+        </div>
+        <span class="toggle-label toggle-flag jp-flag"><span class="en">JP</span><span class="ja">JP</span></span>
+      </div>
+      <img class="lang-cover" src="LammyStuff/Language.png" alt="Language">
+      <div class="lang-menu-btns">
+        <button type="button" class="lang-menu-btn" onclick="setLang('en')"><span class="lang-menu-label">EN</span></button>
+        <button type="button" class="lang-menu-btn" onclick="setLang('jp')"><span class="lang-menu-label">JP</span></button>
+      </div>
+    </div>
+    <img class="parappa-pony" src="pony.png" alt="Pony" aria-hidden="true">
+    <img class="parappa-joe" src="thejoe.png" alt="Joe Chin" aria-hidden="true">
+    <img class="parappa-boxy" src="LammyStuff/Renders/resources/boxy.png" alt="Boxy Boy" aria-hidden="true">
+    <img class="parappa-mc" src="LammyStuff/Renders/resources/MC.png" alt="MC King Kong Mushi" aria-hidden="true">
+    <div class="logo" id="siteLogo"><svg class="logo-svg" width="323" height="87" viewBox="-14 -4 323 87" role="img" aria-label="PaRappa the Rapper" focusable="false"><defs><path id="lg-P-o" d="M13.14 -21.45Q10.42 -21.45 7.94 -22.44Q8 -14.94 7.75 -2.54Q7.75 -1.67 7.19 -0.81Q6.45 0.19 5.33 0.19Q4.53 0.19 3.53 -0.43Q2.79 -1.05 1.98 -1.61L1.98 -28.46Q1.98 -29.08 2.17 -30.29Q2.36 -31.5 2.36 -31.99Q2.42 -33.05 2.48 -38.07Q2.54 -41.23 3.35 -45.57Q4.96 -45.51 7.78 -46.19Q10.6 -46.87 11.97 -46.87Q19.28 -46.87 23.75 -44.39Q29.33 -41.23 29.33 -34.41Q29.33 -27.96 24.3 -24.49Q19.9 -21.45 13.14 -21.45Z"/><path id="lg-P-h" d="M14.45 -41.29Q12.59 -41.54 11.9 -41.54Q11.28 -41.54 8.37 -40.3L8 -28.09Q9.92 -27.4 11.78 -27.4Q24.18 -27.4 24.18 -34.66Q24.18 -39.99 14.45 -41.29Z"/><path id="lg-P" d="M13.14 -21.45Q10.42 -21.45 7.94 -22.44Q8 -14.94 7.75 -2.54Q7.75 -1.67 7.19 -0.81Q6.45 0.19 5.33 0.19Q4.53 0.19 3.53 -0.43Q2.79 -1.05 1.98 -1.61L1.98 -28.46Q1.98 -29.08 2.17 -30.29Q2.36 -31.5 2.36 -31.99Q2.42 -33.05 2.48 -38.07Q2.54 -41.23 3.35 -45.57Q4.96 -45.51 7.78 -46.19Q10.6 -46.87 11.97 -46.87Q19.28 -46.87 23.75 -44.39Q29.33 -41.23 29.33 -34.41Q29.33 -27.96 24.3 -24.49Q19.9 -21.45 13.14 -21.45ZM14.45 -41.29Q12.59 -41.54 11.9 -41.54Q11.28 -41.54 8.37 -40.3L8 -28.09Q9.92 -27.4 11.78 -27.4Q24.18 -27.4 24.18 -34.66Q24.18 -39.99 14.45 -41.29Z"/><path id="lg-As-o" d="M15.38 0Q15.13 0.84 14.32 0.84Q13.42 0.84 13.02 0Q12.96 -0.12 12.59 -1.61Q12.28 -2.88 11.66 -5.98Q11.1 -8.77 10.6 -10.35L8.15 -10.42Q6.26 -10.45 5.98 -10.26Q5.7 -10.07 5.21 -8.4Q4.93 -7.44 4.59 -6.35Q3.81 -4.71 2.82 -1.95Q2.45 0 1.27 0Q0.68 0 0.28 -0.39Q-0.12 -0.78 -0.12 -1.36Q-0.12 -2.2 0.28 -3.22Q0.68 -4.12 1.08 -4.99Q2.29 -9.11 4.18 -14.48Q4.8 -16.09 6.54 -20.8Q6.67 -21.14 7.01 -22.51Q7.38 -23.47 8.37 -23.47Q9.98 -23.47 10.6 -21.54Q10.94 -20.49 11.9 -16.89Q12.12 -16.09 12.65 -13.98Q13.39 -11.9 13.33 -11.1L15.5 -0.4Z"/><path id="lg-As-h" d="M8.62 -18.14L6.88 -13.42Q7.91 -13.55 9.95 -13.52Z"/><path id="lg-As" d="M15.38 0Q15.13 0.84 14.32 0.84Q13.42 0.84 13.02 0Q12.96 -0.12 12.59 -1.61Q12.28 -2.88 11.66 -5.98Q11.1 -8.77 10.6 -10.35L8.15 -10.42Q6.26 -10.45 5.98 -10.26Q5.7 -10.07 5.21 -8.4Q4.93 -7.44 4.59 -6.35Q3.81 -4.71 2.82 -1.95Q2.45 0 1.27 0Q0.68 0 0.28 -0.39Q-0.12 -0.78 -0.12 -1.36Q-0.12 -2.2 0.28 -3.22Q0.68 -4.12 1.08 -4.99Q2.29 -9.11 4.18 -14.48Q4.8 -16.09 6.54 -20.8Q6.67 -21.14 7.01 -22.51Q7.38 -23.47 8.37 -23.47Q9.98 -23.47 10.6 -21.54Q10.94 -20.49 11.9 -16.89Q12.12 -16.09 12.65 -13.98Q13.39 -11.9 13.33 -11.1L15.5 -0.4ZM8.62 -18.14L6.88 -13.42Q7.91 -13.55 9.95 -13.52Z"/><path id="lg-R-o" d="M2.54 -40.11Q2.23 -39.99 1.8 -39.99Q0.5 -39.99 -0.31 -41.42Q-0.87 -42.66 -1.43 -43.96Q1.12 -45.88 3.41 -46.5Q5.02 -46.93 7.75 -46.93Q15.31 -46.93 20.4 -43.77Q26.54 -39.99 26.54 -32.92Q26.54 -22.82 14.26 -17.24Q16.12 -15.56 20.27 -11.9Q21.76 -10.54 23.31 -9.11Q25.11 -7.5 26.6 -6.76Q29.39 -5.39 29.39 -2.73Q29.39 -1.61 28.55 -0.9Q27.71 -0.19 26.6 -0.19Q25.3 -0.19 23.06 -2.23Q21.02 -4.09 16.18 -8.25Q13.7 -9.92 9.11 -13.76Q8.93 -11.84 9.36 -8.43Q9.86 -4.53 9.86 -3.04Q9.86 -1.8 9.21 -0.74Q8.56 0.31 7.38 0.31Q5.95 0.31 4.96 -0.78Q3.97 -1.86 3.84 -3.29Q3.47 -7.87 3.04 -21.76Q2.85 -27.71 2.54 -40.11Z"/><path id="lg-R-h" d="M10.6 -41.29L8.56 -41.29L9.61 -22.01Q21.51 -26.54 20.89 -34.47Q20.65 -37.39 16.93 -39.31Q14.32 -40.67 10.6 -41.29Z"/><path id="lg-R" d="M2.54 -40.11Q2.23 -39.99 1.8 -39.99Q0.5 -39.99 -0.31 -41.42Q-0.87 -42.66 -1.43 -43.96Q1.12 -45.88 3.41 -46.5Q5.02 -46.93 7.75 -46.93Q15.31 -46.93 20.4 -43.77Q26.54 -39.99 26.54 -32.92Q26.54 -22.82 14.26 -17.24Q16.12 -15.56 20.27 -11.9Q21.76 -10.54 23.31 -9.11Q25.11 -7.5 26.6 -6.76Q29.39 -5.39 29.39 -2.73Q29.39 -1.61 28.55 -0.9Q27.71 -0.19 26.6 -0.19Q25.3 -0.19 23.06 -2.23Q21.02 -4.09 16.18 -8.25Q13.7 -9.92 9.11 -13.76Q8.93 -11.84 9.36 -8.43Q9.86 -4.53 9.86 -3.04Q9.86 -1.8 9.21 -0.74Q8.56 0.31 7.38 0.31Q5.95 0.31 4.96 -0.78Q3.97 -1.86 3.84 -3.29Q3.47 -7.87 3.04 -21.76Q2.85 -27.71 2.54 -40.11ZM10.6 -41.29L8.56 -41.29L9.61 -22.01Q21.51 -26.54 20.89 -34.47Q20.65 -37.39 16.93 -39.31Q14.32 -40.67 10.6 -41.29Z"/><path id="lg-Ps-o" d="M6.57 -10.73Q5.21 -10.73 3.97 -11.22Q4 -7.47 3.88 -1.27Q3.88 -0.84 3.6 -0.4Q3.22 0.09 2.67 0.09Q2.26 0.09 1.77 -0.22Q1.4 -0.53 0.99 -0.81L0.99 -14.23Q0.99 -14.54 1.08 -15.14Q1.18 -15.75 1.18 -16Q1.21 -16.52 1.24 -19.03Q1.27 -20.61 1.67 -22.79Q2.48 -22.75 3.89 -23.09Q5.3 -23.44 5.98 -23.44Q9.64 -23.44 11.87 -22.2Q14.66 -20.61 14.66 -17.2Q14.66 -13.98 12.15 -12.24Q9.95 -10.73 6.57 -10.73Z"/><path id="lg-Ps-h" d="M7.22 -20.65Q6.29 -20.77 5.95 -20.77Q5.64 -20.77 4.18 -20.15L4 -14.04Q4.96 -13.7 5.89 -13.7Q12.09 -13.7 12.09 -17.33Q12.09 -20 7.22 -20.65Z"/><path id="lg-Ps" d="M6.57 -10.73Q5.21 -10.73 3.97 -11.22Q4 -7.47 3.88 -1.27Q3.88 -0.84 3.6 -0.4Q3.22 0.09 2.67 0.09Q2.26 0.09 1.77 -0.22Q1.4 -0.53 0.99 -0.81L0.99 -14.23Q0.99 -14.54 1.08 -15.14Q1.18 -15.75 1.18 -16Q1.21 -16.52 1.24 -19.03Q1.27 -20.61 1.67 -22.79Q2.48 -22.75 3.89 -23.09Q5.3 -23.44 5.98 -23.44Q9.64 -23.44 11.87 -22.2Q14.66 -20.61 14.66 -17.2Q14.66 -13.98 12.15 -12.24Q9.95 -10.73 6.57 -10.73ZM7.22 -20.65Q6.29 -20.77 5.95 -20.77Q5.64 -20.77 4.18 -20.15L4 -14.04Q4.96 -13.7 5.89 -13.7Q12.09 -13.7 12.09 -17.33Q12.09 -20 7.22 -20.65Z"/><path id="lg-T-o" d="M11.47 -40.49L5.15 -40.49Q2.42 -40.49 0.31 -43.46L0.31 -46.38Q1.74 -46.31 8.93 -46.31Q10.54 -46.31 13.76 -45.76Q16.99 -45.2 18.66 -45.2L23.56 -45.2Q26.47 -45.2 27.71 -44.83Q30.07 -44.08 30.07 -41.73Q30.07 -40.61 28.83 -39.8Q27.96 -39.49 19.28 -39.43Q17.92 -39.43 16.74 -39.68L16.18 -39.8L16.18 -0.56L13.58 0.25Q12.46 0.25 11.75 -0.65Q11.04 -1.55 11.04 -2.73Q10.91 -10.85 11.1 -21.7Z"/><path id="lg-T" d="M11.47 -40.49L5.15 -40.49Q2.42 -40.49 0.31 -43.46L0.31 -46.38Q1.74 -46.31 8.93 -46.31Q10.54 -46.31 13.76 -45.76Q16.99 -45.2 18.66 -45.2L23.56 -45.2Q26.47 -45.2 27.71 -44.83Q30.07 -44.08 30.07 -41.73Q30.07 -40.61 28.83 -39.8Q27.96 -39.49 19.28 -39.43Q17.92 -39.43 16.74 -39.68L16.18 -39.8L16.18 -0.56L13.58 0.25Q12.46 0.25 11.75 -0.65Q11.04 -1.55 11.04 -2.73Q10.91 -10.85 11.1 -21.7Z"/><path id="lg-Hs-o" d="M12.93 -0.03Q12.15 -0.03 11.69 -0.74Q11.31 -1.33 11.28 -2.17Q11.25 -3.25 11.28 -10.73L4.65 -10.73L4.34 -0.28Q3.44 0.53 3.01 0.53Q2.23 0.53 1.74 -0.19Q1.33 -0.81 1.36 -1.61L2.33 -22.41L3.01 -23.13Q2.88 -23.03 2.73 -23.03Q2.94 -23.22 3.22 -23.22Q3.88 -23.22 4.37 -22.72Q4.77 -22.23 5.21 -21.7L4.71 -13.45L11.16 -13.45L11.19 -22.04L11.78 -22.79Q11.72 -22.75 11.62 -22.72Q11.9 -22.88 12.15 -22.88Q13.98 -22.88 14.04 -19.53Q14.11 -14.45 14.26 -0.87Q13.52 -0.03 12.93 -0.03Z"/><path id="lg-Hs" d="M12.93 -0.03Q12.15 -0.03 11.69 -0.74Q11.31 -1.33 11.28 -2.17Q11.25 -3.25 11.28 -10.73L4.65 -10.73L4.34 -0.28Q3.44 0.53 3.01 0.53Q2.23 0.53 1.74 -0.19Q1.33 -0.81 1.36 -1.61L2.33 -22.41L3.01 -23.13Q2.88 -23.03 2.73 -23.03Q2.94 -23.22 3.22 -23.22Q3.88 -23.22 4.37 -22.72Q4.77 -22.23 5.21 -21.7L4.71 -13.45L11.16 -13.45L11.19 -22.04L11.78 -22.79Q11.72 -22.75 11.62 -22.72Q11.9 -22.88 12.15 -22.88Q13.98 -22.88 14.04 -19.53Q14.11 -14.45 14.26 -0.87Q13.52 -0.03 12.93 -0.03Z"/><path id="lg-Es-o" d="M12.03 -21.05Q12 -20.93 11.9 -20.3Q11.62 -20.3 11.1 -20.24Q10.57 -20.18 10.29 -20.18Q9.95 -20.18 9.25 -20.35Q8.56 -20.52 8.21 -20.52L5.95 -20.52Q5.42 -20.52 3.78 -20.77L3.78 -13.7L10.01 -13.73Q10.63 -13.7 11.01 -13.14Q11.38 -12.59 11.38 -11.94Q11.38 -11.84 11.13 -10.76L3.94 -10.76L3.94 -2.88L10.14 -3.5Q11.5 -2.88 11.5 -1.92Q11.5 -0.74 9.58 -0.4Q8.87 -0.28 6.91 -0.28Q6.29 -0.28 5.1 -0.06Q3.91 0.15 3.29 0.15Q2.29 0.15 1.61 -0.81Q1.02 -1.67 1.02 -2.7L1.12 -23.09Q2.33 -23.59 3.25 -23.59Q3.72 -23.59 4.6 -23.47Q5.49 -23.34 5.86 -23.31Q6.82 -23.37 8.93 -23.31L10.94 -23.06Q12.12 -22.72 12.12 -21.51Q12.12 -21.3 12.03 -21.05Z"/><path id="lg-Es" d="M12.03 -21.05Q12 -20.93 11.9 -20.3Q11.62 -20.3 11.1 -20.24Q10.57 -20.18 10.29 -20.18Q9.95 -20.18 9.25 -20.35Q8.56 -20.52 8.21 -20.52L5.95 -20.52Q5.42 -20.52 3.78 -20.77L3.78 -13.7L10.01 -13.73Q10.63 -13.7 11.01 -13.14Q11.38 -12.59 11.38 -11.94Q11.38 -11.84 11.13 -10.76L3.94 -10.76L3.94 -2.88L10.14 -3.5Q11.5 -2.88 11.5 -1.92Q11.5 -0.74 9.58 -0.4Q8.87 -0.28 6.91 -0.28Q6.29 -0.28 5.1 -0.06Q3.91 0.15 3.29 0.15Q2.29 0.15 1.61 -0.81Q1.02 -1.67 1.02 -2.7L1.12 -23.09Q2.33 -23.59 3.25 -23.59Q3.72 -23.59 4.6 -23.47Q5.49 -23.34 5.86 -23.31Q6.82 -23.37 8.93 -23.31L10.94 -23.06Q12.12 -22.72 12.12 -21.51Q12.12 -21.3 12.03 -21.05Z"/><path id="lg-Rs-o" d="M1.27 -20.06Q1.12 -20 0.9 -20Q0.25 -20 -0.15 -20.71Q-0.43 -21.33 -0.71 -21.98Q0.56 -22.94 1.71 -23.25Q2.51 -23.47 3.88 -23.47Q7.66 -23.47 10.2 -21.89Q13.27 -20 13.27 -16.46Q13.27 -11.41 7.13 -8.62Q8.06 -7.78 10.14 -5.95Q10.88 -5.27 11.66 -4.56Q12.55 -3.75 13.3 -3.38Q14.69 -2.7 14.69 -1.36Q14.69 -0.81 14.28 -0.45Q13.86 -0.09 13.3 -0.09Q12.65 -0.09 11.53 -1.12Q10.51 -2.05 8.09 -4.12Q6.85 -4.96 4.56 -6.88Q4.46 -5.92 4.68 -4.22Q4.93 -2.26 4.93 -1.52Q4.93 -0.9 4.6 -0.37Q4.28 0.15 3.69 0.15Q2.98 0.15 2.48 -0.39Q1.98 -0.93 1.92 -1.64Q1.74 -3.94 1.52 -10.88Q1.43 -13.86 1.27 -20.06Z"/><path id="lg-Rs-h" d="M5.3 -20.65L4.28 -20.65L4.8 -11.01Q10.76 -13.27 10.45 -17.24Q10.32 -18.69 8.46 -19.65Q7.16 -20.34 5.3 -20.65Z"/><path id="lg-Rs" d="M1.27 -20.06Q1.12 -20 0.9 -20Q0.25 -20 -0.15 -20.71Q-0.43 -21.33 -0.71 -21.98Q0.56 -22.94 1.71 -23.25Q2.51 -23.47 3.88 -23.47Q7.66 -23.47 10.2 -21.89Q13.27 -20 13.27 -16.46Q13.27 -11.41 7.13 -8.62Q8.06 -7.78 10.14 -5.95Q10.88 -5.27 11.66 -4.56Q12.55 -3.75 13.3 -3.38Q14.69 -2.7 14.69 -1.36Q14.69 -0.81 14.28 -0.45Q13.86 -0.09 13.3 -0.09Q12.65 -0.09 11.53 -1.12Q10.51 -2.05 8.09 -4.12Q6.85 -4.96 4.56 -6.88Q4.46 -5.92 4.68 -4.22Q4.93 -2.26 4.93 -1.52Q4.93 -0.9 4.6 -0.37Q4.28 0.15 3.69 0.15Q2.98 0.15 2.48 -0.39Q1.98 -0.93 1.92 -1.64Q1.74 -3.94 1.52 -10.88Q1.43 -13.86 1.27 -20.06ZM5.3 -20.65L4.28 -20.65L4.8 -11.01Q10.76 -13.27 10.45 -17.24Q10.32 -18.69 8.46 -19.65Q7.16 -20.34 5.3 -20.65Z"/></defs><g transform="rotate(-4 151.22 50)"><g fill="none" stroke="#000" stroke-width="8" stroke-linejoin="round"><use href="#lg-P-o" transform="translate(16.2 64.31) rotate(-12.1) translate(-15.19 0)"/><use href="#lg-As-o" transform="translate(33.08 60.93) rotate(-10.57) translate(-8.71 0)"/><use href="#lg-R-o" transform="translate(57.34 56.88) rotate(-8.38) translate(-16.52 0)"/><use href="#lg-As-o" transform="translate(83.81 53.54) rotate(-6.01) translate(-8.71 0)"/><use href="#lg-Ps-o" transform="translate(102.11 51.87) rotate(-4.37) translate(-7.59 0)"/><use href="#lg-Ps-o" transform="translate(116.58 50.93) rotate(-3.08) translate(-7.59 0)"/><use href="#lg-As-o" transform="translate(133 50.26) rotate(-1.62) translate(-8.71 0)"/><use href="#lg-T-o" transform="translate(148.81 50) rotate(-0.21) translate(-14.04 0)"/><use href="#lg-Hs-o" transform="translate(162.94 50.11) rotate(1.04) translate(-8.35 0)"/><use href="#lg-Es-o" transform="translate(179.25 50.61) rotate(2.49) translate(-6.43 0)"/><use href="#lg-R-o" transform="translate(203.51 52.13) rotate(4.66) translate(-16.52 0)"/><use href="#lg-As-o" transform="translate(230.06 54.84) rotate(7.03) translate(-8.71 0)"/><use href="#lg-Ps-o" transform="translate(246.28 57.05) rotate(8.49) translate(-7.59 0)"/><use href="#lg-Ps-o" transform="translate(260.59 59.35) rotate(9.78) translate(-7.59 0)"/><use href="#lg-Es-o" transform="translate(273.78 61.77) rotate(10.97) translate(-6.43 0)"/><use href="#lg-Rs-o" transform="translate(293 65.8) rotate(12.72) translate(-8.26 0)"/></g><g fill="none" stroke="#000" stroke-width="6" stroke-linejoin="round"><use href="#lg-P-h" transform="translate(16.2 64.31) rotate(-12.1) translate(-15.19 0)"/><use href="#lg-R-h" transform="translate(57.34 56.88) rotate(-8.38) translate(-16.52 0)"/><use href="#lg-R-h" transform="translate(203.51 52.13) rotate(4.66) translate(-16.52 0)"/></g><g fill="none" stroke="#000" stroke-width="3" stroke-linejoin="round"><use href="#lg-Ps-h" transform="translate(102.11 51.87) rotate(-4.37) translate(-7.59 0)"/><use href="#lg-Ps-h" transform="translate(116.58 50.93) rotate(-3.08) translate(-7.59 0)"/><use href="#lg-Ps-h" transform="translate(246.28 57.05) rotate(8.49) translate(-7.59 0)"/><use href="#lg-Ps-h" transform="translate(260.59 59.35) rotate(9.78) translate(-7.59 0)"/><use href="#lg-Rs-h" transform="translate(293 65.8) rotate(12.72) translate(-8.26 0)"/></g><g fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"><use href="#lg-As-h" transform="translate(33.08 60.93) rotate(-10.57) translate(-8.71 0)"/><use href="#lg-As-h" transform="translate(83.81 53.54) rotate(-6.01) translate(-8.71 0)"/><use href="#lg-As-h" transform="translate(133 50.26) rotate(-1.62) translate(-8.71 0)"/><use href="#lg-As-h" transform="translate(230.06 54.84) rotate(7.03) translate(-8.71 0)"/></g><g><use href="#lg-P" transform="translate(16.2 64.31) rotate(-12.1) translate(-15.19 0)" fill="#FFB347"/><use href="#lg-As" transform="translate(33.08 60.93) rotate(-10.57) translate(-8.71 0)" fill="#FFB347"/><use href="#lg-R" transform="translate(57.34 56.88) rotate(-8.38) translate(-16.52 0)" fill="#1098AD"/><use href="#lg-As" transform="translate(83.81 53.54) rotate(-6.01) translate(-8.71 0)" fill="#1098AD"/><use href="#lg-Ps" transform="translate(102.11 51.87) rotate(-4.37) translate(-7.59 0)" fill="#1098AD"/><use href="#lg-Ps" transform="translate(116.58 50.93) rotate(-3.08) translate(-7.59 0)" fill="#1098AD"/><use href="#lg-As" transform="translate(133 50.26) rotate(-1.62) translate(-8.71 0)" fill="#1098AD"/><use href="#lg-T" transform="translate(148.81 50) rotate(-0.21) translate(-14.04 0)" fill="#5CB85C"/><use href="#lg-Hs" transform="translate(162.94 50.11) rotate(1.04) translate(-8.35 0)" fill="#5CB85C"/><use href="#lg-Es" transform="translate(179.25 50.61) rotate(2.49) translate(-6.43 0)" fill="#5CB85C"/><use href="#lg-R" transform="translate(203.51 52.13) rotate(4.66) translate(-16.52 0)" fill="#ED686B"/><use href="#lg-As" transform="translate(230.06 54.84) rotate(7.03) translate(-8.71 0)" fill="#ED686B"/><use href="#lg-Ps" transform="translate(246.28 57.05) rotate(8.49) translate(-7.59 0)" fill="#ED686B"/><use href="#lg-Ps" transform="translate(260.59 59.35) rotate(9.78) translate(-7.59 0)" fill="#ED686B"/><use href="#lg-Es" transform="translate(273.78 61.77) rotate(10.97) translate(-6.43 0)" fill="#ED686B"/><use href="#lg-Rs" transform="translate(293 65.8) rotate(12.72) translate(-8.26 0)" fill="#ED686B"/></g></g></svg><div class="tagline" id="siteTagline"><span class="tagline-text" aria-label="The Hip Hop Hero"><span class="tl-ch" data-ch="T" style="--dy:0.00px;--r:7.85deg">T</span><span class="tl-ch" data-ch="h" style="--dy:1.74px;--r:6.82deg">h</span><span class="tl-ch" data-ch="e" style="--dy:3.24px;--r:5.78deg">e</span> <span class="tl-ch" data-ch="H" style="--dy:5.48px;--r:3.68deg">H</span><span class="tl-ch" data-ch="i" style="--dy:6.22px;--r:2.63deg">i</span><span class="tl-ch" data-ch="p" style="--dy:6.72px;--r:1.58deg">p</span> <span class="tl-ch" data-ch="H" style="--dy:6.97px;--r:-0.53deg">H</span><span class="tl-ch" data-ch="o" style="--dy:6.72px;--r:-1.58deg">o</span><span class="tl-ch" data-ch="p" style="--dy:6.22px;--r:-2.63deg">p</span> <span class="tl-ch" data-ch="H" style="--dy:4.48px;--r:-4.73deg">H</span><span class="tl-ch" data-ch="e" style="--dy:3.24px;--r:-5.78deg">e</span><span class="tl-ch" data-ch="r" style="--dy:1.74px;--r:-6.82deg">r</span><span class="tl-ch" data-ch="o" style="--dy:0.00px;--r:-7.85deg">o</span></span></div></div>
+    <div class="lammy-renders">
+      <img src="LammyStuff/Renders/lammy.png" alt="Lammy">
+      <div class="masan-stack">
+        <img class="masan-hat" src="LammyStuff/Renders/ressources/flanger.png" alt="Flanger">
+        <img class="masan-harmonizer" src="LammyStuff/Renders/ressources/harmonizer.png" alt="Harmonizer">
+        <img class="masan-poofu" src="LammyStuff/Renders/ressources/poofu.png" alt="" aria-hidden="true">
+        <img class="lammy-guit" src="LammyStuff/Renders/resources/lammyguit.png" alt="Lammy's guitar" aria-hidden="true">
+        <img class="masan-drumhead" src="LammyStuff/Renders/resources/drumhead.png" alt="" aria-hidden="true">
+        <img class="masan-joeswitch" src="LammyStuff/Renders/resources/joe_switch_small.png" alt="" aria-hidden="true">
+        <img class="masan-bass" src="LammyStuff/Renders/resources/bass.png" alt="Bass guitar" aria-hidden="true">
+        <img class="masan-turntable" src="LammyStuff/Renders/resources/chin_turn_table_small.png" alt="" aria-hidden="true">
+        <img class="masan-pandatsu" src="LammyStuff/Renders/pandatsu.png" alt="Pandatsu" aria-hidden="true">
+        <img class="masan-squirrel" src="LammyStuff/Renders/squirrel.png" alt="Gramophone squirrel" aria-hidden="true">
+        <img class="masan-guitartopper" src="LammyStuff/Renders/guitartopper.png" alt="Guitar Topper">
+        <img src="LammyStuff/Renders/masan.png" alt="Ma-san">
+      </div>
+      <img src="LammyStuff/Renders/katy.png" alt="Katy Kat">
+      <img src="LammyStuff/Renders/onion.png" alt="Chop Chop Master Onion">
+      <img src="LammyStuff/Renders/chief.png" alt="Chief Puddle">
+      <img src="LammyStuff/Renders/cathy.png" alt="Cathy Pillar">
+      <div class="captain-stack">
+        <img class="captain-reverb" src="LammyStuff/Renders/ressources/reverb.png" alt="Reverb">
+        <img class="captain-wahwah" src="LammyStuff/Renders/ressources/wahwah.png" alt="WahWah">
+        <img src="LammyStuff/Renders/captain.png" alt="Captain Fussenpepper">
+      </div>
+      <div class="paul-stack">
+        <img class="paul-now" src="LammyStuff/Renders/resources/now!.png" alt="NOW!">
+        <img class="rammy-guit" src="LammyStuff/Renders/resources/rammyguit.png" alt="Rammy's guitar" aria-hidden="true">
+        <img class="paul-ding" src="LammyStuff/Renders/ressources/ding.png" alt="" aria-hidden="true">
+        <img class="tree-guit" src="LammyStuff/Renders/resources/treeguit.png" alt="Tree guitar" aria-hidden="true">
+        <img class="paul-goo" src="LammyStuff/Renders/goo.png" alt="" aria-hidden="true">
+        <img class="paul-drag" src="LammyStuff/Renders/drag.png" alt="Dragon" aria-hidden="true">
+        <img class="paul-ramm" src="LammyStuff/Renders/resources/ramm.png" alt="" aria-hidden="true">
+        <img class="paul-distortion" src="LammyStuff/Renders/ressources/distortion.png" alt="Distortion">
+        <img src="LammyStuff/Renders/paul.png" alt="Paul Chuck">
+      </div>
+      <div class="teri-stack">
+        <img class="teri-rammy" src="LammyStuff/Renders/rammy.png" alt="Rammy">
+        <img src="LammyStuff/Renders/teri.png" alt="Teriyaki Yoko">
+      </div>
+    </div>
+    <div class="theme-toggle">
+      <button class="theme-btn" id="themeBtn" onclick="toggleTheme()"><span class="theme-btn-label">LAMMY MODE</span></button>
+      <img class="theme-cover" src="LammyStuff/Option.png" alt="Option">
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-bar">
+
+    <div class="nav-item">
+      <button id="navHomeBtn" onclick="showPage('welcome', this)">
+        <span class="en">HOME</span><span class="ja">ホーム</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="index.html"><span class="dot"></span><span class="en">Welcome</span><span class="ja">ようこそ</span></a>
+        <a href="search.html"><span class="dot"></span><span class="en">Search</span><span class="ja">検索</span></a>
+        <a href="donate.html"><span class="dot"></span><span class="en">Donate</span><span class="ja">寄付</span></a>
+        <a href="contact.html"><span class="dot"></span><span class="en">Contact</span><span class="ja">お問い合わせ</span></a>
+        <a href="credits.html"><span class="dot"></span><span class="en">Special Credits</span><span class="ja">スペシャルクレジット</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('aboutgame', this)">
+        <span class="en">ABOUT</span><span class="ja">アバウト</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="aboutgame.html"><span class="dot"></span><span class="en">The Games</span><span class="ja">ゲーム</span></a>
+        <a href="aboutanime.html"><span class="dot"></span><span class="en">The Anime</span><span class="ja">アニメ</span></a>
+        <a href="aboutrodney.html"><span class="dot"></span><span class="en">Rodney Alan Greenblat</span><span class="ja">ロドニー・アラン・グリーンブラット</span></a>
+        <a href="aboutmatsuura.html"><span class="dot"></span><span class="en">Masaya Matsuura</span><span class="ja">松浦 雅也</span></a>
+        <a href="aboutvoiceactors.html"><span class="dot"></span><span class="en">Voice Actors</span><span class="ja">声優</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <div class="parappa-nav-pair" aria-hidden="true">
+        <img class="parappa-bear" src="pjbear.png" alt="PJ Berri">
+        <img class="parappa-kat" src="thekat.png" alt="Katy Kat">
+        <img class="parappa-sun" src="thesunnyfunny.png" alt="Sunny Funny">
+        <img class="parappa-rapdog" src="LammyStuff/thepar.png" alt="PaRappa">
+      </div>
+      <button onclick="showPage('chars', this)">
+        <span class="en">CHARACTERS</span><span class="ja">キャラクター</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="chars.html"><span class="dot"></span><span class="en">PaRappa The Rapper</span><span class="ja">パラッパラッパー</span></a>
+        <a href="chars-ujl.html"><span class="dot"></span><span class="en">Um Jammer Lammy</span><span class="ja">ウンジャマ・ラミー</span></a>
+        <a href="chars-ptr2.html"><span class="dot"></span><span class="en">PaRappa The Rapper 2</span><span class="ja">パラッパラッパー2</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('merch-rodneyfun-comics', this)">
+        <span class="en">MERCHANDISE</span><span class="ja">グッズ</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">RodneyFun</span><span class="ja">ロドニーファン</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="merch-rodneyfun-comics.html"><span class="dot"></span><span class="en">Comic Collection</span><span class="ja">コミックコレクション</span></a>
+            <a href="merch-rodneyfun-toys.html"><span class="dot"></span><span class="en">Toys</span><span class="ja">おもちゃ</span></a>
+            <a href="merch-rodneyfun-shirts.html"><span class="dot"></span><span class="en">Shirts</span><span class="ja">シャツ</span></a>
+            <a href="merch-rodneyfun-stationary.html"><span class="dot"></span><span class="en">Stationary</span><span class="ja">文房具</span></a>
+            <a href="merch-rodneyfun-promotional.html"><span class="dot"></span><span class="en">Promotional Items</span><span class="ja">プロモーションアイテム</span></a>
+            <a href="merch-rodneyfun-misc.html"><span class="dot"></span><span class="en">Miscellaneous</span><span class="ja">その他</span></a>
+          </div>
+        </div>
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">PaRappa The Rapper</span><span class="ja">パラッパラッパー</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <img class="sub-dropdown-topper" src="ParappaStuff/Parappagoods.png" alt="" aria-hidden="true">
+            <a href="merch-ptr-plush.html"><span class="dot"></span><span class="en">Plush Toys</span><span class="ja">ぬいぐるみ</span></a>
+            <a href="merch-ptr-figures.html"><span class="dot"></span><span class="en">Figures</span><span class="ja">フィギュア</span></a>
+            <a href="merch-ptr-keychains.html"><span class="dot"></span><span class="en">Keychains</span><span class="ja">キーホルダー</span></a>
+            <a href="merch-ptr-shirts.html"><span class="dot"></span><span class="en">Shirts</span><span class="ja">シャツ</span></a>
+            <a href="merch-ptr-carddass.html"><span class="dot"></span><span class="en">1997 Bandai Sealdass Carddass Sticker Cards</span><span class="ja">1997年 バンダイ シールダス カードダス100</span></a>
+            <a href="merch-ptr-misc.html"><span class="dot"></span><span class="en">Miscellaneous</span><span class="ja">その他</span></a>
+            <a href="merch-ptr-pjberri.html"><span class="dot"></span><span class="en">PJ Berri Goods</span><span class="ja">PJベリー グッズ</span><img class="sub-dropdown-icon" src="Parappa%20Site/Welcome/bear.png" alt="" aria-hidden="true"></a>
+          </div>
+        </div>
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">Um Jammer Lammy</span><span class="ja">ウンジャマ・ラミー</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <img class="sub-dropdown-topper" src="LammyStuff/ujlstuff.png" alt="" aria-hidden="true">
+            <a href="merch-ujl-plush.html"><span class="dot"></span><span class="en">Plush Toys</span><span class="ja">ぬいぐるみ</span></a>
+            <a href="merch-ujl-figures.html"><span class="dot"></span><span class="en">Figures</span><span class="ja">フィギュア</span></a>
+            <a href="merch-ujl-keychains.html"><span class="dot"></span><span class="en">Keychains</span><span class="ja">キーホルダー</span></a>
+            <a href="merch-ujl-shirts.html"><span class="dot"></span><span class="en">Shirts</span><span class="ja">シャツ</span></a>
+            <a href="merch-ujl-milkcantour.html"><span class="dot"></span><span class="en">MilkCan Tour '99</span><span class="ja">ミルクカンツアー '99</span></a>
+            <a href="merch-ujl-fernandes.html"><span class="dot"></span><span class="en">Fernandes Guitars</span><span class="ja">フェルナンデス・ギター</span></a>
+            <a href="merch-ujl-stationery.html"><span class="dot"></span><span class="en">Stationery</span><span class="ja">文房具</span></a>
+            <a href="merch-ujl-misc.html"><span class="dot"></span><span class="en">Miscellaneous</span><span class="ja">その他</span></a>
+          </div>
+        </div>
+        <a href="merch-mcdonalds.html"><span class="dot"></span><span class="en">McDonald's</span><span class="ja">マクドナルド</span></a>
+        <a href="merch-dunkin.html"><span class="dot"></span><span class="en">Dunkin' Donuts</span><span class="ja">ダンキンドーナツ</span></a>
+        <a href="merch-lipton.html"><span class="dot"></span><span class="en">Lipton</span><span class="ja">リプトン</span></a>
+        <a href="merch-catalogs.html"><span class="dot"></span><span class="en">Catalogs</span><span class="ja">カタログ</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('gal-magazines', this)">
+        <span class="en">PHOTO GALLERY</span><span class="ja">フォトギャラリー</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="gal-magazines.html"><span class="dot"></span><span class="en">Magazines</span><span class="ja">雑誌</span></a>
+        <a href="gal-stratguides.html"><span class="dot"></span><span class="en">Strategy Guides</span><span class="ja">攻略本</span></a>
+        <a href="gal-shelves.html"><span class="dot"></span><span class="en">Merch On Shelves</span><span class="ja">店頭のグッズ</span></a>
+        <a href="gal-earlydesigns.html"><span class="dot"></span><span class="en">Early Character Designs</span><span class="ja">初期キャラクターデザイン</span></a>
+        <a href="sp-mascots.html"><span class="dot"></span><span class="en">Mascots</span><span class="ja">マスコット</span></a>
+        <div class="submenu">
+          <a class="submenu-label"><span class="dot"></span><span class="en">Official Art/Ads</span><span class="ja">公式アート／広告</span><span class="submenu-arrow">▸</span></a>
+          <div class="sub-dropdown">
+            <a href="gal-officialart-ptr.html"><span class="dot"></span><span class="en">PaRappa The Rapper</span><span class="ja">パラッパラッパー</span></a>
+            <a href="gal-officialart-ujl.html"><span class="dot"></span><span class="en">Um Jammer Lammy</span><span class="ja">ウンジャマ・ラミー</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <img class="parappa-chopchop" src="LammyStuff/Renders/resources/chop.png" alt="Chop Chop Master Onion" aria-hidden="true">
+      <img class="parappa-moose" src="LammyStuff/Renders/resources/themoose.png" alt="Mooselini" aria-hidden="true">
+      <img class="parappa-flea" src="LammyStuff/Renders/resources/flea.png" alt="Flea" aria-hidden="true">
+      <img class="parappa-cheap" src="LammyStuff/Renders/resources/cheap.png" alt="Cheap Cheap the Cooking Chicken" aria-hidden="true">
+      <button onclick="showPage('sp-presskits', this)">
+        <span class="en">SPECIAL ITEMS</span><span class="ja">スペシャル・キット</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="sp-presskits.html"><span class="dot"></span><span class="en">Press Kits</span><span class="ja">プレスキット</span></a>
+        <a href="sp-promos.html"><span class="dot"></span><span class="en">Promotional Items</span><span class="ja">プロモーションアイテム</span></a>
+        <a href="sp-posters.html"><span class="dot"></span><span class="en">Posters &amp; Flyers</span><span class="ja">ポスター・チラシ</span></a>
+        <a href="sp-prototypes.html"><span class="dot"></span><span class="en">Prototypes</span><span class="ja">プロトタイプ</span></a>
+        <a href="sp-crashad.html"><span class="dot"></span><span class="en"><span class="crash-nav-word">Crash<img class="crash-nav-icon" src="ParappaStuff/CrashParappa/band.png" alt="" aria-hidden="true"></span> Bandicoot Ad Collaboration</span><span class="ja">クラッシュ・バンディクー 広告コラボ</span></a>
+        <a href="sp-physical.html"><span class="dot"></span><span class="en">CD/Vinyl</span><span class="ja">フィジカルメディア</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('sp-websites', this)">
+        <span class="en">ORIGINAL WEBSITES</span><span class="ja">オリジナルウェブサイト</span>
+        <span class="arrow">▾</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('videos', this)">
+        <span class="en">VIDEOS</span><span class="ja">動画</span>
+        <span class="arrow">▾</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button class="nav-events" onclick="showPage('gal-events2', this)">
+        <span class="en">EVENTS</span><span class="ja">イベント</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button class="nav-ujlnow" onclick="showPage('lammynow', this)">
+        <span class="en"><span class="nav-umjammer">UM JAMMER</span> <span class="nav-lammy">LAMMY</span> <span class="nav-now">NOW!</span></span><span class="ja"><span class="nav-umjammer">ウンジャマ・</span><span class="nav-lammy">ラミー</span> <span class="nav-now">Now!</span></span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown">
+        <a href="lammynow.html"><span class="dot"></span><span class="en">About</span><span class="ja">概要</span></a>
+        <a href="ujlnow-cabinet.html"><span class="dot"></span><span class="en">The Cabinet</span><span class="ja">筐体</span></a>
+        <a href="ujlnow-prize.html"><span class="dot"></span><span class="en">Prize Giveaway Campaign</span><span class="ja">プレゼントキャンペーン</span></a>
+        <a href="ujlnow-discovery.html"><span class="dot"></span><span class="en">The Discovery</span><span class="ja">発見</span></a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button class="nav-milkcan" onclick="showPage('milkcan', this)">
+        <span class="en">MILKCAN</span><span class="ja">ミルクカン</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button onclick="showPage('collections', this)">
+        <span class="en">COLLECTIONS</span><span class="ja">コレクション</span>
+      </button>
+    </div>
+
+    <div class="nav-item">
+      <button class="nav-caferodney" onclick="showPage('caferodney', this)">
+        <span class="en">CAFE RODNEY</span><span class="ja">カフェ・ロドニー</span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- CAFE RODNEY PAGE -->
+  <div id="page-caferodney" class="page active">
+    <div class="section-title cafe-title" data-frame-band="#F7E85A #F7E85A"><img class="cafe-title-logo" src="Parappa Site/CafeRodney/LogosArtwork/cafe-yellow.png" alt=""><span class="cafe-title-peak" aria-hidden="true"></span><span class="cafe-title-side cafe-title-eat" data-text="EAT" aria-hidden="true"></span><span class="cafe-title-side cafe-title-drink" data-text="DRINK" aria-hidden="true"></span><span class="en cafe-title-text">★ CAFE RODNEY ★</span><span class="ja cafe-title-text">★ カフェ・ロドニー ★</span></div>
+    <div style="text-align:center; margin:8px auto 4px; padding:0 12px;"><img src="Parappa Site/CafeRodney/Layout/painted-panels.png" width="1070" height="137" alt="The four painted panels from above the Cafe Rodney kitchen in a row: ladle, carrots and soup; heart dish and bird; teapot and banjo; shrimp at the keyboard" style="max-width:100%; height:auto; border:none;"></div>
+    <div class="ujl-intro welcome-lead">
+      <img class="cafe-lead-photo" src="Parappa Site/CafeRodney/Entrance/theentrance.jpg" alt="Cafe Rodney entrance in daylight: smiling double doors, hand-painted EAT, DRINK and ENJOY SANDWICHES walls, and an OPEN sign on a chair outside">
+      <p><span class="block-en">Cafe Rodney opened in Omotesando, Tokyo, on May 15, 2000, with opening hours of 11:30am to 10:30pm. Rodney Greenblat designed the whole place himself, from the interior and furniture down to the tableware: he hand-painted the tables, chairs and walls, and even the plates and cups were original pieces made for the cafe. The result was a relaxed, casual space with his artwork everywhere you looked. The menu was built around carefully chosen ingredients, with New York-style bagel sandwiches, curry, soups, salads and dinner plates, plus a generous dessert list led by the popular &ldquo;PJ Dessert.&rdquo; The Omotesando cafe closed its doors at the end of March 2002.</span><span class="block-ja">カフェ・ロドニーは2000年5月15日、東京・表参道にオープンしました。営業時間は午前11時30分から午後10時30分まで。内装から家具、食器まで、すべてロドニー・グリーンブラット本人がデザインを手がけ、テーブルや椅子、壁には自ら絵を描き、お皿やカップもこの店のためのオリジナルでした。どこを見てもロドニーのアートに囲まれた、気取らないカジュアルな空間です。メニューは素材にこだわり、ニューヨークスタイルのベーグルサンド、カレー、スープ、サラダ、ディナープレートがそろい、人気の「PJデザート」をはじめデザートも充実していました。表参道のお店は2002年3月末をもって閉店しました。</span></p>
+    </div>
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-grid cafe-grid">
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Entrance/entrance.png" alt="Cafe Rodney entrance in Omotesando at night: pink smiling double doors under a neon Cafe Rodney sign flanked by two coffee cup lamps">
+          <div class="ujl-caption"><span class="en">The entrance lit up at night</span><span class="ja">夜のエントランス</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Entrance/www.rodneyfun (35).png" alt="Cafe Rodney exterior in daylight, seen from the street">
+          <div class="ujl-caption"><span class="en">The storefront by day</span><span class="ja">昼間の外観</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Entrance/birth01.png" width="310" data-lightbox-scale="2" alt="Cafe Rodney entrance with the doors open and a red carpet leading inside">
+          <div class="ujl-caption"><span class="en">The doors open, with a red carpet leading in</span><span class="ja">扉が開いたエントランスと赤いカーペット</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— THE LAYOUT —</span><span class="ja">— 店内 —</span></div>
+      <div class="ujl-gallery-note"><span class="en">Rodney painted every surface inside the cafe himself, and lit the room with colorful lights he picked out. A display case was packed with his artwork and original merchandise. The chairs and tables were his own designs, each one decorated by hand, and the tableware was original to the cafe too. In the middle of the room stood the PJ House, where candles were lit at night, and the PJ and Bancha salt &amp; pepper pair could be found there as well.</span><span class="ja">店内はすみずみまでロドニー自身がペイントし、照明も彼が選んだカラフルなライトでした。ショーケースにはロドニーの作品やオリジナルグッズがぎっしり。椅子とテーブルはロドニーのオリジナルデザインで、ひとつひとつ手描きで仕上げられ、食器もこの店だけのオリジナルでした。店の中央には「PJハウス」があり、夜になるとキャンドルが灯されます。ソルト＆ペッパーのPJとバンチャもそこにいました。</span></div>
+      <div class="ujl-gallery-grid cafe-grid">
+        <div class="ujl-gallery-item">
+          <img class="cafe-menu-board" src="Parappa Site/CafeRodney/Layout/www.rodneyfun (34).png" width="246" alt="Standing menu board outside Cafe Rodney">
+          <div class="ujl-caption"><span class="en">The menu board out front</span><span class="ja">店先のメニューボード</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Layout/birth02.png" width="310" data-lightbox-scale="2" alt="Welcome display inside Cafe Rodney surrounded by flower arrangements">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Layout/wyesrtgdf.png" alt="Cafe Rodney counter with yellow bar stools and painted panels above the kitchen">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Layout/www.rodneyfun (32).png" alt="Long view down the Cafe Rodney counter and dining room">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Layout/www.rodneyfun (18).png" alt="Cafe Rodney dining room with decorated ceiling canopy and framed artwork">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Layout/www.rodneyfun (30).png" width="374" data-lightbox-scale="2" alt="Cafe Rodney tables and chairs beneath framed Rodney Greenblat prints">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Layout/www.rodneyfun (28).png" width="398" data-lightbox-scale="2" alt="Shelves of Cafe Rodney cups and teapots beside a hand-painted wall">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Layout/www.rodneyfun (29).png" width="342" data-lightbox-scale="2" alt="Open painted doors revealing a wall covered in Rodney Greenblat line drawings">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Layout/ertsgfd.png" alt="PJ Berri figure wearing a crown beside hand-painted towers at Cafe Rodney">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Layout/www.rodneyfun (31).png" width="372" data-lightbox-scale="2" alt="Tissue box holder shaped like a face with two eyes">
+        </div>
+      </div>
+      <div class="ujl-gallery-subtitle"><span class="en">PAINTED PANELS</span><span class="ja">ペイントパネル</span></div>
+      <div class="ujl-gallery-grid cafe-grid cafe-grid-2">
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Layout/teapot.png" width="536" data-lightbox-scale="2" alt="Painted panel showing a teapot and a banjo">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Layout/bowl.png" width="536" data-lightbox-scale="2" alt="Painted panel showing a ladle, carrots and a bowl of soup">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Layout/pie.png" width="536" data-lightbox-scale="2" alt="Painted panel showing a heart-covered dish and a bird">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Layout/shrimp.png" width="536" data-lightbox-scale="2" alt="Painted panel showing a shrimp playing a keyboard">
+        </div>
+      </div>
+    </div>
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— THE FOOD —</span><span class="ja">— フード —</span></div>
+      <div class="ujl-gallery-grid cafe-grid">
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Food/www.rodneyfun (7).png" alt="Bagel sandwich with salad on a Cafe Rodney plate">
+          <div class="ujl-caption"><span class="en">Bagel sandwich</span><span class="ja">ベーグルサンド</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Food/www.rodneyfun (9).png" alt="Curry plate with rice and vegetables">
+          <div class="ujl-caption"><span class="en">Curry</span><span class="ja">カレー</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Food/www.rodneyfun (11).png" alt="Pasta with basil and asparagus">
+          <div class="ujl-caption"><span class="en">Pasta</span><span class="ja">パスタ</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Food/www.rodneyfun (13).png" alt="Seafood dish in cream sauce">
+          <div class="ujl-caption"><span class="en">Seafood plate</span><span class="ja">シーフードプレート</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Food/www.rodneyfun (17).png" alt="Salad arranged on a white plate">
+          <div class="ujl-caption"><span class="en">Salad</span><span class="ja">サラダ</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Food/www.rodneyfun (16).png" alt="Dessert plate with ice cream, bananas and a PJ Berri cookie">
+          <div class="ujl-caption"><span class="en">The &ldquo;PJ Dessert&rdquo;</span><span class="ja">「PJデザート」</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Food/www.rodneyfun (10).png" alt="Chocolate parfait topped with a PJ Berri cookie">
+          <div class="ujl-caption"><span class="en">Chocolate parfait with a PJ cookie</span><span class="ja">PJクッキーのせチョコレートパフェ</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Food/www.rodneyfun (14).png" alt="Strawberry sundae in a glass boat with a character cookie">
+          <div class="ujl-caption"><span class="en">Strawberry sundae</span><span class="ja">ストロベリーサンデー</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Food/www.rodneyfun (8).png" alt="Soup in an original Cafe Rodney cup and saucer">
+          <div class="ujl-caption"><span class="en">Original cup and saucer</span><span class="ja">オリジナルのカップ＆ソーサー</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Food/www.rodneyfun (12).png" alt="Tea served in an original Cafe Rodney teapot and cup">
+          <div class="ujl-caption"><span class="en">Tea in the original teapot</span><span class="ja">オリジナルポットの紅茶</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— DRAWINGS —</span><span class="ja">— おえかき —</span></div>
+      <div class="ujl-gallery-note"><span class="en">Guests could draw on a PJ placemat and hand it to a member of staff, and the drawing might then be posted on the cafe's placemat web page.</span><span class="ja">PJのランチョンマットに絵を描いてスタッフに渡すと、ランチョンマットのウェブページに掲載されることもありました。</span></div>
+      <div class="ujl-gallery-grid lead-grid cafe-lead">
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Drawings/tumblr_ngtm0vy0s21ry1z4no1_540.jpg" alt="Cafe Rodney drawing placemat with PaRappa, PJ Berri and Sunny Funny around a blank frame">
+          <div class="ujl-caption"><span class="en">The drawing placemat, with a frame left open for guests to fill in</span><span class="ja">おえかき用ランチョンマット。枠の中は自由に描けます</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— PLACE MAT —</span><span class="ja">— ランチョンマット —</span></div>
+      <div class="ujl-gallery-note"><span class="en">Placemat drawings by cafe guests, as posted on RodneyFun.com.</span><span class="ja">RodneyFun.comに掲載された、お客さんによるランチョンマットのおえかき。</span></div>
+      <div class="ujl-gallery-grid cafe-placemat-grid">
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (5).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 1">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (41).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 2">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (7).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 3">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (8).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 4">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (9).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 5">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (10).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 6">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (11).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 7">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (12).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 8">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (13).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 9">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (14).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 10">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (15).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 11">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (16).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 12">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (17).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 13">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (18).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 14">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (19).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 15">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (20).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 16">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (21).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 17">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (22).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 18">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (23).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 19">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (24).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 20">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (25).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 21">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (26).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 22">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (27).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 23">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (28).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 24">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (29).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 25">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (30).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 26">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (31).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 27">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (32).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 28">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (33).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 29">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (34).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 30">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (35).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 31">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (36).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 32">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (37).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 33">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (38).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 34">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/PlaceMat/www.rodneyfun (40).png" data-lightbox-scale="2" alt="Guest drawing on a Cafe Rodney placemat, number 35">
+        </div>
+      </div>
+    </div>
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— MASCOT VISITS —</span><span class="ja">— マスコット来店 —</span></div>
+      <div class="ujl-gallery-note"><span class="en">PaRappa, Sunny Funny and PJ Berri dropped by the cafe in costume.</span><span class="ja">パラッパ、サニー・ファニー、PJベリーの着ぐるみがカフェにやって来ました。</span></div>
+      <div class="ujl-gallery-grid cafe-grid">
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/MascotVisits/tumblr_ng77tfhtT21ry1z4no1_540.jpg" alt="Sunny Funny and PaRappa mascots outside">
+          <div class="ujl-caption"><span class="en">Sunny Funny and PaRappa</span><span class="ja">サニー・ファニーとパラッパ</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/MascotVisits/tumblr_ng77tfhtT21ry1z4no2_540.jpg" alt="Sunny Funny, PaRappa and PJ Berri mascots seated at the Cafe Rodney counter">
+          <div class="ujl-caption"><span class="en">Sunny, PaRappa and PJ at the counter</span><span class="ja">カウンターに座るサニー、パラッパ、PJ</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/MascotVisits/tumblr_ngtm0vy0s21ry1z4no2_540.jpg" alt="Sunny Funny, PJ Berri and PaRappa mascots posing inside Cafe Rodney">
+          <div class="ujl-caption"><span class="en">Posing by the welcome wall</span><span class="ja">ウェルカムの壁の前で</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— VALENTINE'S DAY 2002 —</span><span class="ja">— バレンタイン 2002 —</span></div>
+      <div class="ujl-gallery-note"><span class="en">In February 2002 the cafe was decorated for Valentine's Day and ran a special Valentine menu. These photos were taken by a visitor on <strong>February 11, 2002</strong> and posted on <a href="https://cider.client.jp/2922/2002_03.html" target="_blank" rel="noopener noreferrer">their personal site</a>; the captions follow the notes they wrote for each picture.</span><span class="ja">2002年2月、カフェはバレンタイン仕様に飾られ、バレンタインの特別メニューが登場しました。写真は<strong>2002年2月11日</strong>に来店したお客さんが撮影し、<a href="https://cider.client.jp/2922/2002_03.html" target="_blank" rel="noopener noreferrer">個人サイト</a>に掲載していたもので、キャプションは撮影者のコメントに沿っています。</span></div>
+      <div class="ujl-gallery-grid cafe-grid cafe-grid-4">
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Valentine2002/00062.jpg" data-lightbox-scale="2" alt="Happy Valentine special menu card with Thunder Bunny and Wonder Mew under a rainbow">
+          <div class="ujl-caption"><span class="en">“It's Valentine's!” The Happy Valentine special menu.</span><span class="ja">バレンタインだ！</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Valentine2002/00063.jpg" data-lightbox-scale="2" alt="Dessert menu card showing PJ and Sweety's Get Together Treat, a Valentine dessert for two at 1,200 yen">
+          <div class="ujl-caption"><span class="en">“Sharing it nicely.” The dessert menu: “PJ and Sweety's Get Together Treat”, a Valentine dessert for two at ¥1,200. Everyone who ordered it got a lottery ticket, with a chance to win goods signed by Rodney.</span><span class="ja">仲良く分け合って。</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Valentine2002/00064.jpg" data-lightbox-scale="2" alt="Cafe table with a PJ placemat and the Happy Valentine menu stand">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Valentine2002/00065.jpg" data-lightbox-scale="2" alt="Heart-shaped chocolates, patterned sticks and a photo card laid out on the table">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Valentine2002/00066.jpg" data-lightbox-scale="2" alt="Winged PJ Berri angel decoration with hands together on the cafe wall">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Valentine2002/00067.jpg" data-lightbox-scale="2" alt="Cafe ceiling with colored lights and hanging Valentine decorations">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Valentine2002/00068.jpg" data-lightbox-scale="2" alt="Large Thunder Bunny plush seated at the cafe counter with staff behind it">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Valentine2002/00069.jpg" data-lightbox-scale="2" alt="PaRappa plush mounted on the painted cafe wall">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Valentine2002/00070.jpg" data-lightbox-scale="2" alt="Orange character figure mounted on the cafe wall">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Valentine2002/00071.jpg" data-lightbox-scale="2" alt="Glass of iced tea on a coaster">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Valentine2002/00072.jpg" data-lightbox-scale="2" alt="Glass of pink berry mix juice on a placemat">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Valentine2002/00073.jpg" data-lightbox-scale="2" alt="Valentine dessert bowl with PJ-shaped cookies, cake, banana and ice cream">
+          <div class="ujl-caption"><span class="en">“PJ and Bancha's Valentine dessert”, which came with a prize draw, ¥1,200.</span><span class="ja">ＰＪ＆バンチャのバレンタインデザート（くじ付き）＠1200円</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— THE LAST DAY — MARCH 23, 2002 —</span><span class="ja">— 最後の日 — 2002年3月23日 —</span></div>
+      <div class="ujl-gallery-note"><span class="en">Photos from a visitor who came on <strong>March 23, 2002</strong>, which they describe as the cafe's last day, posted on <a href="https://cider.client.jp/2922/2002_05.html" target="_blank" rel="noopener noreferrer">their personal site</a>. They arrived to find people queuing by the entrance, and photographed the outside properly for the first time, never having imagined the cafe would disappear. They went back about a month later, on <strong>April 14</strong>: the entrance was boarded over, and the door of the women's restroom was being used as the way in. A two-day garage sale of the cafe's contents was held after closing, which they skipped, partly because they did not want to watch it sold off piece by piece; they heard prices were lower than expected.</span><span class="ja"><strong>2002年3月23日</strong>、カフェ最後の日として来店したお客さんが撮影し、<a href="https://cider.client.jp/2922/2002_05.html" target="_blank" rel="noopener noreferrer">個人サイト</a>に掲載していた写真です。到着すると入り口付近には順番待ちの人たちがいて、なくなるとは思っていなかったため、このとき初めて外観をきちんと撮影したそうです。約1ヶ月後の<strong>4月14日</strong>に跡地を再訪すると、入り口は板でふさがれ、女子トイレのドアが入り口として使われていました。閉店後には2日間のガレージセールが行われましたが、バラバラに売られていく姿を見たくないという思いもあり、行かなかったそうです（価格は思ったより安かったとのこと）。</span></div>
+      <div class="ujl-gallery-grid cafe-grid cafe-grid-4">
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LastDay2002/00089.jpg" data-lightbox-scale="2" alt="Pink Cafe Rodney street sign topped with two coffee-pot figures">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LastDay2002/00090.jpg" data-lightbox-scale="2" alt="Cafe Rodney entrance with the blue painted name board above the door">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LastDay2002/00091.jpg" data-lightbox-scale="2" alt="Green OPEN sign on a tall chair outside the painted pink front">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LastDay2002/00092.jpg" data-lightbox-scale="2" alt="Thunder Bunny painted as a cloud on a blue panel by the entrance">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LastDay2002/00093.jpg" data-lightbox-scale="2" alt="Display of House dessert mixes surrounded by Thunder Bunny and Wonder Mew plush">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LastDay2002/00094.jpg" data-lightbox-scale="2" alt="Large brown King plush standing beside a Thunder Bunny plush on a stool">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LastDay2002/00095.jpg" data-lightbox-scale="2" alt="Customers seated along the cafe counter under the painted panels">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LastDay2002/00096.jpg" data-lightbox-scale="2" alt="Thunder Bunny painted with the words Thank You on the cafe wall">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LastDay2002/00097.jpg" data-lightbox-scale="2" alt="Blank PJ placemat on the table">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LastDay2002/00098.jpg" data-lightbox-scale="2" alt="Plastic spoon and fork set on the table beside a ceramic house">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LastDay2002/00099.jpg" data-lightbox-scale="2" alt="Small white refrigerator printed with Thunder Bunny and Wonder Mew in a display case">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LastDay2002/00100.jpg" data-lightbox-scale="2" alt="Plates and artwork on glass shelves in the display case">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LastDay2002/00101.jpg" data-lightbox-scale="2" alt="Bowl of chicken curry with rice and vegetables">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LastDay2002/00102.jpg" data-lightbox-scale="2" alt="Bowl of vegetable curry with rice">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LastDay2002/00103.jpg" data-lightbox-scale="2" alt="Plate of potato wedges with ketchup">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LastDay2002/00104.jpg" data-lightbox-scale="2" alt="Boarded-up shopfront at night with a single pink door">
+          <div class="ujl-caption"><span class="en">April 14, 2002: the site about a month later. “The women's restroom door has become the entrance…”</span><span class="ja">2002年4月14日、約1ヶ月後の跡地。女子トイレのドアが入り口に…。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— EVENTS —</span><span class="ja">— イベント —</span></div>
+      <div class="ujl-gallery-grid lead-grid cafe-lead">
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Events/Screenshot 2026-11-23 014859.png" alt="Invitation to the Thunder Bunny Birthday Party at Cafe Rodney, Sunday April 15th, 13:00 to 14:30">
+          <div class="ujl-caption"><span class="en">Invitation to the Thunder Bunny Birthday Party, held with Cafe Rodney&rsquo;s cooperation</span><span class="ja">カフェ・ロドニー協力「サンダーバニー・バースデーパーティー」の招待案内</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— MERCHANDISE —</span><span class="ja">— グッズ —</span></div>
+      <div class="ujl-gallery-note"><span class="en">Cafe Rodney sold its own original-design T-shirts, tableware and other goods. At first these could only be bought at the cafe itself, with plans to offer them through the Rodney Fan Shop on RodneyFun.com soon after.</span><span class="ja">カフェ・ロドニーでは、オリジナルデザインのTシャツや食器などのグッズも販売していました。当初は店頭のみでの取り扱いでしたが、近くRodneyFun.comのロドニー・ファンショップでも販売される予定とされていました。</span></div>
+      <div class="ujl-gallery-grid cafe-grid cafe-grid-2">
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Merchandise/m64105967525_1.png" alt="Cafe Rodney goods lot: drawing placemat, coaster, envelopes and art postcards">
+          <div class="ujl-caption"><span class="en">Placemat, coaster and postcards</span><span class="ja">ランチョンマット、コースター、ポストカード</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Merchandise/m64105967525_4.png" alt="Four Rodney Greenblat art postcards">
+          <div class="ujl-caption"><span class="en">Art postcards</span><span class="ja">アートポストカード</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— PACKAGING —</span><span class="ja">— パッケージ —</span></div>
+      <div class="ujl-gallery-grid cafe-grid cafe-grid-2">
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Packaging/m64105967525_2.png" alt="Green Cafe Rodney envelope with logo, alongside a placemat, coaster, cards and an entrance postcard">
+          <div class="ujl-caption"><span class="en">Logo envelope with placemat, coaster and entrance postcard</span><span class="ja">ロゴ入り封筒とランチョンマット、コースター、外観のポストカード</span></div>
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/Packaging/m64105967525_3.png" alt="Pink and green mailing envelopes with art postcards">
+          <div class="ujl-caption"><span class="en">Mailing envelopes with postcards</span><span class="ja">封筒とポストカード</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ujl-gallery">
+      <div class="ujl-gallery-title"><span class="en">— LOGOS &amp; ARTWORK —</span><span class="ja">— ロゴ＆アートワーク —</span></div>
+      <div class="ujl-gallery-note"><span class="en">Logos and line art from the Cafe Rodney pages of RodneyFun.com.</span><span class="ja">RodneyFun.comのカフェ・ロドニーのページに使われていたロゴとイラスト。</span></div>
+      <div class="ujl-gallery-grid cafe-art">
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LogosArtwork/www.rodneyfun (36).png" alt="Cafe Rodney house-shaped logo with rodneyfun.com address">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LogosArtwork/www.rodneyfun (3).png" alt="PJ Berri holding up a Cafe Rodney shop card">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LogosArtwork/www.rodneyfun (4).png" alt="Cafe Rodney wordmark with coffee pot and saucepan line art">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LogosArtwork/www.rodneyfun (38).png" alt="Cafe Rodney wordmark in olive on yellow">
+        </div>
+      </div>
+      <div class="ujl-gallery-grid cafe-art">
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LogosArtwork/www.rodneyfun (20).png" alt="House-shaped Cafe Rodney sign line art">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LogosArtwork/www.rodneyfun (22).png" alt="Coffee dripper on a Cafe Rodney mug line art">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LogosArtwork/www.rodneyfun (21).png" alt="Smiling coffee pot character line art">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LogosArtwork/www.rodneyfun (23).png" alt="Squirrel balancing a coffee cup line art">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LogosArtwork/www.rodneyfun (33).png" alt="Cow with a flower and Cafe Rodney lettering line art">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LogosArtwork/www.rodneyfun (15).png" alt="Two characters sharing a table with a Cafe Rodney menu line art">
+        </div>
+        <div class="ujl-gallery-item">
+          <img src="Parappa Site/CafeRodney/LogosArtwork/www.rodneyfun (37).png" alt="Character sipping coffee on a red Cafe Rodney label">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">PaRappa Corner &mdash; PaRappa the Rapper Fan Site &mdash; parappacorner.com</div>
+</div>
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous image">&lsaquo;</button>
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close">&times;</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Next image">&rsaquo;</button>
+</div>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="vibri-sharpen">
+    <feConvolveMatrix order="3" preserveAlpha="true"
+      kernelMatrix="0 -0.4 0  -0.4 2.6 -0.4  0 -0.4 0"/>
+  </filter>
+</svg>
+<a href="black.html" class="vibri-link"><img src="vib/stare.gif" alt="Vibri" class="vibri-corner"></a>
+
+
+
+<!-- ZOOM-INVARIANT CORNERS
+     The "PaRappa Corner" button (bottom-left) and the Vibri link (bottom-right) must
+     sit in exactly the same spot, at exactly the same on-screen size, however
+     far the page is zoomed. They are position:fixed, so browser zoom already
+     keeps them in the corner but scales them up; pinch zoom moves them off the
+     visible area entirely. This publishes three custom properties the two rules
+     in parappa.css consume:
+       --zoom-fix              inverse of the current zoom (counter-scale)
+       --zoom-dx / --zoom-dy   shift from the layout viewport's bottom-left to
+                               the visible viewport's bottom-left
+       --zoom-dx-right         same shift for the right edge
+     Under plain desktop browser zoom the deltas stay 0 and only --zoom-fix does
+     any work. -->
+
+<!-- The label is SVG text rather than HTML text: with -webkit-text-stroke, Chrome
+     fills from the hinted glyph bitmap but strokes the raw outline, and this font's
+     hinting shortens the "p" descenders at small sizes, so the two layers disagreed
+     under "pp". SVG text fills and strokes the same path. -->
+<div class="corner-wrap">
+<button type="button" class="corner-subtitle" id="siteSubtitle" aria-label="PaRappa Corner" title="Back to the home page" onclick="showPage('welcome', document.getElementById('navHomeBtn')); window.scrollTo(0, 0);">
+  <!-- .corner-frame is a plain block wrapper in PaRappa mode; in Lammy mode it
+       carries the inner two of the nav tabs' three bevelled outline frames. -->
+  <span class="corner-frame">
+  <svg class="corner-label fit-text" width="153" height="24" aria-hidden="true" focusable="false">
+    <!-- Lammy mode only (CSS): red oval behind "Corner", like the one behind
+         "LAMMY" in the title. Geometry is set by fitTextSvgs from the word's box. -->
+    <ellipse class="corner-pill" cx="0" cy="0" rx="0" ry="0"></ellipse>
+    <text class="corner-label-back" x="0" y="17.5"><tspan class="corner-word-parappa">PaRappa</tspan><tspan class="corner-gap"> </tspan><tspan class="corner-word-corner">Corner</tspan></text>
+    <text class="corner-label-front" x="0" y="17.5"><tspan class="corner-word-parappa">PaRappa</tspan><tspan class="corner-gap"> </tspan><tspan class="corner-word-corner">Corner</tspan></text>
+  </svg>
+  </span>
+</button>
+</div>
+
+<!-- BACK TO TOP — right side, shows once the page is scrolled halfway -->
+<button type="button" class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M12 20V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+<script src="parappa.js?v=20261130b"></script>
+</body>
+</html>

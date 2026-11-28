@@ -368,10 +368,20 @@ window.vibLayout = (function () {
   function activate(facade) {
     var videoId = facade.getAttribute('data-video-id');
     if (!videoId) return;
+    var startAt = parseInt(facade.getAttribute('data-start'), 10) || 0;
     var title = facade.getAttribute('data-title') || 'YouTube video';
     var origin = (window.location.protocol === 'http:' || window.location.protocol === 'https:') ? window.location.origin : '';
-    var src = 'https://www.youtube.com/embed/' + encodeURIComponent(videoId) + '?autoplay=1&rel=0&enablejsapi=1' + (origin ? '&origin=' + encodeURIComponent(origin) : '');
+    var src = 'https://www.youtube.com/embed/' + encodeURIComponent(videoId) + '?autoplay=1&rel=0&enablejsapi=1' + (origin ? '&origin=' + encodeURIComponent(origin) : '') + '&start=' + startAt;
     var iframe = document.createElement('iframe');
+    // Always start at the beginning (or at data-start): YouTube otherwise
+    // resumes a signed-in viewer where they last stopped watching. The URL
+    // carries an explicit start, and once the player has loaded it is also
+    // told to seek there in case the resume point won over start=0.
+    iframe.addEventListener('load', function () {
+      try {
+        iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'seekTo', args: [startAt, true] }), 'https://www.youtube.com');
+      } catch (err) {}
+    });
     iframe.setAttribute('src', src);
     iframe.setAttribute('title', title);
     iframe.setAttribute('frameborder', '0');

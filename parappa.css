@@ -2096,7 +2096,8 @@ body:not(.theme-lammy) .nav-bar::before {
 body:not(.theme-lammy) .nav-item:nth-child(9),
 body:not(.theme-lammy) .nav-item:nth-child(10),
 body:not(.theme-lammy) .nav-item:nth-child(11),
-body:not(.theme-lammy) .nav-item:nth-child(12) {
+body:not(.theme-lammy) .nav-item:nth-child(12),
+body:not(.theme-lammy) .nav-item:nth-child(13) {
   order: 2;
 }
 
@@ -2111,7 +2112,8 @@ body.theme-lammy .nav-bar::before {
 body.theme-lammy .nav-item:nth-child(9),
 body.theme-lammy .nav-item:nth-child(10),
 body.theme-lammy .nav-item:nth-child(11),
-body.theme-lammy .nav-item:nth-child(12) {
+body.theme-lammy .nav-item:nth-child(12),
+body.theme-lammy .nav-item:nth-child(13) {
   order: 2;
 }
 
@@ -2211,9 +2213,17 @@ body:not(.theme-lammy) .nav-item:nth-child(9) > button {
   border-bottom-right-radius: 0 !important;
 }
 
-/* COLLECTIONS tab: right end-cap of row 2 (rounded right corners), with its own
-   teal fill so it reads as a solid tab rather than the transparent pink bar. */
+/* COLLECTIONS tab: its own teal fill so it reads as a solid tab rather than
+   the transparent pink bar. */
 body:not(.theme-lammy) .nav-item:nth-child(12) > button {
+  background: #009090 !important;
+  color: #FFF !important;
+}
+
+/* CAFE RODNEY tab: right end-cap of row 2 (rounded right corners), styled
+   after the cafe's entrance sign — a royal-blue awning with a scalloped
+   lower edge, carrying raised yellow letters that cast a shadow on it. */
+body:not(.theme-lammy) .nav-item:nth-child(13) > button {
   border: none !important;
   border-top: 5px solid #000 !important;
   border-bottom: 5px solid #000 !important;
@@ -2223,8 +2233,15 @@ body:not(.theme-lammy) .nav-item:nth-child(12) > button {
   border-bottom-left-radius: 0 !important;
   border-top-right-radius: 18px !important;
   border-bottom-right-radius: 18px !important;
-  background: #009090 !important;
-  color: #FFF !important;
+  background:
+    radial-gradient(circle at 50% 0, #3C63E6 0 5.5px, transparent 6px) 0 100% / 12px 6px repeat-x,
+    linear-gradient(#2A4FD0, #3C63E6) 0 0 / 100% calc(100% - 4.5px) no-repeat,
+    #000 !important;
+  color: #F7E85A !important;
+  text-shadow:
+    1px 1px 0 #B9A52E,
+    2px 2px 0 #8F7F1F,
+    3px 4px 2px rgba(0, 0, 40, 0.75);
 }
 
 body:not(.theme-lammy) .nav-item:nth-child(9) {
@@ -2596,6 +2613,14 @@ body:not(.theme-lammy) .nav-item > button.nav-events.active {
   color: var(--color-dropdown-hover);
 }
 
+/* Menu labels never wrap: each menu grows just wide enough to fit its longest
+   label on one line (both modes; the min-widths above still apply). */
+.dropdown a,
+.submenu > .submenu-label,
+.sub-dropdown a {
+  white-space: nowrap;
+}
+
 .dropdown a .dot {
   display: inline-block;
   width: 8px;
@@ -2920,22 +2945,30 @@ body:not(.theme-lammy) #page-welcome > .section-title {
   border-radius: 4px;
 }
 
-/* Events page (gal-events2) — uniform landscape cards, two per row */
+/* Events page (gal-events2) — each year is a mini grid of uniform cards,
+   three to a row, thumbnail on top and title underneath; a short last row
+   is centred. */
 .event-list {
   margin: 0;
   padding: 0;
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 12px;
 }
 
 .event-list li {
   margin: 0;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 calc((100% - 24px) / 3);
+  max-width: calc((100% - 24px) / 3);
 }
 
-.event-list a {
+.event-list a,
+.event-list .event-nolink {
   display: block;
   padding: 6px 12px 6px 26px;
   position: relative;
@@ -2960,15 +2993,18 @@ body:not(.theme-lammy) #page-welcome > .section-title {
   text-decoration: underline;
 }
 
-/* event-list button: fixed-size rectangle, thumbnail on the left, title on the right */
-.event-list a.has-logo {
+/* event-list button: fixed-size card, thumbnail above the title */
+.event-list a.has-logo,
+.event-list .event-nolink.has-logo {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   box-sizing: border-box;
-  height: 160px;
-  padding: 10px 14px;
-  text-align: left;
+  flex: 1 1 auto;
+  min-height: 250px;
+  padding: 12px;
+  text-align: center;
   font-size: 17px;
   line-height: 1.3;
   overflow: hidden;
@@ -2978,23 +3014,37 @@ body:not(.theme-lammy) #page-welcome > .section-title {
   display: none;
 }
 
-.event-list a.has-logo > span {
-  flex: 1 1 auto;
+.event-list a.has-logo > span,
+.event-list .event-nolink.has-logo > span {
+  flex: 0 0 auto;
   min-width: 0;
+}
+
+/* Card for an event with no page of its own: same look, not clickable */
+.event-list .event-nolink {
+  cursor: default;
 }
 
 .event-list-logo {
   display: block;
   flex: 0 0 150px;
-  width: 150px;
-  height: 136px;
+  width: 100%;
+  height: 150px;
   object-fit: contain;
   margin: 0;
 }
 
 @media (max-width: 800px) {
-  .event-list {
-    grid-template-columns: 1fr;
+  .event-list li {
+    flex-basis: calc((100% - 12px) / 2);
+    max-width: calc((100% - 12px) / 2);
+  }
+}
+
+@media (max-width: 480px) {
+  .event-list li {
+    flex-basis: 100%;
+    max-width: 100%;
   }
 }
 
@@ -3298,6 +3348,291 @@ html body.theme-lammy .page-banner img {
 
 .ujl-intro.welcome-lead .welcome-mascot-sm {
   width: 140px; /* PJ Berri, slightly smaller */
+}
+
+/* Cafe Rodney: entrance photo to the left of the opening paragraph. */
+.ujl-intro.welcome-lead .cafe-lead-photo {
+  flex: 0 0 auto;
+  width: 440px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Cafe Rodney page title: the cafe's own lettering in place of text. */
+/* Same blue as the CAFE RODNEY nav tab */
+.section-title.cafe-title {
+  padding: 10px 14px 6px;
+  /* --cafe-side: width of the yellow end panels, five scallops each */
+  --cafe-side: calc(100% * 5 / 22);
+  background:
+    linear-gradient(90deg, #F7E85A 0 var(--cafe-side), transparent var(--cafe-side) calc(100% - var(--cafe-side)), #F7E85A calc(100% - var(--cafe-side))),
+    linear-gradient(#2A4FD0, #3C63E6);
+  border-bottom: none;
+  position: relative;
+  margin-bottom: calc(100% / 72 + 2px);
+}
+
+/* A low raised step in the middle of the blue area: the top edge curves up
+   on each side to a flat straight line three bottom scallops wide. The shape
+   is five scallops wide in all (a full scallop of curve each side) and sits
+   just above the header box, which is pushed down by its height. */
+/* 18px of white page above the header for the 18px rise, so the step's flat
+   top meets the bar under the nav exactly: connected to it, not over it. It is padding on the page, not a margin on
+   the header: a margin lets the wrap show through, which in Lammy mode is
+   the brown bar itself, and the step would sit on top of it. */
+#page-caferodney {
+  padding-top: 23px; /* 21px rise + 2px clear of the nav line */
+}
+
+.section-title.cafe-title .cafe-title-peak {
+  position: absolute;
+  bottom: calc(100% - 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% * 5 / 22);
+  height: 23px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 1' preserveAspectRatio='none'%3E%3Cpath d='M0 1 C1.2 1 2 0.8 2 0.22 L2 0 L8 0 L8 0.22 C8 0.8 8.8 1 10 1 Z' fill='%232A4FD0'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
+  pointer-events: none;
+}
+
+body:not(.theme-lammy) .site-wrap.frame-svg .section-title.cafe-title .cafe-title-peak {
+  width: calc((100% + 44px) * 5 / 22);
+}
+
+/* EAT / DRINK centred on the yellow end panels, in the header's blue. The words come from data-text so they stay out of the page
+   title and the search index. */
+.section-title.cafe-title .cafe-title-side {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* the word is centred in the box, so 22px of top padding sits it 11px low */
+  padding-top: 22px;
+  box-sizing: border-box;
+  font-size: 68px;
+  letter-spacing: 4px;
+  line-height: 1;
+  width: var(--cafe-side);
+  text-align: center;
+  color: #2A4FD0;
+  text-shadow: none;
+  pointer-events: none;
+}
+
+.section-title.cafe-title .cafe-title-side::before {
+  content: attr(data-text);
+}
+
+/* Two white scallops dipping into the top of each yellow panel, centred on
+   it: the same tile width and depth as the scallops along the bottom edge. */
+.section-title.cafe-title .cafe-title-side::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* The panel's whole top edge as one drawing, five bottom scallops wide:
+     a yellow scallop bulging up at each end (same size as the bottom ones),
+     and between them the two white curves dipping in, three scallops wide.
+     The point between the two white curves climbs to the same height as
+     the yellow scallops. The box is 31 parts tall: the top 15 rise above the header's edge for
+     the yellow scallops, the lower 16 are the white curves' depth. */
+  width: 100%;
+  height: 0;
+  padding-bottom: calc(100% * 31 / 360);
+  transform: translateY(-48.39%);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 5 1' preserveAspectRatio='none'%3E%3Cpath d='M0 0.4839 A0.5 0.4839 0 0 1 1 0.4839 L1 0.5639 L0 0.5639 Z M4 0.4839 A0.5 0.4839 0 0 1 5 0.4839 L5 0.5639 L4 0.5639 Z M2.2 0 L2.8 0 L2.8 0.5639 L2.2 0.5639 Z' fill='%23F7E85A'/%3E%3Cpath d='M1 0.4839 A0.75 0.5161 0 0 0 1.75 1 A0.75 1 0 0 0 2.5 0 L1 0 Z M4 0.4839 A0.75 0.5161 0 0 1 3.25 1 A0.75 1 0 0 1 2.5 0 L4 0 Z' fill='%23fff'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
+}
+
+/* PaRappa mode: a panel is five scallops less the 22px that sit in the frame margin */
+/* PaRappa mode: the yellow area runs 22px past the panel into the frame
+   margin, so its true centre is 11px further out. Widening the panel box by
+   that 22px centres the word and the top curves on the five bottom scallops. */
+body:not(.theme-lammy) .site-wrap.frame-svg .section-title.cafe-title .cafe-title-side {
+  width: calc(var(--cafe-side) + 22px);
+}
+
+body:not(.theme-lammy) .site-wrap.frame-svg .section-title.cafe-title .cafe-title-eat {
+  left: -22px;
+}
+
+body:not(.theme-lammy) .site-wrap.frame-svg .section-title.cafe-title .cafe-title-drink {
+  right: -22px;
+}
+
+.section-title.cafe-title .cafe-title-eat {
+  left: 0;
+}
+
+.section-title.cafe-title .cafe-title-drink {
+  right: 0;
+}
+
+@media (max-width: 700px) {
+  .section-title.cafe-title .cafe-title-side {
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+}
+
+/* Scalloped bottom edge, the same curves as the nav tab's (scaled up to the
+   header). In PaRappa mode it runs a little past the wrap so it meets the
+   wavy frame, tucked under the frame's stroke. */
+.section-title.cafe-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% - 1px);
+  /* Exactly 22 scallops across (5 yellow, 12 blue, 5 yellow): each tile is 1/22 of the row and a little under half as
+     tall as it is wide (padding-bottom is a share of the header's width),
+     so the scallops keep the same slightly flattened shape at any screen size. */
+  height: 0;
+  padding-bottom: calc(100% / 72);
+  background: radial-gradient(ellipse 50% 100% at 50% 0, #3C63E6 0 97%, transparent 100%) 0 0 / calc(100% / 22) 100% repeat-x;
+  /* blue only under the blue area: no blue rim showing round the yellow scallops */
+  -webkit-mask: linear-gradient(90deg, transparent 0 calc(100% * 5 / 22), #000 calc(100% * 5 / 22) calc(100% * 17 / 22), transparent calc(100% * 17 / 22));
+  mask: linear-gradient(90deg, transparent 0 calc(100% * 5 / 22), #000 calc(100% * 5 / 22) calc(100% * 17 / 22), transparent calc(100% * 17 / 22));
+  pointer-events: none;
+}
+
+/* The five scallops at each end in the panels' yellow, laid over the blue row */
+.section-title.cafe-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% - 1px);
+  z-index: 1;
+  height: 0;
+  padding-bottom: calc(100% / 72);
+  background: radial-gradient(ellipse 50% 100% at 50% 0, #F7E85A 0 97%, transparent 100%) 0 0 / calc(100% / 22) 100% repeat-x;
+  -webkit-mask: linear-gradient(90deg, #000 0 calc(100% * 5 / 22), transparent calc(100% * 5 / 22) calc(100% * 17 / 22), #000 calc(100% * 17 / 22));
+  mask: linear-gradient(90deg, #000 0 calc(100% * 5 / 22), transparent calc(100% * 5 / 22) calc(100% * 17 / 22), #000 calc(100% * 17 / 22));
+  pointer-events: none;
+}
+
+/* PaRappa mode: the scallop row starts 22px out in the frame margin, so the
+   panels end where its fifth scallop does. */
+body:not(.theme-lammy) .site-wrap.frame-svg .section-title.cafe-title {
+  --cafe-side: calc((100% + 44px) * 5 / 22 - 22px);
+  /* covers the join between the header box and the frame margin's yellow */
+  box-shadow: -22px 0 0 #F7E85A, 22px 0 0 #F7E85A;
+}
+
+body:not(.theme-lammy) .site-wrap.frame-svg .section-title.cafe-title::before,
+body:not(.theme-lammy) .site-wrap.frame-svg .section-title.cafe-title::after {
+  left: -22px;
+  right: -22px;
+  padding-bottom: calc((100% + 44px) / 72);
+}
+
+.section-title.cafe-title .cafe-title-logo {
+  display: block;
+  margin: 0 auto;
+  width: 317px;
+  max-width: 80%;
+  height: auto;
+  /* Shadowy outline hugging the lettering: a tight dark halo all round,
+     plus a soft shadow falling down and to the right. */
+  filter: drop-shadow(0 0 1.5px rgb(0, 0, 40)) drop-shadow(0 0 2px rgba(0, 0, 40, 0.9)) drop-shadow(0 0 2.5px rgba(0, 0, 40, 0.75)) drop-shadow(3px 4px 4px rgba(0, 0, 40, 0.7));
+}
+
+/* The title text stays in the markup for screen readers and the search
+   index, hidden visually behind the logo. */
+.section-title.cafe-title .cafe-title-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Cafe Rodney guest placemats: tight grid, no cell dividers. 35 drawings, so
+   seven or five across always fills every row. */
+#page-caferodney .ujl-gallery-grid.cafe-placemat-grid {
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  padding: 8px;
+  border-top: 1px solid #eee;
+}
+
+#page-caferodney .ujl-gallery-grid.cafe-placemat-grid .ujl-gallery-item {
+  padding: 0;
+  border: none;
+}
+
+#page-caferodney .ujl-gallery-grid.cafe-placemat-grid .ujl-gallery-item img {
+  display: block;
+  width: 100%;
+  border-width: 1px;
+}
+
+@media (max-width: 900px) {
+  #page-caferodney .ujl-gallery-grid.cafe-placemat-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* Cafe Rodney galleries: small archive photos shown at natural size, centred
+   and wrapping, so an odd count never leaves a lopsided last row. */
+#page-caferodney .ujl-gallery-grid.cafe-grid,
+#page-caferodney .ujl-gallery-grid.cafe-art {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#page-caferodney .ujl-gallery-grid.cafe-grid .ujl-gallery-item {
+  flex: 0 1 33.333%;
+  box-sizing: border-box;
+  border-left: none;
+}
+
+#page-caferodney .ujl-gallery-grid.cafe-grid.cafe-grid-4 .ujl-gallery-item {
+  flex-basis: 25%;
+  padding: 10px;
+}
+
+#page-caferodney .ujl-gallery-grid.cafe-grid.cafe-grid-2 .ujl-gallery-item {
+  flex-basis: 50%;
+}
+
+#page-caferodney .ujl-gallery-grid.cafe-grid-2 .ujl-gallery-item img {
+  max-height: 460px;
+}
+
+#page-caferodney .ujl-gallery-grid.cafe-art {
+  align-items: center;
+  gap: 18px;
+  padding: 16px;
+  border-top: 1px solid #eee;
+}
+
+#page-caferodney .ujl-gallery-grid.cafe-art .ujl-gallery-item {
+  padding: 0;
+  border: none;
+}
+
+#page-caferodney .ujl-gallery-grid.cafe-lead .ujl-gallery-item img {
+  max-width: min(100%, 540px);
+}
+
+#page-caferodney .ujl-caption {
+  font-size: 16px;
+}
+
+@media (max-width: 700px) {
+  #page-caferodney .ujl-gallery-grid.cafe-grid .ujl-gallery-item,
+  #page-caferodney .ujl-gallery-grid.cafe-grid.cafe-grid-4 .ujl-gallery-item {
+    flex-basis: 50%;
+  }
+  #page-caferodney .ujl-gallery-grid.cafe-grid.cafe-grid-2 .ujl-gallery-item {
+    flex-basis: 100%;
+  }
 }
 
 .ujl-intro.welcome-lead > p,
@@ -4304,9 +4639,31 @@ html body.theme-lammy .page-banner img {
   }
 }
 
+/* Rodney's HoHoHo! 2000 — small archived photos, three to a row with any
+   leftover photos centred on the last row. */
+#page-ev-hohoho2000 .ujl-gallery-grid:not(.lead-grid) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#page-ev-hohoho2000 .ujl-gallery-grid:not(.lead-grid) .ujl-gallery-item {
+  flex: 0 0 33.333%;
+  max-width: 33.333%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 700px) {
+  #page-ev-hohoho2000 .ujl-gallery-grid:not(.lead-grid) .ujl-gallery-item {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+}
+
 /* Seaside GO! in Fuji TV 2001 — the archived photos are tiny, so each img
    carries width/height at double its native size; keep the aspect ratio
    when max-width shrinks them on narrow screens. */
+#page-ev-hohoho2000 .ujl-gallery-item img,
 #page-ev-seasidefuji2001 .ujl-gallery-item img {
   height: auto;
 }
@@ -5758,6 +6115,43 @@ body.theme-lammy .search-result:hover .search-snippet mark {
   left: calc(50% + 250px + 24px);
 }
 
+/* Roxy concert video: "See Them Live!" burst from the U.S. site, sitting to
+   the left of the player. */
+.video-embed.video-embed-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.video-embed-badge .video-badge {
+  flex: 0 0 auto;
+  width: 240px;
+  height: auto;
+}
+
+/* Empty spacer the badge's width on the right, so the player itself stays
+   centred in line with the other videos. */
+.video-embed.video-embed-badge::after {
+  content: '';
+  flex: 0 0 240px;
+}
+
+.video-embed-badge .yt-facade {
+  flex: 0 1 800px;
+  width: auto;
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .video-embed-badge .video-badge {
+    width: 140px;
+  }
+  .video-embed.video-embed-badge::after {
+    display: none;
+  }
+}
+
 .video-embed-row {
   display: flex;
   flex-wrap: wrap;
@@ -5999,6 +6393,8 @@ img {
 /* Click-to-zoom inside the lightbox: the zoomed image sits in a plain
    scrollable box (flex centering would clip its top/left edge), the close
    button pins to the corner, and the cursor tells the user what a click does. */
+/* Images flagged data-lightbox-scale open at a multiple of their own size. */
+.lightbox:not(.zoomed) .lightbox-inner img.lb-scaled { width: var(--lb-width); object-fit: contain; }
 .lightbox-inner img { cursor: zoom-in; }
 .lightbox.open.zoomed { display: block; padding: 0; }
 .lightbox.zoomed .lightbox-inner { display: block; width: max-content; max-width: none; max-height: none; margin: 0 auto; }
@@ -6475,6 +6871,7 @@ body.theme-lammy .pager-next .pager-mascot-label {
 }
 
 /* JAMMA AM Show 1999 — the Videos section's clips, side by side */
+#page-videos .amshow-video-grid,
 #page-ev-amshow1999 .amshow-video-grid {
   display: flex;
   flex-wrap: wrap;
@@ -6484,12 +6881,14 @@ body.theme-lammy .pager-next .pager-mascot-label {
   padding: 16px;
 }
 
+#page-videos .amshow-video-item,
 #page-ev-amshow1999 .amshow-video-item {
   flex: 1 1 360px;
   max-width: 500px;
 }
 
 /* Tokyo Game Show 1996 — the three clips from SCE's original TGS Report page */
+#page-videos .tgs1996-video-grid,
 #page-ev-tgs1996 .tgs1996-video-grid {
   display: flex;
   flex-wrap: wrap;
@@ -6499,11 +6898,14 @@ body.theme-lammy .pager-next .pager-mascot-label {
   padding: 16px;
 }
 
+#page-videos .tgs1996-video-item,
 #page-ev-tgs1996 .tgs1996-video-item {
   flex: 1 1 260px;
   max-width: 360px;
 }
 
+#page-videos .tgs1996-video-item video,
+#page-videos .amshow-video-item video,
 #page-ev-tgs1996 .tgs1996-video-item video,
 #page-ev-amshow1999 .amshow-video-item video {
   display: block;
@@ -6660,9 +7062,11 @@ body .sub-dropdown a[href="merch-ptr-pjberri.html"]:hover {
 }
 
 /* Crash head 5px after the word "Crash" on the Crash Bandicoot Ad Collaboration button.
-   Absolutely positioned, so it takes no room and the label wraps exactly as before. */
+   It is absolutely positioned, so the word reserves its room (the 40px head plus
+   the 5px gap; the space before "Bandicoot" follows) now that the label stays on one line. */
 .crash-nav-word {
   position: relative;
+  margin-right: 45px;
 }
 
 .crash-nav-icon {
@@ -6676,18 +7080,11 @@ body .sub-dropdown a[href="merch-ptr-pjberri.html"]:hover {
   pointer-events: none;
 }
 
-/* Lammy mode: the PJ Berri Goods button takes the chocolate-brown nav-tab colors */
+/* Lammy mode: the PJ Berri Goods button takes the chocolate-brown nav-tab background;
+   its lettering keeps the same green-with-yellow-outline styling as the other menu buttons. */
 body.theme-lammy .sub-dropdown a[href="merch-ptr-pjberri.html"],
 body.theme-lammy .sub-dropdown a[href="merch-ptr-pjberri.html"]:hover {
   background: #8A3324;
-}
-
-body.theme-lammy .sub-dropdown a[href="merch-ptr-pjberri.html"],
-body.theme-lammy .sub-dropdown a[href="merch-ptr-pjberri.html"] * {
-  color: #3D200E !important;
-  -webkit-text-stroke: 0.4px rgba(215, 215, 215, 0.25);
-  paint-order: stroke fill;
-  text-shadow: none;
 }
 
 /* Press Kits › McDonald's employee kit: three across, slightly tighter than the default two */

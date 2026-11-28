@@ -48,11 +48,11 @@ var PARAPPA_PAGE_IDS = [
   'gal-magazines', 'gal-stratguides', 'gal-shelves', 'gal-earlydesigns',
   'gal-officialart-ptr', 'gal-officialart-ujl', 'gal-events2',
   'ev-tgs1996', 'ev-psexpo96', 'ev-bellfare', 'ev-tgs1999', 'ev-roxy1999',
-  'ev-amshow1999', 'ev-seasidefuji2001', 'ev-fukuoka2001', 'ev-rodneyparco',
+  'ev-amshow1999', 'ev-seasidefuji2001', 'ev-fukuoka2001', 'ev-rodneyparco', 'ev-hohoho2000',
   'sp-presskits', 'sp-promos', 'sp-posters', 'sp-prototypes', 'sp-websites', 'sp-crashad',
   'sp-physical', 'sp-mascots',
   'lammynow', 'ujlnow-cabinet', 'ujlnow-prize', 'ujlnow-discovery',
-  'milkcan', 'videos', 'collections', 'goods', 'kit'
+  'milkcan', 'videos', 'collections', 'caferodney', 'goods', 'kit'
 ];
 
 function pageUrl(id) {
@@ -126,6 +126,7 @@ var PARAPPA_EVENT_PAGES = [
   { id: 'ev-amshow1999',  en: 'JAMMA AM Show 1999',              ja: 'JAMMA AMショー1999' },
   { id: 'ev-tgs1999',     en: 'Tokyo Game Show 1999',            ja: '東京ゲームショウ1999' },
   { id: 'ev-rodneyparco', en: 'Rodney Character Club PARCO 2000', ja: 'ロドニー・キャラクター・クラブ PARCO 2000' },
+  { id: 'ev-hohoho2000', en: "Rodney's HoHoHo! at Tokyo Dome City", ja: "東京ドームシティ★クリスマス Rodney's HoHoHo!" },
   { id: 'ev-seasidefuji2001', en: 'PaRappa Seaside GO! in Fuji TV', ja: 'パラッパラッパー・シーサイドGO！ in フジテレビ' },
   { id: 'ev-fukuoka2001', en: 'PaRappa the Rapper in Fukuoka',   ja: 'パラッパラッパー in FUKUOKA' }
 ];
@@ -318,6 +319,16 @@ function toggleTheme() {
     lightboxImg.src = img.getAttribute('data-full') || img.currentSrc || img.src;
     unzoom();
     lightboxImg.alt = img.alt || '';
+    // Small originals can ask to open enlarged: data-lightbox-scale="2" shows
+    // the image at twice its own pixel size (still capped to the viewport).
+    var scale = parseFloat(img.getAttribute('data-lightbox-scale'));
+    if (scale > 0 && img.naturalWidth) {
+      lightboxImg.style.setProperty('--lb-width', Math.round(img.naturalWidth * scale) + 'px');
+      lightboxImg.classList.add('lb-scaled');
+    } else {
+      lightboxImg.classList.remove('lb-scaled');
+      lightboxImg.style.removeProperty('--lb-width');
+    }
     var multi = currentList.length > 1;
     if (prevBtn) prevBtn.style.display = multi ? '' : 'none';
     if (nextBtn) nextBtn.style.display = multi ? '' : 'none';
@@ -470,11 +481,20 @@ function toggleTheme() {
   function activateFacade(facade) {
     var videoId = facade.getAttribute('data-video-id');
     if (!videoId) return;
-    var start = facade.getAttribute('data-start');
+    var startAt = parseInt(facade.getAttribute('data-start'), 10) || 0;
     var title = facade.getAttribute('data-title') || 'YouTube video';
     var origin = (window.location.protocol === 'http:' || window.location.protocol === 'https:') ? window.location.origin : '';
-    var src = 'https://www.youtube.com/embed/' + encodeURIComponent(videoId) + '?autoplay=1&rel=0&enablejsapi=1' + (origin ? '&origin=' + encodeURIComponent(origin) : '') + (start ? '&start=' + encodeURIComponent(start) : '');
+    var src = 'https://www.youtube.com/embed/' + encodeURIComponent(videoId) + '?autoplay=1&rel=0&enablejsapi=1' + (origin ? '&origin=' + encodeURIComponent(origin) : '') + '&start=' + startAt;
     var iframe = document.createElement('iframe');
+    // Always start at the beginning (or at data-start): YouTube otherwise
+    // resumes a signed-in viewer where they last stopped watching. The URL
+    // carries an explicit start, and once the player has loaded it is also
+    // told to seek there in case the resume point won over start=0.
+    iframe.addEventListener('load', function () {
+      try {
+        iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'seekTo', args: [startAt, true] }), 'https://www.youtube.com');
+      } catch (err) {}
+    });
     iframe.setAttribute('width', '800');
     iframe.setAttribute('height', '450');
     iframe.setAttribute('src', src);

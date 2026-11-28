@@ -130,9 +130,9 @@ flyer_cutout((138, 1098, 366, 1387), guitar_bg, "guitar.png", keep_min=40,
 
 web_copy("LammyStuff/UJLNow!/GiveawayCampaign/logo.png", "namco.png", 520)
 web_copy("LammyStuff/Renders/logoujl.png", "logoujl.png", 760)
-web_copy("LammyStuff/ressources/NOW!_bleu_clair_contour.png", "now.png", 260)
-web_copy("LammyStuff/ressources/parappa.png", "parappa.png", 360)
-web_copy("LammyStuff/ressources/lammy.png", "lammy.webp", 620)
+web_copy("LammyStuff/Renders/ressources/NOW!_bleu_clair_contour.png", "now.png", 260)
+web_copy("LammyStuff/Renders/ressources/parappa.png", "parappa.png", 360)
+web_copy("LammyStuff/Renders/ressources/lammy.png", "lammy.webp", 620)
 web_copy("LammyStuff/UJLNow!/UJLN_final_cabinet.png", "cabinet.webp", 420)
 web_copy("LammyStuff/UJLNow!/GiveawayCampaign/Lammy_Parappa_Sticker.png", "sticker.webp", 340)
 web_copy("LammyStuff/UJLNow!/GiveawayCampaign/MessyLammyWithAmp.png", "postcard.webp", 300)

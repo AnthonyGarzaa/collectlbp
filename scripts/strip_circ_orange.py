@@ -48,7 +48,7 @@ def strip(path):
     print(f"done: {path}")
 
 for p in (
-    "LammyStuff/ressources/lamcirc.PNG",
-    "LammyStuff/ressources/ramcirc.PNG",
+    "LammyStuff/Renders/ressources/lamcirc.PNG",
+    "LammyStuff/Renders/ressources/ramcirc.PNG",
 ):
     strip(ROOT / p)
